@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// Verifica Formatação dos Argumentos</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">char</span> *operacao = argv[1];</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> (argc!= 2 || operacao[0] != <span class="charliteral">&#39;-&#39;</span> || strlen(operacao) != 2){</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> (argc&lt; 2 || operacao[0] != <span class="charliteral">&#39;-&#39;</span> || strlen(operacao) != 2){</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        printf(<a class="code" href="mensagens_8h.html#ac7982637c7546825516702569d22a7be">MSG_ERRO_SEGUNDO_ARGUMENTO</a>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> 2;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
@@ -140,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="ttc" id="mensagens_8h_html_ab6fed1316f07e7ac4df8ebc4527cc1a0"><div class="ttname"><a href="mensagens_8h.html#ab6fed1316f07e7ac4df8ebc4527cc1a0">MSG_ERRO</a></div><div class="ttdeci">#define MSG_ERRO</div><div class="ttdef"><b>Definition:</b> <a href="mensagens_8h_source.html#l00011">mensagens.h:11</a></div></div>
 <div class="ttc" id="mensagens_8h_html"><div class="ttname"><a href="mensagens_8h.html">mensagens.h</a></div><div class="ttdoc">Mensagens do programa. </div></div>
 <div class="ttc" id="montador_8h_html"><div class="ttname"><a href="montador_8h.html">montador.h</a></div></div>
-<div class="ttc" id="preprocessador_8cpp_html_a9e48831dcb56bc3edbcad2a43c6d1c44"><div class="ttname"><a href="preprocessador_8cpp.html#a9e48831dcb56bc3edbcad2a43c6d1c44">preProcessador</a></div><div class="ttdeci">int preProcessador(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessador_8cpp_source.html#l00012">preprocessador.cpp:12</a></div></div>
+<div class="ttc" id="preprocessador_8cpp_html_a9e48831dcb56bc3edbcad2a43c6d1c44"><div class="ttname"><a href="preprocessador_8cpp.html#a9e48831dcb56bc3edbcad2a43c6d1c44">preProcessador</a></div><div class="ttdeci">int preProcessador(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessador_8cpp_source.html#l00016">preprocessador.cpp:16</a></div></div>
 <div class="ttc" id="mensagens_8h_html_ab7b84c63c73a6cb6e2fdd3fe99a98fd2"><div class="ttname"><a href="mensagens_8h.html#ab7b84c63c73a6cb6e2fdd3fe99a98fd2">MSG_ERRO_ARGUMENTOS</a></div><div class="ttdeci">#define MSG_ERRO_ARGUMENTOS</div><div class="ttdef"><b>Definition:</b> <a href="mensagens_8h_source.html#l00009">mensagens.h:9</a></div></div>
 <div class="ttc" id="preprocessador_8h_html"><div class="ttname"><a href="preprocessador_8h.html">preprocessador.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

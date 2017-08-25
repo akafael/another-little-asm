@@ -57,11 +57,14 @@ $(EXECUTABLE): $(OBJECTS)
 ##
 # Remove generated files
 ##
-.PHONY = clean
-clean-objects:
+.PHONY = clear
+clear-objects:
 	rm -vf $(OBJECTS)
 
-clean-all: clean-objects
+clear-docs:
+	rm -vrf ../docs/*
+
+clear-all: clean-objects
 	rm -vf $(EXECUTABLE)
 
 ##

@@ -19,7 +19,7 @@ int main(int argc, char** argv){
 
     // Verifica Formatação dos Argumentos
     char *operacao = argv[1];
-    if (argc!= 2 || operacao[0] != '-' || strlen(operacao) != 2){
+    if (argc< 2 || operacao[0] != '-' || strlen(operacao) != 2){
         printf(MSG_ERRO_SEGUNDO_ARGUMENTO);
         return 2;
     }
