@@ -11,7 +11,7 @@ MAIN = main
 SOURCES = $(MAIN).cpp preprocessador.cpp montador.cpp
 HEADERS = mensagens.h preprocessador.h montador.h
 
-EXECUTABLE = myprogram
+EXECUTABLE = yla
 
 # Test Options
 TEST_FILES_DIR = ./test_files
