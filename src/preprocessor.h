@@ -3,6 +3,6 @@
 
 using namespace std;
 
-int preProcessador(int argc, char ** argv);
+int preprocessor(int argc, char ** argv);
 
 #endif

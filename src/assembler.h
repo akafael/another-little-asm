@@ -6,6 +6,6 @@
  *
  * @author Rafael e João Pedro Franch
  */
-int montador(int argc, char * argv[]);
+int assembler(int argc, char * argv[]);
 
 #endif

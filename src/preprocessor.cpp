@@ -8,12 +8,12 @@
 #include <string>
 #include <algorithm>
 
-#include "mensagens.h"
-#include "preprocessador.h"
+#include "msgs_pt.h"
+#include "preprocessor.h"
 
 using namespace std;
 
-int preProcessador(int argc, char ** argv)
+int preprocessor(int argc, char ** argv)
 {
     // 1 arquivo de entrada .asm;
     // arquivo de saida gerado pelo programa  no formato .pre;
@@ -27,7 +27,7 @@ int preProcessador(int argc, char ** argv)
     // Teste se ambos os aquivos foram abertos corretamente;
     if (!(ArquivoASM.is_open() && ArquivoPRE.is_open()))
     {
-        cout << MSG_ERRO_ARQUIVO;
+        cout << MSG_ERR_FILE;
         return 1;
     }
 

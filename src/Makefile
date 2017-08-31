@@ -8,8 +8,8 @@ CC = g++
 CC_FLAGS = -Wall -std=c++11
 
 MAIN = main
-SOURCES = $(MAIN).cpp preprocessador.cpp montador.cpp
-HEADERS = mensagens.h preprocessador.h montador.h
+SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp
+HEADERS = msgs_pt.h preprocessor.h assembler.h
 
 EXECUTABLE = yla
 
@@ -28,13 +28,13 @@ $(MAIN): $(MAIN).cpp
 	$(CC) $(CC_FLAGS) $(NAME).cpp -o $(NAME).run
 
 @echo Objects:$(OBJECTS)
-OBJECTS = $(MAIN).o montador.o preprocessador.o # lexer.o parser.o
+OBJECTS = $(MAIN).o assembler.o preprocessor.o # lexer.o parser.o
 
 ##
 # Modules:
 ##
-preprocessador.o: preprocessador.cpp preprocessador.h
-	$(CC) $(CCFLAGS) -c preprocessador.cpp
+preprocessor.o: preprocessor.cpp preprocessor.h
+	$(CC) $(CCFLAGS) -c preprocessor.cpp
 
 #lexer.o: lexer.cpp variaveis.h
 #	$(CC) $(CCFLAGS) -c lexer.cpp
@@ -42,8 +42,8 @@ preprocessador.o: preprocessador.cpp preprocessador.h
 #parser.o: parser.cpp parser.h
 #	$(CC) $(CCFLAGS) -c parser.cpp
 
-montador.o: montador.h montador.cpp preprocessador.o #lexer.o parser.o
-	$(CC) $(CCFLAGS) -c montador.cpp
+assembler.o: assembler.h assembler.cpp preprocessor.o #lexer.o parser.o
+	$(CC) $(CCFLAGS) -c assembler.cpp
 
 ##
 # Main files:

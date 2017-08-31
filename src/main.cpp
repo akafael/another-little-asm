@@ -11,16 +11,16 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "mensagens.h"
-#include "preprocessador.h"
-#include "montador.h"
+#include "msgs_pt.h"
+#include "preprocessor.h"
+#include "assembler.h"
 
 int main(int argc, char** argv){
 
     // Verifica Formatação dos Argumentos
     char *operacao = argv[1];
     if (argc< 2 || operacao[0] != '-' || strlen(operacao) != 2){
-        printf(MSG_ERRO_SEGUNDO_ARGUMENTO);
+        printf(MSG_ERR_INVALID_ARGUMENT);
         return 2;
     }
 
@@ -33,25 +33,25 @@ int main(int argc, char** argv){
 
         // Verifica Quantidade de Argumentos
         if (argc != 3){
-            printf(MSG_ERRO_ARGUMENTOS);
+            printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }
-        preProcessador(argc,argv);
+        preprocessor(argc,argv);
         break;
 
      // Montador
     case 'o':
         // Verifica Quantidade de Argumentos
         if (argc != 4){
-            printf(MSG_ERRO_ARGUMENTOS);
+            printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }
-        montador(argc,argv);
-        printf(MSG_ERRO);
+        assembler(argc,argv);
+        printf(MSG_ERR);
         break;
 
     default:
-        printf(MSG_ERRO_SEGUNDO_ARGUMENTO);
+        printf(MSG_ERR_INVALID_ARGUMENT);
         return 1;
     }
 

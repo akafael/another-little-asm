@@ -12,13 +12,13 @@
 #include <vector>
 #include <string.h>
 
-#include "montador.h"
-#include "preprocessador.h"
-#include "mensagens.h"
+#include "assembler.h"
+#include "preprocessor.h"
+#include "msgs_pt.h"
 
 using namespace std;
 
-int montador(int argc, char * argv[]){
+int assembler(int argc, char * argv[]){
 
     string arquivo_entrada = argv[2];
     string arquivo_saida   = argv[3];
@@ -29,7 +29,7 @@ int montador(int argc, char * argv[]){
     // Teste se ambos os aquivos foram abertos corretamente
     if (!(ArquivoASM.is_open() && ArquivoPRE.is_open()))
     {
-        cout << MSG_ERRO_ARQUIVO;
+        cout << MSG_ERR_FILE;
         return 1;
     }
 
