@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,15 +90,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <code>#include &lt;ctype.h&gt;</code><br/>
 <code>#include &lt;string.h&gt;</code><br/>
 <code>#include &lt;unistd.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="mensagens_8h_source.html">mensagens.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="preprocessador_8h_source.html">preprocessador.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="montador_8h_source.html">montador.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="assembler_8h_source.html">assembler.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para main.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#main_8cpp" alt=""/></div>
-<map name="main_8cpp" id="main_8cpp">
-<area shape="rect" id="node7" href="mensagens_8h.html" title="Mensagens do programa. " alt="" coords="450,80,549,107"/><area shape="rect" id="node8" href="preprocessador_8h.html" title="preprocessador.h" alt="" coords="575,80,697,107"/><area shape="rect" id="node9" href="montador_8h.html" title="montador.h" alt="" coords="722,80,808,107"/></map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp__incl.svg" width="790" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="main_8cpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
@@ -141,9 +141,8 @@ Funções</h2></td></tr>
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.png" border="0" usemap="#main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" alt=""/></div>
-<map name="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" id="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph">
-<area shape="rect" id="node2" href="preprocessador_8cpp.html#a9e48831dcb56bc3edbcad2a43c6d1c44" title="preProcessador" alt="" coords="105,5,218,32"/><area shape="rect" id="node3" href="montador_8cpp.html#a43bfc12a769340a4db437ddb8d4adc03" title="montador" alt="" coords="123,56,199,83"/></map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.svg" width="208" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 

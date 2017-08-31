@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['print_5ferro',['PRINT_ERRO',['../mensagens_8h.html#a5858905dc8fe4e7d4b1e425bdf3a63e5',1,'mensagens.h']]],
-  ['print_5ferro_5finstrucao',['PRINT_ERRO_INSTRUCAO',['../mensagens_8h.html#ab9c5e6683113b397e37e981ef6c34613',1,'mensagens.h']]]
+  ['msg_5ferr',['MSG_ERR',['../msgs__pt_8h.html#a000d9d29df61eeb44781035464af5b3f',1,'msgs_pt.h']]],
+  ['msg_5ferr_5fargument_5fnumber',['MSG_ERR_ARGUMENT_NUMBER',['../msgs__pt_8h.html#a2621adf4468e7cbf072ae921a989b5d0',1,'msgs_pt.h']]],
+  ['msg_5ferr_5ffile',['MSG_ERR_FILE',['../msgs__pt_8h.html#a06a96287f556228b4efc43446ec84134',1,'msgs_pt.h']]],
+  ['msg_5ferr_5finvalid_5fargument',['MSG_ERR_INVALID_ARGUMENT',['../msgs__pt_8h.html#a73e27a3d4632784bd871bdc3d4ffbe45',1,'msgs_pt.h']]],
+  ['msg_5ferr_5finvalid_5finstruction',['MSG_ERR_INVALID_INSTRUCTION',['../msgs__pt_8h.html#aa9c72b3966543cca6087f95647022b8a',1,'msgs_pt.h']]]
 ];

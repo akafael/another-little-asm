@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -66,6 +67,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
     <ul class="tablist">
       <li><a href="globals.html"><span>Tudo</span></a></li>
       <li class="current"><a href="globals_func.html"><span>Funções</span></a></li>
+      <li><a href="globals_vars.html"><span>Variáveis</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerações</span></a></li>
+      <li><a href="globals_eval.html"><span>Valores&#160;da&#160;enumeração</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
@@ -75,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,16 +90,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 
 <div class="contents">
 &#160;<ul>
+<li>assembler()
+: <a class="el" href="assembler_8cpp.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler.cpp</a>
+, <a class="el" href="assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler.h</a>
+</li>
+<li>isValidInstruction()
+: <a class="el" href="lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">lexer.cpp</a>
+, <a class="el" href="lexer_8h.html#a5c1774c103fd792d21f8144c13ebbef9">lexer.h</a>
+</li>
 <li>main()
 : <a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main.cpp</a>
 </li>
-<li>montador()
-: <a class="el" href="montador_8cpp.html#a43bfc12a769340a4db437ddb8d4adc03">montador.cpp</a>
-, <a class="el" href="montador_8h.html#a43bfc12a769340a4db437ddb8d4adc03">montador.h</a>
+<li>preprocessor()
+: <a class="el" href="preprocessor_8cpp.html#a64877d45066932f7594bb2ad347c1d26">preprocessor.cpp</a>
+, <a class="el" href="preprocessor_8h.html#a64877d45066932f7594bb2ad347c1d26">preprocessor.h</a>
 </li>
-<li>preProcessador()
-: <a class="el" href="preprocessador_8cpp.html#a9e48831dcb56bc3edbcad2a43c6d1c44">preprocessador.cpp</a>
-, <a class="el" href="preprocessador_8h.html#a9e48831dcb56bc3edbcad2a43c6d1c44">preprocessador.h</a>
+<li>scanner()
+: <a class="el" href="lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d">lexer.cpp</a>
 </li>
 </ul>
 </div><!-- contents -->

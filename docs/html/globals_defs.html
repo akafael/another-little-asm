@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -66,6 +67,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
     <ul class="tablist">
       <li><a href="globals.html"><span>Tudo</span></a></li>
       <li><a href="globals_func.html"><span>Funções</span></a></li>
+      <li><a href="globals_vars.html"><span>Variáveis</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerações</span></a></li>
+      <li><a href="globals_eval.html"><span>Valores&#160;da&#160;enumeração</span></a></li>
       <li class="current"><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
@@ -75,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,26 +90,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 
 <div class="contents">
 &#160;<ul>
-<li>MSG_ERRO
-: <a class="el" href="mensagens_8h.html#ab6fed1316f07e7ac4df8ebc4527cc1a0">mensagens.h</a>
+<li>INSTRUCTIONS_NUMBER
+: <a class="el" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">languagedefinition.h</a>
 </li>
-<li>MSG_ERRO_ARGUMENTOS
-: <a class="el" href="mensagens_8h.html#ab7b84c63c73a6cb6e2fdd3fe99a98fd2">mensagens.h</a>
+<li>INVALID_INSTRUCTION
+: <a class="el" href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">languagedefinition.h</a>
 </li>
-<li>MSG_ERRO_ARQUIVO
-: <a class="el" href="mensagens_8h.html#a267d6b3302ee9d622830c98eaa83f5d2">mensagens.h</a>
+<li>MSG_ERR
+: <a class="el" href="msgs__pt_8h.html#a000d9d29df61eeb44781035464af5b3f">msgs_pt.h</a>
 </li>
-<li>MSG_ERRO_INSTRUCAO_INVALIDA
-: <a class="el" href="mensagens_8h.html#afc8c62691ddfa0aab97a4602b5fb30dc">mensagens.h</a>
+<li>MSG_ERR_ARGUMENT_NUMBER
+: <a class="el" href="msgs__pt_8h.html#a2621adf4468e7cbf072ae921a989b5d0">msgs_pt.h</a>
 </li>
-<li>MSG_ERRO_SEGUNDO_ARGUMENTO
-: <a class="el" href="mensagens_8h.html#ac7982637c7546825516702569d22a7be">mensagens.h</a>
+<li>MSG_ERR_FILE
+: <a class="el" href="msgs__pt_8h.html#a06a96287f556228b4efc43446ec84134">msgs_pt.h</a>
 </li>
-<li>PRINT_ERRO
-: <a class="el" href="mensagens_8h.html#a5858905dc8fe4e7d4b1e425bdf3a63e5">mensagens.h</a>
+<li>MSG_ERR_INVALID_ARGUMENT
+: <a class="el" href="msgs__pt_8h.html#a73e27a3d4632784bd871bdc3d4ffbe45">msgs_pt.h</a>
 </li>
-<li>PRINT_ERRO_INSTRUCAO
-: <a class="el" href="mensagens_8h.html#ab9c5e6683113b397e37e981ef6c34613">mensagens.h</a>
+<li>MSG_ERR_INVALID_INSTRUCTION
+: <a class="el" href="msgs__pt_8h.html#aa9c72b3966543cca6087f95647022b8a">msgs_pt.h</a>
+</li>
+<li>NEW_TOKEN
+: <a class="el" href="lexer_8h.html#a4e7552cc7a177b9a5fa2c236fb10e228">lexer.h</a>
+</li>
+<li>PRINT_ERR
+: <a class="el" href="msgs__pt_8h.html#aefebff891ea259d0b496bd676cc569c5">msgs_pt.h</a>
+</li>
+<li>PRINT_ERR_INSTRUCTION
+: <a class="el" href="msgs__pt_8h.html#acb4b755b37f4e2bec7953cb4bdab82d0">msgs_pt.h</a>
 </li>
 </ul>
 </div><!-- contents -->

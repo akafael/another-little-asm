@@ -1,0 +1,155 @@
+\hypertarget{lexer_8h}{\section{Referência ao ficheiro lexer.\-h}
+\label{lexer_8h}\index{lexer.\-h@{lexer.\-h}}
+}
+{\ttfamily \#include $<$string$>$}\\*
+Diagrama de dependências de inclusão para lexer.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=126pt]{lexer_8h__incl}
+\end{center}
+\end{figure}
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{lexer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtoken}{token}
+\item 
+struct \hyperlink{structinstruction_line}{instruction\-Line}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lexer_8h_a4e7552cc7a177b9a5fa2c236fb10e228}{N\-E\-W\-\_\-\-T\-O\-K\-E\-N}(Tok, Toktype, tokstring)~Tok.\-type = Toktype; Tok.\-string = Tokstring;
+\end{DoxyCompactItemize}
+\subsection*{Enumerações}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921}{Token\-Type} \{ \\*
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694}{E\-R\-R\-C\-H\-A\-R} = -\/3, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073}{E\-R\-R\-N\-U\-M} = -\/2, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2}{I\-N\-V\-A\-L\-I\-D} = -\/1, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc}{W\-O\-R\-D} = 0, 
+\\*
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6}{N\-U\-M\-\_\-\-D\-E\-C} = 1, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c}{N\-U\-M\-\_\-\-H\-E\-X} = 2, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921ab95382a2a2575cd29bfa72a6ce4a6139}{E\-M\-P\-T\-S} = 3, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392}{C\-O\-M\-M\-A} = 4, 
+\\*
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee}{C\-O\-L\-O\-N} = 5, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a55eebe3c7e08b49cd5969442f4f8c4ce}{S\-E\-M\-I\-C\-O\-L\-O\-N} = 6, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9}{P\-L\-U\-S} = 7, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225}{M\-I\-N\-U\-S} = 8, 
+\\*
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec}{L\-I\-N\-E\-\_\-\-E\-N\-D} = 9, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927}{S\-T\-R\-\_\-\-E\-N\-D} = 10, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}{L\-A\-B\-E\-L} = 11, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921acc7488e57f07fe0693ec0f72d186c300}{I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N} = 12, 
+\\*
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921ae3d30ffaffa3c06ed917e565dda1fbc5}{S\-Y\-M\-B\-O\-L} = 13, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921ae3852cb010d5e422026faf83b3c16f0e}{D\-I\-R\-E\-C\-T\-I\-V\-E} = 14, 
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y} = 15
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{lexer_8h_a5c1774c103fd792d21f8144c13ebbef9}{is\-Valid\-Instruction} (std\-::string command)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentação das macros}
+\hypertarget{lexer_8h_a4e7552cc7a177b9a5fa2c236fb10e228}{\index{lexer.\-h@{lexer.\-h}!N\-E\-W\-\_\-\-T\-O\-K\-E\-N@{N\-E\-W\-\_\-\-T\-O\-K\-E\-N}}
+\index{N\-E\-W\-\_\-\-T\-O\-K\-E\-N@{N\-E\-W\-\_\-\-T\-O\-K\-E\-N}!lexer.h@{lexer.\-h}}
+\subsubsection[{N\-E\-W\-\_\-\-T\-O\-K\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-W\-\_\-\-T\-O\-K\-E\-N(
+\begin{DoxyParamCaption}
+\item[{}]{Tok, }
+\item[{}]{Toktype, }
+\item[{}]{tokstring}
+\end{DoxyParamCaption}
+)~Tok.\-type = Toktype; Tok.\-string = Tokstring;}}\label{lexer_8h_a4e7552cc7a177b9a5fa2c236fb10e228}
+
+
+Definido na linha 49 do ficheiro lexer.\-h.
+
+
+
+\subsection{Documentação dos valores da enumeração}
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921}{\index{lexer.\-h@{lexer.\-h}!Token\-Type@{Token\-Type}}
+\index{Token\-Type@{Token\-Type}!lexer.h@{lexer.\-h}}
+\subsubsection[{Token\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Token\-Type}}}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921}
+Código para indentificar o tipo de token \begin{Desc}
+\item[Valores da enumeração]\par
+\begin{description}
+\index{E\-R\-R\-C\-H\-A\-R@{E\-R\-R\-C\-H\-A\-R}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!E\-R\-R\-C\-H\-A\-R@{E\-R\-R\-C\-H\-A\-R}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694}{E\-R\-R\-C\-H\-A\-R}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694}
+}]\index{E\-R\-R\-N\-U\-M@{E\-R\-R\-N\-U\-M}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!E\-R\-R\-N\-U\-M@{E\-R\-R\-N\-U\-M}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073}{E\-R\-R\-N\-U\-M}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073}
+}]\index{I\-N\-V\-A\-L\-I\-D@{I\-N\-V\-A\-L\-I\-D}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-V\-A\-L\-I\-D@{I\-N\-V\-A\-L\-I\-D}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2}{I\-N\-V\-A\-L\-I\-D}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2}
+}]\index{W\-O\-R\-D@{W\-O\-R\-D}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!W\-O\-R\-D@{W\-O\-R\-D}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc}{W\-O\-R\-D}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc}
+}]\index{N\-U\-M\-\_\-\-D\-E\-C@{N\-U\-M\-\_\-\-D\-E\-C}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!N\-U\-M\-\_\-\-D\-E\-C@{N\-U\-M\-\_\-\-D\-E\-C}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6}{N\-U\-M\-\_\-\-D\-E\-C}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6}
+}]\index{N\-U\-M\-\_\-\-H\-E\-X@{N\-U\-M\-\_\-\-H\-E\-X}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!N\-U\-M\-\_\-\-H\-E\-X@{N\-U\-M\-\_\-\-H\-E\-X}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c}{N\-U\-M\-\_\-\-H\-E\-X}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c}
+}]\index{E\-M\-P\-T\-S@{E\-M\-P\-T\-S}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!E\-M\-P\-T\-S@{E\-M\-P\-T\-S}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921ab95382a2a2575cd29bfa72a6ce4a6139}{E\-M\-P\-T\-S}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921ab95382a2a2575cd29bfa72a6ce4a6139}
+}]\index{C\-O\-M\-M\-A@{C\-O\-M\-M\-A}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!C\-O\-M\-M\-A@{C\-O\-M\-M\-A}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392}{C\-O\-M\-M\-A}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392}
+}]\index{C\-O\-L\-O\-N@{C\-O\-L\-O\-N}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!C\-O\-L\-O\-N@{C\-O\-L\-O\-N}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee}{C\-O\-L\-O\-N}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee}
+}]\index{S\-E\-M\-I\-C\-O\-L\-O\-N@{S\-E\-M\-I\-C\-O\-L\-O\-N}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!S\-E\-M\-I\-C\-O\-L\-O\-N@{S\-E\-M\-I\-C\-O\-L\-O\-N}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a55eebe3c7e08b49cd5969442f4f8c4ce}{S\-E\-M\-I\-C\-O\-L\-O\-N}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a55eebe3c7e08b49cd5969442f4f8c4ce}
+}]\index{P\-L\-U\-S@{P\-L\-U\-S}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!P\-L\-U\-S@{P\-L\-U\-S}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9}{P\-L\-U\-S}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9}
+}]\index{M\-I\-N\-U\-S@{M\-I\-N\-U\-S}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!M\-I\-N\-U\-S@{M\-I\-N\-U\-S}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225}{M\-I\-N\-U\-S}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225}
+}]\index{L\-I\-N\-E\-\_\-\-E\-N\-D@{L\-I\-N\-E\-\_\-\-E\-N\-D}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!L\-I\-N\-E\-\_\-\-E\-N\-D@{L\-I\-N\-E\-\_\-\-E\-N\-D}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec}{L\-I\-N\-E\-\_\-\-E\-N\-D}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec}
+}]\index{S\-T\-R\-\_\-\-E\-N\-D@{S\-T\-R\-\_\-\-E\-N\-D}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!S\-T\-R\-\_\-\-E\-N\-D@{S\-T\-R\-\_\-\-E\-N\-D}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927}{S\-T\-R\-\_\-\-E\-N\-D}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927}
+}]\index{L\-A\-B\-E\-L@{L\-A\-B\-E\-L}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!L\-A\-B\-E\-L@{L\-A\-B\-E\-L}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}{L\-A\-B\-E\-L}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}
+}]\index{I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N@{I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N@{I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921acc7488e57f07fe0693ec0f72d186c300}{I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921acc7488e57f07fe0693ec0f72d186c300}
+}]\index{S\-Y\-M\-B\-O\-L@{S\-Y\-M\-B\-O\-L}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!S\-Y\-M\-B\-O\-L@{S\-Y\-M\-B\-O\-L}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921ae3d30ffaffa3c06ed917e565dda1fbc5}{S\-Y\-M\-B\-O\-L}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921ae3d30ffaffa3c06ed917e565dda1fbc5}
+}]\index{D\-I\-R\-E\-C\-T\-I\-V\-E@{D\-I\-R\-E\-C\-T\-I\-V\-E}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!D\-I\-R\-E\-C\-T\-I\-V\-E@{D\-I\-R\-E\-C\-T\-I\-V\-E}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921ae3852cb010d5e422026faf83b3c16f0e}{D\-I\-R\-E\-C\-T\-I\-V\-E}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921ae3852cb010d5e422026faf83b3c16f0e}
+}]\index{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}}\item[{\em 
+\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}
+}]\end{description}
+\end{Desc}
+
+
+Definido na linha 11 do ficheiro lexer.\-h.
+
+
+
+\subsection{Documentação das funções}
+\hypertarget{lexer_8h_a5c1774c103fd792d21f8144c13ebbef9}{\index{lexer.\-h@{lexer.\-h}!is\-Valid\-Instruction@{is\-Valid\-Instruction}}
+\index{is\-Valid\-Instruction@{is\-Valid\-Instruction}!lexer.h@{lexer.\-h}}
+\subsubsection[{is\-Valid\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Instruction (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{command}
+\end{DoxyParamCaption}
+)}}\label{lexer_8h_a5c1774c103fd792d21f8144c13ebbef9}
+Verifica se determinada String representa um comando válido caso seja inválido retorna I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em command} & String a ser Avaliada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+código da Instrução 
+\end{DoxyReturn}

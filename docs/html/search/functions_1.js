@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['preprocessador',['preProcessador',['../preprocessador_8cpp.html#a9e48831dcb56bc3edbcad2a43c6d1c44',1,'preProcessador(int argc, char **argv):&#160;preprocessador.cpp'],['../preprocessador_8h.html#a9e48831dcb56bc3edbcad2a43c6d1c44',1,'preProcessador(int argc, char **argv):&#160;preprocessador.cpp']]]
+  ['isvalidinstruction',['isValidInstruction',['../lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7',1,'isValidInstruction(string command):&#160;lexer.cpp'],['../lexer_8h.html#a5c1774c103fd792d21f8144c13ebbef9',1,'isValidInstruction(std::string command):&#160;lexer.h']]]
 ];
