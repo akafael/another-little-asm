@@ -9,39 +9,39 @@
 #define YLA_LANGUAGE_DEFINITION_H_
 
 /**
- * Opcode das instruções
+ * Código das instruções
  */
  typedef enum {
-    SPACE    = 0,
-    ADD      = 1,
-    SUB      = 2,
-    MULT     = 3,
-    DIV      = 4,
-    JMP      = 5,
-    JMPN     = 6,
-    JMPP     = 7,
-    JMPZ     = 8,
-    COPY     = 9,
-    LOAD     = 10,
-    STORE    = 11,
-    INPUT    = 12,
-    OUTPUT   = 13,
-    STOP     = 14,
-    SECTION  = 15,
-    CONST    = 16,
-    EQU      = 17,
-    IF       = 18,
-    MACRO    = 19,
-    ENDMACRO = 20,
-    BEGIN = 21,
-    END = 22
+    ADD      = 0,
+    SUB      = 1,
+    MULT     = 2,
+    DIV      = 3,
+    JMP      = 4,
+    JMPN     = 5,
+    JMPP     = 6,
+    JMPZ     = 7,
+    COPY     = 8,
+    LOAD     = 9,
+    STORE    = 10,
+    INPUT    = 11,
+    OUTPUT   = 12,
+    STOP     = 13,
+    SECTION  = 14,
+    SPACE0   = 15,
+    SPACE1   = 16,
+    CONST    = 17,
+    EQU      = 18,
+    IF       = 19,
+    MACRO    = 20,
+    ENDMACRO = 21,
+    BEGIN    = 22,
+    END      = 23
 } InstructionCode;
 
-#define INSTRUCTIONS_NUMBER 23
+#define INSTRUCTIONS_NUMBER 24
 #define INVALID_INSTRUCTION -1
 
 const static char *InstrutionString[] = {
-  " ",
   "ADD",
   "SUB",
   "MULT",
@@ -57,6 +57,8 @@ const static char *InstrutionString[] = {
   "OUTPUT",
   "STOP",
   "SECTION",
+  "SPACE",
+  "SPACE",
   "CONST",
   "EQU",
   "IF",
@@ -66,7 +68,35 @@ const static char *InstrutionString[] = {
   "END"
 };
 
- // esta na mesma ordem do Instruction[]
-const static int InstructionArgNumber[] = {1,1,1,1,1,1,1,1,2,1,1,1,1,0,1,-1,1,1,1,0,0,0,0};
+/**
+ * Quantidade de argumentos de cada instrução
+ * esta na mesma ordem do Instruction[]
+ */
+const static int InstructionArgNumber[] = {
+    1, // "ADD"
+    1, // "SUB"
+    1, // "MULT"
+    1, // "DIV"
+    1, // "JMP"
+    1, // "JMPN"
+    1, // "JMPP"
+    1, // "JMPZ"
+    2, // "COPY"
+    1, // "LOAD"
+    1, // "STORE"
+    1, // "INPUT"
+    1, // "OUTPUT"
+    0, // "STOP"
+    1, // "SECTION"
+    0, // "SPACE" sem parâmetros
+    1, // "SPACE" com um parâmetro
+    1, // "CONST"
+    1, // "EQU"
+    1, // "IF"
+    0, // "MACRO"
+    0, // "ENDMACRO"
+    0, // "BEGIN"
+    0  // "END"
+};
 
 #endif // YLA_LANGUAGE_DEFINITION_H_

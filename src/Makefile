@@ -8,8 +8,8 @@ CC = g++
 CC_FLAGS = -Wall -std=c++11
 
 MAIN = main
-SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp
-HEADERS = msgs_pt.h preprocessor.h assembler.h
+SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp
+HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h
 
 EXECUTABLE = yla
 
@@ -28,7 +28,7 @@ $(MAIN): $(MAIN).cpp
 	$(CC) $(CC_FLAGS) $(NAME).cpp -o $(NAME).run
 
 @echo Objects:$(OBJECTS)
-OBJECTS = $(MAIN).o assembler.o preprocessor.o # lexer.o parser.o
+OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o # parser.o
 
 ##
 # Modules:
@@ -39,10 +39,10 @@ preprocessor.o: preprocessor.cpp preprocessor.h
 #lexer.o: lexer.cpp variaveis.h
 #	$(CC) $(CCFLAGS) -c lexer.cpp
 
-#parser.o: parser.cpp parser.h
-#	$(CC) $(CCFLAGS) -c parser.cpp
+parser.o: parser.cpp parser.h
+	$(CC) $(CCFLAGS) -c parser.cpp
 
-assembler.o: assembler.h assembler.cpp preprocessor.o #lexer.o parser.o
+assembler.o: assembler.h assembler.cpp preprocessor.o lexer.o # parser.o
 	$(CC) $(CCFLAGS) -c assembler.cpp
 
 ##
@@ -77,7 +77,7 @@ test:
 ##
 # Documentation
 ##
-.PHONY = docs
+.PHONY = doc
 docs: $(EXECUTABLE)
 	# Generate only for Funcional Version
 	doxygen Doxyfile
