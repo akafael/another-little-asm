@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
       <li>
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="languagedefinition_8h.html">languagedefinition.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lexer_8h.html">lexer.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d">    6</a></span>&#160;<a class="code" href="structtoken.html">token</a> <a class="code" href="lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d">scanner</a>(std::string line, <span class="keywordtype">int</span> *position){</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="lexer_8h.html#a63ef6d488951c4541159fe0961565c4d">    6</a></span>&#160;<a class="code" href="structtoken.html">token</a> <a class="code" href="lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d">scanner</a>(std::string line, <span class="keywordtype">int</span> *position){</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">int</span> i = *position;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">int</span> j = 1;</div>
@@ -122,93 +123,104 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="comment">// Considera como valor Decimal</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">for</span>(j=1;(i+j&lt;line.size())&amp;&amp;(isdigit(line.at(i+j)));j++);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6">NUM_DEC</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// Recorta String e acrescenta &#39;\0&#39;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">string</span> linetokien = line.substr(i,j);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::vector&lt;char&gt; vtmp(linetokien.begin(),linetokien.end());</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        vtmp.push_back(<span class="charliteral">&#39;\0&#39;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// Prenche conteúdo do token com o valor achado</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = linetokien;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">switch</span>(line.at(i)){</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;,&#39;</span> :</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392">COMMA</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;,&#39;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;:&#39;</span> :</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;:&#39;</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;+&#39;</span> :</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9">PLUS</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;+&#39;</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span> :</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225">MINUS</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;-&#39;</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;\n&#39;</span> :</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec">LINE_END</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;\0&#39;</span> :</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927">STR_END</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39; &#39;</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;\t&#39;</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">// Ignora Espaços em branco</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            j++;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span>(isalpha(line.at(i+j))){</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073">ERRNUM</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                j++; <span class="comment">// Inclui caracter que causou o erro</span><span class="comment"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">                ///@todo Incluir todo o token até o primeiro separador</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span>            }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6">NUM_DEC</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// Recorta String e acrescenta &#39;\0&#39;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">string</span> linetokien = line.substr(i,j);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        std::vector&lt;char&gt; vtmp(linetokien.begin(),linetokien.end());</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        vtmp.push_back(<span class="charliteral">&#39;\0&#39;</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Prenche conteúdo do token com o valor achado</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = linetokien;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">        /// @todo descobrir uma melhor maneira sem ter que decrementar</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span>        j--; <span class="comment">// Diminui um da contagem para impedir de pular caracteres</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">switch</span>(line.at(i)){</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;,&#39;</span> :</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392">COMMA</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;,&#39;</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;:&#39;</span> :</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;:&#39;</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;+&#39;</span> :</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9">PLUS</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;+&#39;</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;-&#39;</span> :</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225">MINUS</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;\n&#39;</span> :</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec">LINE_END</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="comment">// Caracter não reconhecido</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694">ERRCHAR</a>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;!&#39;</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">// Muda Posição para o caracter depois do tokien analizado</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    *position = i + j;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">// Retorna Token</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> tok;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;\0&#39;</span> :</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927">STR_END</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39; &#39;</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;\t&#39;</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045">SPC</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="comment">// Caracter não reconhecido</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            tok.<a class="code" href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">type</a> = <a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694">ERRCHAR</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            tok.<a class="code" href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">string</a> = <span class="charliteral">&#39;!&#39;</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">   99</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a>(<span class="keywordtype">string</span> command){</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a>; i++) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span> (command.compare(<a class="code" href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a>[i]) == 0) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">return</span> i;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">INVALID_INSTRUCTION</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// Muda Posição para o caracter depois do tokien analizado</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    *position = i + j;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">// Retorna Token</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> tok;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec">LINE_END</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00024">lexer.h:24</a></div></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">  108</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a>(<span class="keywordtype">string</span> command){</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a>; i++) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> (command.compare(<a class="code" href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a>[i]) == 0) {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> i;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">INVALID_INSTRUCTION</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045">SPC</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00017">lexer.h:17</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec">LINE_END</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00026">lexer.h:26</a></div></div>
 <div class="ttc" id="languagedefinition_8h_html_a67b420a6dc06313451b1e2878e21aa70"><div class="ttname"><a href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">INVALID_INSTRUCTION</a></div><div class="ttdeci">#define INVALID_INSTRUCTION</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00042">languagedefinition.h:42</a></div></div>
 <div class="ttc" id="structtoken_html"><div class="ttname"><a href="structtoken.html">token</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00036">lexer.h:36</a></div></div>
 <div class="ttc" id="lexer_8cpp_html_a63ef6d488951c4541159fe0961565c4d"><div class="ttname"><a href="lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d">scanner</a></div><div class="ttdeci">token scanner(std::string line, int *position)</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8cpp_source.html#l00006">lexer.cpp:6</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927">STR_END</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00025">lexer.h:25</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927">STR_END</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00027">lexer.h:27</a></div></div>
 <div class="ttc" id="structtoken_html_a0ccfb094c0dce37e1bae7d990c06cc92"><div class="ttname"><a href="structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92">token::type</a></div><div class="ttdeci">TokenType type</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00037">lexer.h:37</a></div></div>
 <div class="ttc" id="languagedefinition_8h_html"><div class="ttname"><a href="languagedefinition_8h.html">languagedefinition.h</a></div></div>
 <div class="ttc" id="lexer_8h_html"><div class="ttname"><a href="lexer_8h.html">lexer.h</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073">ERRNUM</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00015">lexer.h:15</a></div></div>
 <div class="ttc" id="languagedefinition_8h_html_ac56a94e3a6c9fcfb2f0fe4e6f88bb841"><div class="ttname"><a href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a></div><div class="ttdeci">#define INSTRUCTIONS_NUMBER</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00041">languagedefinition.h:41</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00015">lexer.h:15</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6">NUM_DEC</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00016">lexer.h:16</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00020">lexer.h:20</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c">NUM_HEX</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00017">lexer.h:17</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00018">lexer.h:18</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6">NUM_DEC</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00019">lexer.h:19</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00022">lexer.h:22</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c">NUM_HEX</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00020">lexer.h:20</a></div></div>
 <div class="ttc" id="structtoken_html_a2150b4d92215b15d0c62c40cafd407ba"><div class="ttname"><a href="structtoken.html#a2150b4d92215b15d0c62c40cafd407ba">token::string</a></div><div class="ttdeci">std::string string</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00038">lexer.h:38</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9">PLUS</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00022">lexer.h:22</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9">PLUS</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00024">lexer.h:24</a></div></div>
 <div class="ttc" id="languagedefinition_8h_html_a40869f6bf4eb1263aeccc9feb241d620"><div class="ttname"><a href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a></div><div class="ttdeci">static const char * InstrutionString[]</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00044">languagedefinition.h:44</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694">ERRCHAR</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00012">lexer.h:12</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392">COMMA</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00019">lexer.h:19</a></div></div>
-<div class="ttc" id="lexer_8cpp_html_ac34489ced263c84198b4c0e83643ebe7"><div class="ttname"><a href="lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a></div><div class="ttdeci">int isValidInstruction(string command)</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8cpp_source.html#l00099">lexer.cpp:99</a></div></div>
-<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225">MINUS</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00023">lexer.h:23</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694">ERRCHAR</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00014">lexer.h:14</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392">COMMA</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00021">lexer.h:21</a></div></div>
+<div class="ttc" id="lexer_8cpp_html_ac34489ced263c84198b4c0e83643ebe7"><div class="ttname"><a href="lexer_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a></div><div class="ttdeci">int isValidInstruction(string command)</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8cpp_source.html#l00108">lexer.cpp:108</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225">MINUS</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00025">lexer.h:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

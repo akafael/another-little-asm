@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
       <li>
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para lexer.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8cpp__incl.svg" width="316" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8cpp__incl.svg" width="252" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -119,7 +120,7 @@ Funções</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="lexer_8cpp_source.html#l00099">99</a> do ficheiro <a class="el" href="lexer_8cpp_source.html">lexer.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="lexer_8cpp_source.html#l00108">108</a> do ficheiro <a class="el" href="lexer_8cpp_source.html">lexer.cpp</a>.</p>
 
 </div>
 </div>
@@ -146,8 +147,27 @@ Funções</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Verifica uma string em busca de tokens válidos </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>String de Entrada </td></tr>
+    <tr><td class="paramname">position</td><td>Posição </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>token </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Tarefa:</a></b></dt><dd>Incluir todo o token até o primeiro separador </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>descobrir uma melhor maneira sem ter que decrementar </dd></dl>
 
 <p>Definido na linha <a class="el" href="lexer_8cpp_source.html#l00006">6</a> do ficheiro <a class="el" href="lexer_8cpp_source.html">lexer.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8cpp_a63ef6d488951c4541159fe0961565c4d_icgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
 
 </div>
 </div>

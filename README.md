@@ -45,8 +45,8 @@ Highlights:
 
 Code is divided in two sections:
 
-* Data section (for variables and constants)
 * Text section (for actual code)
+* Data section (for variables and constants)
 
 ## Instructions
 

@@ -37,7 +37,13 @@ token scanner(std::string line, int *position){
             // Considera como valor Decimal
             for(j=1;(i+j<line.size())&&(isdigit(line.at(i+j)));j++);
 
-            tok.type = NUM_DEC;
+            if(isalpha(line.at(i+j))){
+                tok.type = ERRNUM;
+                j++; // Inclui caracter que causou o erro
+                ///@todo Incluir todo o token até o primeiro separador
+            }
+            else
+                tok.type = NUM_DEC;
         }
 
         // Recorta String e acrescenta '\0'
@@ -47,6 +53,9 @@ token scanner(std::string line, int *position){
 
         // Prenche conteúdo do token com o valor achado
         tok.string = linetokien;
+
+        /// @todo descobrir uma melhor maneira sem ter que decrementar
+        j--; // Diminui um da contagem para impedir de pular caracteres
     }
     else
     {
@@ -77,8 +86,8 @@ token scanner(std::string line, int *position){
             break;
         case ' ':
         case '\t':
-            // Ignora Espaços em branco
-            j++;
+            tok.type = SPC;
+            tok.string = ' ';
             break;
         default:
             // Caracter não reconhecido
