@@ -46,9 +46,18 @@ int assembler(int argc, char * argv[]){
             // Identifica tokes e pula para o fim do token
             token tok = scanner(line,&i);
 
-            // Elimina Espaços em Branco e Armazena Tokens Válidos
-            if ((tok.type != SPC))
-                vtoks.push_back(tok);
+            switch (tok.type) {
+                case ERRCHAR:
+                case ERRNUM:
+                case INVALID:
+                    cerr << PRINT_ERR(arquivo_entrada,lineCount,MSG_ERR_INVALID_TOKEN);
+                    break;
+                case SPC:
+                    // Elimina Espaços em Branco
+                    break;
+                default:
+                    vtoks.push_back(tok);
+            }
 
             cout << tok.type << ' ';
         }

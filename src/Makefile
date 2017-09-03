@@ -5,7 +5,7 @@
 
 # Compiler Options
 CC = g++
-CC_FLAGS = -Wall -std=c++11
+CC_FLAGS = -Wall -std=c++11 -ggdb
 
 MAIN = main
 SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp
@@ -14,8 +14,12 @@ HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h
 EXECUTABLE = yla
 
 # Test Options
-TEST_FILES_DIR = ./test_files
+TEST_FILES_DIR = ../test_files
 
+# input test files
+TEST_FILES_ASM = $(wildcard $(TEST_FILES_DIR)/*.asm)
+TEST_FILES_PRE = $(addsuffix .pre, $(basename $(TEST_FILES_ASM)))
+TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
 
 ##
 # Recipes:
@@ -25,7 +29,7 @@ ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE)
 
 # Compile
 $(MAIN): $(MAIN).cpp
-	$(CC) $(CC_FLAGS) $(NAME).cpp -o $(NAME).run
+	$(CC) $(CC_FLAGS) $(NAME).cpp
 
 @echo Objects:$(OBJECTS)
 OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o # parser.o
@@ -36,13 +40,13 @@ OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o # parser.o
 preprocessor.o: preprocessor.cpp preprocessor.h
 	$(CC) $(CCFLAGS) -c preprocessor.cpp
 
-#lexer.o: lexer.cpp variaveis.h
-#	$(CC) $(CCFLAGS) -c lexer.cpp
+lexer.o: lexer.cpp lexer.h
+	$(CC) $(CCFLAGS) -c lexer.cpp
 
 parser.o: parser.cpp parser.h
 	$(CC) $(CCFLAGS) -c parser.cpp
 
-assembler.o: assembler.h assembler.cpp preprocessor.o lexer.o # parser.o
+assembler.o: assembler.cpp assembler.h  msgs_pt.h preprocessor.o lexer.o # parser.o
 	$(CC) $(CCFLAGS) -c assembler.cpp
 
 ##
@@ -68,11 +72,25 @@ clear-all: clean-objects
 	rm -vf $(EXECUTABLE)
 
 ##
-# Tests
+# Automatic Tests
 ##
 .PHONY = test
-test:
+test: $(EXECUTABLE) test-precompiler test-assembler
 	@echo "TESTES Concluídos!"
+
+test-precompiler: $(TEST_FILES_ASM)
+	@echo "TESTES precompiler concluídos!"
+
+test-assembler: $(TEST_FILES_PRE)
+	@echo "TESTES assembler concluídos!"
+
+# Run precompiler for all .asm files
+$(TEST_FILES_ASM): $(EXECUTABLE)
+		./$< -p $@
+
+# Run assembler for all .pre files
+$(TEST_FILES_PRE): $(EXECUTABLE) test-precompiler
+	./$< -o $@
 
 ##
 # Documentation
