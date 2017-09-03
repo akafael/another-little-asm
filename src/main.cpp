@@ -42,12 +42,11 @@ int main(int argc, char** argv){
      // Montador
     case 'o':
         // Verifica Quantidade de Argumentos
-        if (argc != 4){
+        if (argc != 3){
             printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }
         assembler(argc,argv);
-        printf(MSG_ERR);
         break;
 
     default:

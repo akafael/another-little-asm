@@ -2,20 +2,22 @@
 #define YLA_LEXER_H_
 
 #include <string>
+#include "languagedefinition.h"
 
 using namespace std;
 
 /**
- * Código para indentificar o tipo de token
+ * Código para indentificar o tipo de token. Valores negativos
+ * representam erros e valores positivos tokens válidos
  */
 typedef enum{
     ERRCHAR     = -3, // Palavra mal formatada
     ERRNUM      = -2, // Número mal formatado
     INVALID     = -1,
-    WORD        =  0, // Palavras
-    NUM_DEC     =  1, // Número em decimal
-    NUM_HEX     =  2, // Número em hexadecimal
-    EMPTS       =  3, // Espaço em branco ' ' ou \t
+    SPC         =  0, // Espaço em branco ' ' ou \t
+    WORD        =  1, // Palavras
+    NUM_DEC     =  2, // Número em decimal
+    NUM_HEX     =  3, // Número em hexadecimal
     COMMA       =  4, // ,
     COLON       =  5, // :
     SEMICOLON   =  6, // ;
@@ -30,23 +32,25 @@ typedef enum{
     COMMENTARY  =  15
 } TokenType;
 
-/**
- * Token identificado junto do conteúdo
- */
+/** Token identificado junto do conteúdo */
 typedef struct{
     TokenType type;
     std::string string;
 } token;
 
-/**
- * Instrução a ser executada com parâmentros
- */
+/** Instrução a ser executada com parâmentros */
 typedef struct{
     InstructionCode opcode;
     token *args; ///< Vetor de parâmetros
 } instructionLine;
 
-#define NEW_TOKEN(Tok,Toktype,tokstring) Tok.type = Toktype; Tok.string = Tokstring;
+/**
+ * Verifica uma string em busca de tokens válidos
+ * @param  line     String de Entrada
+ * @param  position Posição
+ * @return          token
+ */
+token scanner(std::string line, int *position);
 
 /**
  * Verifica se determinada String representa um comando válido
