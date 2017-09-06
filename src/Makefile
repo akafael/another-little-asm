@@ -68,7 +68,7 @@ clear-objects:
 clear-docs:
 	rm -vrf ../docs/*
 
-clear-all: clean-objects
+clear-all: clear-objects
 	rm -vf $(EXECUTABLE)
 
 ##
