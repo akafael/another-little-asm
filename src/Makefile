@@ -1,6 +1,6 @@
 ##
 # Makefile
-# @author Rafael
+# @authors Rafael e Joao Pedro
 ##
 
 # Compiler Options
@@ -68,7 +68,7 @@ clear-objects:
 clear-docs:
 	rm -vrf ../docs/*
 
-clear-all: clean-objects
+clear-all: clear-objects
 	rm -vf $(EXECUTABLE)
 
 ##
