@@ -86,11 +86,11 @@ test-assembler: $(TEST_FILES_PRE)
 
 # Run precompiler for all .asm files
 $(TEST_FILES_ASM): $(EXECUTABLE)
-		./$< -p $@
+		./$< -p $@ $@.pre
 
 # Run assembler for all .pre files
 $(TEST_FILES_PRE): $(EXECUTABLE) test-precompiler
-	./$< -o $@
+	./$< -o $@ $@.obj
 
 ##
 # Documentation

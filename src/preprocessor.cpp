@@ -18,8 +18,7 @@ int preprocessor(int argc, char ** argv)
     // 1 arquivo de entrada .asm;
     // arquivo de saida gerado pelo programa  no formato .pre;
     string arquivo_entrada = argv[2];
-    string arquivo_saida   = argv[2];
-    arquivo_saida.replace(arquivo_saida.length()-4, arquivo_saida.length(), ".pre");
+    string arquivo_saida   = argv[3];
 
     ifstream ArquivoASM(arquivo_entrada.c_str()); // input;
     ofstream ArquivoPRE(arquivo_saida.c_str()); // output;

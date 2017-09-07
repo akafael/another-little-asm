@@ -21,7 +21,7 @@ int main(int argc, char** argv){
     char *operacao = argv[1];
     if (argc< 2 || operacao[0] != '-' || strlen(operacao) != 2){
         printf(MSG_ERR_INVALID_ARGUMENT);
-        return 2;
+        return 1;
     }
 
     char op = operacao[1];
@@ -32,7 +32,7 @@ int main(int argc, char** argv){
         /// Pré Processamento (EQU, IF)
 
         // Verifica Quantidade de Argumentos
-        if (argc != 3){
+        if (argc != 4){
             printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }
@@ -42,7 +42,7 @@ int main(int argc, char** argv){
      // Montador
     case 'o':
         // Verifica Quantidade de Argumentos
-        if (argc != 3){
+        if (argc != 4){
             printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }

@@ -23,8 +23,7 @@ int assembler(int argc, char * argv[]){
     // 1 arquivo de entrada .pre;
     // arquivo de saida gerado pelo programa  no formato .obj;
     string arquivo_entrada = argv[2];
-    string arquivo_saida   = argv[2];
-    arquivo_saida.replace(arquivo_saida.length()-4, arquivo_saida.length(), ".obj");
+    string arquivo_saida   = argv[3];
 
     ifstream ArquivoASM(arquivo_entrada.c_str()); // input;
     ofstream ArquivoPRE(arquivo_saida.c_str()); // output;
@@ -59,7 +58,7 @@ int assembler(int argc, char * argv[]){
                     vtoks.push_back(tok);
             }
 
-            cout << tok.type << ' ';
+            //cout << tok.type << ' ' << tok.string << '\n';
         }
 
         // Escrita no Arquivo

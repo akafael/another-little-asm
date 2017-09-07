@@ -18,12 +18,12 @@ $ make
 
 ```asm
 SECTION TEXT
-LABEL:   INPUT  N1
-         COPY   N1,    N2     ; comment
-		 COPY   N2,    N3[0]  ; wow, array support!
-		 COPY   N3[0], N3[1]
-		 OUTPUT N3[1]
-		 STOP
+ROT: INPUT N1
+    COPY N1, N4 ; comentario qualquer
+    COPY N2, N3
+    COPY N3, N3 + 1
+    OUTPUT N3 + 1
+    STOP
 
 SECTION DATA
 N1: SPACE
