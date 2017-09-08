@@ -1,5 +1,5 @@
-#ifndef PRE_PROCESSADOR
-#define PRE_PROCESSADOR
+#ifndef PREPROCESSOR_H_
+#define PREPROCESSOR_H_
 
 using namespace std;
 
