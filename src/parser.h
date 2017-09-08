@@ -9,20 +9,32 @@ using namespace std;
  * Define simbolos segundo a
  */
 typedef enum{
-    SYM_COMMENTARY = -1, ///< Não Simbolo
+    SYM_COMMENTARY = -1, ///< Não Sim
     SYM_TERM = 0,        ///< Simbolo Terminal
-    SYM_DIRECTIVE = 1,    ///< Simbolo Não Terminal
+    SYM_DIRECTIVE = 1,   ///< Simbolo Não Terminal
     SYM_INSTRUCTION = 2, ///< Simbolo Não Terminal
     SYM_LABEL = 3,       ///< Simbolo Não Terminal
     SYM_NUM_DEC = 4,     ///< Simbolo Não Terminal
-    SYM_NUM_HEX = 5          ///< Simbolo Não Terminal
+    SYM_NUM_HEX = 5,     ///< Simbolo Não Terminal
 } SymbolType;
 
 typedef struct{
-    string text;
+    void *content;
     SymbolType type;
     int address;
 } symbol;
+
+typedef struct{
+    int code;
+    int numArgs;
+    string text;
+} instruction;
+
+typedef struct{
+    int value;
+    int addr;
+    string text;
+} label;
 
 /**
  * Verifica se determinada String representa um comando válido

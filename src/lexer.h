@@ -7,25 +7,31 @@
 using namespace std;
 
 /**
- * Código para indentificar o tipo de token. Valores negativos
- * representam erros e valores positivos tokens válidos
+ * Código para indentificar o tipo de token
  */
 typedef enum{
+// Tokens Inválidos ( Valores negativos )
     ERRCHAR     = -3, ///< Palavra mal formatada
     ERRNUM      = -2, ///< Número mal formatado
     INVALID     = -1,
+// Simbolos Terminais:
     SPC         =  0, ///< Espaço em branco ' ' ou \t
-    WORD        =  1, ///< Palavras
-    NUM_DEC     =  2, ///< Número em decimal
-    NUM_HEX     =  3, ///< Número em hexadecimal
-    COMMA       =  4, // ,
-    COLON       =  5, // :
-    SEMICOLON   =  6, // ;
-    PLUS        =  7, // +
-    MINUS       =  8, // -
-    LINE_END    =  9, // \n
-    STR_END     =  10, // \0
-    COMMENTARY  =  11
+    COMMA       =  1, // ,
+    COLON       =  2, // :
+    SEMICOLON   =  3, // ;
+    PLUS        =  4, // +
+    MINUS       =  5, // -
+    LINE_END    =  6, // \n
+    STR_END     =  7, // \0
+// Simbolos não terminais:
+    NUM_DEC     =  8,  ///< Número em decimal
+    NUM_HEX     =  9,  ///< Número em hexadecimal
+    WORD        =  10,
+    LABEL       =  11,
+    INSTR0      =  12,
+    INSTR1      =  13,
+    INSTR2      =  14,
+    COMMENTARY  =  15
 } TokenType;
 
 /** Token identificado junto do conteúdo */

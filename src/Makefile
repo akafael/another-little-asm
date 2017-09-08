@@ -68,16 +68,16 @@ $(EXECUTABLE): $(OBJECTS)
 ##
 .PHONY = clear
 clear-objects:
-	rm -vf $(OBJECTS)
+	rm -vf $(OBJECTS);
 
 clear-test:
-	rm -vf $(TEST_FILES_PRE) $(TEST_FILES_MCR) $(TEST_FILES_OBJ)
+	rm -vf $(TEST_FILES_PRE) $(TEST_FILES_MCR) $(TEST_FILES_OBJ);
 
 clear-docs:
-	rm -vrf ../docs/*
+	rm -vrf ../docs/*;
 
-clear-all: clear-objects
-	rm -vf $(EXECUTABLE)
+clear-all: clear-objects clear-test
+	rm -vf $(EXECUTABLE);
 
 ##
 # Automatic Tests

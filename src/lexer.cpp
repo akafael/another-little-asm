@@ -18,14 +18,13 @@ token scanner(std::string line, int *position){
                 break;
         }
 
-        // Cria token com a WORD achada
+        // Cria token com a  achada
         tok.type = WORD;
         tok.string = line.substr(i,j);
 
     }
     else if(isdigit(line.at(i)))
     {
-
         // Verifica Se é Hexadecimal
         if((line.at(i)=='0')&&line.at(i+1)=='X'){
             // Percorre até achar o fim do número
@@ -36,7 +35,7 @@ token scanner(std::string line, int *position){
             // Considera como valor Decimal
             for(j=1;(i+j<line.size())&&(isdigit(line.at(i+j)));j++);
 
-            if(isalpha(line.at(i+j))){
+            if(i+j<line.size()&&isalpha(line.at(i+j))){
                 tok.type = ERRNUM;
                 j++; // Inclui caracter que causou o erro
                 ///@todo Incluir todo o token até o primeiro separador
@@ -45,13 +44,8 @@ token scanner(std::string line, int *position){
                 tok.type = NUM_DEC;
         }
 
-        // Recorta String e acrescenta '\0'
-        string linetokien = line.substr(i,j);
-        std::vector<char> vtmp(linetokien.begin(),linetokien.end());
-        vtmp.push_back('\0');
-
         // Prenche conteúdo do token com o valor achado
-        tok.string = linetokien;
+        tok.string = line.substr(i,j);;
 
         /// @todo descobrir uma melhor maneira sem ter que decrementar
         j--; // Diminui um da contagem para impedir de pular caracteres
