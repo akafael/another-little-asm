@@ -15,9 +15,9 @@
 
 // Macros para Formatar Mensagens de ERR
 #define PRINT_ERR(fileName,fileLine,MSG) cout << '\n' << string(fileName) << ": Linha " << \
-                                          fileLine + 1 << ": ERROR:" << \
-                                          MSG << "\n"
+                                          fileLine + 1 << ":\033[31m ERRO:" << \
+                                          MSG << "\033[0m\n"
 #define PRINT_ERR_INSTRUCTION(fileLine,INST)\
-    cout << "Linha " << fileLine +1 << " : \e[31"<< string(INST) <<" -> Instrução Inválida\e[0\n"
+    cout << "Linha " << fileLine +1 << " : \033[31m"<< string(INST) <<" -> Instrução Inválida\033[0m\n"
 
 #endif // YLA_MSGS_PT_H_

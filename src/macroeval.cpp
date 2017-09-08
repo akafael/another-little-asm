@@ -35,22 +35,8 @@ int macroeval(int argc, char ** argv)
     // Percorre todas as linhas do arquivo
     for(int lineCount=0;getline(ArquivoASM,line);lineCount++)
     {
-        bool ignoreLine = false;
-        char character;
-
-        // Deixa todos caracteres em caixa alta
-        std::transform(line.begin(), line.end(),line.begin(), ::toupper);
-
-        // Detecta e Remove Comentários
-        character = line.find(';');
-        if(character!=std::string::npos){
-            line = line.substr(0,character);
-        }
-
-       if(!ignoreLine){
-           // Escreve linha no arquivo de saída
-           ArquivoPRE << line << '\n';
-       }
+       // Escreve linha no arquivo de saída
+       ArquivoPRE << line << '\n';
     }
 
     ArquivoPRE.close();

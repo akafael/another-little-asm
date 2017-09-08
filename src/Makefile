@@ -82,25 +82,25 @@ clear-all: clear-objects
 # Automatic Tests
 ##
 .PHONY = test
-test: $(EXECUTABLE) test-precompiler test-assembler
-	@echo "TESTES Concluídos!"
+test: $(EXECUTABLE) test-precompiler test-macroeval test-assembler
+	@echo "\033[92mTESTES Concluídos!\033[0m"
 
 test-precompiler: $(TEST_FILES_ASM)
-	@echo "TESTES precompiler concluídos!"
+	@echo "\033[33mTESTES precompiler concluídos!\n \033[0m"
 
-test-macroeval: $(TEST_FILES_MCR)
-	@echo "TESTES macroeval concluídos!"
+test-macroeval: $(TEST_FILES_PRE)
+	@echo "\033[33mTESTES macroeval concluídos!\n \033[0m"
 
-test-assembler: $(TEST_FILES_PRE)
-	@echo "TESTES assembler concluídos!"
+test-assembler: $(TEST_FILES_MCR)
+	@echo "\033[33mTESTES assembler concluídos!\n \033[0m"
 
 # Run precompiler for all .asm files
 $(TEST_FILES_ASM): $(EXECUTABLE)
-		./$< -p $@ $(addsuffix .pre, $(basename $@))
+	./$< -p $@ $(addsuffix .pre, $(basename $@))
 
 # Evalute Macros for all .pre files
 $(TEST_FILES_PRE): $(EXECUTABLE) test-precompiler
-	./$< -o $@ $(addsuffix .mcr, $(basename $@))
+	./$< -m $@ $(addsuffix .mcr, $(basename $@))
 
 # Run assembler for all .mcr files
 $(TEST_FILES_MCR): $(EXECUTABLE) test-macroeval
