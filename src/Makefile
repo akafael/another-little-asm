@@ -8,8 +8,8 @@ CC = g++
 CC_FLAGS = -Wall -std=c++11 -ggdb
 
 MAIN = main
-SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp
-HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h
+SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp macroeval.cpp
+HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h macroeval.h
 
 EXECUTABLE = yla
 
@@ -19,6 +19,7 @@ TEST_FILES_DIR = ../test_files
 # input test files
 TEST_FILES_ASM = $(wildcard $(TEST_FILES_DIR)/*.asm)
 TEST_FILES_PRE = $(addsuffix .pre, $(basename $(TEST_FILES_ASM)))
+TEST_FILES_MCR = $(addsuffix .mcr, $(basename $(TEST_FILES_ASM)))
 TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
 
 ##
@@ -32,7 +33,7 @@ $(MAIN): $(MAIN).cpp
 	$(CC) $(CC_FLAGS) $(NAME).cpp
 
 @echo Objects:$(OBJECTS)
-OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o # parser.o
+OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o # parser.o
 
 ##
 # Modules:
@@ -40,13 +41,16 @@ OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o # parser.o
 preprocessor.o: preprocessor.cpp preprocessor.h
 	$(CC) $(CCFLAGS) -c preprocessor.cpp
 
+macroeval.o: macroeval.cpp macroeval.h
+	$(CC) $(CCFLAGS) -c macroeval.cpp
+
 lexer.o: lexer.cpp lexer.h
 	$(CC) $(CCFLAGS) -c lexer.cpp
 
 parser.o: parser.cpp parser.h
 	$(CC) $(CCFLAGS) -c parser.cpp
 
-assembler.o: assembler.cpp assembler.h  msgs_pt.h preprocessor.o lexer.o # parser.o
+assembler.o: assembler.cpp assembler.h  msgs_pt.h preprocessor.o lexer.o macroeval.o # parser.o
 	$(CC) $(CCFLAGS) -c assembler.cpp
 
 ##
@@ -65,6 +69,9 @@ $(EXECUTABLE): $(OBJECTS)
 clear-objects:
 	rm -vf $(OBJECTS)
 
+clear-test:
+	rm -vf $(TEST_FILES_PRE) $(TEST_FILES_MCR) $(TEST_FILES_OBJ)
+
 clear-docs:
 	rm -vrf ../docs/*
 
@@ -81,16 +88,23 @@ test: $(EXECUTABLE) test-precompiler test-assembler
 test-precompiler: $(TEST_FILES_ASM)
 	@echo "TESTES precompiler concluídos!"
 
+test-macroeval: $(TEST_FILES_MCR)
+	@echo "TESTES macroeval concluídos!"
+
 test-assembler: $(TEST_FILES_PRE)
 	@echo "TESTES assembler concluídos!"
 
 # Run precompiler for all .asm files
 $(TEST_FILES_ASM): $(EXECUTABLE)
-		./$< -p $@ $@.pre
+		./$< -p $@ $(addsuffix .pre, $(basename $@))
 
-# Run assembler for all .pre files
+# Evalute Macros for all .pre files
 $(TEST_FILES_PRE): $(EXECUTABLE) test-precompiler
-	./$< -o $@ $@.obj
+	./$< -o $@ $(addsuffix .mcr, $(basename $@))
+
+# Run assembler for all .mcr files
+$(TEST_FILES_MCR): $(EXECUTABLE) test-macroeval
+	./$< -o $@ $(addsuffix .obj, $(basename $@))
 
 ##
 # Documentation
