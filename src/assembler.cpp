@@ -36,6 +36,7 @@ int assembler(int argc, char * argv[]){
     }
 
     string line;
+    bool errorDetected = false;
     for(int lineCount = 0 ;getline(ArquivoASM,line);lineCount++){
 
         vector<token> vtoks;
@@ -69,5 +70,9 @@ int assembler(int argc, char * argv[]){
     ArquivoPRE.close();
     ArquivoASM.close();
 
-    return 0;
+    if(errorDetected){
+        return 1;
+    }else{
+        return 0;
+    }
  }

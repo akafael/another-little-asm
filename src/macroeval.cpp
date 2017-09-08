@@ -35,6 +35,7 @@ int macroeval(int argc, char ** argv)
     // Percorre todas as linhas do arquivo
     for(int lineCount=0;getline(ArquivoASM,line);lineCount++)
     {
+       /// @todo Fazer validação das macros, IF e EQV
        // Escreve linha no arquivo de saída
        ArquivoPRE << line << '\n';
     }

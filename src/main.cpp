@@ -37,8 +37,7 @@ int main(int argc, char** argv){
             printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }
-        preprocessor(argc,argv);
-        break;
+        return preprocessor(argc,argv);
 
     case 'm':
         /// Avaliação das Macros
@@ -48,9 +47,7 @@ int main(int argc, char** argv){
             printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }
-        macroeval(argc,argv);
-        break;
-
+        return macroeval(argc,argv);
 
      // Montador
     case 'o':
@@ -59,8 +56,7 @@ int main(int argc, char** argv){
             printf(MSG_ERR_ARGUMENT_NUMBER);
             return 1;
         }
-        assembler(argc,argv);
-        break;
+        return assembler(argc,argv);
 
     default:
         printf(MSG_ERR_INVALID_ARGUMENT);
