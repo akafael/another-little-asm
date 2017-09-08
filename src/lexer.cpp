@@ -1,6 +1,5 @@
 #include <vector>
 
-#include "languagedefinition.h"
 #include "lexer.h"
 
 token scanner(std::string line, int *position){
@@ -103,13 +102,4 @@ token scanner(std::string line, int *position){
 
     // Retorna Token
     return tok;
-}
-
-int isValidInstruction(string command){
-    for (int i = 0; i < INSTRUCTIONS_NUMBER; i++) {
-        if (command.compare(InstrutionString[i]) == 0) {
-            return i;
-        }
-    }
-    return INVALID_INSTRUCTION;
 }

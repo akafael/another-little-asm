@@ -99,4 +99,6 @@ const static int InstructionArgNumber[] = {
     0  // "END"
 };
 
+/// @todo Separar Diretivas em um tipo diferente
+
 #endif // YLA_LANGUAGE_DEFINITION_H_
