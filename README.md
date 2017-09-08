@@ -1,10 +1,10 @@
 # Yet another Little ASM
 
-`yla` is an custom Assembly-like language, implemented from scratch in C++. It is inspired on [my-little-asm](https://github.com/alexdantas/my-little-asm) deverloped by @alexdantas and it was also deverloped as _System Software_ class assigment at UnB. So far, it has an `assembler` (to create machine code) and nothing else yet.
+`yla` is an custom Assembly-like language, implemented from scratch in C++. Name inspired on [my-little-asm](https://github.com/alexdantas/my-little-asm) deverloped by @alexdantas witch was also deverloped as _System Software_ class assigment at UnB. So far, it has an `assembler` (to create machine code) and nothing else yet.
 
 This is an example on how Assembly languages work - a set of human-readable instructions that are translated into machine code. Normally the language would be designed for some hardware to execute, but in our case we simulate it step by step.
 
-With our basic instruction set we can potentially write any existing program out there - also called [Turing-completeness.
+With our basic instruction set we can potentially write any existing program out there - also called [Turing-completeness](http://en.wikipedia.org/wiki/Turing_completeness).
 
 We have a parser that reads each instruction on the text file and converts them into integers - indexing all 14 possible instructions.
 

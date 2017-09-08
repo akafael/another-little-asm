@@ -1,3 +1,4 @@
 ; This is the minimal file code
-beGin ; Here the code begins
-End
+SecTion Text ; Here the code begins
+
+SecTion           Data ; Here the code begins

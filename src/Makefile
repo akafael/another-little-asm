@@ -8,8 +8,9 @@ CC = g++
 CC_FLAGS = -Wall -std=c++11 -ggdb
 
 MAIN = main
-SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp macroeval.cpp
-HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h macroeval.h
+SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp macroeval.cpp \
+	parser.cpp
+HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h macroeval.h parser.h
 
 EXECUTABLE = yla
 
@@ -33,7 +34,7 @@ $(MAIN): $(MAIN).cpp
 	$(CC) $(CC_FLAGS) $(NAME).cpp
 
 @echo Objects:$(OBJECTS)
-OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o # parser.o
+OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o parser.o
 
 ##
 # Modules:
@@ -50,7 +51,7 @@ lexer.o: lexer.cpp lexer.h
 parser.o: parser.cpp parser.h
 	$(CC) $(CCFLAGS) -c parser.cpp
 
-assembler.o: assembler.cpp assembler.h  msgs_pt.h preprocessor.o lexer.o macroeval.o # parser.o
+assembler.o: assembler.cpp assembler.h msgs_pt.h preprocessor.o lexer.o macroeval.o parser.o
 	$(CC) $(CCFLAGS) -c assembler.cpp
 
 ##
