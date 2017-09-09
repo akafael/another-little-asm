@@ -1,7 +1,7 @@
 /**
  * Montador
  *
- * @author Rafael e Willian
+ * @authors Rafael Lima e João Pedro Franch
  */
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ int assembler(int argc, char * argv[])
                 case ERRCHAR:
                 case ERRNUM:
                 case INVALID:
-                    cerr << PRINT_ERR_TOKEN(arquivo_entrada,lineCount,tok.string);
+                    cerr << PRINT_ERR_TOKEN(lineCount,tok.string);
                     break;
                 case SPC:
                     // Elimina Espaços em Branco
@@ -73,8 +73,7 @@ int assembler(int argc, char * argv[])
 
         instruction inst;
         label lbl;
-        // Arvores de Derivação basedos na quantidade de argumentos
-
+        // Arvores de Derivação
         if(vtoks.size()==0)
         {
             // Ignora Linha em Branco
@@ -116,11 +115,14 @@ int assembler(int argc, char * argv[])
         {
             // Instrução Mal formatada
             cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
+
+            #if DEBUG_ASSEMBLER
             for(vector<token>::iterator it = vtoks.begin(); it != vtoks.end();++it)
             {
                 cout << (*it).type << '\t';
             }
             cout << endl;
+            #endif
         }
 
         // Escrita no Arquivo

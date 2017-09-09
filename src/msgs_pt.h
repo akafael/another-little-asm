@@ -14,11 +14,11 @@
 #define MSG_ERR_INVALID_TOKEN "\tToken Inválido.\n"
 
 // Macros para Formatar Mensagens de ERR
-#define PRINT_ERR(fileName,fileLine,MSG) '\n' << string(fileName) << ": Linha " << \
+#define PRINT_ERR(fileLine,MSG) "\n Linha " << \
                                           fileLine + 1 << ":\033[31m ERRO:" << \
                                           MSG << "\033[0m\n"
 
-#define PRINT_ERR_TOKEN(fileName,fileLine,TOK) '\n' << string(fileName) << ": Linha " << \
+#define PRINT_ERR_TOKEN(fileLine,TOK) "\nLinha " << \
                                           fileLine + 1 << ":\033[31m ERRO: \033[0m\"" << \
                                           TOK << "\"\033[31m -> Token Inválido \033[0m\n"
 
