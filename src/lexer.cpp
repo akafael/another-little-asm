@@ -47,49 +47,48 @@ token scanner(std::string line, int *position){
         // Prenche conteúdo do token com o valor achado
         tok.string = line.substr(i,j);;
 
-        /// @todo descobrir uma melhor maneira sem ter que decrementar
-        j--; // Diminui um da contagem para impedir de pular caracteres
     }
     else
     {
+        // Armazena Caracter:
+        tok.string = line.at(i);
+
+        // Verifica tipos válidos
         switch(line.at(i)){
         case ',' :
             tok.type = COMMA;
-            tok.string = ',';
             break;
         case ':' :
             tok.type = COLON;
-            tok.string = ':';
             break;
         case '+' :
             tok.type = PLUS;
-            tok.string = '+';
             break;
         case '-' :
             tok.type = MINUS;
-            tok.string = '-';
             break;
         case '\n' :
             tok.type = LINE_END;
-            tok.string = '\n';
             break;
         case '\0' :
             tok.type = STR_END;
-            tok.string = '\0';
             break;
         case ' ':
         case '\t':
+            // Associa ' ' a todo espaço em branco
             tok.type = SPC;
             tok.string = ' ';
             break;
         default:
             // Caracter não reconhecido
             tok.type = ERRCHAR;
-            tok.string = '!';
             break;
         }
-
     }
+
+    /// @todo descobrir uma melhor maneira sem ter que decrementar
+    j--; // Diminui um da contagem para impedir de pular caracteres
+
 
     // Muda Posição para o caracter depois do tokien analizado
     *position = i + j;

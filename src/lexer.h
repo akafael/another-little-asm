@@ -1,6 +1,8 @@
 #ifndef YLA_LEXER_H_
 #define YLA_LEXER_H_
 
+#define DEBUG_LEXER 0
+
 #include <string>
 #include "languagedefinition.h"
 

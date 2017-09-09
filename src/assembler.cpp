@@ -42,7 +42,8 @@ int assembler(int argc, char * argv[])
     for(int lineCount = 0 ;getline(ArquivoASM,line);lineCount++)
     {
 
-        vector<token> vtoks;
+        vector<token> vtoks;   ///< Tabela de Tokens
+        vector<symbol> vsymbs; ///< Tabela de Token
 
         ////////////// Análise Léxica ///////////////
         for (int i=0; i<line.length(); ++i){
@@ -54,64 +55,72 @@ int assembler(int argc, char * argv[])
                 case ERRCHAR:
                 case ERRNUM:
                 case INVALID:
-                    cerr << PRINT_ERR(arquivo_entrada,lineCount,MSG_ERR_INVALID_TOKEN);
+                    cerr << PRINT_ERR_TOKEN(arquivo_entrada,lineCount,tok.string);
                     break;
                 case SPC:
                     // Elimina Espaços em Branco
                     break;
-                case
                 default:
                     vtoks.push_back(tok);
             }
 
-            //cout << tok.type << ' ' << tok.string << '\n';
+            #if DEBUG_LEXER
+                cout << tok.type << '\t' << tok.string << endl;
+            #endif
         }
 
         ////////////// Análise Semantica ///////////////
-        vector<symbol> vsymbs; ///< Lista de simbolos
-        for(vector<token>::iterator it = vtoks.begin(); it != vtoks.end();++it)
+
+        instruction inst;
+        label lbl;
+        // Arvores de Derivação basedos na quantidade de argumentos
+
+        if(vtoks.size()==0)
         {
-            symbol symb;
-            int code = -1;
-
-            switch ((*it).type) {
-                case COMMA:
-                case COLON:
-                case PLUS:
-                case MINUS:
-                case SPC:
-                case LINE_END:
-                case STR_END:
-                    symb.text = (*it).string;
-                    symb.type = SYM_TERM;
-                    vsymbs.push_back(symb);
-                    break;
-
-                case WORD:
-                    code = isValidInstruction((*it).string);
-                    if(code!=INVALID_INSTRUCTION)
-                    {
-                        symb.text = (*it).string;
-                        symb.type = SYM_INSTRUCTION;
-                        vsymbs.push_back(symb);
-                    }
-                    else{
-                        symb.text = (*it).string;
-                        symb.type = SYM_LABEL;
-                        vsymbs.push_back(symb);
-                    }
-                    break;
-
-                case NUM_DEC:
-                    symb.text = (*it).string;
-                    symb.type = SYM_NUM_DEC;
-                    vsymbs.push_back(symb);
-
-                case NUM_HEX:
-                    symb.text = (*it).string;
-                    symb.type = SYM_NUM_HEX;
-                    vsymbs.push_back(symb);
+            // Ignora Linha em Branco
+        }
+        else if((vtoks.size()==1)&&(vtoks[0].type==WORD))
+        {
+            // INST0
+        }
+        else if((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD))
+        {
+            // INST1
+        }
+        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
+                &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD))
+        {
+            // INST 2
+        }
+        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON))
+        {
+            // Label
+        }
+        else if((vtoks.size()==3)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                &&(vtoks[2].type==WORD))
+        {
+            // Label + INST0
+        }
+        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD))
+        {
+            // Label + INST1
+        }
+        else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD)&&(vtoks[4].type==COMMA)\
+                &&(vtoks[5].type==WORD))
+        {
+            // Label + INST2
+        }
+        else
+        {
+            // Instrução Mal formatada
+            cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
+            for(vector<token>::iterator it = vtoks.begin(); it != vtoks.end();++it)
+            {
+                cout << (*it).type << '\t';
             }
+            cout << endl;
         }
 
         // Escrita no Arquivo
@@ -123,6 +132,7 @@ int assembler(int argc, char * argv[])
     ArquivoASM.close();
 
     if(errorDetected){
+        // Gera código de erro
         return 1;
     }else{
         return 0;
