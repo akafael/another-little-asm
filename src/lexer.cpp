@@ -86,12 +86,8 @@ token scanner(std::string line, int *position){
         }
     }
 
-    /// @todo descobrir uma melhor maneira sem ter que decrementar
-    j--; // Diminui um da contagem para impedir de pular caracteres
-
-
     // Muda Posição para o caracter depois do tokien analizado
-    *position = i + j;
+    *position = i + j - 1;
 
     // Retorna Token
     return tok;
