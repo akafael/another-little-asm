@@ -1,11 +1,12 @@
 \hypertarget{msgs__pt_8h}{\section{Referência ao ficheiro msgs\-\_\-pt.\-h}
 \label{msgs__pt_8h}\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}}
 }
-Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:\nopagebreak
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=344pt]{msgs__pt_8h__dep__incl}
+\includegraphics[width=350pt]{msgs__pt_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Macros}
@@ -25,7 +26,9 @@ Este grafo mostra quais são os ficheiros que incluem directamente ou indirectam
 \item 
 \#define \hyperlink{msgs__pt_8h_aefebff891ea259d0b496bd676cc569c5}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R}(file\-Name, file\-Line, M\-S\-G)
 \item 
-\#define \hyperlink{msgs__pt_8h_acb4b755b37f4e2bec7953cb4bdab82d0}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}(file\-Line, I\-N\-S\-T)~cout $<$$<$ \char`\"{}Linha \char`\"{} $<$$<$ file\-Line +1 $<$$<$ \char`\"{} \-: \textbackslash{}e\mbox{[}31\char`\"{}$<$$<$ string(I\-N\-S\-T) $<$$<$\char`\"{} -\/$>$ Instrução Inválida\textbackslash{}e\mbox{[}0\textbackslash{}n\char`\"{}
+\#define \hyperlink{msgs__pt_8h_a2a32363a6a037db78996d7105bae74b2}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N}(file\-Name, file\-Line, T\-O\-K)
+\item 
+\#define \hyperlink{msgs__pt_8h_acb4b755b37f4e2bec7953cb4bdab82d0}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}(file\-Line, I\-N\-S\-T)
 \end{DoxyCompactItemize}
 
 
@@ -83,9 +86,9 @@ Definido na linha 14 do ficheiro msgs\-\_\-pt.\-h.
 )}}\label{msgs__pt_8h_aefebff891ea259d0b496bd676cc569c5}
 {\bfseries Valor\-:}
 \begin{DoxyCode}
-cout << \textcolor{charliteral}{'\(\backslash\)n'} << string(fileName) << \textcolor{stringliteral}{": Linha "} << \(\backslash\)
-                                          fileLine + 1 << \textcolor{stringliteral}{": ERROR:"} << \(\backslash\)
-                                          MSG << \textcolor{stringliteral}{"\(\backslash\)n"}
+\textcolor{charliteral}{'\(\backslash\)n'} << string(fileName) << \textcolor{stringliteral}{": Linha "} << \(\backslash\)
+                                          fileLine + 1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO:"} << \(\backslash\)
+                                          MSG << \textcolor{stringliteral}{"\(\backslash\)033[0m\(\backslash\)n"}
 \end{DoxyCode}
 
 
@@ -98,8 +101,32 @@ Definido na linha 17 do ficheiro msgs\-\_\-pt.\-h.
 \item[{}]{file\-Line, }
 \item[{}]{I\-N\-S\-T}
 \end{DoxyParamCaption}
-)~cout $<$$<$ \char`\"{}Linha \char`\"{} $<$$<$ file\-Line +1 $<$$<$ \char`\"{} \-: \textbackslash{}e\mbox{[}31\char`\"{}$<$$<$ string(I\-N\-S\-T) $<$$<$\char`\"{} -\/$>$ Instrução Inválida\textbackslash{}e\mbox{[}0\textbackslash{}n\char`\"{}}}\label{msgs__pt_8h_acb4b755b37f4e2bec7953cb4bdab82d0}
+)}}\label{msgs__pt_8h_acb4b755b37f4e2bec7953cb4bdab82d0}
+{\bfseries Valor\-:}
+\begin{DoxyCode}
+\textcolor{stringliteral}{"\(\backslash\)nLinha "} << fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
+    \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m  -> Instrução Inválida\(\backslash\)033[0m\(\backslash\)n"}
+\end{DoxyCode}
 
 
-Definido na linha 20 do ficheiro msgs\-\_\-pt.\-h.
+Definido na linha 25 do ficheiro msgs\-\_\-pt.\-h.
+
+\hypertarget{msgs__pt_8h_a2a32363a6a037db78996d7105bae74b2}{\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}!P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N}}
+\index{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N}!msgs_pt.h@{msgs\-\_\-pt.\-h}}
+\subsubsection[{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N(
+\begin{DoxyParamCaption}
+\item[{}]{file\-Name, }
+\item[{}]{file\-Line, }
+\item[{}]{T\-O\-K}
+\end{DoxyParamCaption}
+)}}\label{msgs__pt_8h_a2a32363a6a037db78996d7105bae74b2}
+{\bfseries Valor\-:}
+\begin{DoxyCode}
+\textcolor{charliteral}{'\(\backslash\)n'} << string(fileName) << \textcolor{stringliteral}{": Linha "} << \(\backslash\)
+                                          fileLine + 1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO: \(\backslash\)033[0m\(\backslash\)""} << \(\backslash\)
+                                          TOK << \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m -> Token Inválido \(\backslash\)033[0m\(\backslash\)n"}
+\end{DoxyCode}
+
+
+Definido na linha 21 do ficheiro msgs\-\_\-pt.\-h.
 

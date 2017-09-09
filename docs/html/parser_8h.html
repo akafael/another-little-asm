@@ -37,6 +37,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -79,6 +81,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerações</a> &#124;
 <a href="#func-members">Funções</a>  </div>
   <div class="headertitle">
 <div class="title">Referência ao ficheiro parser.h</div>  </div>
@@ -88,27 +93,123 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para parser.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="parser_8h__incl.png" border="0" usemap="#parser_8h" alt=""/></div>
-<map name="parser_8h" id="parser_8h">
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8h__incl.svg" width="80" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8h__dep__incl.svg" width="224" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="parser_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsymbol.html">symbol</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinstruction.html">instruction</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlabel.html">label</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8e654728b92a3e3e7040c10d72e77868"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#a8e654728b92a3e3e7040c10d72e77868">DEBUG_PARSER</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a8e654728b92a3e3e7040c10d72e77868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerações</h2></td></tr>
+<tr class="memitem:add8909e1085c0c32f8380ff493a243b3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3">SymbolType</a> { <br/>
+&#160;&#160;<a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3aace340f2743e515dfc1fb716b009b53f">SYM_COMMENTARY</a> = -1, 
+<a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3aa1ee091ffef78c65aa04ffa85e91fb93">SYM_TERM</a> = 0, 
+<a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3a270e53d42f4e631a8afda839b04b5193">SYM_DIRECTIVE</a> = 1, 
+<a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3ae1241bbfd1f21dbf5a23a81be3cba27b">SYM_INSTRUCTION</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3a1a5d63bd6b403d0e02792379ffea7873">SYM_LABEL</a> = 3, 
+<a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3ac3447c076bbd66dc22cd6bc66db4e8e5">SYM_NUM_DEC</a> = 4, 
+<a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3aaa3a3f3e7d883f4fcb3e868faebebc91">SYM_NUM_HEX</a> = 5
+<br/>
+ }</td></tr>
+<tr class="separator:add8909e1085c0c32f8380ff493a243b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a5c1774c103fd792d21f8144c13ebbef9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#a5c1774c103fd792d21f8144c13ebbef9">isValidInstruction</a> (std::string command)</td></tr>
-<tr class="separator:a5c1774c103fd792d21f8144c13ebbef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05995444069695cfd17251c82913a2ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#a05995444069695cfd17251c82913a2ce">checkValidInstruction</a> (string command)</td></tr>
+<tr class="separator:a05995444069695cfd17251c82913a2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac34489ced263c84198b4c0e83643ebe7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a> (string command)</td></tr>
+<tr class="separator:ac34489ced263c84198b4c0e83643ebe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630c1bfba8f4ed9490db77c6146d6f7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#a630c1bfba8f4ed9490db77c6146d6f7f">isValidInstructionCall</a> (string command, string arg1)</td></tr>
+<tr class="separator:a630c1bfba8f4ed9490db77c6146d6f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a3be2fded07ec8758103012a36464ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#a7a3be2fded07ec8758103012a36464ce">isValidInstructionCall</a> (string command, string arg1, string arg2)</td></tr>
+<tr class="separator:a7a3be2fded07ec8758103012a36464ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc52cad6ca085a1842a0e5674d0afe4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8h.html#aebc52cad6ca085a1842a0e5674d0afe4">isValidDirective</a> (string command)</td></tr>
+<tr class="separator:aebc52cad6ca085a1842a0e5674d0afe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação das funções</h2>
-<a class="anchor" id="a5c1774c103fd792d21f8144c13ebbef9"></a>
+<h2 class="groupheader">Documentação das macros</h2>
+<a class="anchor" id="a8e654728b92a3e3e7040c10d72e77868"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int isValidInstruction </td>
+          <td class="memname">#define DEBUG_PARSER&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definido na linha <a class="el" href="parser_8h_source.html#l00004">4</a> do ficheiro <a class="el" href="parser_8h_source.html">parser.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação dos valores da enumeração</h2>
+<a class="anchor" id="add8909e1085c0c32f8380ff493a243b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="parser_8h.html#add8909e1085c0c32f8380ff493a243b3">SymbolType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Define simbolos segundo a </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores da enumeração</th></tr><tr><td class="fieldname"><em><a class="anchor" id="add8909e1085c0c32f8380ff493a243b3aace340f2743e515dfc1fb716b009b53f"></a>SYM_COMMENTARY</em>&#160;</td><td class="fielddoc">
+<p>Não Sim. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="add8909e1085c0c32f8380ff493a243b3aa1ee091ffef78c65aa04ffa85e91fb93"></a>SYM_TERM</em>&#160;</td><td class="fielddoc">
+<p>Simbolo Terminal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="add8909e1085c0c32f8380ff493a243b3a270e53d42f4e631a8afda839b04b5193"></a>SYM_DIRECTIVE</em>&#160;</td><td class="fielddoc">
+<p>Simbolo Não Terminal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="add8909e1085c0c32f8380ff493a243b3ae1241bbfd1f21dbf5a23a81be3cba27b"></a>SYM_INSTRUCTION</em>&#160;</td><td class="fielddoc">
+<p>Simbolo Não Terminal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="add8909e1085c0c32f8380ff493a243b3a1a5d63bd6b403d0e02792379ffea7873"></a>SYM_LABEL</em>&#160;</td><td class="fielddoc">
+<p>Simbolo Não Terminal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="add8909e1085c0c32f8380ff493a243b3ac3447c076bbd66dc22cd6bc66db4e8e5"></a>SYM_NUM_DEC</em>&#160;</td><td class="fielddoc">
+<p>Simbolo Não Terminal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="add8909e1085c0c32f8380ff493a243b3aaa3a3f3e7d883f4fcb3e868faebebc91"></a>SYM_NUM_HEX</em>&#160;</td><td class="fielddoc">
+<p>Simbolo Não Terminal. </p>
+</td></tr>
+</table>
+
+<p>Definido na linha <a class="el" href="parser_8h_source.html#l00013">13</a> do ficheiro <a class="el" href="parser_8h_source.html">parser.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a class="anchor" id="a05995444069695cfd17251c82913a2ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkValidInstruction </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -122,6 +223,171 @@ Funções</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>código da Instrução </dd></dl>
+
+<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00004">4</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8h_a05995444069695cfd17251c82913a2ce_icgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aebc52cad6ca085a1842a0e5674d0afe4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isValidDirective </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se determinada String representa um comando válido caso seja inválido retorna INVALID_DIRECTIVE</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>String a ser Avaliada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>código da Diretiva </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac34489ced263c84198b4c0e83643ebe7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isValidInstruction </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se determinada String representa um comando válido caso seja inválido retorna o código da instrução+1 se verdadeiro ou zero se falso</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>String a ser Avaliada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>código da Instrução </dd></dl>
+
+<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00013">13</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8h_ac34489ced263c84198b4c0e83643ebe7_icgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a630c1bfba8f4ed9490db77c6146d6f7f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isValidInstructionCall </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>arg1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se as strings referentes a instrução e os parâmetros representam uma chamada válida da função, isto é se o argumento não contém palavras reservadas e se a instrução precisa de um argumento.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Instrução </td></tr>
+    <tr><td class="paramname">arg1</td><td>Argumento </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro ou falso; </dd></dl>
+
+<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00022">22</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8h_a630c1bfba8f4ed9490db77c6146d6f7f_cgraph.svg" width="352" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a3be2fded07ec8758103012a36464ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isValidInstructionCall </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se as strings referentes a instrução e os parâmetros representam uma chamada válida da função, isto é se os argumentos não contém palavras reservadas e se a instrução precisa de dois argumento.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Instrução </td></tr>
+    <tr><td class="paramname">arg1</td><td>Argumento </td></tr>
+    <tr><td class="paramname">arg2</td><td>Argumento </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro ou falso; </dd></dl>
+
+<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00035">35</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8h_a7a3be2fded07ec8758103012a36464ce_cgraph.svg" width="352" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
 
 </div>
 </div>

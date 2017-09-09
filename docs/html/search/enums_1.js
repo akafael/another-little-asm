@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tokentype',['TokenType',['../lexer_8h.html#aa520fbf142ba1e7e659590c07da31921',1,'lexer.h']]]
+  ['symboltype',['SymbolType',['../parser_8h.html#add8909e1085c0c32f8380ff493a243b3',1,'parser.h']]]
 ];

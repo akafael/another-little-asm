@@ -89,7 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="textblock"><div class="dynheader">
 Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="msgs__pt_8h__dep__incl.svg" width="363" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="msgs__pt_8h__dep__incl.svg" width="494" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="msgs__pt_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
@@ -110,7 +111,9 @@ Macros</h2></td></tr>
 <tr class="separator:a1f521fc4133c84430f6a83d481cc233f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefebff891ea259d0b496bd676cc569c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#aefebff891ea259d0b496bd676cc569c5">PRINT_ERR</a>(fileName, fileLine, MSG)</td></tr>
 <tr class="separator:aefebff891ea259d0b496bd676cc569c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb4b755b37f4e2bec7953cb4bdab82d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#acb4b755b37f4e2bec7953cb4bdab82d0">PRINT_ERR_INSTRUCTION</a>(fileLine, INST)&#160;&#160;&#160;cout &lt;&lt; &quot;Linha &quot; &lt;&lt; fileLine +1 &lt;&lt; &quot; : \e[31&quot;&lt;&lt; string(INST) &lt;&lt;&quot; -&gt; Instrução Inválida\e[0\n&quot;</td></tr>
+<tr class="memitem:a2a32363a6a037db78996d7105bae74b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#a2a32363a6a037db78996d7105bae74b2">PRINT_ERR_TOKEN</a>(fileName, fileLine, TOK)</td></tr>
+<tr class="separator:a2a32363a6a037db78996d7105bae74b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb4b755b37f4e2bec7953cb4bdab82d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#acb4b755b37f4e2bec7953cb4bdab82d0">PRINT_ERR_INSTRUCTION</a>(fileLine, INST)</td></tr>
 <tr class="separator:acb4b755b37f4e2bec7953cb4bdab82d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das macros</h2>
@@ -227,9 +230,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Valor:</b><div class="fragment"><div class="line">cout &lt;&lt; <span class="charliteral">&#39;\n&#39;</span> &lt;&lt; string(fileName) &lt;&lt; <span class="stringliteral">&quot;: Linha &quot;</span> &lt;&lt; \</div>
-<div class="line">                                          fileLine + 1 &lt;&lt; <span class="stringliteral">&quot;: ERROR:&quot;</span> &lt;&lt; \</div>
-<div class="line">                                          MSG &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
+<b>Valor:</b><div class="fragment"><div class="line"><span class="charliteral">&#39;\n&#39;</span> &lt;&lt; string(fileName) &lt;&lt; <span class="stringliteral">&quot;: Linha &quot;</span> &lt;&lt; \</div>
+<div class="line">                                          fileLine + 1 &lt;&lt; <span class="stringliteral">&quot;:\033[31m ERRO:&quot;</span> &lt;&lt; \</div>
+<div class="line">                                          MSG &lt;&lt; <span class="stringliteral">&quot;\033[0m\n&quot;</span></div>
 </div><!-- fragment -->
 <p>Definido na linha <a class="el" href="msgs__pt_8h_source.html#l00017">17</a> do ficheiro <a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>.</p>
 
@@ -254,12 +257,51 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;cout &lt;&lt; &quot;Linha &quot; &lt;&lt; fileLine +1 &lt;&lt; &quot; : \e[31&quot;&lt;&lt; string(INST) &lt;&lt;&quot; -&gt; Instrução Inválida\e[0\n&quot;</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line"><span class="stringliteral">&quot;\nLinha &quot;</span> &lt;&lt; fileLine +1 &lt;&lt; <span class="stringliteral">&quot;:\033[31m ERRO: \033[0m\&quot;&quot;</span>&lt;&lt; string(INST) &lt;&lt;\</div>
+<div class="line">    <span class="stringliteral">&quot;\&quot;\033[31m  -&gt; Instrução Inválida\033[0m\n&quot;</span></div>
+</div><!-- fragment -->
+<p>Definido na linha <a class="el" href="msgs__pt_8h_source.html#l00025">25</a> do ficheiro <a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>.</p>
 
-<p>Definido na linha <a class="el" href="msgs__pt_8h_source.html#l00020">20</a> do ficheiro <a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a2a32363a6a037db78996d7105bae74b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINT_ERR_TOKEN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fileName, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fileLine, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TOK&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line"><span class="charliteral">&#39;\n&#39;</span> &lt;&lt; string(fileName) &lt;&lt; <span class="stringliteral">&quot;: Linha &quot;</span> &lt;&lt; \</div>
+<div class="line">                                          fileLine + 1 &lt;&lt; <span class="stringliteral">&quot;:\033[31m ERRO: \033[0m\&quot;&quot;</span> &lt;&lt; \</div>
+<div class="line">                                          TOK &lt;&lt; <span class="stringliteral">&quot;\&quot;\033[31m -&gt; Token Inválido \033[0m\n&quot;</span></div>
+</div><!-- fragment -->
+<p>Definido na linha <a class="el" href="msgs__pt_8h_source.html#l00021">21</a> do ficheiro <a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>.</p>
 
 </div>
 </div>

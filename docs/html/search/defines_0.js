@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['instructions_5fnumber',['INSTRUCTIONS_NUMBER',['../languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841',1,'languagedefinition.h']]],
-  ['invalid_5finstruction',['INVALID_INSTRUCTION',['../languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70',1,'languagedefinition.h']]]
+  ['debug_5flexer',['DEBUG_LEXER',['../lexer_8h.html#a180873a64047585675744d9a3543109b',1,'lexer.h']]],
+  ['debug_5fparser',['DEBUG_PARSER',['../parser_8h.html#a8e654728b92a3e3e7040c10d72e77868',1,'parser.h']]]
 ];

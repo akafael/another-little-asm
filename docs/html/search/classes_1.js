@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['token',['token',['../structtoken.html',1,'']]]
+  ['label',['label',['../structlabel.html',1,'']]]
 ];

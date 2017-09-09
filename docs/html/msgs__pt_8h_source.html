@@ -100,13 +100,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#a1f521fc4133c84430f6a83d481cc233f">   14</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MSG_ERR_INVALID_TOKEN &quot;\tToken Inválido.\n&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// Macros para Formatar Mensagens de ERR</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#aefebff891ea259d0b496bd676cc569c5">   17</a></span>&#160;<span class="preprocessor">#define PRINT_ERR(fileName,fileLine,MSG) cout &lt;&lt; &#39;\n&#39; &lt;&lt; string(fileName) &lt;&lt; &quot;: Linha &quot; &lt;&lt; \</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">                                          fileLine + 1 &lt;&lt; &quot;: ERROR:&quot; &lt;&lt; \</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">                                          MSG &lt;&lt; &quot;\n&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#acb4b755b37f4e2bec7953cb4bdab82d0">   20</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PRINT_ERR_INSTRUCTION(fileLine,INST)\</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    cout &lt;&lt; &quot;Linha &quot; &lt;&lt; fileLine +1 &lt;&lt; &quot; : \e[31&quot;&lt;&lt; string(INST) &lt;&lt;&quot; -&gt; Instrução Inválida\e[0\n&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif // YLA_MSGS_PT_H_</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#aefebff891ea259d0b496bd676cc569c5">   17</a></span>&#160;<span class="preprocessor">#define PRINT_ERR(fileName,fileLine,MSG) &#39;\n&#39; &lt;&lt; string(fileName) &lt;&lt; &quot;: Linha &quot; &lt;&lt; \</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">                                          fileLine + 1 &lt;&lt; &quot;:\033[31m ERRO:&quot; &lt;&lt; \</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">                                          MSG &lt;&lt; &quot;\033[0m\n&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#a2a32363a6a037db78996d7105bae74b2">   21</a></span>&#160;<span class="preprocessor">#define PRINT_ERR_TOKEN(fileName,fileLine,TOK) &#39;\n&#39; &lt;&lt; string(fileName) &lt;&lt; &quot;: Linha &quot; &lt;&lt; \</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">                                          fileLine + 1 &lt;&lt; &quot;:\033[31m ERRO: \033[0m\&quot;&quot; &lt;&lt; \</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">                                          TOK &lt;&lt; &quot;\&quot;\033[31m -&gt; Token Inválido \033[0m\n&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#acb4b755b37f4e2bec7953cb4bdab82d0">   25</a></span>&#160;<span class="preprocessor">#define PRINT_ERR_INSTRUCTION(fileLine,INST)\</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">    &quot;\nLinha &quot; &lt;&lt; fileLine +1 &lt;&lt; &quot;:\033[31m ERRO: \033[0m\&quot;&quot;&lt;&lt; string(INST) &lt;&lt;\</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">    &quot;\&quot;\033[31m  -&gt; Instrução Inválida\033[0m\n&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // YLA_MSGS_PT_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

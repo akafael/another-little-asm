@@ -82,6 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Componentes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerações</a> &#124;
 <a href="#func-members">Funções</a>  </div>
   <div class="headertitle">
@@ -93,14 +94,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para lexer.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__incl.svg" width="226" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__incl.svg" width="226" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__dep__incl.svg" width="216" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__dep__incl.svg" width="216" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="lexer_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
@@ -112,6 +111,11 @@ Componentes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinstruction_line.html">instructionLine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a180873a64047585675744d9a3543109b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a180873a64047585675744d9a3543109b">DEBUG_LEXER</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a180873a64047585675744d9a3543109b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerações</h2></td></tr>
 <tr class="memitem:aa520fbf142ba1e7e659590c07da31921"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921">TokenType</a> { <br/>
@@ -120,23 +124,23 @@ Enumerações</h2></td></tr>
 <a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2">INVALID</a> = -1, 
 <a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045">SPC</a> = 0, 
 <br/>
-&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a> = 1, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6">NUM_DEC</a> = 2, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c">NUM_HEX</a> = 3, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392">COMMA</a> = 4, 
+&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392">COMMA</a> = 1, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a> = 2, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a55eebe3c7e08b49cd5969442f4f8c4ce">SEMICOLON</a> = 3, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9">PLUS</a> = 4, 
 <br/>
-&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a> = 5, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a55eebe3c7e08b49cd5969442f4f8c4ce">SEMICOLON</a> = 6, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a87fe59ef12c3d13dc2a4d14c9b16c1f9">PLUS</a> = 7, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225">MINUS</a> = 8, 
+&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921af613d73b4e7b570ffd967df4a13c4225">MINUS</a> = 5, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec">LINE_END</a> = 6, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927">STR_END</a> = 7, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6">NUM_DEC</a> = 8, 
 <br/>
-&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a959c8ebec5e5c8b2418482da8c0752ec">LINE_END</a> = 9, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927">STR_END</a> = 10, 
+&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c">NUM_HEX</a> = 9, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a> = 10, 
 <a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b">LABEL</a> = 11, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921acc7488e57f07fe0693ec0f72d186c300">INSTRUCTION</a> = 12, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e">INSTR0</a> = 12, 
 <br/>
-&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921ae3d30ffaffa3c06ed917e565dda1fbc5">SYMBOL</a> = 13, 
-<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921ae3852cb010d5e422026faf83b3c16f0e">DIRECTIVE</a> = 14, 
+&#160;&#160;<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec">INSTR1</a> = 13, 
+<a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae">INSTR2</a> = 14, 
 <a class="el" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a">COMMENTARY</a> = 15
 <br/>
  }</td></tr>
@@ -146,9 +150,22 @@ Enumerações</h2></td></tr>
 Funções</h2></td></tr>
 <tr class="memitem:a63ef6d488951c4541159fe0961565c4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtoken.html">token</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a63ef6d488951c4541159fe0961565c4d">scanner</a> (std::string line, int *position)</td></tr>
 <tr class="separator:a63ef6d488951c4541159fe0961565c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c1774c103fd792d21f8144c13ebbef9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a5c1774c103fd792d21f8144c13ebbef9">isValidInstruction</a> (std::string command)</td></tr>
-<tr class="separator:a5c1774c103fd792d21f8144c13ebbef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentação das macros</h2>
+<a class="anchor" id="a180873a64047585675744d9a3543109b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_LEXER&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definido na linha <a class="el" href="lexer_8h_source.html#l00004">4</a> do ficheiro <a class="el" href="lexer_8h_source.html">lexer.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Documentação dos valores da enumeração</h2>
 <a class="anchor" id="aa520fbf142ba1e7e659590c07da31921"></a>
 <div class="memitem">
@@ -159,21 +176,18 @@ Funções</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Código para indentificar o tipo de token. Valores negativos representam erros e valores positivos tokens válidos </p>
+<p>Código para indentificar o tipo de token </p>
 <table class="fieldtable">
 <tr><th colspan="2">Valores da enumeração</th></tr><tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a860a9a5cea93aed4f4a1ad272bd64694"></a>ERRCHAR</em>&#160;</td><td class="fielddoc">
+<p>Palavra mal formatada. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073"></a>ERRNUM</em>&#160;</td><td class="fielddoc">
+<p>Número mal formatado. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2"></a>INVALID</em>&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045"></a>SPC</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc"></a>WORD</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6"></a>NUM_DEC</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c"></a>NUM_HEX</em>&#160;</td><td class="fielddoc">
+<p>Espaço em branco ' ' ou . </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392"></a>COMMA</em>&#160;</td><td class="fielddoc">
 </td></tr>
@@ -189,47 +203,31 @@ Funções</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a6efed498d807a51143031a4ac4427927"></a>STR_END</em>&#160;</td><td class="fielddoc">
 </td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6"></a>NUM_DEC</em>&#160;</td><td class="fielddoc">
+<p>Número em decimal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c"></a>NUM_HEX</em>&#160;</td><td class="fielddoc">
+<p>Número em hexadecimal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc"></a>WORD</em>&#160;</td><td class="fielddoc">
+</td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b"></a>LABEL</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921acc7488e57f07fe0693ec0f72d186c300"></a>INSTRUCTION</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e"></a>INSTR0</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921ae3d30ffaffa3c06ed917e565dda1fbc5"></a>SYMBOL</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec"></a>INSTR1</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921ae3852cb010d5e422026faf83b3c16f0e"></a>DIRECTIVE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae"></a>INSTR2</em>&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a"></a>COMMENTARY</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
-<p>Definido na linha <a class="el" href="lexer_8h_source.html#l00013">13</a> do ficheiro <a class="el" href="lexer_8h_source.html">lexer.h</a>.</p>
+<p>Definido na linha <a class="el" href="lexer_8h_source.html#l00014">14</a> do ficheiro <a class="el" href="lexer_8h_source.html">lexer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentação das funções</h2>
-<a class="anchor" id="a5c1774c103fd792d21f8144c13ebbef9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int isValidInstruction </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>command</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Verifica se determinada String representa um comando válido caso seja inválido retorna INVALID_INSTRUCTION</p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>String a ser Avaliada </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Retorna</dt><dd>código da Instrução </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a63ef6d488951c4541159fe0961565c4d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -262,16 +260,15 @@ Funções</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>token </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Tarefa:</a></b></dt><dd>Incluir todo o token até o primeiro separador </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>descobrir uma melhor maneira sem ter que decrementar </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>Incluir todo o token até o primeiro separador </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Tarefa:</a></b></dt><dd>descobrir uma melhor maneira sem ter que decrementar </dd></dl>
 
-<p>Definido na linha <a class="el" href="lexer_8cpp_source.html#l00006">6</a> do ficheiro <a class="el" href="lexer_8cpp_source.html">lexer.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="lexer_8cpp_source.html#l00005">5</a> do ficheiro <a class="el" href="lexer_8cpp_source.html">lexer.cpp</a>.</p>
 
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h_a63ef6d488951c4541159fe0961565c4d_icgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h_a63ef6d488951c4541159fe0961565c4d_icgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 

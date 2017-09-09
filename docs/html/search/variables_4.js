@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type',['type',['../structtoken.html#a0ccfb094c0dce37e1bae7d990c06cc92',1,'token']]]
+  ['opcode',['opcode',['../structinstruction_line.html#a309feca274873683d12f90cf0bd81780',1,'instructionLine']]]
 ];

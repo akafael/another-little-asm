@@ -1,0 +1,168 @@
+\hypertarget{parser_8cpp}{\section{Referência ao ficheiro parser.\-cpp}
+\label{parser_8cpp}\index{parser.\-cpp@{parser.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}languagedefinition.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parser.\-h\char`\"{}}\\*
+Diagrama de dependências de inclusão para parser.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{parser_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{parser_8cpp_a05995444069695cfd17251c82913a2ce}{check\-Valid\-Instruction} (string command)
+\item 
+int \hyperlink{parser_8cpp_ac34489ced263c84198b4c0e83643ebe7}{is\-Valid\-Instruction} (string command)
+\item 
+int \hyperlink{parser_8cpp_a630c1bfba8f4ed9490db77c6146d6f7f}{is\-Valid\-Instruction\-Call} (string command, string arg1)
+\item 
+int \hyperlink{parser_8cpp_a7a3be2fded07ec8758103012a36464ce}{is\-Valid\-Instruction\-Call} (string command, string arg1, string arg2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentação das funções}
+\hypertarget{parser_8cpp_a05995444069695cfd17251c82913a2ce}{\index{parser.\-cpp@{parser.\-cpp}!check\-Valid\-Instruction@{check\-Valid\-Instruction}}
+\index{check\-Valid\-Instruction@{check\-Valid\-Instruction}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{check\-Valid\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}int check\-Valid\-Instruction (
+\begin{DoxyParamCaption}
+\item[{string}]{command}
+\end{DoxyParamCaption}
+)}}\label{parser_8cpp_a05995444069695cfd17251c82913a2ce}
+Verifica se determinada String representa um comando válido caso seja inválido retorna I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em command} & String a ser Avaliada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+código da Instrução 
+\end{DoxyReturn}
+
+
+Definido na linha 4 do ficheiro parser.\-cpp.
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{parser_8cpp_a05995444069695cfd17251c82913a2ce_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{parser_8cpp_ac34489ced263c84198b4c0e83643ebe7}{\index{parser.\-cpp@{parser.\-cpp}!is\-Valid\-Instruction@{is\-Valid\-Instruction}}
+\index{is\-Valid\-Instruction@{is\-Valid\-Instruction}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{is\-Valid\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Instruction (
+\begin{DoxyParamCaption}
+\item[{string}]{command}
+\end{DoxyParamCaption}
+)}}\label{parser_8cpp_ac34489ced263c84198b4c0e83643ebe7}
+Verifica se determinada String representa um comando válido caso seja inválido retorna o código da instrução+1 se verdadeiro ou zero se falso
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em command} & String a ser Avaliada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+código da Instrução 
+\end{DoxyReturn}
+
+
+Definido na linha 13 do ficheiro parser.\-cpp.
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{parser_8cpp_ac34489ced263c84198b4c0e83643ebe7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{parser_8cpp_a630c1bfba8f4ed9490db77c6146d6f7f}{\index{parser.\-cpp@{parser.\-cpp}!is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}}
+\index{is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{is\-Valid\-Instruction\-Call}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Instruction\-Call (
+\begin{DoxyParamCaption}
+\item[{string}]{command, }
+\item[{string}]{arg1}
+\end{DoxyParamCaption}
+)}}\label{parser_8cpp_a630c1bfba8f4ed9490db77c6146d6f7f}
+Verifica se as strings referentes a instrução e os parâmetros representam uma chamada válida da função, isto é se o argumento não contém palavras reservadas e se a instrução precisa de um argumento.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em command} & Instrução \\
+\hline
+{\em arg1} & Argumento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Verdadeiro ou falso; 
+\end{DoxyReturn}
+
+
+Definido na linha 22 do ficheiro parser.\-cpp.
+
+
+
+Grafo de chamadas desta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{parser_8cpp_a630c1bfba8f4ed9490db77c6146d6f7f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{parser_8cpp_a7a3be2fded07ec8758103012a36464ce}{\index{parser.\-cpp@{parser.\-cpp}!is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}}
+\index{is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{is\-Valid\-Instruction\-Call}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Instruction\-Call (
+\begin{DoxyParamCaption}
+\item[{string}]{command, }
+\item[{string}]{arg1, }
+\item[{string}]{arg2}
+\end{DoxyParamCaption}
+)}}\label{parser_8cpp_a7a3be2fded07ec8758103012a36464ce}
+Verifica se as strings referentes a instrução e os parâmetros representam uma chamada válida da função, isto é se os argumentos não contém palavras reservadas e se a instrução precisa de dois argumento.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em command} & Instrução \\
+\hline
+{\em arg1} & Argumento \\
+\hline
+{\em arg2} & Argumento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Verdadeiro ou falso; 
+\end{DoxyReturn}
+
+
+Definido na linha 35 do ficheiro parser.\-cpp.
+
+
+
+Grafo de chamadas desta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{parser_8cpp_a7a3be2fded07ec8758103012a36464ce_cgraph}
+\end{center}
+\end{figure}
+
+

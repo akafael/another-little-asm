@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['string',['string',['../structtoken.html#a2150b4d92215b15d0c62c40cafd407ba',1,'token']]]
+  ['numargs',['numArgs',['../structinstruction.html#abb5712c98f149b197b5c58b2dac15a03',1,'instruction']]]
 ];

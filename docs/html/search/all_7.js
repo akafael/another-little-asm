@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['label',['LABEL',['../lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b',1,'lexer.h']]],
+  ['label',['label',['../structlabel.html',1,'label'],['../lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b',1,'LABEL():&#160;lexer.h']]],
   ['languagedefinition_2eh',['languagedefinition.h',['../languagedefinition_8h.html',1,'']]],
   ['lexer_2ecpp',['lexer.cpp',['../lexer_8cpp.html',1,'']]],
   ['lexer_2eh',['lexer.h',['../lexer_8h.html',1,'']]],
