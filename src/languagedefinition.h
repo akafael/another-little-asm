@@ -10,6 +10,8 @@
 
 /**
  * Código das instruções
+ * @todo Alterar Opcodes para compatibilidade com simulador
+ * @todo Separar Instruções de Diretivas em tipos distintos
  */
  typedef enum {
     ADD      = 0,
