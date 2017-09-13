@@ -27,21 +27,24 @@ int assembler(int argc, char * argv[])
     string arquivo_entrada = argv[2];
     string arquivo_saida   = argv[3];
 
-    ifstream ArquivoASM(arquivo_entrada.c_str()); // input;
-    ofstream ArquivoPRE(arquivo_saida.c_str()); // output;
+    ifstream InputFILE(arquivo_entrada.c_str()); // input;
+    ofstream OutputFILE(arquivo_saida.c_str()); // output;
 
     // Teste se ambos os aquivos foram abertos corretamente;
-    if (!(ArquivoASM.is_open() && ArquivoPRE.is_open()))
+    if (!(InputFILE.is_open() && OutputFILE.is_open()))
     {
         cout << MSG_ERR_FILE;
         return 1;
     }
 
+    vector<symbol> symbolsTable;
+    vector<label> labelsTable;
+
     string line;
     bool errorDetected = false;
     int currentSymbolAddr = 0;
 
-    for(int lineCount = 0 ;getline(ArquivoASM,line);lineCount++)
+    for(int lineCount = 0 ;getline(InputFILE,line);lineCount++)
     {
 
         vector<token> vtoks;   ///< Tabela de Tokens
@@ -72,9 +75,6 @@ int assembler(int argc, char * argv[])
         }
 
         ////////////// Análise Semantica ///////////////
-
-        vector<symbol> symbolsTable;
-        vector<label> labelsTable;
 
         // Arvores de Derivação
         if(vtoks.size()==0)
@@ -323,14 +323,17 @@ int assembler(int argc, char * argv[])
             cout << endl;
             #endif
         }
-
-        // Escrita no Arquivo
-        //ArquivoPRE << tok.type << ' ';
-
     }
 
-    ArquivoPRE.close();
-    ArquivoASM.close();
+    // Escrita no Arquivo
+    for(vector<symbol>::iterator it = symbolsTable.begin(); it != symbolsTable.end();++it)
+    {
+        /// @todo Ajustar Formato do Arquivo objeto
+        OutputFILE << (*it).content << ' ';
+    }
+
+    OutputFILE.close();
+    InputFILE.close();
 
     if(errorDetected){
         // Gera código de erro
