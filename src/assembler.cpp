@@ -57,7 +57,7 @@ int assembler(int argc, char * argv[])
                 case ERRCHAR:
                 case ERRNUM:
                 case INVALID:
-                    cerr << PRINT_ERR_TOKEN(lineCount,tok.string);
+                    PRINT_ERR_TOKEN(lineCount,tok.string);
                     break;
                 case SPC:
                     // Elimina Espaços em Branco
@@ -85,7 +85,15 @@ int assembler(int argc, char * argv[])
         {
             // INST0
             int code = isValidInstructionCall(vtoks[0].string);
-            if(code!=INVALID_INSTRUCTION)
+            if(code==INVALID_INSTRUCTION)
+            {
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
+            else if(code==INVALID_ARG_NUMBER)
+            {
+                PRINT_ERR_ARG_NUM(lineCount,line);
+            }
+            else // Instrução Chamada de Instrução Válida
             {
                 // Cria Simbolo e coloca na tabela
                 symbol tmp_symb;
@@ -97,19 +105,26 @@ int assembler(int argc, char * argv[])
                  // Atualiza Endereço p/ próximo simbolo
                 currentSymbolAddr++;
             }
-            else
-            {
-                // Possível Erro: "Label Mal Formatado" ou "Instrução Inválida"
-                cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
         }
         else if((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD))
         {
             // INST1
             int code = isValidInstructionCall(vtoks[0].string,vtoks[1].string);
-            if(code!=INVALID_INSTRUCTION)
+            if(code==INVALID_INSTRUCTION)
             {
-                // Cria Simbolo e coloca na tabela
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
+            else if(code==INVALID_ARG_NUMBER)
+            {
+                PRINT_ERR_ARG_NUM(lineCount,line);
+            }
+            else if(code==INVALID_ARG1)
+            {
+                PRINT_ERR_ARG(lineCount,line,vtoks[1].string);
+            }
+            else // Instrução Chamada de Instrução Válida
+            {
+                // Cria Simbolos e coloca na tabela
                 symbol tmp_symb0,tmp_symb1;
 
                 tmp_symb0.type = SYM_INSTRUCTION;
@@ -126,18 +141,29 @@ int assembler(int argc, char * argv[])
                  // Atualiza Endereço p/ próximo simbolo
                 currentSymbolAddr+=2;
             }
-            else
-            {
-                // Possível Erro: "Label Mal Formatado" ou "Instrução Inválida"
-                cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
                 &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD))
         {
             // INST 2
             int code = isValidInstructionCall(vtoks[0].string,vtoks[1].string,vtoks[3].string);
-            if(code!=INVALID_INSTRUCTION)
+            if(code==INVALID_INSTRUCTION)
+            {
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
+            else if(code==INVALID_ARG_NUMBER)
+            {
+                PRINT_ERR_ARG_NUM(lineCount,line);
+            }
+            else if(code==INVALID_ARG1)
+            {
+                PRINT_ERR_ARG(lineCount,line,vtoks[1].string);
+            }
+            else if(code==INVALID_ARG2)
+            {
+                PRINT_ERR_ARG(lineCount,line,vtoks[3].string);
+            }
+            else // Instrução Chamada de Instrução Válida
             {
                 // Cria Simbolo e coloca na tabela
                 symbol tmp_symb0,tmp_symb1,tmp_symb2;
@@ -161,11 +187,6 @@ int assembler(int argc, char * argv[])
 
                  // Atualiza Endereço p/ próximo simbolo
                 currentSymbolAddr+=3;
-            }
-            else
-            {
-                // Possível Erro: "Instrução Inválida", "Argumento Inválido"
-                cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
             }
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON))
@@ -179,7 +200,15 @@ int assembler(int argc, char * argv[])
 
             // INST0
             int code = isValidInstructionCall(vtoks[2].string);
-            if(code!=INVALID_INSTRUCTION)
+            if(code==INVALID_INSTRUCTION)
+            {
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
+            else if(code==INVALID_ARG_NUMBER)
+            {
+                PRINT_ERR_ARG_NUM(lineCount,line);
+            }
+            else // Instrução Chamada de Instrução Válida
             {
                 // Cria Simbolo e coloca na tabela
                 symbol tmp_symb;
@@ -191,11 +220,6 @@ int assembler(int argc, char * argv[])
                  // Atualiza Endereço p/ próximo simbolo
                 currentSymbolAddr++;
             }
-            else
-            {
-                // Possível Erro: "Label Mal Formatado" ou "Instrução Inválida"
-                cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
                 &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD))
@@ -204,9 +228,21 @@ int assembler(int argc, char * argv[])
 
             // INST1
             int code = isValidInstructionCall(vtoks[2].string,vtoks[3].string);
-            if(code!=INVALID_INSTRUCTION)
+            if(code==INVALID_INSTRUCTION)
             {
-                // Cria Simbolo e coloca na tabela
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
+            else if(code==INVALID_ARG_NUMBER)
+            {
+                PRINT_ERR_ARG_NUM(lineCount,line);
+            }
+            else if(code==INVALID_ARG1)
+            {
+                PRINT_ERR_ARG(lineCount,line,vtoks[3].string);
+            }
+            else // Instrução Chamada de Instrução Válida
+            {
+                // Cria Simbolos e coloca na tabela
                 symbol tmp_symb0,tmp_symb1;
 
                 tmp_symb0.type = SYM_INSTRUCTION;
@@ -223,11 +259,6 @@ int assembler(int argc, char * argv[])
                  // Atualiza Endereço p/ próximo simbolo
                 currentSymbolAddr+=2;
             }
-            else
-            {
-                // Possível Erro: "Label Mal Formatado" ou "Instrução Inválida"
-                cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
         }
         else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
                 &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD)&&(vtoks[4].type==COMMA)\
@@ -237,7 +268,23 @@ int assembler(int argc, char * argv[])
 
             // INST 2
             int code = isValidInstructionCall(vtoks[2].string,vtoks[3].string,vtoks[5].string);
-            if(code!=INVALID_INSTRUCTION)
+            if(code==INVALID_INSTRUCTION)
+            {
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
+            else if(code==INVALID_ARG_NUMBER)
+            {
+                PRINT_ERR_ARG_NUM(lineCount,line);
+            }
+            else if(code==INVALID_ARG1)
+            {
+                PRINT_ERR_ARG(lineCount,line,vtoks[3].string);
+            }
+            else if(code==INVALID_ARG2)
+            {
+                PRINT_ERR_ARG(lineCount,line,vtoks[5].string);
+            }
+            else // Instrução Chamada de Instrução Válida
             {
                 // Cria Simbolo e coloca na tabela
                 symbol tmp_symb0,tmp_symb1,tmp_symb2;
@@ -262,16 +309,11 @@ int assembler(int argc, char * argv[])
                  // Atualiza Endereço p/ próximo simbolo
                 currentSymbolAddr+=3;
             }
-            else
-            {
-                // Possível Erro: "Instrução Inválida", "Argumento Inválido"
-                cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
         }
         else
         {
             // Instrução Mal formatada
-            cerr<<PRINT_ERR_INSTRUCTION(lineCount,line);
+            PRINT_ERR_INSTRUCTION(lineCount,line);
 
             #if DEBUG_ASSEMBLER
             for(vector<token>::iterator it = vtoks.begin(); it != vtoks.end();++it)

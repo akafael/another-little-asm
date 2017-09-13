@@ -15,7 +15,7 @@ typedef enum{
 // Tokens Inválidos ( Valores negativos )
     ERRCHAR     = -3, ///< Palavra mal formatada
     ERRNUM      = -2, ///< Número mal formatado
-    INVALID     = -1,
+    INVALID     = -1, ///< Token Inválido Genérico
 // Simbolos Terminais:
     SPC         =  0, ///< Espaço em branco ' ' ou \t
     COMMA       =  1, // ,
@@ -30,9 +30,9 @@ typedef enum{
     NUM_HEX     =  9,  ///< Número em hexadecimal
     WORD        =  10,
     LABEL       =  11,
-    INSTR0      =  12,
-    INSTR1      =  13,
-    INSTR2      =  14,
+    INSTR0      =  12, ///< Instrução sem argumentos
+    INSTR1      =  13, ///< Instrução com 1 argumento
+    INSTR2      =  14, ///< Instrução com 2 argumentos
     COMMENTARY  =  15
 } TokenType;
 
