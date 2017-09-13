@@ -20,6 +20,12 @@ typedef enum{
     SYM_NUM_HEX = 5,     ///< Simbolo Não Terminal
 } SymbolType;
 
+typedef enum{
+    INVALID_ARG2        = -3,
+    INVALID_ARG1        = -2,
+    INVALID_ARG_NUMBER  = -1,
+    INVALID_INSTRUCTION =  0
+} InstructionErrorCode;
 
 /**
  * Elemento da tabela de simbolos com referência as outras tabelas
@@ -56,7 +62,7 @@ typedef struct{
  * ou zero se falso
  *
  * @param  command String a ser Avaliada
- * @return         código da Instrução ou Falso (valor 0)
+ * @return         código da Instrução ou código de erro (InstructionErrorCode)
  */
 int isValidInstructionCall(string command);
 
@@ -67,7 +73,7 @@ int isValidInstructionCall(string command);
  *
  * @param  command Instrução
  * @param  arg1    Argumento
- * @return         código da Instrução ou Falso (valor 0)
+ * @return         código da Instrução ou código de erro (InstructionErrorCode)
  */
 int isValidInstructionCall(string command, string arg1);
 
@@ -79,7 +85,7 @@ int isValidInstructionCall(string command, string arg1);
  * @param  command Instrução
  * @param  arg1    Argumento
  * @param  arg2    Argumento
- * @return         código da Instrução ou Falso (valor 0)
+ * @return         código da Instrução ou código de erro (InstructionErrorCode)
  */
 int isValidInstructionCall(string command, string arg1,string arg2);
 

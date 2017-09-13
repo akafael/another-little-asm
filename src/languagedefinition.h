@@ -41,7 +41,6 @@
 } InstructionCode;
 
 #define INSTRUCTIONS_NUMBER 24
-#define INVALID_INSTRUCTION 0
 
 const static char *InstrutionString[] = {
   "ADD",
@@ -100,7 +99,5 @@ const static int InstructionArgNumber[] = {
     0, // "BEGIN"
     0  // "END"
 };
-
-/// @todo Separar Diretivas em um tipo diferente
 
 #endif // YLA_LANGUAGE_DEFINITION_H_
