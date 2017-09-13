@@ -14,34 +14,34 @@
  * @todo Separar Instruções de Diretivas em tipos distintos
  */
  typedef enum {
-    ADD      = 0,
-    SUB      = 1,
-    MULT     = 2,
-    DIV      = 3,
-    JMP      = 4,
-    JMPN     = 5,
-    JMPP     = 6,
-    JMPZ     = 7,
-    COPY     = 8,
-    LOAD     = 9,
-    STORE    = 10,
-    INPUT    = 11,
-    OUTPUT   = 12,
-    STOP     = 13,
-    SECTION  = 14,
-    SPACE0   = 15,
-    SPACE1   = 16,
-    CONST    = 17,
-    EQU      = 18,
-    IF       = 19,
-    MACRO    = 20,
-    ENDMACRO = 21,
-    BEGIN    = 22,
-    END      = 23
+    ADD      = 1,
+    SUB      = 2,
+    MULT     = 3,
+    DIV      = 4,
+    JMP      = 5,
+    JMPN     = 6,
+    JMPP     = 7,
+    JMPZ     = 8,
+    COPY     = 9,
+    LOAD     = 10,
+    STORE    = 11,
+    INPUT    = 12,
+    OUTPUT   = 13,
+    STOP     = 14,
+    SECTION  = 15,
+    SPACE0   = 16,
+    SPACE1   = 17,
+    CONST    = 18,
+    EQU      = 19,
+    IF       = 20,
+    MACRO    = 21,
+    ENDMACRO = 22,
+    BEGIN    = 23,
+    END      = 24
 } InstructionCode;
 
 #define INSTRUCTIONS_NUMBER 24
-#define INVALID_INSTRUCTION -1
+#define INVALID_INSTRUCTION 0
 
 const static char *InstrutionString[] = {
   "ADD",

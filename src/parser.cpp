@@ -1,8 +1,8 @@
 #include "languagedefinition.h"
 #include "parser.h"
 
-int checkValidInstruction(string command){
-    for (int i = 0; i < INSTRUCTIONS_NUMBER; i++) {
+int isValidInstructionCall(string command){
+    for (int i = 1; i <=INSTRUCTIONS_NUMBER; i++) {
         if (command.compare(InstrutionString[i]) == 0) {
             return (i+1);
         }
@@ -10,17 +10,8 @@ int checkValidInstruction(string command){
     return INVALID_INSTRUCTION;
 }
 
-int isValidInstruction(string command){
-    for (int i = 0; i < INSTRUCTIONS_NUMBER; i++) {
-        if (command.compare(InstrutionString[i]) == 0) {
-            return (i+1);
-        }
-    }
-    return false;
-}
-
 int isValidInstructionCall(string command, string arg1){
-    int code = checkValidInstruction(command);
+    int code = isValidInstructionCall(command);
 
     if(code==INVALID_INSTRUCTION)
     {
@@ -28,12 +19,19 @@ int isValidInstructionCall(string command, string arg1){
     }
     else
     {
-        return((InstructionArgNumber[code]==1)&&!isValidInstruction(arg1));
+        if((InstructionArgNumber[code-1]==1)&&!isValidInstructionCall(arg1))
+        {
+            return code;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 
 int isValidInstructionCall(string command, string arg1,string arg2){
-    int code = checkValidInstruction(command);
+    int code = isValidInstructionCall(command);
 
     if(code==INVALID_INSTRUCTION)
     {
@@ -41,6 +39,14 @@ int isValidInstructionCall(string command, string arg1,string arg2){
     }
     else
     {
-        return((InstructionArgNumber[code]==2)&&!isValidInstruction(arg1)&&!isValidInstruction(arg2));
+        if((InstructionArgNumber[code-1]==2)&&(!isValidInstructionCall(arg1))\
+           &&!isValidInstructionCall(arg2))
+        {
+            return code;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

@@ -8,10 +8,10 @@
 using namespace std;
 
 /**
- * Define simbolos segundo a
+ * Define simbolos gramáticais
  */
 typedef enum{
-    SYM_COMMENTARY = -1, ///< Não Sim
+    SYM_COMMENTARY = -1, ///< Simbolo Ignorado
     SYM_TERM = 0,        ///< Simbolo Terminal
     SYM_DIRECTIVE = 1,   ///< Simbolo Não Terminal
     SYM_INSTRUCTION = 2, ///< Simbolo Não Terminal
@@ -20,32 +20,35 @@ typedef enum{
     SYM_NUM_HEX = 5,     ///< Simbolo Não Terminal
 } SymbolType;
 
+
+/**
+ * Elemento da tabela de simbolos com referência as outras tabelas
+ */
 typedef struct{
-    void *content;
+    int content;
     SymbolType type;
     int address;
 } symbol;
 
+/**
+ * Elemento da tabela de Instruções
+ */
 typedef struct{
     int code;
     int numArgs;
     string text;
 } instruction;
 
+/**
+ * Elemento da tabela de rótulos
+ */
 typedef struct{
     int value;
     int addr;
     string text;
 } label;
 
-/**
- * Verifica se determinada String representa um comando válido
- * caso seja inválido retorna INVALID_INSTRUCTION
- *
- * @param  command String a ser Avaliada
- * @return         código da Instrução
- */
-int checkValidInstruction(string command);
+#define UNDEFINED_LABEL_ADDR -1
 
 /**
  * Verifica se determinada String representa um comando válido
@@ -53,9 +56,9 @@ int checkValidInstruction(string command);
  * ou zero se falso
  *
  * @param  command String a ser Avaliada
- * @return         código da Instrução
+ * @return         código da Instrução ou Falso (valor 0)
  */
-int isValidInstruction(string command);
+int isValidInstructionCall(string command);
 
 /**
  * Verifica se as strings referentes a instrução e os parâmetros representam
@@ -64,7 +67,7 @@ int isValidInstruction(string command);
  *
  * @param  command Instrução
  * @param  arg1    Argumento
- * @return         Verdadeiro ou falso;
+ * @return         código da Instrução ou Falso (valor 0)
  */
 int isValidInstructionCall(string command, string arg1);
 
@@ -76,7 +79,7 @@ int isValidInstructionCall(string command, string arg1);
  * @param  command Instrução
  * @param  arg1    Argumento
  * @param  arg2    Argumento
- * @return         Verdadeiro ou falso;
+ * @return         código da Instrução ou Falso (valor 0)
  */
 int isValidInstructionCall(string command, string arg1,string arg2);
 
