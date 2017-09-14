@@ -4,6 +4,7 @@
 #define DEBUG_LEXER 0
 
 #include <string>
+#include <vector>
 #include "languagedefinition.h"
 
 using namespace std;
@@ -55,5 +56,7 @@ typedef struct{
  * @return          token
  */
 token scanner(std::string line, int *position);
+
+vector<token> tokenizer(string line);
 
 #endif // YLA_PARSER_H_

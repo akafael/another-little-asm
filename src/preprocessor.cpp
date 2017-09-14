@@ -7,9 +7,11 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 #include "msgs_pt.h"
 #include "preprocessor.h"
+#include "lexer.h"
 
 using namespace std;
 
@@ -45,6 +47,33 @@ int preprocessor(int argc, char ** argv)
         character = line.find(';');
         if(character!=std::string::npos){
             line = line.substr(0,character);
+        }
+
+        // Detecta EQU e verifica sintaxe
+        character = line.find("EQU");
+        if(character!=std::string::npos){
+
+            vector<token> vtoks = tokenizer(line);
+
+            if(!((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                    &&(vtoks[2].type==WORD)&&(vtoks[3].type==NUM_DEC)))
+            {
+                // Uso Incorreto do EQU
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
+        }
+
+        // Detecta IF e verifica sintaxe
+        character = line.find("IF");
+        if(character!=std::string::npos){
+
+            vector<token> vtoks = tokenizer(line);
+
+            if(!((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)))
+            {
+                // Uso Incorreto do IF
+                PRINT_ERR_INSTRUCTION(lineCount,line);
+            }
         }
 
        if(!ignoreLine){

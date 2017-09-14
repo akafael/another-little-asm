@@ -92,3 +92,15 @@ token scanner(std::string line, int *position){
     // Retorna Token
     return tok;
 }
+
+vector<token> tokenizer(string line){
+    vector<token> vtoks;
+    for (int i=0; i<line.length(); ++i){
+        // Identifica tokens e pula para o fim do token
+        token tok = scanner(line,&i);
+        if(tok.type!=SPC){
+            vtoks.push_back(tok);
+        }
+    }
+    return vtoks;
+}
