@@ -9,8 +9,7 @@ Diagrama de dependências de inclusão para parser.\-h\-:\nopagebreak
 \includegraphics[width=132pt]{parser_8h__incl}
 \end{center}
 \end{figure}
-Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:
-\nopagebreak
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,6 +29,8 @@ struct \hyperlink{structlabel}{label}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{parser_8h_a8e654728b92a3e3e7040c10d72e77868}{D\-E\-B\-U\-G\-\_\-\-P\-A\-R\-S\-E\-R}~0
+\item 
+\#define \hyperlink{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}~-\/1
 \end{DoxyCompactItemize}
 \subsection*{Enumerações}
 \begin{DoxyCompactItemize}
@@ -44,13 +45,17 @@ enum \hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3}{Symbol\-Type} \{ \\
 \hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3ac3447c076bbd66dc22cd6bc66db4e8e5}{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C} = 4, 
 \hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3aaa3a3f3e7d883f4fcb3e868faebebc91}{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-H\-E\-X} = 5
  \}
+\item 
+enum \hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797}{Instruction\-Error\-Code} \{ \hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797afb895cf5ab28c6776084d9001215f9c0}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G2} = -\/3, 
+\hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G1} = -\/2, 
+\hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M\-B\-E\-R} = -\/1, 
+\hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797ab2f7ed498a00388d8cbe61d60a625849}{I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N} = 0
+ \}
 \end{DoxyCompactItemize}
 \subsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{parser_8h_a05995444069695cfd17251c82913a2ce}{check\-Valid\-Instruction} (string command)
-\item 
-int \hyperlink{parser_8h_ac34489ced263c84198b4c0e83643ebe7}{is\-Valid\-Instruction} (string command)
+int \hyperlink{parser_8h_ab6243b513963c15735c801e6e3b7fbdf}{is\-Valid\-Instruction\-Call} (string command)
 \item 
 int \hyperlink{parser_8h_a630c1bfba8f4ed9490db77c6146d6f7f}{is\-Valid\-Instruction\-Call} (string command, string arg1)
 \item 
@@ -68,18 +73,45 @@ int \hyperlink{parser_8h_aebc52cad6ca085a1842a0e5674d0afe4}{is\-Valid\-Directive
 
 Definido na linha 4 do ficheiro parser.\-h.
 
+\hypertarget{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}{\index{parser.\-h@{parser.\-h}!U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R@{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}}
+\index{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R@{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}!parser.h@{parser.\-h}}
+\subsubsection[{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R~-\/1}}\label{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}
+
+
+Definido na linha 57 do ficheiro parser.\-h.
+
 
 
 \subsection{Documentação dos valores da enumeração}
+\hypertarget{parser_8h_ae9de418dd21c65a758a8138c66b71797}{\index{parser.\-h@{parser.\-h}!Instruction\-Error\-Code@{Instruction\-Error\-Code}}
+\index{Instruction\-Error\-Code@{Instruction\-Error\-Code}!parser.h@{parser.\-h}}
+\subsubsection[{Instruction\-Error\-Code}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Instruction\-Error\-Code}}}\label{parser_8h_ae9de418dd21c65a758a8138c66b71797}
+\begin{Desc}
+\item[Valores da enumeração]\par
+\begin{description}
+\index{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G2@{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G2}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G2@{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G2}}\item[{\em 
+\hypertarget{parser_8h_ae9de418dd21c65a758a8138c66b71797afb895cf5ab28c6776084d9001215f9c0}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G2}\label{parser_8h_ae9de418dd21c65a758a8138c66b71797afb895cf5ab28c6776084d9001215f9c0}
+}]\index{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G1@{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G1}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G1@{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G1}}\item[{\em 
+\hypertarget{parser_8h_ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G1}\label{parser_8h_ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0}
+}]\index{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M\-B\-E\-R@{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M\-B\-E\-R}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M\-B\-E\-R@{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{parser_8h_ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M\-B\-E\-R}\label{parser_8h_ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658}
+}]\index{I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N@{I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N@{I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}}\item[{\em 
+\hypertarget{parser_8h_ae9de418dd21c65a758a8138c66b71797ab2f7ed498a00388d8cbe61d60a625849}{I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}\label{parser_8h_ae9de418dd21c65a758a8138c66b71797ab2f7ed498a00388d8cbe61d60a625849}
+}]\end{description}
+\end{Desc}
+
+
+Definido na linha 23 do ficheiro parser.\-h.
+
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3}{\index{parser.\-h@{parser.\-h}!Symbol\-Type@{Symbol\-Type}}
 \index{Symbol\-Type@{Symbol\-Type}!parser.h@{parser.\-h}}
 \subsubsection[{Symbol\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Symbol\-Type}}}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3}
-Define simbolos segundo a \begin{Desc}
+Define simbolos gramáticais \begin{Desc}
 \item[Valores da enumeração]\par
 \begin{description}
 \index{S\-Y\-M\-\_\-\-C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{S\-Y\-M\-\_\-\-C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{S\-Y\-M\-\_\-\-C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}}\item[{\em 
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3aace340f2743e515dfc1fb716b009b53f}{S\-Y\-M\-\_\-\-C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3aace340f2743e515dfc1fb716b009b53f}
-}]Não Sim. \index{S\-Y\-M\-\_\-\-T\-E\-R\-M@{S\-Y\-M\-\_\-\-T\-E\-R\-M}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-T\-E\-R\-M@{S\-Y\-M\-\_\-\-T\-E\-R\-M}}\item[{\em 
+}]Simbolo Ignorado. \index{S\-Y\-M\-\_\-\-T\-E\-R\-M@{S\-Y\-M\-\_\-\-T\-E\-R\-M}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-T\-E\-R\-M@{S\-Y\-M\-\_\-\-T\-E\-R\-M}}\item[{\em 
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3aa1ee091ffef78c65aa04ffa85e91fb93}{S\-Y\-M\-\_\-\-T\-E\-R\-M}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3aa1ee091ffef78c65aa04ffa85e91fb93}
 }]Simbolo Terminal. \index{S\-Y\-M\-\_\-\-D\-I\-R\-E\-C\-T\-I\-V\-E@{S\-Y\-M\-\_\-\-D\-I\-R\-E\-C\-T\-I\-V\-E}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-D\-I\-R\-E\-C\-T\-I\-V\-E@{S\-Y\-M\-\_\-\-D\-I\-R\-E\-C\-T\-I\-V\-E}}\item[{\em 
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3a270e53d42f4e631a8afda839b04b5193}{S\-Y\-M\-\_\-\-D\-I\-R\-E\-C\-T\-I\-V\-E}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3a270e53d42f4e631a8afda839b04b5193}
@@ -100,39 +132,6 @@ Definido na linha 13 do ficheiro parser.\-h.
 
 
 \subsection{Documentação das funções}
-\hypertarget{parser_8h_a05995444069695cfd17251c82913a2ce}{\index{parser.\-h@{parser.\-h}!check\-Valid\-Instruction@{check\-Valid\-Instruction}}
-\index{check\-Valid\-Instruction@{check\-Valid\-Instruction}!parser.h@{parser.\-h}}
-\subsubsection[{check\-Valid\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}int check\-Valid\-Instruction (
-\begin{DoxyParamCaption}
-\item[{string}]{command}
-\end{DoxyParamCaption}
-)}}\label{parser_8h_a05995444069695cfd17251c82913a2ce}
-Verifica se determinada String representa um comando válido caso seja inválido retorna I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N
-
-
-\begin{DoxyParams}{Parâmetros}
-{\em command} & String a ser Avaliada \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-código da Instrução 
-\end{DoxyReturn}
-
-
-Definido na linha 4 do ficheiro parser.\-cpp.
-
-
-
-Este é o diagrama das funções que utilizam esta função\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=336pt]{parser_8h_a05995444069695cfd17251c82913a2ce_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{parser_8h_aebc52cad6ca085a1842a0e5674d0afe4}{\index{parser.\-h@{parser.\-h}!is\-Valid\-Directive@{is\-Valid\-Directive}}
 \index{is\-Valid\-Directive@{is\-Valid\-Directive}!parser.h@{parser.\-h}}
 \subsubsection[{is\-Valid\-Directive}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Directive (
@@ -150,13 +149,13 @@ Verifica se determinada String representa um comando válido caso seja inválido
 \begin{DoxyReturn}{Retorna}
 código da Diretiva 
 \end{DoxyReturn}
-\hypertarget{parser_8h_ac34489ced263c84198b4c0e83643ebe7}{\index{parser.\-h@{parser.\-h}!is\-Valid\-Instruction@{is\-Valid\-Instruction}}
-\index{is\-Valid\-Instruction@{is\-Valid\-Instruction}!parser.h@{parser.\-h}}
-\subsubsection[{is\-Valid\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Instruction (
+\hypertarget{parser_8h_ab6243b513963c15735c801e6e3b7fbdf}{\index{parser.\-h@{parser.\-h}!is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}}
+\index{is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}!parser.h@{parser.\-h}}
+\subsubsection[{is\-Valid\-Instruction\-Call}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Instruction\-Call (
 \begin{DoxyParamCaption}
 \item[{string}]{command}
 \end{DoxyParamCaption}
-)}}\label{parser_8h_ac34489ced263c84198b4c0e83643ebe7}
+)}}\label{parser_8h_ab6243b513963c15735c801e6e3b7fbdf}
 Verifica se determinada String representa um comando válido caso seja inválido retorna o código da instrução+1 se verdadeiro ou zero se falso
 
 
@@ -165,11 +164,11 @@ Verifica se determinada String representa um comando válido caso seja inválido
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-código da Instrução 
+código da Instrução ou código de erro (Instruction\-Error\-Code) 
 \end{DoxyReturn}
 
 
-Definido na linha 13 do ficheiro parser.\-cpp.
+Definido na linha 4 do ficheiro parser.\-cpp.
 
 
 
@@ -178,7 +177,7 @@ Este é o diagrama das funções que utilizam esta função\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=318pt]{parser_8h_ac34489ced263c84198b4c0e83643ebe7_icgraph}
+\includegraphics[width=350pt]{parser_8h_ab6243b513963c15735c801e6e3b7fbdf_icgraph}
 \end{center}
 \end{figure}
 
@@ -201,11 +200,11 @@ Verifica se as strings referentes a instrução e os parâmetros representam uma
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-Verdadeiro ou falso; 
+código da Instrução ou código de erro (Instruction\-Error\-Code) 
 \end{DoxyReturn}
 
 
-Definido na linha 22 do ficheiro parser.\-cpp.
+Definido na linha 14 do ficheiro parser.\-cpp.
 
 
 
@@ -240,11 +239,11 @@ Verifica se as strings referentes a instrução e os parâmetros representam uma
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-Verdadeiro ou falso; 
+código da Instrução ou código de erro (Instruction\-Error\-Code) 
 \end{DoxyReturn}
 
 
-Definido na linha 35 do ficheiro parser.\-cpp.
+Definido na linha 32 do ficheiro parser.\-cpp.
 
 
 

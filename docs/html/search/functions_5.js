@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scanner',['scanner',['../lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d',1,'scanner(std::string line, int *position):&#160;lexer.cpp'],['../lexer_8h.html#a63ef6d488951c4541159fe0961565c4d',1,'scanner(std::string line, int *position):&#160;lexer.cpp']]]
+  ['tokenizer',['tokenizer',['../lexer_8cpp.html#ab482a9701233ff4e5a0ffc1f75f9c41a',1,'tokenizer(string line):&#160;lexer.cpp'],['../lexer_8h.html#ab482a9701233ff4e5a0ffc1f75f9c41a',1,'tokenizer(string line):&#160;lexer.cpp']]]
 ];

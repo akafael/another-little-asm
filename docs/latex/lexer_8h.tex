@@ -2,19 +2,22 @@
 \label{lexer_8h}\index{lexer.\-h@{lexer.\-h}}
 }
 {\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
 {\ttfamily \#include \char`\"{}languagedefinition.\-h\char`\"{}}\\*
-Diagrama de dependências de inclusão para lexer.\-h\-:\nopagebreak
+Diagrama de dependências de inclusão para lexer.\-h\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=241pt]{lexer_8h__incl}
+\includegraphics[width=304pt]{lexer_8h__incl}
 \end{center}
 \end{figure}
-Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:\nopagebreak
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=234pt]{lexer_8h__dep__incl}
+\includegraphics[width=344pt]{lexer_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Componentes}
@@ -62,6 +65,8 @@ enum \hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921}{Token\-Type} \{ \\*
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{structtoken}{token} \hyperlink{lexer_8h_a63ef6d488951c4541159fe0961565c4d}{scanner} (std\-::string line, int $\ast$position)
+\item 
+vector$<$ \hyperlink{structtoken}{token} $>$ \hyperlink{lexer_8h_ab482a9701233ff4e5a0ffc1f75f9c41a}{tokenizer} (string line)
 \end{DoxyCompactItemize}
 
 
@@ -88,7 +93,7 @@ Código para indentificar o tipo de token \begin{Desc}
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073}{E\-R\-R\-N\-U\-M}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a1d52e71aa3a4ef78dca8e491eb29a073}
 }]Número mal formatado. \index{I\-N\-V\-A\-L\-I\-D@{I\-N\-V\-A\-L\-I\-D}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-V\-A\-L\-I\-D@{I\-N\-V\-A\-L\-I\-D}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2}{I\-N\-V\-A\-L\-I\-D}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2}
-}]\index{S\-P\-C@{S\-P\-C}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!S\-P\-C@{S\-P\-C}}\item[{\em 
+}]Token Inválido Genérico. \index{S\-P\-C@{S\-P\-C}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!S\-P\-C@{S\-P\-C}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045}{S\-P\-C}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045}
 }]Espaço em branco ' ' ou . \index{C\-O\-M\-M\-A@{C\-O\-M\-M\-A}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!C\-O\-M\-M\-A@{C\-O\-M\-M\-A}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392}{C\-O\-M\-M\-A}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921af81277bcd86412fe04bb68718ea09392}
@@ -114,17 +119,17 @@ Código para indentificar o tipo de token \begin{Desc}
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}{L\-A\-B\-E\-L}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}
 }]\index{I\-N\-S\-T\-R0@{I\-N\-S\-T\-R0}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R0@{I\-N\-S\-T\-R0}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e}{I\-N\-S\-T\-R0}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e}
-}]\index{I\-N\-S\-T\-R1@{I\-N\-S\-T\-R1}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R1@{I\-N\-S\-T\-R1}}\item[{\em 
+}]Instrução sem argumentos. \index{I\-N\-S\-T\-R1@{I\-N\-S\-T\-R1}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R1@{I\-N\-S\-T\-R1}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec}{I\-N\-S\-T\-R1}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec}
-}]\index{I\-N\-S\-T\-R2@{I\-N\-S\-T\-R2}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R2@{I\-N\-S\-T\-R2}}\item[{\em 
+}]Instrução com 1 argumento. \index{I\-N\-S\-T\-R2@{I\-N\-S\-T\-R2}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R2@{I\-N\-S\-T\-R2}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae}{I\-N\-S\-T\-R2}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae}
-}]\index{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}}\item[{\em 
+}]Instrução com 2 argumentos. \index{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}
 }]\end{description}
 \end{Desc}
 
 
-Definido na linha 14 do ficheiro lexer.\-h.
+Definido na linha 15 do ficheiro lexer.\-h.
 
 
 
@@ -148,22 +153,62 @@ Verifica uma string em busca de tokens válidos
 token 
 \end{DoxyReturn}
 \begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000002}{Tarefa}]Incluir todo o token até o primeiro separador \end{DoxyRefDesc}
-
-
-\begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000003}{Tarefa}]descobrir uma melhor maneira sem ter que decrementar \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000009}{Tarefa}]Incluir todo o token até o primeiro separador \end{DoxyRefDesc}
 
 
 Definido na linha 5 do ficheiro lexer.\-cpp.
 
 
 
-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=304pt]{lexer_8h_a63ef6d488951c4541159fe0961565c4d_icgraph}
+\includegraphics[width=350pt]{lexer_8h_a63ef6d488951c4541159fe0961565c4d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lexer_8h_ab482a9701233ff4e5a0ffc1f75f9c41a}{\index{lexer.\-h@{lexer.\-h}!tokenizer@{tokenizer}}
+\index{tokenizer@{tokenizer}!lexer.h@{lexer.\-h}}
+\subsubsection[{tokenizer}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf token}$>$ tokenizer (
+\begin{DoxyParamCaption}
+\item[{string}]{line}
+\end{DoxyParamCaption}
+)}}\label{lexer_8h_ab482a9701233ff4e5a0ffc1f75f9c41a}
+Verifica uma string e retorna um vetor de tokens 
+\begin{DoxyParams}{Parâmetros}
+{\em line} & linha de entrada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+tokens retornados 
+\end{DoxyReturn}
+
+
+Definido na linha 96 do ficheiro lexer.\-cpp.
+
+
+
+Grafo de chamadas desta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{lexer_8h_ab482a9701233ff4e5a0ffc1f75f9c41a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{lexer_8h_ab482a9701233ff4e5a0ffc1f75f9c41a_icgraph}
 \end{center}
 \end{figure}
 

@@ -87,58 +87,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <a href="parser_8cpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="languagedefinition_8h.html">languagedefinition.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parser_8h.html">parser.h</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="parser_8h.html#a05995444069695cfd17251c82913a2ce">    4</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#a05995444069695cfd17251c82913a2ce">checkValidInstruction</a>(<span class="keywordtype">string</span> command){</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a>; i++) {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        <span class="keywordflow">if</span> (command.compare(<a class="code" href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a>[i]) == 0) {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;            <span class="keywordflow">return</span> (i+1);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        }</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    }</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">INVALID_INSTRUCTION</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="parser_8h.html#ac34489ced263c84198b4c0e83643ebe7">   13</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a>(<span class="keywordtype">string</span> command){</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a>; i++) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">if</span> (command.compare(<a class="code" href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a>[i]) == 0) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">return</span> (i+1);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="parser_8h.html#a630c1bfba8f4ed9490db77c6146d6f7f">   22</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#a630c1bfba8f4ed9490db77c6146d6f7f">isValidInstructionCall</a>(<span class="keywordtype">string</span> command, <span class="keywordtype">string</span> arg1){</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> code = <a class="code" href="parser_8cpp.html#a05995444069695cfd17251c82913a2ce">checkValidInstruction</a>(command);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(code==<a class="code" href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">INVALID_INSTRUCTION</a>)</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="parser_8h.html#ab6243b513963c15735c801e6e3b7fbdf">    4</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(<span class="keywordtype">string</span> command){</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="comment">// Pesquisa command na lista de funções definidas</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;=<a class="code" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a>; i++) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        <span class="keywordflow">if</span> (command.compare(<a class="code" href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a>[i]) == 0) {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;            <span class="keywordflow">return</span> (i+1);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        }</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797ab2f7ed498a00388d8cbe61d60a625849">INVALID_INSTRUCTION</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="parser_8h.html#a630c1bfba8f4ed9490db77c6146d6f7f">   14</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(<span class="keywordtype">string</span> command, <span class="keywordtype">string</span> arg1){</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">int</span> code = <a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(command);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="languagedefinition_8h.html#a9b3f3be9136926d1cf555ff0820a78d0">InstructionArgNumber</a>[code-1]!=1)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658">INVALID_ARG_NUMBER</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(arg1))</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0">INVALID_ARG1</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span>((<a class="code" href="languagedefinition_8h.html#a9b3f3be9136926d1cf555ff0820a78d0">InstructionArgNumber</a>[code]==1)&amp;&amp;!<a class="code" href="parser_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a>(arg1));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// Retorna INVALID_INSTRUCTION ou Código da instrução</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> code;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="parser_8h.html#a7a3be2fded07ec8758103012a36464ce">   32</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(<span class="keywordtype">string</span> command, <span class="keywordtype">string</span> arg1,<span class="keywordtype">string</span> arg2){</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> code = <a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(command);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="parser_8h.html#a7a3be2fded07ec8758103012a36464ce">   35</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#a630c1bfba8f4ed9490db77c6146d6f7f">isValidInstructionCall</a>(<span class="keywordtype">string</span> command, <span class="keywordtype">string</span> arg1,<span class="keywordtype">string</span> arg2){</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> code = <a class="code" href="parser_8cpp.html#a05995444069695cfd17251c82913a2ce">checkValidInstruction</a>(command);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span>(code==<a class="code" href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">INVALID_INSTRUCTION</a>)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span>((<a class="code" href="languagedefinition_8h.html#a9b3f3be9136926d1cf555ff0820a78d0">InstructionArgNumber</a>[code]==2)&amp;&amp;!<a class="code" href="parser_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a>(arg1)&amp;&amp;!<a class="code" href="parser_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a>(arg2));</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="ttc" id="parser_8cpp_html_a05995444069695cfd17251c82913a2ce"><div class="ttname"><a href="parser_8cpp.html#a05995444069695cfd17251c82913a2ce">checkValidInstruction</a></div><div class="ttdeci">int checkValidInstruction(string command)</div><div class="ttdef"><b>Definition:</b> <a href="parser_8cpp_source.html#l00004">parser.cpp:4</a></div></div>
-<div class="ttc" id="languagedefinition_8h_html_a67b420a6dc06313451b1e2878e21aa70"><div class="ttname"><a href="languagedefinition_8h.html#a67b420a6dc06313451b1e2878e21aa70">INVALID_INSTRUCTION</a></div><div class="ttdeci">#define INVALID_INSTRUCTION</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00042">languagedefinition.h:42</a></div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="languagedefinition_8h.html#a9b3f3be9136926d1cf555ff0820a78d0">InstructionArgNumber</a>[code-1]!=2)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658">INVALID_ARG_NUMBER</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(arg1))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0">INVALID_ARG1</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(arg2))</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797afb895cf5ab28c6776084d9001215f9c0">INVALID_ARG2</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// Retorna INVALID_INSTRUCTION ou Código da instrução</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> code;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="ttc" id="parser_8h_html_ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658"><div class="ttname"><a href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658">INVALID_ARG_NUMBER</a></div><div class="ttdef"><b>Definition:</b> <a href="parser_8h_source.html#l00026">parser.h:26</a></div></div>
+<div class="ttc" id="parser_8h_html_ae9de418dd21c65a758a8138c66b71797ab2f7ed498a00388d8cbe61d60a625849"><div class="ttname"><a href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797ab2f7ed498a00388d8cbe61d60a625849">INVALID_INSTRUCTION</a></div><div class="ttdef"><b>Definition:</b> <a href="parser_8h_source.html#l00027">parser.h:27</a></div></div>
 <div class="ttc" id="parser_8h_html"><div class="ttname"><a href="parser_8h.html">parser.h</a></div></div>
-<div class="ttc" id="languagedefinition_8h_html_a9b3f3be9136926d1cf555ff0820a78d0"><div class="ttname"><a href="languagedefinition_8h.html#a9b3f3be9136926d1cf555ff0820a78d0">InstructionArgNumber</a></div><div class="ttdeci">static const int InstructionArgNumber[]</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00075">languagedefinition.h:75</a></div></div>
+<div class="ttc" id="languagedefinition_8h_html_a9b3f3be9136926d1cf555ff0820a78d0"><div class="ttname"><a href="languagedefinition_8h.html#a9b3f3be9136926d1cf555ff0820a78d0">InstructionArgNumber</a></div><div class="ttdeci">static const int InstructionArgNumber[]</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00076">languagedefinition.h:76</a></div></div>
+<div class="ttc" id="parser_8cpp_html_ab6243b513963c15735c801e6e3b7fbdf"><div class="ttname"><a href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a></div><div class="ttdeci">int isValidInstructionCall(string command)</div><div class="ttdef"><b>Definition:</b> <a href="parser_8cpp_source.html#l00004">parser.cpp:4</a></div></div>
 <div class="ttc" id="languagedefinition_8h_html"><div class="ttname"><a href="languagedefinition_8h.html">languagedefinition.h</a></div></div>
-<div class="ttc" id="parser_8cpp_html_ac34489ced263c84198b4c0e83643ebe7"><div class="ttname"><a href="parser_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a></div><div class="ttdeci">int isValidInstruction(string command)</div><div class="ttdef"><b>Definition:</b> <a href="parser_8cpp_source.html#l00013">parser.cpp:13</a></div></div>
-<div class="ttc" id="languagedefinition_8h_html_ac56a94e3a6c9fcfb2f0fe4e6f88bb841"><div class="ttname"><a href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a></div><div class="ttdeci">#define INSTRUCTIONS_NUMBER</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00041">languagedefinition.h:41</a></div></div>
-<div class="ttc" id="languagedefinition_8h_html_a40869f6bf4eb1263aeccc9feb241d620"><div class="ttname"><a href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a></div><div class="ttdeci">static const char * InstrutionString[]</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00044">languagedefinition.h:44</a></div></div>
-<div class="ttc" id="parser_8cpp_html_a630c1bfba8f4ed9490db77c6146d6f7f"><div class="ttname"><a href="parser_8cpp.html#a630c1bfba8f4ed9490db77c6146d6f7f">isValidInstructionCall</a></div><div class="ttdeci">int isValidInstructionCall(string command, string arg1)</div><div class="ttdef"><b>Definition:</b> <a href="parser_8cpp_source.html#l00022">parser.cpp:22</a></div></div>
+<div class="ttc" id="languagedefinition_8h_html_ac56a94e3a6c9fcfb2f0fe4e6f88bb841"><div class="ttname"><a href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a></div><div class="ttdeci">#define INSTRUCTIONS_NUMBER</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00043">languagedefinition.h:43</a></div></div>
+<div class="ttc" id="languagedefinition_8h_html_a40869f6bf4eb1263aeccc9feb241d620"><div class="ttname"><a href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a></div><div class="ttdeci">static const char * InstrutionString[]</div><div class="ttdef"><b>Definition:</b> <a href="languagedefinition_8h_source.html#l00045">languagedefinition.h:45</a></div></div>
+<div class="ttc" id="parser_8h_html_ae9de418dd21c65a758a8138c66b71797afb895cf5ab28c6776084d9001215f9c0"><div class="ttname"><a href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797afb895cf5ab28c6776084d9001215f9c0">INVALID_ARG2</a></div><div class="ttdef"><b>Definition:</b> <a href="parser_8h_source.html#l00024">parser.h:24</a></div></div>
+<div class="ttc" id="parser_8h_html_ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0"><div class="ttname"><a href="parser_8h.html#ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0">INVALID_ARG1</a></div><div class="ttdef"><b>Definition:</b> <a href="parser_8h_source.html#l00025">parser.h:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

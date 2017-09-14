@@ -33,6 +33,7 @@ int preprocessor(int argc, char ** argv)
     }
 
     string line;
+    bool errorDetected = false;
 
     // Percorre todas as linhas do arquivo
     for(int lineCount=0;getline(ArquivoASM,line);lineCount++)
@@ -56,7 +57,7 @@ int preprocessor(int argc, char ** argv)
             vector<token> vtoks = tokenizer(line);
 
             if(!((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
-                    &&(vtoks[2].type==WORD)&&(vtoks[3].type==NUM_DEC)))
+               &&(vtoks[2].type==WORD)&&((vtoks[3].type==NUM_DEC||vtoks[3].type==WORD))))
             {
                 // Uso Incorreto do EQU
                 PRINT_ERR_INSTRUCTION(lineCount,line);
@@ -85,5 +86,10 @@ int preprocessor(int argc, char ** argv)
     ArquivoPRE.close();
     ArquivoASM.close();
 
-    return 0;
+    if(errorDetected){
+        // Gera código de erro
+        return 1;
+    }else{
+        return 0;
+    }
 }

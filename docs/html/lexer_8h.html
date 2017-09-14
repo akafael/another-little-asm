@@ -90,16 +90,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 <code>#include &quot;<a class="el" href="languagedefinition_8h_source.html">languagedefinition.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para lexer.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__incl.svg" width="226" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__incl.svg" width="310" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__dep__incl.svg" width="216" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h__dep__incl.svg" width="363" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="lexer_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
@@ -150,6 +153,8 @@ Enumerações</h2></td></tr>
 Funções</h2></td></tr>
 <tr class="memitem:a63ef6d488951c4541159fe0961565c4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtoken.html">token</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#a63ef6d488951c4541159fe0961565c4d">scanner</a> (std::string line, int *position)</td></tr>
 <tr class="separator:a63ef6d488951c4541159fe0961565c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab482a9701233ff4e5a0ffc1f75f9c41a"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structtoken.html">token</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lexer_8h.html#ab482a9701233ff4e5a0ffc1f75f9c41a">tokenizer</a> (string line)</td></tr>
+<tr class="separator:ab482a9701233ff4e5a0ffc1f75f9c41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das macros</h2>
 <a class="anchor" id="a180873a64047585675744d9a3543109b"></a>
@@ -185,6 +190,7 @@ Funções</h2></td></tr>
 <p>Número mal formatado. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921aef2863a469df3ea6871d640e3669a2f2"></a>INVALID</em>&#160;</td><td class="fielddoc">
+<p>Token Inválido Genérico. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921abc4f604c9e920142977c903ca8e10045"></a>SPC</em>&#160;</td><td class="fielddoc">
 <p>Espaço em branco ' ' ou . </p>
@@ -214,16 +220,19 @@ Funções</h2></td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b"></a>LABEL</em>&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e"></a>INSTR0</em>&#160;</td><td class="fielddoc">
+<p>Instrução sem argumentos. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec"></a>INSTR1</em>&#160;</td><td class="fielddoc">
+<p>Instrução com 1 argumento. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae"></a>INSTR2</em>&#160;</td><td class="fielddoc">
+<p>Instrução com 2 argumentos. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a"></a>COMMENTARY</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
-<p>Definido na linha <a class="el" href="lexer_8h_source.html#l00014">14</a> do ficheiro <a class="el" href="lexer_8h_source.html">lexer.h</a>.</p>
+<p>Definido na linha <a class="el" href="lexer_8h_source.html#l00015">15</a> do ficheiro <a class="el" href="lexer_8h_source.html">lexer.h</a>.</p>
 
 </div>
 </div>
@@ -260,15 +269,57 @@ Funções</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>token </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>Incluir todo o token até o primeiro separador </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Tarefa:</a></b></dt><dd>descobrir uma melhor maneira sem ter que decrementar </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Tarefa:</a></b></dt><dd>Incluir todo o token até o primeiro separador </dd></dl>
 
 <p>Definido na linha <a class="el" href="lexer_8cpp_source.html#l00005">5</a> do ficheiro <a class="el" href="lexer_8cpp_source.html">lexer.cpp</a>.</p>
 
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h_a63ef6d488951c4541159fe0961565c4d_icgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h_a63ef6d488951c4541159fe0961565c4d_icgraph.svg" width="448" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab482a9701233ff4e5a0ffc1f75f9c41a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="structtoken.html">token</a>&gt; tokenizer </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica uma string e retorna um vetor de tokens </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>linha de entrada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>tokens retornados </dd></dl>
+
+<p>Definido na linha <a class="el" href="lexer_8cpp_source.html#l00096">96</a> do ficheiro <a class="el" href="lexer_8cpp_source.html">lexer.cpp</a>.</p>
+
+<p><div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h_ab482a9701233ff4e5a0ffc1f75f9c41a_cgraph.svg" width="203" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="lexer_8h_ab482a9701233ff4e5a0ffc1f75f9c41a_icgraph.svg" width="331" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 

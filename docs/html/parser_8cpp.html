@@ -91,64 +91,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para parser.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp__incl.svg" width="242" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp__incl.svg" width="242" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="parser_8cpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a05995444069695cfd17251c82913a2ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a05995444069695cfd17251c82913a2ce">checkValidInstruction</a> (string command)</td></tr>
-<tr class="separator:a05995444069695cfd17251c82913a2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34489ced263c84198b4c0e83643ebe7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#ac34489ced263c84198b4c0e83643ebe7">isValidInstruction</a> (string command)</td></tr>
-<tr class="separator:ac34489ced263c84198b4c0e83643ebe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6243b513963c15735c801e6e3b7fbdf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a> (string command)</td></tr>
+<tr class="separator:ab6243b513963c15735c801e6e3b7fbdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a630c1bfba8f4ed9490db77c6146d6f7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a630c1bfba8f4ed9490db77c6146d6f7f">isValidInstructionCall</a> (string command, string arg1)</td></tr>
 <tr class="separator:a630c1bfba8f4ed9490db77c6146d6f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a3be2fded07ec8758103012a36464ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a7a3be2fded07ec8758103012a36464ce">isValidInstructionCall</a> (string command, string arg1, string arg2)</td></tr>
 <tr class="separator:a7a3be2fded07ec8758103012a36464ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das funções</h2>
-<a class="anchor" id="a05995444069695cfd17251c82913a2ce"></a>
+<a class="anchor" id="ab6243b513963c15735c801e6e3b7fbdf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int checkValidInstruction </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>command</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Verifica se determinada String representa um comando válido caso seja inválido retorna INVALID_INSTRUCTION</p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>String a ser Avaliada </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Retorna</dt><dd>código da Instrução </dd></dl>
-
-<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00004">4</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp_a05995444069695cfd17251c82913a2ce_icgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ac34489ced263c84198b4c0e83643ebe7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int isValidInstruction </td>
+          <td class="memname">int isValidInstructionCall </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
@@ -163,14 +126,14 @@ Este é o diagrama das funções que utilizam esta função:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>código da Instrução </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>código da Instrução ou código de erro (InstructionErrorCode) </dd></dl>
 
-<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00013">13</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00004">4</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
 
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp_ac34489ced263c84198b4c0e83643ebe7_icgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp_ab6243b513963c15735c801e6e3b7fbdf_icgraph.svg" width="451" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </p>
@@ -208,14 +171,14 @@ Este é o diagrama das funções que utilizam esta função:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro ou falso; </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>código da Instrução ou código de erro (InstructionErrorCode) </dd></dl>
 
-<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00022">22</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00014">14</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp_a630c1bfba8f4ed9490db77c6146d6f7f_cgraph.svg" width="352" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp_a630c1bfba8f4ed9490db77c6146d6f7f_cgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </p>
@@ -260,14 +223,14 @@ Grafo de chamadas desta função:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro ou falso; </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>código da Instrução ou código de erro (InstructionErrorCode) </dd></dl>
 
-<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00035">35</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="parser_8cpp_source.html#l00032">32</a> do ficheiro <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp_a7a3be2fded07ec8758103012a36464ce_cgraph.svg" width="352" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="parser_8cpp_a7a3be2fded07ec8758103012a36464ce_cgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </p>

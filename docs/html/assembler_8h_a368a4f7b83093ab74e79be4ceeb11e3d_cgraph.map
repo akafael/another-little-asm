@@ -1,3 +1,4 @@
 <map id="assembler" name="assembler">
-<area shape="rect" id="node2" href="$lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d" title="scanner" alt="" coords="137,5,205,32"/>
+<area shape="rect" id="node2" href="$lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d" title="scanner" alt="" coords="175,5,243,32"/>
+<area shape="rect" id="node3" href="$parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf" title="isValidInstructionCall" alt="" coords="137,56,282,83"/>
 </map>

@@ -57,6 +57,11 @@ typedef struct{
  */
 token scanner(std::string line, int *position);
 
+/**
+ * Verifica uma string e retorna um vetor de tokens
+ * @param  line linha de entrada
+ * @return      tokens retornados
+ */
 vector<token> tokenizer(string line);
 
 #endif // YLA_PARSER_H_
