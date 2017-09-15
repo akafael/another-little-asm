@@ -19,19 +19,19 @@
                                           MSG << "\033[0m\n"
 
 #define PRINT_ERR_TOKEN(fileLine,TOK) cerr << "\nLinha " << \
-                                          fileLine + 1 << ":\033[31m ERRO: \033[0m\"" << \
+                                          fileLine + 1 << ":\033[31m ERRO LÉXICO: \033[0m\"" << \
                                           TOK << "\"\033[31m -> Token Inválido \033[0m\n"
 
 #define PRINT_ERR_INSTRUCTION(fileLine,INST) cerr << "\nLinha " << \
-    fileLine +1 << ":\033[31m ERRO: \033[0m\""<< string(INST) <<\
+    fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Instrução Inválida\033[0m\n"
 
 #define PRINT_ERR_ARG_NUM(fileLine,INST) cerr << "\nLinha " << \
-    fileLine +1 << ":\033[31m ERRO: \033[0m\""<< string(INST) <<\
+    fileLine +1 << ":\033[31m ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Número de argumentos Inválido.\033[0m\n"
 
 #define PRINT_ERR_ARG(fileLine,INST,ARG) cerr << "\nLinha " << \
-    fileLine +1 << ":\033[31m ERRO: \033[0m\""<< string(INST) <<\
+    fileLine +1 << ":\033[31m ERRO ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Argumento \""<< ARG <<"\" Inválido\033[0m\n"
 
 #endif // YLA_MSGS_PT_H_

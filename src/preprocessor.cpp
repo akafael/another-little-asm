@@ -39,21 +39,22 @@ int preprocessor(int argc, char ** argv)
     for(int lineCount=0;getline(ArquivoASM,line);lineCount++)
     {
         bool ignoreLine = false;
-        char character;
+        int charPosition;
 
         // Deixa todos caracteres em caixa alta
         std::transform(line.begin(), line.end(),line.begin(), ::toupper);
 
         // Detecta e Remove Comentários
-        character = line.find(';');
-        if(character!=std::string::npos){
-            line = line.substr(0,character);
+        charPosition = line.find(';');
+        if(charPosition != std::string::npos){
+            // Caso achou a string
+            line = line.substr(0,charPosition);
         }
 
         // Detecta EQU e verifica sintaxe
-        character = line.find("EQU");
-        if(character!=std::string::npos){
-
+        charPosition = line.find("EQU");
+        if(charPosition != std::string::npos){
+            // Caso achou a string
             vector<token> vtoks = tokenizer(line);
 
             if(!((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
@@ -65,9 +66,9 @@ int preprocessor(int argc, char ** argv)
         }
 
         // Detecta IF e verifica sintaxe
-        character = line.find("IF");
-        if(character!=std::string::npos){
-
+        charPosition = line.find("IF");
+        if(charPosition!=std::string::npos){
+            // Caso achou a string
             vector<token> vtoks = tokenizer(line);
 
             if(!((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)))

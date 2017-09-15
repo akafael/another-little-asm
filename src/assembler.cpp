@@ -89,10 +89,6 @@ int assembler(int argc, char * argv[])
             {
                 PRINT_ERR_INSTRUCTION(lineCount,line);
             }
-            else if(code==INVALID_ARG_NUMBER)
-            {
-                PRINT_ERR_ARG_NUM(lineCount,line);
-            }
             else // Instrução Chamada de Instrução Válida
             {
                 // Cria Simbolo e coloca na tabela

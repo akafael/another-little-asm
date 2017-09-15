@@ -30,11 +30,12 @@ typedef enum{
     NUM_DEC     =  8,  ///< Número em decimal
     NUM_HEX     =  9,  ///< Número em hexadecimal
     WORD        =  10,
-    LABEL       =  11,
-    INSTR0      =  12, ///< Instrução sem argumentos
-    INSTR1      =  13, ///< Instrução com 1 argumento
-    INSTR2      =  14, ///< Instrução com 2 argumentos
-    COMMENTARY  =  15
+// Simbolos não terminais não usados
+    // LABEL       =  11,
+    // INSTR0      =  12, ///< Instrução sem argumentos
+    // INSTR1      =  13, ///< Instrução com 1 argumento
+    // INSTR2      =  14, ///< Instrução com 2 argumentos
+    // COMMENTARY  =  15
 } TokenType;
 
 /** Token identificado junto do conteúdo */
