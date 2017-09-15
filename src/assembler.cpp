@@ -204,6 +204,11 @@ int assembler(int argc, char * argv[])
             {
                 PRINT_ERR_ARG_NUM(lineCount,line);
             }
+            else if(isValidInstructionCall(vtoks[0].string)>0)
+            {
+                // Erro Uso de palavra chave como Rótulo
+                PRINT_ERR_LABEL(lineCount,line);
+            }
             else // Instrução Chamada de Instrução Válida
             {
                 // Cria Simbolo e coloca na tabela
@@ -235,6 +240,11 @@ int assembler(int argc, char * argv[])
             else if(code==INVALID_ARG1)
             {
                 PRINT_ERR_ARG(lineCount,line,vtoks[3].string);
+            }
+            else if(isValidInstructionCall(vtoks[0].string)>0)
+            {
+               // Erro Uso de palavra chave como Rótulo
+               PRINT_ERR_LABEL(lineCount,line);
             }
             else // Instrução Chamada de Instrução Válida
             {
@@ -279,6 +289,11 @@ int assembler(int argc, char * argv[])
             else if(code==INVALID_ARG2)
             {
                 PRINT_ERR_ARG(lineCount,line,vtoks[5].string);
+            }
+            else if(isValidInstructionCall(vtoks[0].string)>0)
+            {
+                // Erro Uso de palavra chave como Rótulo
+                PRINT_ERR_LABEL(lineCount,line);
             }
             else // Instrução Chamada de Instrução Válida
             {
