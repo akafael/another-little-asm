@@ -3,6 +3,8 @@
 
 using namespace std;
 
+#define LABELDIR_NOT_FOUND -1
+
 int preprocessor(int argc, char ** argv);
 
 #endif

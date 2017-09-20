@@ -56,10 +56,9 @@ int isValidInstructionCall(string command, string arg1,string arg2)
 
 int findLabel(vector<label> labelTable,string labelText)
 {
-    std::vector<label>::iterator it = labelTable.begin();
     for (int i = 0; i <labelTable.size(); i++)
     {
-        if(labelTable.at(i).text.compare(labelText)==0)
+        if(labelTable[i].text.compare(labelText)==0)
         {
             return i;
         }
