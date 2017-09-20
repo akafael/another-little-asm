@@ -4,6 +4,8 @@
 #define DEBUG_PARSER 0
 
 #include <string>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -26,6 +28,8 @@ typedef enum{
     INVALID_ARG_NUMBER  = -1,
     INVALID_INSTRUCTION =  0
 } InstructionErrorCode;
+
+#define LABEL_NOT_FOUND -1
 
 /**
  * Elemento da tabela de simbolos com referência as outras tabelas
@@ -97,5 +101,7 @@ int isValidInstructionCall(string command, string arg1,string arg2);
  * @return         código da Diretiva
  */
 int isValidDirective(string command);
+
+int findLabel(vector<label> labelTable,string labelText);
 
 #endif // YLA_PARSER_H_

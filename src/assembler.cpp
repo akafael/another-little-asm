@@ -122,6 +122,7 @@ int assembler(int argc, char * argv[])
             {
                 // Cria Simbolos e coloca na tabela
                 symbol tmp_symb0,tmp_symb1;
+                int labelPos;
 
                 tmp_symb0.type = SYM_INSTRUCTION;
                 tmp_symb0.content = code;
@@ -129,9 +130,19 @@ int assembler(int argc, char * argv[])
                 symbolsTable.push_back(tmp_symb0);
 
                 tmp_symb1.type = SYM_LABEL;
-                /// @todo Pesquisar Labels na labelTable e pegar endereço
-                tmp_symb1.content = UNDEFINED_LABEL_ADDR;
                 tmp_symb1.address = currentSymbolAddr+1;
+
+                labelPos = findLabel(labelsTable,vtoks[1].string);
+                if(labelPos==LABEL_NOT_FOUND)
+                {
+                    tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    /// @todo Modificar para permitir completar tabela ao final da passagem
+                }
+                else
+                {
+                    tmp_symb1.content = labelsTable[labelPos].addr;
+                }
+
                 symbolsTable.push_back(tmp_symb1);
 
                  // Atualiza Endereço p/ próximo simbolo
@@ -163,6 +174,7 @@ int assembler(int argc, char * argv[])
             {
                 // Cria Simbolo e coloca na tabela
                 symbol tmp_symb0,tmp_symb1,tmp_symb2;
+                int labelPos;
 
                 tmp_symb0.type = SYM_INSTRUCTION;
                 tmp_symb0.content = code;
@@ -170,14 +182,33 @@ int assembler(int argc, char * argv[])
                 symbolsTable.push_back(tmp_symb0);
 
                 tmp_symb1.type = SYM_LABEL;
-                /// @todo Pesquisar Labels na labelTable e pegar endereço
-                tmp_symb1.content = UNDEFINED_LABEL_ADDR;
                 tmp_symb1.address = currentSymbolAddr+1;
+
+                labelPos = findLabel(labelsTable,vtoks[1].string);
+                if(labelPos==LABEL_NOT_FOUND)
+                {
+                    tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    /// @todo Modificar para permitir completar tabela ao final da passagem
+                }
+                else
+                {
+                    tmp_symb1.content = labelsTable[labelPos].addr;
+                }
+
                 symbolsTable.push_back(tmp_symb1);
 
                 tmp_symb2.type = SYM_LABEL;
-                /// @todo Pesquisar Labels na labelTable e pegar endereço
-                tmp_symb2.content = UNDEFINED_LABEL_ADDR;
+
+                labelPos = findLabel(labelsTable,vtoks[3].string);
+                if(labelPos==LABEL_NOT_FOUND)
+                {
+                    tmp_symb2.content = UNDEFINED_LABEL_ADDR;
+                    /// @todo Modificar para permitir completar tabela ao final da passagem
+                }
+                else
+                {
+                    tmp_symb2.content = labelsTable[labelPos].addr;
+                }
                 tmp_symb2.address = currentSymbolAddr+2;
                 symbolsTable.push_back(tmp_symb2);
 
@@ -185,14 +216,49 @@ int assembler(int argc, char * argv[])
                 currentSymbolAddr+=3;
             }
         }
-        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON))
+        else if((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON))
         {
             // Label
+            int labelPos = findLabel(labelsTable,vtoks[0].string);
+            if(labelPos==LABEL_NOT_FOUND)
+            {
+                // Insere Label na tabela de labels
+                label tmp_label;
+                tmp_label.text = vtoks[0].string;
+                /// @bug começando contagem a partir do 1 ao invés do 0
+                tmp_label.addr = currentSymbolAddr;
+
+                labelsTable.push_back(tmp_label);
+            }
+            else
+            {
+                PRINT_ERR_LABEL_DUPLICATED(lineCount,line);
+            }
+        }
+        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                &&(vtoks[4].type==WORD)&&(vtoks[3].type==COLON))
+        {
+            // Erro Label
+            PRINT_ERR_LABEL_DUPLICATED(lineCount,line);
         }
         else if((vtoks.size()==3)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
                 &&(vtoks[2].type==WORD))
         {
             // Label + INST0
+            int labelPos = findLabel(labelsTable,vtoks[0].string);
+            if(labelPos==LABEL_NOT_FOUND)
+            {
+                // Insere Label na tabela de labels
+                label tmp_label;
+                tmp_label.text = vtoks[0].string;
+                tmp_label.addr = currentSymbolAddr;
+
+                labelsTable.push_back(tmp_label);
+            }
+            else
+            {
+                PRINT_ERR_LABEL_DUPLICATED(lineCount,line);
+            }
 
             // INST0
             int code = isValidInstructionCall(vtoks[2].string);
@@ -226,6 +292,20 @@ int assembler(int argc, char * argv[])
                 &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD))
         {
             // Label + INST1
+            int labelPos = findLabel(labelsTable,vtoks[0].string);
+            if(labelPos==LABEL_NOT_FOUND)
+            {
+                // Insere Label na tabela de labels
+                label tmp_label;
+                tmp_label.text = vtoks[0].string;
+                tmp_label.addr = currentSymbolAddr;
+
+                labelsTable.push_back(tmp_label);
+            }
+            else
+            {
+                PRINT_ERR_LABEL_DUPLICATED(lineCount,line);
+            }
 
             // INST1
             int code = isValidInstructionCall(vtoks[2].string,vtoks[3].string);
@@ -250,6 +330,7 @@ int assembler(int argc, char * argv[])
             {
                 // Cria Simbolos e coloca na tabela
                 symbol tmp_symb0,tmp_symb1;
+                int labelPos;
 
                 tmp_symb0.type = SYM_INSTRUCTION;
                 tmp_symb0.content = code;
@@ -257,9 +338,19 @@ int assembler(int argc, char * argv[])
                 symbolsTable.push_back(tmp_symb0);
 
                 tmp_symb1.type = SYM_LABEL;
-                /// @todo Pesquisar Labels na labelTable e pegar endereço
-                tmp_symb1.content = UNDEFINED_LABEL_ADDR;
                 tmp_symb1.address = currentSymbolAddr+1;
+
+                labelPos = findLabel(labelsTable,vtoks[3].string);
+                if(labelPos==LABEL_NOT_FOUND)
+                {
+                    tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    /// @todo Modificar para permitir completar tabela ao final da passagem
+                }
+                else
+                {
+                    tmp_symb1.content = labelsTable[labelPos].addr;
+                }
+
                 symbolsTable.push_back(tmp_symb1);
 
                  // Atualiza Endereço p/ próximo simbolo
@@ -271,6 +362,20 @@ int assembler(int argc, char * argv[])
                 &&(vtoks[5].type==WORD))
         {
             // Label + INST2
+            int labelPos = findLabel(labelsTable,vtoks[0].string);
+            if(labelPos==LABEL_NOT_FOUND)
+            {
+                // Insere Label na tabela de labels
+                label tmp_label;
+                tmp_label.text = vtoks[0].string;
+                tmp_label.addr = currentSymbolAddr;
+
+                labelsTable.push_back(tmp_label);
+            }
+            else
+            {
+                PRINT_ERR_LABEL_DUPLICATED(lineCount,line);
+            }
 
             // INST 2
             int code = isValidInstructionCall(vtoks[2].string,vtoks[3].string,vtoks[5].string);
@@ -299,6 +404,7 @@ int assembler(int argc, char * argv[])
             {
                 // Cria Simbolo e coloca na tabela
                 symbol tmp_symb0,tmp_symb1,tmp_symb2;
+                int labelPos;
 
                 tmp_symb0.type = SYM_INSTRUCTION;
                 tmp_symb0.content = code;
@@ -306,15 +412,35 @@ int assembler(int argc, char * argv[])
                 symbolsTable.push_back(tmp_symb0);
 
                 tmp_symb1.type = SYM_LABEL;
-                /// @todo Pesquisar Labels na labelTable e pegar endereço
-                tmp_symb1.content = UNDEFINED_LABEL_ADDR;
                 tmp_symb1.address = currentSymbolAddr+1;
+
+                labelPos = findLabel(labelsTable,vtoks[3].string);
+                if(labelPos==LABEL_NOT_FOUND)
+                {
+                    tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    /// @todo Modificar para permitir completar tabela ao final da passagem
+                }
+                else
+                {
+                    tmp_symb1.content = labelsTable[labelPos].addr;
+                }
+
                 symbolsTable.push_back(tmp_symb1);
 
                 tmp_symb2.type = SYM_LABEL;
-                /// @todo Pesquisar Labels na labelTable e pegar endereço
-                tmp_symb2.content = UNDEFINED_LABEL_ADDR;
                 tmp_symb2.address = currentSymbolAddr+2;
+
+                labelPos = findLabel(labelsTable,vtoks[5].string);
+                if(labelPos==LABEL_NOT_FOUND)
+                {
+                    tmp_symb2.content = UNDEFINED_LABEL_ADDR;
+                    /// @todo Modificar para permitir completar tabela ao final da passagem
+                }
+                else
+                {
+                    tmp_symb2.content = labelsTable[labelPos].addr;
+                }
+
                 symbolsTable.push_back(tmp_symb2);
 
                  // Atualiza Endereço p/ próximo simbolo

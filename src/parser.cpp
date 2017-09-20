@@ -1,7 +1,8 @@
 #include "languagedefinition.h"
 #include "parser.h"
 
-int isValidInstructionCall(string command){
+int isValidInstructionCall(string command)
+{
     // Pesquisa command na lista de funções definidas
     for (int i = 1; i <=INSTRUCTIONS_NUMBER; i++) {
         if (command.compare(InstrutionString[i]) == 0) {
@@ -11,7 +12,8 @@ int isValidInstructionCall(string command){
     return INVALID_INSTRUCTION;
 }
 
-int isValidInstructionCall(string command, string arg1){
+int isValidInstructionCall(string command, string arg1)
+{
     int code = isValidInstructionCall(command);
 
     if(InstructionArgNumber[code-1]!=1)
@@ -29,7 +31,8 @@ int isValidInstructionCall(string command, string arg1){
     }
 }
 
-int isValidInstructionCall(string command, string arg1,string arg2){
+int isValidInstructionCall(string command, string arg1,string arg2)
+{
     int code = isValidInstructionCall(command);
 
     if(InstructionArgNumber[code-1]!=2)
@@ -49,4 +52,17 @@ int isValidInstructionCall(string command, string arg1,string arg2){
         // Retorna INVALID_INSTRUCTION ou Código da instrução
         return code;
     }
+}
+
+int findLabel(vector<label> labelTable,string labelText)
+{
+    std::vector<label>::iterator it = labelTable.begin();
+    for (int i = 0; i <labelTable.size(); i++)
+    {
+        if(labelTable.at(i).text.compare(labelText)==0)
+        {
+            return i;
+        }
+    }
+    return LABEL_NOT_FOUND;
 }
