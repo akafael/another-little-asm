@@ -39,6 +39,10 @@
     fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Rótulo já definido\033[0m\n"
 
+#define PRINT_ERR_INVALID_SECTION(fileLine,INST) cerr << "\nLinha " << \
+    fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
+    "\"\033[31m  -> Definição de SECTION inválida, permitido somente TEXT ou DATA\033[0m\n"
+
 
 #define PRINT_ERR_ARG_NUM(fileLine,INST) cerr << "\nLinha " << \
     fileLine +1 << ":\033[31m ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\

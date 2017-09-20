@@ -3,6 +3,10 @@
 
 #define DEBUG_ASSEMBLER 0
 
+#define SECTION_NONE 0
+#define SECTION_TEXT 1
+#define SECTION_DATA 2
+
 /**
  * Montador
  *

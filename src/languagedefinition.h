@@ -10,8 +10,8 @@
 
 /**
  * Código das instruções
- * @todo Alterar Opcodes para compatibilidade com simulador
  * @todo Separar Instruções de Diretivas em tipos distintos
+ * @todo Retirar Space Duplicado
  */
  typedef enum {
     ADD      = 1,
