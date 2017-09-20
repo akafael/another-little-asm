@@ -8,8 +8,8 @@
 {\ttfamily \#include $<$algorithm$>$}\\*
 {\ttfamily \#include $<$vector$>$}\\*
 {\ttfamily \#include \char`\"{}msgs\-\_\-pt.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}preprocessor.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}lexer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preprocessor.\-h\char`\"{}}\\*
 Diagrama de dependências de inclusão para preprocessor.\-cpp\-:
 \nopagebreak
 \begin{figure}[H]
@@ -18,14 +18,45 @@ Diagrama de dependências de inclusão para preprocessor.\-cpp\-:
 \includegraphics[width=350pt]{preprocessor_8cpp__incl}
 \end{center}
 \end{figure}
+\subsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlabel_dir}{label\-Dir}
+\end{DoxyCompactItemize}
 \subsection*{Funções}
 \begin{DoxyCompactItemize}
+\item 
+int \hyperlink{preprocessor_8cpp_a130bd12178693578a2c217a3011725f3}{find\-Label\-Dir} (vector$<$ \hyperlink{structlabel_dir}{label\-Dir} $>$ label\-Table, string label\-Text)
 \item 
 int \hyperlink{preprocessor_8cpp_a64877d45066932f7594bb2ad347c1d26}{preprocessor} (int argc, char $\ast$$\ast$argv)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentação das funções}
+\hypertarget{preprocessor_8cpp_a130bd12178693578a2c217a3011725f3}{\index{preprocessor.\-cpp@{preprocessor.\-cpp}!find\-Label\-Dir@{find\-Label\-Dir}}
+\index{find\-Label\-Dir@{find\-Label\-Dir}!preprocessor.cpp@{preprocessor.\-cpp}}
+\subsubsection[{find\-Label\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}int find\-Label\-Dir (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf label\-Dir} $>$}]{label\-Table, }
+\item[{string}]{label\-Text}
+\end{DoxyParamCaption}
+)}}\label{preprocessor_8cpp_a130bd12178693578a2c217a3011725f3}
+
+
+Definido na linha 178 do ficheiro preprocessor.\-cpp.
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{preprocessor_8cpp_a130bd12178693578a2c217a3011725f3_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{preprocessor_8cpp_a64877d45066932f7594bb2ad347c1d26}{\index{preprocessor.\-cpp@{preprocessor.\-cpp}!preprocessor@{preprocessor}}
 \index{preprocessor@{preprocessor}!preprocessor.cpp@{preprocessor.\-cpp}}
 \subsubsection[{preprocessor}]{\setlength{\rightskip}{0pt plus 5cm}int preprocessor (
@@ -36,7 +67,7 @@ int \hyperlink{preprocessor_8cpp_a64877d45066932f7594bb2ad347c1d26}{preprocessor
 )}}\label{preprocessor_8cpp_a64877d45066932f7594bb2ad347c1d26}
 
 
-Definido na linha 18 do ficheiro preprocessor.\-cpp.
+Definido na linha 25 do ficheiro preprocessor.\-cpp.
 
 
 
@@ -45,7 +76,7 @@ Grafo de chamadas desta função\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=334pt]{preprocessor_8cpp_a64877d45066932f7594bb2ad347c1d26_cgraph}
+\includegraphics[width=346pt]{preprocessor_8cpp_a64877d45066932f7594bb2ad347c1d26_cgraph}
 \end{center}
 \end{figure}
 

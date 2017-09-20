@@ -23,6 +23,8 @@ Diagrama de dependências de inclusão para assembler.\-cpp\-:
 \subsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
+bool \hyperlink{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad}{lexical\-Analisis\-Instruction} (int line\-Count, string line, vector$<$ \hyperlink{structtoken}{token} $>$ vtoks, vector$<$ \hyperlink{structsymbol}{symbol} $>$ $\ast$symbols\-Tb, vector$<$ \hyperlink{structlabel}{label} $>$ $\ast$labels\-Tb, int $\ast$current\-Symb\-Ad)
+\item 
 int \hyperlink{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d}{assembler} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 
@@ -43,37 +45,11 @@ Rafael e João Pedro Franch
 \end{DoxyAuthor}
 $<$ Tabela de Tokens
 
-$<$ Tabela de Token
-
 \begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000001}{Tarefa}]Pesquisar Labels na label\-Table e pegar endereço \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000001}{Tarefa}]Ajustar Formato do Arquivo objeto \end{DoxyRefDesc}
 
 
-\begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000002}{Tarefa}]Pesquisar Labels na label\-Table e pegar endereço \end{DoxyRefDesc}
-
-
-\begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000003}{Tarefa}]Pesquisar Labels na label\-Table e pegar endereço \end{DoxyRefDesc}
-
-
-\begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000004}{Tarefa}]Pesquisar Labels na label\-Table e pegar endereço \end{DoxyRefDesc}
-
-
-\begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000005}{Tarefa}]Pesquisar Labels na label\-Table e pegar endereço \end{DoxyRefDesc}
-
-
-\begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000006}{Tarefa}]Pesquisar Labels na label\-Table e pegar endereço \end{DoxyRefDesc}
-
-
-\begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000007}{Tarefa}]Ajustar Formato do Arquivo objeto \end{DoxyRefDesc}
-
-
-Definido na linha 22 do ficheiro assembler.\-cpp.
+Definido na linha 24 do ficheiro assembler.\-cpp.
 
 
 
@@ -82,7 +58,7 @@ Grafo de chamadas desta função\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=288pt]{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph}
+\includegraphics[width=350pt]{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph}
 \end{center}
 \end{figure}
 
@@ -94,6 +70,90 @@ Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=216pt]{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad}{\index{assembler.\-cpp@{assembler.\-cpp}!lexical\-Analisis\-Instruction@{lexical\-Analisis\-Instruction}}
+\index{lexical\-Analisis\-Instruction@{lexical\-Analisis\-Instruction}!assembler.cpp@{assembler.\-cpp}}
+\subsubsection[{lexical\-Analisis\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}bool lexical\-Analisis\-Instruction (
+\begin{DoxyParamCaption}
+\item[{int}]{line\-Count, }
+\item[{string}]{line, }
+\item[{vector$<$ {\bf token} $>$}]{vtoks, }
+\item[{vector$<$ {\bf symbol} $>$ $\ast$}]{symbols\-Tb, }
+\item[{vector$<$ {\bf label} $>$ $\ast$}]{labels\-Tb, }
+\item[{int $\ast$}]{current\-Symb\-Ad}
+\end{DoxyParamCaption}
+)}}\label{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad}
+Análise das sintáxe da instruções 
+\begin{DoxyParams}{Parâmetros}
+{\em line\-Count} & posição da linha atual para uso em mensagens de erro \\
+\hline
+{\em line} & linha atual para uso em mensagens de erro \\
+\hline
+{\em vtoks} & saída do scanner \\
+\hline
+{\em symbols\-Tb} & lista de simbolos \\
+\hline
+{\em labels\-Tb} & lista de label \\
+\hline
+{\em current\-Symb\-Ad} & contador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+0 caso não houve erro 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000002}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000003}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000004}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000001}{Bug}]começando contagem a partir do 1 ao invés do 0 \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000005}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000006}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000007}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
+
+
+Definido na linha 108 do ficheiro assembler.\-cpp.
+
+
+
+Grafo de chamadas desta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad_icgraph}
 \end{center}
 \end{figure}
 

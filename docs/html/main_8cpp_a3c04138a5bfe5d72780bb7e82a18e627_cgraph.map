@@ -1,8 +1,11 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$preprocessor_8cpp.html#a64877d45066932f7594bb2ad347c1d26" title="preprocessor" alt="" coords="105,5,202,32"/>
-<area shape="rect" id="node5" href="$macroeval_8cpp.html#ab726e2a9f26698bddb5ddd13683e6630" title="macroeval" alt="" coords="112,56,195,83"/>
-<area shape="rect" id="node6" href="$assembler_8cpp.html#a368a4f7b83093ab74e79be4ceeb11e3d" title="assembler" alt="" coords="112,107,195,133"/>
-<area shape="rect" id="node3" href="$lexer_8cpp.html#ab482a9701233ff4e5a0ffc1f75f9c41a" title="tokenizer" alt="" coords="287,5,361,32"/>
-<area shape="rect" id="node4" href="$lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d" title="scanner" alt="" coords="446,31,514,57"/>
-<area shape="rect" id="node7" href="$parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf" title="isValidInstructionCall" alt="" coords="251,107,397,133"/>
+<area shape="rect" id="node2" href="$preprocessor_8cpp.html#a64877d45066932f7594bb2ad347c1d26" title="preprocessor" alt="" coords="105,31,202,57"/>
+<area shape="rect" id="node6" href="$macroeval_8cpp.html#ab726e2a9f26698bddb5ddd13683e6630" title="macroeval" alt="" coords="112,81,195,108"/>
+<area shape="rect" id="node7" href="$assembler_8cpp.html#a368a4f7b83093ab74e79be4ceeb11e3d" title="assembler" alt="" coords="112,132,195,159"/>
+<area shape="rect" id="node3" href="$lexer_8cpp.html#ab482a9701233ff4e5a0ffc1f75f9c41a" title="tokenizer" alt="" coords="297,5,372,32"/>
+<area shape="rect" id="node5" href="$preprocessor_8cpp.html#a130bd12178693578a2c217a3011725f3" title="findLabelDir" alt="" coords="289,56,380,83"/>
+<area shape="rect" id="node4" href="$lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d" title="scanner" alt="" coords="506,44,574,71"/>
+<area shape="rect" id="node8" href="$assembler_8cpp.html#ad735f823bad61ae08954113bfcaac5ad" title="lexicalAnalisisInstruction" alt="" coords="251,157,418,184"/>
+<area shape="rect" id="node9" href="$parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf" title="isValidInstructionCall" alt="" coords="467,132,613,159"/>
+<area shape="rect" id="node10" href="$parser_8cpp.html#a9ef8c814439aab8a9db6ae7207902ab1" title="findLabel" alt="" coords="503,183,577,209"/>
 </map>

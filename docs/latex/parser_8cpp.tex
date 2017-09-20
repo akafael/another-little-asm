@@ -3,11 +3,12 @@
 }
 {\ttfamily \#include \char`\"{}languagedefinition.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}parser.\-h\char`\"{}}\\*
-Diagrama de dependências de inclusão para parser.\-cpp\-:\nopagebreak
+Diagrama de dependências de inclusão para parser.\-cpp\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=253pt]{parser_8cpp__incl}
+\includegraphics[width=317pt]{parser_8cpp__incl}
 \end{center}
 \end{figure}
 \subsection*{Funções}
@@ -18,10 +19,36 @@ int \hyperlink{parser_8cpp_ab6243b513963c15735c801e6e3b7fbdf}{is\-Valid\-Instruc
 int \hyperlink{parser_8cpp_a630c1bfba8f4ed9490db77c6146d6f7f}{is\-Valid\-Instruction\-Call} (string command, string arg1)
 \item 
 int \hyperlink{parser_8cpp_a7a3be2fded07ec8758103012a36464ce}{is\-Valid\-Instruction\-Call} (string command, string arg1, string arg2)
+\item 
+int \hyperlink{parser_8cpp_a9ef8c814439aab8a9db6ae7207902ab1}{find\-Label} (vector$<$ \hyperlink{structlabel}{label} $>$ label\-Table, string label\-Text)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentação das funções}
+\hypertarget{parser_8cpp_a9ef8c814439aab8a9db6ae7207902ab1}{\index{parser.\-cpp@{parser.\-cpp}!find\-Label@{find\-Label}}
+\index{find\-Label@{find\-Label}!parser.cpp@{parser.\-cpp}}
+\subsubsection[{find\-Label}]{\setlength{\rightskip}{0pt plus 5cm}int find\-Label (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf label} $>$}]{label\-Table, }
+\item[{string}]{label\-Text}
+\end{DoxyParamCaption}
+)}}\label{parser_8cpp_a9ef8c814439aab8a9db6ae7207902ab1}
+
+
+Definido na linha 57 do ficheiro parser.\-cpp.
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parser_8cpp_a9ef8c814439aab8a9db6ae7207902ab1_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{parser_8cpp_ab6243b513963c15735c801e6e3b7fbdf}{\index{parser.\-cpp@{parser.\-cpp}!is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}}
 \index{is\-Valid\-Instruction\-Call@{is\-Valid\-Instruction\-Call}!parser.cpp@{parser.\-cpp}}
 \subsubsection[{is\-Valid\-Instruction\-Call}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Instruction\-Call (
@@ -77,12 +104,11 @@ código da Instrução ou código de erro (Instruction\-Error\-Code)
 \end{DoxyReturn}
 
 
-Definido na linha 14 do ficheiro parser.\-cpp.
+Definido na linha 15 do ficheiro parser.\-cpp.
 
 
 
-Grafo de chamadas desta função\-:
-\nopagebreak
+Grafo de chamadas desta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -116,12 +142,11 @@ código da Instrução ou código de erro (Instruction\-Error\-Code)
 \end{DoxyReturn}
 
 
-Definido na linha 32 do ficheiro parser.\-cpp.
+Definido na linha 34 do ficheiro parser.\-cpp.
 
 
 
-Grafo de chamadas desta função\-:
-\nopagebreak
+Grafo de chamadas desta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

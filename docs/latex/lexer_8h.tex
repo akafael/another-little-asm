@@ -4,16 +4,14 @@
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$vector$>$}\\*
 {\ttfamily \#include \char`\"{}languagedefinition.\-h\char`\"{}}\\*
-Diagrama de dependências de inclusão para lexer.\-h\-:
-\nopagebreak
+Diagrama de dependências de inclusão para lexer.\-h\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=304pt]{lexer_8h__incl}
 \end{center}
 \end{figure}
-Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:
-\nopagebreak
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -52,13 +50,7 @@ enum \hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921}{Token\-Type} \{ \\*
 \hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a9ed751de342a35124fd95551881b61f6}{N\-U\-M\-\_\-\-D\-E\-C} = 8, 
 \\*
 \hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c}{N\-U\-M\-\_\-\-H\-E\-X} = 9, 
-\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc}{W\-O\-R\-D} = 10, 
-\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}{L\-A\-B\-E\-L} = 11, 
-\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e}{I\-N\-S\-T\-R0} = 12, 
-\\*
-\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec}{I\-N\-S\-T\-R1} = 13, 
-\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae}{I\-N\-S\-T\-R2} = 14, 
-\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y} = 15
+\hyperlink{lexer_8h_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc}{W\-O\-R\-D} = 10
  \}
 \end{DoxyCompactItemize}
 \subsection*{Funções}
@@ -115,16 +107,6 @@ Código para indentificar o tipo de token \begin{Desc}
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c}{N\-U\-M\-\_\-\-H\-E\-X}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a95f9767a578c5cdafccdf25c9c35797c}
 }]Número em hexadecimal. \index{W\-O\-R\-D@{W\-O\-R\-D}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!W\-O\-R\-D@{W\-O\-R\-D}}\item[{\em 
 \hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc}{W\-O\-R\-D}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc}
-}]\index{L\-A\-B\-E\-L@{L\-A\-B\-E\-L}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!L\-A\-B\-E\-L@{L\-A\-B\-E\-L}}\item[{\em 
-\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}{L\-A\-B\-E\-L}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a0f90de4d94720fdd5156fd7e7c3b0c9b}
-}]\index{I\-N\-S\-T\-R0@{I\-N\-S\-T\-R0}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R0@{I\-N\-S\-T\-R0}}\item[{\em 
-\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e}{I\-N\-S\-T\-R0}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921aec0fd25242c8a6db1b3c46f8628a8c8e}
-}]Instrução sem argumentos. \index{I\-N\-S\-T\-R1@{I\-N\-S\-T\-R1}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R1@{I\-N\-S\-T\-R1}}\item[{\em 
-\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec}{I\-N\-S\-T\-R1}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a948f1f098e186bac11896d1a5481bcec}
-}]Instrução com 1 argumento. \index{I\-N\-S\-T\-R2@{I\-N\-S\-T\-R2}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!I\-N\-S\-T\-R2@{I\-N\-S\-T\-R2}}\item[{\em 
-\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae}{I\-N\-S\-T\-R2}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a69fd2e463002bfef624f9cb3a1232eae}
-}]Instrução com 2 argumentos. \index{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}!lexer.\-h@{lexer.\-h}}\index{lexer.\-h@{lexer.\-h}!C\-O\-M\-M\-E\-N\-T\-A\-R\-Y@{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}}\item[{\em 
-\hypertarget{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}{C\-O\-M\-M\-E\-N\-T\-A\-R\-Y}\label{lexer_8h_aa520fbf142ba1e7e659590c07da31921a44028b4c283f8d661c8a28cbd766d38a}
 }]\end{description}
 \end{Desc}
 
@@ -160,8 +142,7 @@ Definido na linha 5 do ficheiro lexer.\-cpp.
 
 
 
-Este é o diagrama das funções que utilizam esta função\-:
-\nopagebreak
+Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -191,8 +172,7 @@ Definido na linha 96 do ficheiro lexer.\-cpp.
 
 
 
-Grafo de chamadas desta função\-:
-\nopagebreak
+Grafo de chamadas desta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -203,8 +183,7 @@ Grafo de chamadas desta função\-:
 
 
 
-Este é o diagrama das funções que utilizam esta função\-:
-\nopagebreak
+Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

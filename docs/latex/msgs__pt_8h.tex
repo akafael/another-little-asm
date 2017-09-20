@@ -29,6 +29,12 @@ Este grafo mostra quais são os ficheiros que incluem directamente ou indirectam
 \item 
 \#define \hyperlink{msgs__pt_8h_acb4b755b37f4e2bec7953cb4bdab82d0}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}(file\-Line, I\-N\-S\-T)
 \item 
+\#define \hyperlink{msgs__pt_8h_a81adad364cc31d62136f99d16be246d8}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L}(file\-Line, I\-N\-S\-T)
+\item 
+\#define \hyperlink{msgs__pt_8h_a623c155fedd5a1c456f8c63b436c102f}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-F}(file\-Line, I\-N\-S\-T)
+\item 
+\#define \hyperlink{msgs__pt_8h_af6faed02032cd6305ee46046b040dba3}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L\-\_\-\-D\-U\-P\-L\-I\-C\-A\-T\-E\-D}(file\-Line, I\-N\-S\-T)
+\item 
 \#define \hyperlink{msgs__pt_8h_a9f4e76369e81500b2abe3b783b9b0be3}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M}(file\-Line, I\-N\-S\-T)
 \item 
 \#define \hyperlink{msgs__pt_8h_aef757d748dc80883f1145e6628c5348c}{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-A\-R\-G}(file\-Line, I\-N\-S\-T, A\-R\-G)
@@ -108,12 +114,12 @@ Definido na linha 17 do ficheiro msgs\-\_\-pt.\-h.
 {\bfseries Valor\-:}
 \begin{DoxyCode}
 cerr << \textcolor{stringliteral}{"\(\backslash\)nLinha "} << \(\backslash\)
-    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
+    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO ERRO SEMÂNTICO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
     \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m  -> Argumento \(\backslash\)""}<< ARG <<\textcolor{stringliteral}{"\(\backslash\)" Inválido\(\backslash\)033[0m\(\backslash\)n"}
 \end{DoxyCode}
 
 
-Definido na linha 33 do ficheiro msgs\-\_\-pt.\-h.
+Definido na linha 47 do ficheiro msgs\-\_\-pt.\-h.
 
 \hypertarget{msgs__pt_8h_a9f4e76369e81500b2abe3b783b9b0be3}{\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}!P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M}}
 \index{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M}!msgs_pt.h@{msgs\-\_\-pt.\-h}}
@@ -126,12 +132,30 @@ Definido na linha 33 do ficheiro msgs\-\_\-pt.\-h.
 {\bfseries Valor\-:}
 \begin{DoxyCode}
 cerr << \textcolor{stringliteral}{"\(\backslash\)nLinha "} << \(\backslash\)
-    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
+    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO SEMÂNTICO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
     \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m  -> Número de argumentos Inválido.\(\backslash\)033[0m\(\backslash\)n"}
 \end{DoxyCode}
 
 
-Definido na linha 29 do ficheiro msgs\-\_\-pt.\-h.
+Definido na linha 43 do ficheiro msgs\-\_\-pt.\-h.
+
+\hypertarget{msgs__pt_8h_a623c155fedd5a1c456f8c63b436c102f}{\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}!P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-F@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-F}}
+\index{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-F@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-F}!msgs_pt.h@{msgs\-\_\-pt.\-h}}
+\subsubsection[{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-F(
+\begin{DoxyParamCaption}
+\item[{}]{file\-Line, }
+\item[{}]{I\-N\-S\-T}
+\end{DoxyParamCaption}
+)}}\label{msgs__pt_8h_a623c155fedd5a1c456f8c63b436c102f}
+{\bfseries Valor\-:}
+\begin{DoxyCode}
+cerr << \textcolor{stringliteral}{"\(\backslash\)nLinha "} << \(\backslash\)
+    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO SINTÁTICO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
+    \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m  -> Uso Incorreto da diretiva IF\(\backslash\)033[0m\(\backslash\)n"}
+\end{DoxyCode}
+
+
+Definido na linha 33 do ficheiro msgs\-\_\-pt.\-h.
 
 \hypertarget{msgs__pt_8h_acb4b755b37f4e2bec7953cb4bdab82d0}{\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}!P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}}
 \index{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}!msgs_pt.h@{msgs\-\_\-pt.\-h}}
@@ -144,12 +168,48 @@ Definido na linha 29 do ficheiro msgs\-\_\-pt.\-h.
 {\bfseries Valor\-:}
 \begin{DoxyCode}
 cerr << \textcolor{stringliteral}{"\(\backslash\)nLinha "} << \(\backslash\)
-    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
+    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO SINTÁTICO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
     \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m  -> Instrução Inválida\(\backslash\)033[0m\(\backslash\)n"}
 \end{DoxyCode}
 
 
 Definido na linha 25 do ficheiro msgs\-\_\-pt.\-h.
+
+\hypertarget{msgs__pt_8h_a81adad364cc31d62136f99d16be246d8}{\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}!P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L}}
+\index{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L}!msgs_pt.h@{msgs\-\_\-pt.\-h}}
+\subsubsection[{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L(
+\begin{DoxyParamCaption}
+\item[{}]{file\-Line, }
+\item[{}]{I\-N\-S\-T}
+\end{DoxyParamCaption}
+)}}\label{msgs__pt_8h_a81adad364cc31d62136f99d16be246d8}
+{\bfseries Valor\-:}
+\begin{DoxyCode}
+cerr << \textcolor{stringliteral}{"\(\backslash\)nLinha "} << \(\backslash\)
+    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO SINTÁTICO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
+    \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m  -> Rótulo Inválido\(\backslash\)033[0m\(\backslash\)n"}
+\end{DoxyCode}
+
+
+Definido na linha 29 do ficheiro msgs\-\_\-pt.\-h.
+
+\hypertarget{msgs__pt_8h_af6faed02032cd6305ee46046b040dba3}{\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}!P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L\-\_\-\-D\-U\-P\-L\-I\-C\-A\-T\-E\-D@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L\-\_\-\-D\-U\-P\-L\-I\-C\-A\-T\-E\-D}}
+\index{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L\-\_\-\-D\-U\-P\-L\-I\-C\-A\-T\-E\-D@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L\-\_\-\-D\-U\-P\-L\-I\-C\-A\-T\-E\-D}!msgs_pt.h@{msgs\-\_\-pt.\-h}}
+\subsubsection[{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L\-\_\-\-D\-U\-P\-L\-I\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-L\-A\-B\-E\-L\-\_\-\-D\-U\-P\-L\-I\-C\-A\-T\-E\-D(
+\begin{DoxyParamCaption}
+\item[{}]{file\-Line, }
+\item[{}]{I\-N\-S\-T}
+\end{DoxyParamCaption}
+)}}\label{msgs__pt_8h_af6faed02032cd6305ee46046b040dba3}
+{\bfseries Valor\-:}
+\begin{DoxyCode}
+cerr << \textcolor{stringliteral}{"\(\backslash\)nLinha "} << \(\backslash\)
+    fileLine +1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO SINTÁTICO: \(\backslash\)033[0m\(\backslash\)""}<< string(INST) <<\(\backslash\)
+    \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m  -> Rótulo já definido\(\backslash\)033[0m\(\backslash\)n"}
+\end{DoxyCode}
+
+
+Definido na linha 38 do ficheiro msgs\-\_\-pt.\-h.
 
 \hypertarget{msgs__pt_8h_ab660eca0513ca6bba1016b3aca4f2bf9}{\index{msgs\-\_\-pt.\-h@{msgs\-\_\-pt.\-h}!P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N}}
 \index{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N@{P\-R\-I\-N\-T\-\_\-\-E\-R\-R\-\_\-\-T\-O\-K\-E\-N}!msgs_pt.h@{msgs\-\_\-pt.\-h}}
@@ -162,7 +222,7 @@ Definido na linha 25 do ficheiro msgs\-\_\-pt.\-h.
 {\bfseries Valor\-:}
 \begin{DoxyCode}
 cerr << \textcolor{stringliteral}{"\(\backslash\)nLinha "} << \(\backslash\)
-                                          fileLine + 1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO: \(\backslash\)033[0m\(\backslash\)""} << \(\backslash\)
+                                          fileLine + 1 << \textcolor{stringliteral}{":\(\backslash\)033[31m ERRO LÉXICO: \(\backslash\)033[0m\(\backslash\)""} << \(\backslash\)
                                           TOK << \textcolor{stringliteral}{"\(\backslash\)"\(\backslash\)033[31m -> Token Inválido \(\backslash\)033[0m\(\backslash\)n"}
 \end{DoxyCode}
 

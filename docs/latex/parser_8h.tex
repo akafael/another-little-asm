@@ -2,11 +2,14 @@
 \label{parser_8h}\index{parser.\-h@{parser.\-h}}
 }
 {\ttfamily \#include $<$string$>$}\\*
-Diagrama de dependências de inclusão para parser.\-h\-:\nopagebreak
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+Diagrama de dependências de inclusão para parser.\-h\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=132pt]{parser_8h__incl}
+\includegraphics[width=257pt]{parser_8h__incl}
 \end{center}
 \end{figure}
 Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:\nopagebreak
@@ -29,6 +32,8 @@ struct \hyperlink{structlabel}{label}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{parser_8h_a8e654728b92a3e3e7040c10d72e77868}{D\-E\-B\-U\-G\-\_\-\-P\-A\-R\-S\-E\-R}~0
+\item 
+\#define \hyperlink{parser_8h_a7ea6bf16e7f53e44a0536d0c0d1c3c3e}{L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}~-\/1
 \item 
 \#define \hyperlink{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}~-\/1
 \end{DoxyCompactItemize}
@@ -62,6 +67,8 @@ int \hyperlink{parser_8h_a630c1bfba8f4ed9490db77c6146d6f7f}{is\-Valid\-Instructi
 int \hyperlink{parser_8h_a7a3be2fded07ec8758103012a36464ce}{is\-Valid\-Instruction\-Call} (string command, string arg1, string arg2)
 \item 
 int \hyperlink{parser_8h_aebc52cad6ca085a1842a0e5674d0afe4}{is\-Valid\-Directive} (string command)
+\item 
+int \hyperlink{parser_8h_a9ef8c814439aab8a9db6ae7207902ab1}{find\-Label} (vector$<$ \hyperlink{structlabel}{label} $>$ label\-Table, string label\-Text)
 \end{DoxyCompactItemize}
 
 
@@ -73,12 +80,19 @@ int \hyperlink{parser_8h_aebc52cad6ca085a1842a0e5674d0afe4}{is\-Valid\-Directive
 
 Definido na linha 4 do ficheiro parser.\-h.
 
+\hypertarget{parser_8h_a7ea6bf16e7f53e44a0536d0c0d1c3c3e}{\index{parser.\-h@{parser.\-h}!L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D@{L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}}
+\index{L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D@{L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}!parser.h@{parser.\-h}}
+\subsubsection[{L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D~-\/1}}\label{parser_8h_a7ea6bf16e7f53e44a0536d0c0d1c3c3e}
+
+
+Definido na linha 32 do ficheiro parser.\-h.
+
 \hypertarget{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}{\index{parser.\-h@{parser.\-h}!U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R@{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}}
 \index{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R@{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}!parser.h@{parser.\-h}}
 \subsubsection[{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R~-\/1}}\label{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}
 
 
-Definido na linha 57 do ficheiro parser.\-h.
+Definido na linha 61 do ficheiro parser.\-h.
 
 
 
@@ -101,7 +115,7 @@ Definido na linha 57 do ficheiro parser.\-h.
 \end{Desc}
 
 
-Definido na linha 23 do ficheiro parser.\-h.
+Definido na linha 25 do ficheiro parser.\-h.
 
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3}{\index{parser.\-h@{parser.\-h}!Symbol\-Type@{Symbol\-Type}}
 \index{Symbol\-Type@{Symbol\-Type}!parser.h@{parser.\-h}}
@@ -127,11 +141,35 @@ Define simbolos gramáticais \begin{Desc}
 \end{Desc}
 
 
-Definido na linha 13 do ficheiro parser.\-h.
+Definido na linha 15 do ficheiro parser.\-h.
 
 
 
 \subsection{Documentação das funções}
+\hypertarget{parser_8h_a9ef8c814439aab8a9db6ae7207902ab1}{\index{parser.\-h@{parser.\-h}!find\-Label@{find\-Label}}
+\index{find\-Label@{find\-Label}!parser.h@{parser.\-h}}
+\subsubsection[{find\-Label}]{\setlength{\rightskip}{0pt plus 5cm}int find\-Label (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf label} $>$}]{label\-Table, }
+\item[{string}]{label\-Text}
+\end{DoxyParamCaption}
+)}}\label{parser_8h_a9ef8c814439aab8a9db6ae7207902ab1}
+
+
+Definido na linha 57 do ficheiro parser.\-cpp.
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parser_8h_a9ef8c814439aab8a9db6ae7207902ab1_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{parser_8h_aebc52cad6ca085a1842a0e5674d0afe4}{\index{parser.\-h@{parser.\-h}!is\-Valid\-Directive@{is\-Valid\-Directive}}
 \index{is\-Valid\-Directive@{is\-Valid\-Directive}!parser.h@{parser.\-h}}
 \subsubsection[{is\-Valid\-Directive}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Valid\-Directive (
@@ -204,12 +242,11 @@ código da Instrução ou código de erro (Instruction\-Error\-Code)
 \end{DoxyReturn}
 
 
-Definido na linha 14 do ficheiro parser.\-cpp.
+Definido na linha 15 do ficheiro parser.\-cpp.
 
 
 
-Grafo de chamadas desta função\-:
-\nopagebreak
+Grafo de chamadas desta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -243,12 +280,11 @@ código da Instrução ou código de erro (Instruction\-Error\-Code)
 \end{DoxyReturn}
 
 
-Definido na linha 32 do ficheiro parser.\-cpp.
+Definido na linha 34 do ficheiro parser.\-cpp.
 
 
 
-Grafo de chamadas desta função\-:
-\nopagebreak
+Grafo de chamadas desta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

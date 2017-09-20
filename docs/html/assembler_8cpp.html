@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para assembler.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp__incl.svg" width="968" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp__incl.svg" width="904" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -108,6 +108,8 @@ Diagrama de dependências de inclusão para assembler.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
+<tr class="memitem:ad735f823bad61ae08954113bfcaac5ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#ad735f823bad61ae08954113bfcaac5ad">lexicalAnalisisInstruction</a> (int lineCount, string line, vector&lt; <a class="el" href="structtoken.html">token</a> &gt; vtoks, vector&lt; <a class="el" href="structsymbol.html">symbol</a> &gt; *symbolsTb, vector&lt; <a class="el" href="structlabel.html">label</a> &gt; *labelsTb, int *currentSymbAd)</td></tr>
+<tr class="separator:ad735f823bad61ae08954113bfcaac5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a368a4f7b83093ab74e79be4ceeb11e3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a368a4f7b83093ab74e79be4ceeb11e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -138,21 +140,14 @@ Funções</h2></td></tr>
 <p>Montador</p>
 <dl class="section author"><dt>Autor</dt><dd>Rafael e João Pedro Franch </dd></dl>
 <p>&lt; Tabela de Tokens</p>
-<p>&lt; Tabela de Token</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Tarefa:</a></b></dt><dd>Pesquisar Labels na labelTable e pegar endereço </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>Pesquisar Labels na labelTable e pegar endereço </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Tarefa:</a></b></dt><dd>Pesquisar Labels na labelTable e pegar endereço </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Tarefa:</a></b></dt><dd>Pesquisar Labels na labelTable e pegar endereço </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Tarefa:</a></b></dt><dd>Pesquisar Labels na labelTable e pegar endereço </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Tarefa:</a></b></dt><dd>Pesquisar Labels na labelTable e pegar endereço </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Tarefa:</a></b></dt><dd>Ajustar Formato do Arquivo objeto </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Tarefa:</a></b></dt><dd>Ajustar Formato do Arquivo objeto </dd></dl>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00022">22</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00024">24</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph.svg" width="288" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph.svg" width="504" height="114"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </p>
@@ -161,6 +156,94 @@ Grafo de chamadas desta função:</div>
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_icgraph.svg" width="192" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad735f823bad61ae08954113bfcaac5ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lexicalAnalisisInstruction </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lineCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="structtoken.html">token</a> &gt;&#160;</td>
+          <td class="paramname"><em>vtoks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="structsymbol.html">symbol</a> &gt; *&#160;</td>
+          <td class="paramname"><em>symbolsTb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="structlabel.html">label</a> &gt; *&#160;</td>
+          <td class="paramname"><em>labelsTb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>currentSymbAd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Análise das sintáxe da instruções </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lineCount</td><td>posição da linha atual para uso em mensagens de erro </td></tr>
+    <tr><td class="paramname">line</td><td>linha atual para uso em mensagens de erro </td></tr>
+    <tr><td class="paramname">vtoks</td><td>saída do scanner </td></tr>
+    <tr><td class="paramname">symbolsTb</td><td>lista de simbolos </td></tr>
+    <tr><td class="paramname">labelsTb</td><td>lista de label </td></tr>
+    <tr><td class="paramname">currentSymbAd</td><td>contador </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>0 caso não houve erro </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>começando contagem a partir do 1 ao invés do 0 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00108">108</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad_cgraph.svg" width="374" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad_icgraph.svg" width="408" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
