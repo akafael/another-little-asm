@@ -46,7 +46,7 @@ int assembler(int argc, char * argv[])
     bool isSectionTextDeclared = false;
     bool isSectionDataDeclared = false;
     int currentSection = SECTION_NONE;
-    int currentSymbolAddr = 0;
+    int currentSymbolAddr = 1;
 
     for(int lineCount = 0 ;getline(InputFILE,line);lineCount++)
     {
