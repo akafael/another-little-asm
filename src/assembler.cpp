@@ -10,7 +10,6 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <string.h>
 
 #include "msgs_pt.h"
 #include "assembler.h"
@@ -140,7 +139,9 @@ int assembler(int argc, char * argv[])
                 if(labelPos==LABEL_NOT_FOUND)
                 {
                     tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    tmp_symb1.text = vtoks[1].string;
                     /// @todo Modificar para permitir completar tabela ao final da passagem
+
                 }
                 else
                 {
@@ -233,6 +234,7 @@ int assembler(int argc, char * argv[])
                 if(labelPos==LABEL_NOT_FOUND)
                 {
                     tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    tmp_symb1.text = vtoks[1].string;
                     /// @todo Modificar para permitir completar tabela ao final da passagem
                 }
                 else
@@ -248,6 +250,7 @@ int assembler(int argc, char * argv[])
                 if(labelPos==LABEL_NOT_FOUND)
                 {
                     tmp_symb2.content = UNDEFINED_LABEL_ADDR;
+                    tmp_symb2.text = vtoks[3].string;
                     /// @todo Modificar para permitir completar tabela ao final da passagem
                 }
                 else
@@ -402,6 +405,7 @@ int assembler(int argc, char * argv[])
                 if(labelPos==LABEL_NOT_FOUND)
                 {
                     tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    tmp_symb1.text = vtoks[3].string;
                     /// @todo Modificar para permitir completar tabela ao final da passagem
                 }
                 else
@@ -476,6 +480,7 @@ int assembler(int argc, char * argv[])
                 if(labelPos==LABEL_NOT_FOUND)
                 {
                     tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+                    tmp_symb1.text = vtoks[3].string;
                     /// @todo Modificar para permitir completar tabela ao final da passagem
                 }
                 else
@@ -492,6 +497,7 @@ int assembler(int argc, char * argv[])
                 if(labelPos==LABEL_NOT_FOUND)
                 {
                     tmp_symb2.content = UNDEFINED_LABEL_ADDR;
+                    tmp_symb2.text = vtoks[5].string;
                     /// @todo Modificar para permitir completar tabela ao final da passagem
                 }
                 else
@@ -577,12 +583,31 @@ int assembler(int argc, char * argv[])
             cout << endl;
             #endif
         }
-
     }
 
     // Escrita no Arquivo
     for(vector<symbol>::iterator it = symbolsTable.begin(); it != symbolsTable.end();++it)
     {
+        // Micro Passagem Para Atualizar Labels Pendentes
+        if((*it).content==UNDEFINED_LABEL_ADDR)
+        {
+            int labelPos = findLabel(labelsTable,(*it).text);
+            if(labelPos!=LABEL_NOT_FOUND)
+            {
+                // Atuliza Rótulos Pendentes
+                (*it).content = labelsTable[labelPos].addr;
+            }
+            else
+            {
+                /// @todo Modificar Programa para permitir identificar linha do erro
+                cerr << (*it).text << MSG_ERR_LABEL_UNDEFINED;
+            }
+        }
+
+        #if DEBUG_ASSEMBLER
+            cout << (*it).content << ' ' << (*it).text << endl;
+        #endif
+
         OutputFILE << (*it).content << ' ';
     }
 

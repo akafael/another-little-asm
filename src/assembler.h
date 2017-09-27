@@ -3,9 +3,12 @@
 
 #define DEBUG_ASSEMBLER 0
 
-#define SECTION_NONE 0
-#define SECTION_TEXT 1
-#define SECTION_DATA 2
+
+typedef enum{
+    SECTION_NONE = 0,
+    SECTION_TEXT = 1,
+    SECTION_DATA = 2
+} SectionMode;
 
 /**
  * Montador
