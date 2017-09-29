@@ -158,12 +158,12 @@ int assembler(int argc, char * argv[])
                 // Possível Diretiva
                 switch (code) {
                     case SECTION:
-                        if(vtoks[1].string.compare("TEXT"))
+                        if(vtoks[1].string=="TEXT")
                         {
                             isSectionTextDeclared = true;
                             currentSection = SECTION_TEXT;
                         }
-                        else if(vtoks[1].string.compare("DATA"))
+                        else if(vtoks[1].string=="DATA")
                         {
                             isSectionDataDeclared = true;
                             currentSection = SECTION_DATA;
@@ -542,27 +542,41 @@ int assembler(int argc, char * argv[])
             }
             else if(code==SPACE0)
             {
-                // Acrescenta os espaços
-                int spaceAmount = atoi(vtoks[3].string.c_str());
-                for(int i=0;i<spaceAmount;i++)
+                if(currentSection!=SECTION_DATA)
+                {
+                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
+                }
+                else
+                {
+                    // Acrescenta os espaços
+                    int spaceAmount = atoi(vtoks[3].string.c_str());
+                    for(int i=0;i<spaceAmount;i++)
+                    {
+                        symbol tmp_symb0;
+
+                        tmp_symb0.type = SYM_NUM_DEC;
+                        tmp_symb0.content = 0;
+                        tmp_symb0.address = currentSymbolAddr+i;
+                        symbolsTable.push_back(tmp_symb0);
+                    }
+                    currentSymbolAddr+=spaceAmount; // Atualiza Endereços
+                }
+            }
+            else if(code==CONST)
+            {
+                if(currentSection!=SECTION_DATA)
+                {
+                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
+                }
+                else
                 {
                     symbol tmp_symb0;
 
                     tmp_symb0.type = SYM_NUM_DEC;
-                    tmp_symb0.content = 0;
-                    tmp_symb0.address = currentSymbolAddr+i;
+                    tmp_symb0.content = atoi(vtoks[3].string.c_str());
+                    tmp_symb0.address = currentSymbolAddr+1;
                     symbolsTable.push_back(tmp_symb0);
                 }
-                currentSymbolAddr+=spaceAmount; // Atualiza Endereços
-            }
-            else if(code==CONST)
-            {
-                symbol tmp_symb0;
-
-                tmp_symb0.type = SYM_NUM_DEC;
-                tmp_symb0.content = atoi(vtoks[3].string.c_str());
-                tmp_symb0.address = currentSymbolAddr+1;
-                symbolsTable.push_back(tmp_symb0);
             }
             else
             {
@@ -575,7 +589,7 @@ int assembler(int argc, char * argv[])
             // Instrução Mal formatada
             PRINT_ERR_INSTRUCTION(lineCount,line);
 
-            #if DEBUG_ASSEMBLER
+            #if DEBUG_PARSER
             for(vector<token>::iterator it = vtoks.begin(); it != vtoks.end();++it)
             {
                 cout << (*it).type << '\t';

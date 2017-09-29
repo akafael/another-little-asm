@@ -44,6 +44,14 @@
     fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Definição de SECTION inválida, permitido somente TEXT ou DATA\033[0m\n"
 
+#define PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(fileLine,INST) cerr << "\nLinha " << \
+    fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
+    "\"\033[31m  -> Diretiva na Seção Errada! Deveria estar na seção DATA.\033[0m\n"
+
+#define PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(fileLine,INST) cerr << "\nLinha " << \
+    fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
+    "\"\033[31m  -> Diretiva na Seção Errada!\033[0m\n"
+
 
 #define PRINT_ERR_ARG_NUM(fileLine,INST) cerr << "\nLinha " << \
     fileLine +1 << ":\033[31m ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\
