@@ -13,6 +13,7 @@
 #define MSG_ERR_INVALID_INSTRUCTION "\tInstrução Inválida\n\e[0"
 #define MSG_ERR_INVALID_TOKEN "\tToken Inválido.\n"
 #define MSG_ERR_LABEL_UNDEFINED "\"\033[31m  -> Rótulo Não definido\033[0m\n"
+#define MSG_ERR_MISSING_SECTION_TEXT "\"\033[31m Seção TEXT não declarada\033[0m\n"
 
 // Macros para Formatar Mensagens de ERR
 #define PRINT_ERR(fileLine,MSG) cerr << "\n Linha " << \

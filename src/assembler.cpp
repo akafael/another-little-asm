@@ -45,7 +45,7 @@ int assembler(int argc, char * argv[])
     bool errorDetected = false;
     bool isSectionTextDeclared = false;
     bool isSectionDataDeclared = false;
-    int currentSection = SECTION_NONE;
+    SectionMode currentSection = SECTION_NONE;
     int currentSymbolAddr = 1;
 
     for(int lineCount = 0 ;getline(InputFILE,line);lineCount++)
@@ -583,6 +583,12 @@ int assembler(int argc, char * argv[])
             cout << endl;
             #endif
         }
+    }
+
+    // Verifica Existência da Seções TEXT
+    if(!isSectionTextDeclared)
+    {
+        cerr << MSG_ERR_MISSING_SECTION_TEXT;
     }
 
     // Escrita no Arquivo
