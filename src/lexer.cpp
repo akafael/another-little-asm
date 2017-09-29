@@ -23,10 +23,17 @@ token scanner(std::string line, int *position){
         tok.string = line.substr(i,j);
 
     }
-    else if(isdigit(line.at(i)))
+    else if(isdigit(line.at(i))||line.at(i)=='-')
     {
         // Verifica Se é Hexadecimal
-        if((line.at(i)=='0')&&line.at(i+1)=='X'){
+        if((line.at(i)=='-')&&(line.at(i+1)=='0')&&line.at(i+2)=='X'){
+            // Percorre até achar o fim do número
+            for(j=3;(i+j<line.size())&&(isxdigit(line.at(i+j)));j++);
+
+            tok.type = NUM_HEX;
+        }
+        else if((line.at(i)=='0')&&line.at(i+1)=='X')
+        {
             // Percorre até achar o fim do número
             for(j=2;(i+j<line.size())&&(isxdigit(line.at(i+j)));j++);
 
@@ -35,13 +42,13 @@ token scanner(std::string line, int *position){
             // Considera como valor Decimal
             for(j=1;(i+j<line.size())&&(isdigit(line.at(i+j)));j++);
 
-            if(i+j<line.size()&&isalpha(line.at(i+j))){
-                tok.type = ERRNUM;
-                j++; // Inclui caracter que causou o erro
-                ///@todo Incluir todo o token até o primeiro separador
+            tok.type = NUM_DEC;
+
+            while(i+j<line.size()&&isalpha(line.at(i+j))){
+                tok.type = ERRNUM; // Sobrescreve tipo com Erro
+                j++; // Inclui caracteres que causou o erro
             }
-            else
-                tok.type = NUM_DEC;
+
         }
 
         // Prenche conteúdo do token com o valor achado
@@ -63,9 +70,6 @@ token scanner(std::string line, int *position){
             break;
         case '+' :
             tok.type = PLUS;
-            break;
-        case '-' :
-            tok.type = MINUS;
             break;
         case '\n' :
             tok.type = LINE_END;

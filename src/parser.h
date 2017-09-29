@@ -38,6 +38,7 @@ typedef struct{
     int content;
     SymbolType type;
     int address;
+    int line;
     string text;
 } symbol;
 
