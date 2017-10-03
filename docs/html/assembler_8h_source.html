@@ -88,16 +88,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define YLA_ASSEMBLER_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="assembler_8h.html#a7aa29864c6fc48f21d74ba8b56b95018">    4</a></span>&#160;<span class="preprocessor">#define DEBUG_ASSEMBLER 0</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * Montador</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * @author Rafael e João Pedro Franch</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">int</span> <a class="code" href="assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> * argv[]);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="assembler_8h_html_a368a4f7b83093ab74e79be4ceeb11e3d"><div class="ttname"><a href="assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler</a></div><div class="ttdeci">int assembler(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="assembler_8cpp_source.html#l00024">assembler.cpp:24</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1">    7</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55">    8</a></span>&#160;    <a class="code" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55">SECTION_NONE</a> = 0,</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1ab8fff023d5919c18193cc1399d7a4218">    9</a></span>&#160;    <a class="code" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1ab8fff023d5919c18193cc1399d7a4218">SECTION_TEXT</a> = 1,</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1adaf228104a57e890449b7c64c5c79069">   10</a></span>&#160;    <a class="code" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1adaf228104a57e890449b7c64c5c79069">SECTION_DATA</a> = 2</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;} <a class="code" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1">SectionMode</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * Montador</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * @author Rafael e João Pedro Franch</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> <a class="code" href="assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> * argv[]);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="assembler_8h_html_adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55"><div class="ttname"><a href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55">SECTION_NONE</a></div><div class="ttdef"><b>Definition:</b> <a href="assembler_8h_source.html#l00008">assembler.h:8</a></div></div>
+<div class="ttc" id="assembler_8h_html_adee5669ba62dff676189189a4d6792e1adaf228104a57e890449b7c64c5c79069"><div class="ttname"><a href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1adaf228104a57e890449b7c64c5c79069">SECTION_DATA</a></div><div class="ttdef"><b>Definition:</b> <a href="assembler_8h_source.html#l00010">assembler.h:10</a></div></div>
+<div class="ttc" id="assembler_8h_html_a368a4f7b83093ab74e79be4ceeb11e3d"><div class="ttname"><a href="assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler</a></div><div class="ttdeci">int assembler(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="assembler_8cpp_source.html#l00023">assembler.cpp:23</a></div></div>
+<div class="ttc" id="assembler_8h_html_adee5669ba62dff676189189a4d6792e1"><div class="ttname"><a href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1">SectionMode</a></div><div class="ttdeci">SectionMode</div><div class="ttdef"><b>Definition:</b> <a href="assembler_8h_source.html#l00007">assembler.h:7</a></div></div>
+<div class="ttc" id="assembler_8h_html_adee5669ba62dff676189189a4d6792e1ab8fff023d5919c18193cc1399d7a4218"><div class="ttname"><a href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1ab8fff023d5919c18193cc1399d7a4218">SECTION_TEXT</a></div><div class="ttdef"><b>Definition:</b> <a href="assembler_8h_source.html#l00009">assembler.h:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

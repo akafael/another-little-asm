@@ -82,6 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerações</a> &#124;
 <a href="#func-members">Funções</a>  </div>
   <div class="headertitle">
 <div class="title">Referência ao ficheiro assembler.h</div>  </div>
@@ -100,6 +101,14 @@ Macros</h2></td></tr>
 <tr class="memitem:a7aa29864c6fc48f21d74ba8b56b95018"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8h.html#a7aa29864c6fc48f21d74ba8b56b95018">DEBUG_ASSEMBLER</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a7aa29864c6fc48f21d74ba8b56b95018"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerações</h2></td></tr>
+<tr class="memitem:adee5669ba62dff676189189a4d6792e1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1">SectionMode</a> { <a class="el" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55">SECTION_NONE</a> = 0, 
+<a class="el" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1ab8fff023d5919c18193cc1399d7a4218">SECTION_TEXT</a> = 1, 
+<a class="el" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1adaf228104a57e890449b7c64c5c79069">SECTION_DATA</a> = 2
+ }</td></tr>
+<tr class="separator:adee5669ba62dff676189189a4d6792e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
 <tr class="memitem:a368a4f7b83093ab74e79be4ceeb11e3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler</a> (int argc, char *argv[])</td></tr>
@@ -117,6 +126,29 @@ Funções</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definido na linha <a class="el" href="assembler_8h_source.html#l00004">4</a> do ficheiro <a class="el" href="assembler_8h_source.html">assembler.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação dos valores da enumeração</h2>
+<a class="anchor" id="adee5669ba62dff676189189a4d6792e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1">SectionMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valores da enumeração</th></tr><tr><td class="fieldname"><em><a class="anchor" id="adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55"></a>SECTION_NONE</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="adee5669ba62dff676189189a4d6792e1ab8fff023d5919c18193cc1399d7a4218"></a>SECTION_TEXT</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="adee5669ba62dff676189189a4d6792e1adaf228104a57e890449b7c64c5c79069"></a>SECTION_DATA</em>&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definido na linha <a class="el" href="assembler_8h_source.html#l00007">7</a> do ficheiro <a class="el" href="assembler_8h_source.html">assembler.h</a>.</p>
 
 </div>
 </div>
@@ -147,14 +179,23 @@ Funções</h2></td></tr>
 <p>Montador</p>
 <dl class="section author"><dt>Autor</dt><dd>Rafael e João Pedro Franch </dd></dl>
 <p>&lt; Tabela de Tokens</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Tarefa:</a></b></dt><dd>Ajustar Formato do Arquivo objeto </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>começando contagem a partir do 1 ao invés do 0 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Tarefa:</a></b></dt><dd>Modificar Programa para permitir identificar linha do erro </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Tarefa:</a></b></dt><dd>Modificar Programa para permitir identificar linha do erro </dd></dl>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00024">24</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00023">23</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8h_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph.svg" width="504" height="114"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8h_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph.svg" width="288" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </p>

@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="parser_8h.html#ab6243b513963c15735c801e6e3b7fbdf">    4</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf">isValidInstructionCall</a>(<span class="keywordtype">string</span> command)</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="comment">// Pesquisa command na lista de funções definidas</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;=<a class="code" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a>; i++) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt;<a class="code" href="languagedefinition_8h.html#ac56a94e3a6c9fcfb2f0fe4e6f88bb841">INSTRUCTIONS_NUMBER</a>; i++) {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordflow">if</span> (command.compare(<a class="code" href="languagedefinition_8h.html#a40869f6bf4eb1263aeccc9feb241d620">InstrutionString</a>[i]) == 0) {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;            <span class="keywordflow">return</span> (i+1);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        }</div>

@@ -6,9 +6,11 @@
 {\ttfamily \#include $<$fstream$>$}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include \char`\"{}lexer.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}msgs\-\_\-pt.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}macroeval.\-h\char`\"{}}\\*
-Diagrama de dependências de inclusão para macroeval.\-cpp\-:\nopagebreak
+Diagrama de dependências de inclusão para macroeval.\-cpp\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -19,10 +21,35 @@ Diagrama de dependências de inclusão para macroeval.\-cpp\-:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{macroeval_8cpp_ab726e2a9f26698bddb5ddd13683e6630}{macroeval} (int argc, char $\ast$$\ast$argv)
+\item 
+int \hyperlink{macroeval_8cpp_a34e9b7c10801b62d8a947c6afd9ba576}{find\-Macro\-Definition} (vector$<$ \hyperlink{structlabel_macro}{label\-Macro} $>$ macro\-Definition\-Table, string macro\-Text)
 \end{DoxyCompactItemize}
 
 
 \subsection{Documentação das funções}
+\hypertarget{macroeval_8cpp_a34e9b7c10801b62d8a947c6afd9ba576}{\index{macroeval.\-cpp@{macroeval.\-cpp}!find\-Macro\-Definition@{find\-Macro\-Definition}}
+\index{find\-Macro\-Definition@{find\-Macro\-Definition}!macroeval.cpp@{macroeval.\-cpp}}
+\subsubsection[{find\-Macro\-Definition}]{\setlength{\rightskip}{0pt plus 5cm}int find\-Macro\-Definition (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf label\-Macro} $>$}]{macro\-Definition\-Table, }
+\item[{string}]{macro\-Text}
+\end{DoxyParamCaption}
+)}}\label{macroeval_8cpp_a34e9b7c10801b62d8a947c6afd9ba576}
+
+
+Definido na linha 105 do ficheiro macroeval.\-cpp.
+
+
+
+Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{macroeval_8cpp_a34e9b7c10801b62d8a947c6afd9ba576_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{macroeval_8cpp_ab726e2a9f26698bddb5ddd13683e6630}{\index{macroeval.\-cpp@{macroeval.\-cpp}!macroeval@{macroeval}}
 \index{macroeval@{macroeval}!macroeval.cpp@{macroeval.\-cpp}}
 \subsubsection[{macroeval}]{\setlength{\rightskip}{0pt plus 5cm}int macroeval (
@@ -32,10 +59,29 @@ int \hyperlink{macroeval_8cpp_ab726e2a9f26698bddb5ddd13683e6630}{macroeval} (int
 \end{DoxyParamCaption}
 )}}\label{macroeval_8cpp_ab726e2a9f26698bddb5ddd13683e6630}
 \begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000010}{Tarefa}]Fazer validação das macros, I\-F e E\-Q\-V \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000011}{Tarefa}]Fazer validação das macros, I\-F e E\-Q\-V \end{DoxyRefDesc}
 
 
-Definido na linha 16 do ficheiro macroeval.\-cpp.
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000012}{Tarefa}]Verificar uso das M\-A\-C\-R\-O\-S \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000013}{Tarefa}]Verificar necessidade de quebra de linha \end{DoxyRefDesc}
+
+
+Definido na linha 17 do ficheiro macroeval.\-cpp.
+
+
+
+Grafo de chamadas desta função\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{macroeval_8cpp_ab726e2a9f26698bddb5ddd13683e6630_cgraph}
+\end{center}
+\end{figure}
+
 
 
 

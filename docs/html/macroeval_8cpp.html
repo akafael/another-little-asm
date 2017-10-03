@@ -91,12 +91,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <code>#include &lt;fstream&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &quot;<a class="el" href="lexer_8h_source.html">lexer.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="macroeval_8h_source.html">macroeval.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para macroeval.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="macroeval_8cpp__incl.svg" width="670" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="macroeval_8cpp__incl.svg" width="726" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="macroeval_8cpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
@@ -105,8 +107,45 @@ Diagrama de dependências de inclusão para macroeval.cpp:</div>
 Funções</h2></td></tr>
 <tr class="memitem:ab726e2a9f26698bddb5ddd13683e6630"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macroeval_8cpp.html#ab726e2a9f26698bddb5ddd13683e6630">macroeval</a> (int argc, char **argv)</td></tr>
 <tr class="separator:ab726e2a9f26698bddb5ddd13683e6630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e9b7c10801b62d8a947c6afd9ba576"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macroeval_8cpp.html#a34e9b7c10801b62d8a947c6afd9ba576">findMacroDefinition</a> (vector&lt; <a class="el" href="structlabel_macro.html">labelMacro</a> &gt; macroDefinitionTable, string macroText)</td></tr>
+<tr class="separator:a34e9b7c10801b62d8a947c6afd9ba576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das funções</h2>
+<a class="anchor" id="a34e9b7c10801b62d8a947c6afd9ba576"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findMacroDefinition </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="structlabel_macro.html">labelMacro</a> &gt;&#160;</td>
+          <td class="paramname"><em>macroDefinitionTable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>macroText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definido na linha <a class="el" href="macroeval_8cpp_source.html#l00105">105</a> do ficheiro <a class="el" href="macroeval_8cpp_source.html">macroeval.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="macroeval_8cpp_a34e9b7c10801b62d8a947c6afd9ba576_icgraph.svg" width="376" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="ab726e2a9f26698bddb5ddd13683e6630"></a>
 <div class="memitem">
 <div class="memproto">
@@ -130,9 +169,18 @@ Funções</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Tarefa:</a></b></dt><dd>Fazer validação das macros, IF e EQV </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Tarefa:</a></b></dt><dd>Fazer validação das macros, IF e EQV </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Tarefa:</a></b></dt><dd>Verificar uso das MACROS </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Tarefa:</a></b></dt><dd>Verificar necessidade de quebra de linha </dd></dl>
 
-<p>Definido na linha <a class="el" href="macroeval_8cpp_source.html#l00016">16</a> do ficheiro <a class="el" href="macroeval_8cpp_source.html">macroeval.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="macroeval_8cpp_source.html#l00017">17</a> do ficheiro <a class="el" href="macroeval_8cpp_source.html">macroeval.cpp</a>.</p>
+
+<p><div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="macroeval_8cpp_ab726e2a9f26698bddb5ddd13683e6630_cgraph.svg" width="395" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>

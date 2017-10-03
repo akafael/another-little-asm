@@ -1,6 +1,9 @@
 var searchData=
 [
   ['section',['SECTION',['../languagedefinition_8h.html#a1830ff5737e4f1610e975ee2aa489206acb7227be6a36b93e485b62e3acddae51',1,'languagedefinition.h']]],
+  ['section_5fdata',['SECTION_DATA',['../assembler_8h.html#adee5669ba62dff676189189a4d6792e1adaf228104a57e890449b7c64c5c79069',1,'assembler.h']]],
+  ['section_5fnone',['SECTION_NONE',['../assembler_8h.html#adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55',1,'assembler.h']]],
+  ['section_5ftext',['SECTION_TEXT',['../assembler_8h.html#adee5669ba62dff676189189a4d6792e1ab8fff023d5919c18193cc1399d7a4218',1,'assembler.h']]],
   ['semicolon',['SEMICOLON',['../lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a55eebe3c7e08b49cd5969442f4f8c4ce',1,'lexer.h']]],
   ['space0',['SPACE0',['../languagedefinition_8h.html#a1830ff5737e4f1610e975ee2aa489206aacb2c772b330b152747db851e79ecfb9',1,'languagedefinition.h']]],
   ['space1',['SPACE1',['../languagedefinition_8h.html#a1830ff5737e4f1610e975ee2aa489206a0b7afa414f09ecc4d88ad562a013db6d',1,'languagedefinition.h']]],

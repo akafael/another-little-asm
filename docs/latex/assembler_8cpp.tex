@@ -7,7 +7,6 @@
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$algorithm$>$}\\*
 {\ttfamily \#include $<$vector$>$}\\*
-{\ttfamily \#include $<$string.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}msgs\-\_\-pt.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}assembler.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}lexer.\-h\char`\"{}}\\*
@@ -23,7 +22,7 @@ Diagrama de dependências de inclusão para assembler.\-cpp\-:
 \subsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad}{lexical\-Analisis\-Instruction} (int line\-Count, string line, vector$<$ \hyperlink{structtoken}{token} $>$ vtoks, vector$<$ \hyperlink{structsymbol}{symbol} $>$ $\ast$symbols\-Tb, vector$<$ \hyperlink{structlabel}{label} $>$ $\ast$labels\-Tb, int $\ast$current\-Symb\-Ad)
+bool \hyperlink{assembler_8cpp_ab0abed06b5d8143110b33df1720ae649}{lexical\-Analysis\-Instruction} (int line\-Count, string line, vector$<$ \hyperlink{structtoken}{token} $>$ vtoks, vector$<$ \hyperlink{structsymbol}{symbol} $>$ $\ast$symbols\-Tb, vector$<$ \hyperlink{structlabel}{label} $>$ $\ast$labels\-Tb, int $\ast$current\-Symb\-Ad)
 \item 
 int \hyperlink{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d}{assembler} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
@@ -46,64 +45,9 @@ Rafael e João Pedro Franch
 $<$ Tabela de Tokens
 
 \begin{DoxyRefDesc}{Tarefa}
-\item[\hyperlink{todo__todo000001}{Tarefa}]Ajustar Formato do Arquivo objeto \end{DoxyRefDesc}
+\item[\hyperlink{todo__todo000001}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
 
 
-Definido na linha 24 do ficheiro assembler.\-cpp.
-
-
-
-Grafo de chamadas desta função\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=216pt]{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad}{\index{assembler.\-cpp@{assembler.\-cpp}!lexical\-Analisis\-Instruction@{lexical\-Analisis\-Instruction}}
-\index{lexical\-Analisis\-Instruction@{lexical\-Analisis\-Instruction}!assembler.cpp@{assembler.\-cpp}}
-\subsubsection[{lexical\-Analisis\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}bool lexical\-Analisis\-Instruction (
-\begin{DoxyParamCaption}
-\item[{int}]{line\-Count, }
-\item[{string}]{line, }
-\item[{vector$<$ {\bf token} $>$}]{vtoks, }
-\item[{vector$<$ {\bf symbol} $>$ $\ast$}]{symbols\-Tb, }
-\item[{vector$<$ {\bf label} $>$ $\ast$}]{labels\-Tb, }
-\item[{int $\ast$}]{current\-Symb\-Ad}
-\end{DoxyParamCaption}
-)}}\label{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad}
-Análise das sintáxe da instruções 
-\begin{DoxyParams}{Parâmetros}
-{\em line\-Count} & posição da linha atual para uso em mensagens de erro \\
-\hline
-{\em line} & linha atual para uso em mensagens de erro \\
-\hline
-{\em vtoks} & saída do scanner \\
-\hline
-{\em symbols\-Tb} & lista de simbolos \\
-\hline
-{\em labels\-Tb} & lista de label \\
-\hline
-{\em current\-Symb\-Ad} & contador \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-0 caso não houve erro 
-\end{DoxyReturn}
 \begin{DoxyRefDesc}{Tarefa}
 \item[\hyperlink{todo__todo000002}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
 
@@ -132,7 +76,15 @@ Análise das sintáxe da instruções
 \item[\hyperlink{todo__todo000007}{Tarefa}]Modificar para permitir completar tabela ao final da passagem \end{DoxyRefDesc}
 
 
-Definido na linha 108 do ficheiro assembler.\-cpp.
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000008}{Tarefa}]Modificar Programa para permitir identificar linha do erro \end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Tarefa}
+\item[\hyperlink{todo__todo000009}{Tarefa}]Modificar Programa para permitir identificar linha do erro \end{DoxyRefDesc}
+
+
+Definido na linha 23 do ficheiro assembler.\-cpp.
 
 
 
@@ -141,20 +93,31 @@ Grafo de chamadas desta função\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad_cgraph}
+\includegraphics[width=288pt]{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
-Este é o diagrama das funções que utilizam esta função\-:
-\nopagebreak
+Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{assembler_8cpp_ad735f823bad61ae08954113bfcaac5ad_icgraph}
+\includegraphics[width=216pt]{assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_icgraph}
 \end{center}
 \end{figure}
 
 
+\hypertarget{assembler_8cpp_ab0abed06b5d8143110b33df1720ae649}{\index{assembler.\-cpp@{assembler.\-cpp}!lexical\-Analysis\-Instruction@{lexical\-Analysis\-Instruction}}
+\index{lexical\-Analysis\-Instruction@{lexical\-Analysis\-Instruction}!assembler.cpp@{assembler.\-cpp}}
+\subsubsection[{lexical\-Analysis\-Instruction}]{\setlength{\rightskip}{0pt plus 5cm}bool lexical\-Analysis\-Instruction (
+\begin{DoxyParamCaption}
+\item[{int}]{line\-Count, }
+\item[{string}]{line, }
+\item[{vector$<$ {\bf token} $>$}]{vtoks, }
+\item[{vector$<$ {\bf symbol} $>$ $\ast$}]{symbols\-Tb, }
+\item[{vector$<$ {\bf label} $>$ $\ast$}]{labels\-Tb, }
+\item[{int $\ast$}]{current\-Symb\-Ad}
+\end{DoxyParamCaption}
+)}}\label{assembler_8cpp_ab0abed06b5d8143110b33df1720ae649}
