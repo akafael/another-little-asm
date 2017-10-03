@@ -4,7 +4,7 @@
 int isValidInstructionCall(string command)
 {
     // Pesquisa command na lista de funções definidas
-    for (int i = 1; i <=INSTRUCTIONS_NUMBER; i++) {
+    for (int i = 0; i <INSTRUCTIONS_NUMBER; i++) {
         if (command.compare(InstrutionString[i]) == 0) {
             return (i+1);
         }
