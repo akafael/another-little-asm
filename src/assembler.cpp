@@ -196,6 +196,60 @@ int assembler(int argc, char * argv[])
             }
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
+              &&(vtoks[2].type==PLUS)&&(vtoks[3].type==NUM_DEC))
+        {
+          int code = isValidInstructionCall(vtoks[0].string,vtoks[1].string);
+          if(code==INVALID_INSTRUCTION)
+          {
+              PRINT_ERR_INSTRUCTION(lineCount,line);
+          }
+          else if(code==INVALID_ARG_NUMBER)
+          {
+              PRINT_ERR_ARG_NUM(lineCount,line);
+          }
+          else if(code==INVALID_ARG1)
+          {
+              PRINT_ERR_ARG(lineCount,line,vtoks[1].string);
+          }
+          else if(code<=14)// Chamada Válida de instrução
+          {
+              // Cria Simbolos e coloca na tabela
+              symbol tmp_symb0,tmp_symb1;
+              int labelPos;
+
+              tmp_symb0.type = SYM_INSTRUCTION;
+              tmp_symb0.content = code;
+              tmp_symb0.address = currentSymbolAddr;
+              symbolsTable.push_back(tmp_symb0);
+
+              tmp_symb1.type = SYM_LABEL;
+              tmp_symb1.address = currentSymbolAddr+1;
+
+              labelPos = findLabel(labelsTable,vtoks[1].string);
+              int numplus=std::atoi(vtoks[3].string.c_str());
+              if(labelPos==LABEL_NOT_FOUND)
+              {
+                  tmp_symb1.content = -1-numplus; //Armazena como negativo para recuperar o numero depois
+                  tmp_symb1.text = vtoks[1].string;
+                  /// @todo Modificar para permitir completar tabela ao final da passagem
+
+              }
+              else
+              {
+                  tmp_symb1.content = labelsTable[labelPos].addr+numplus;
+              }
+
+              symbolsTable.push_back(tmp_symb1);
+
+               // Atualiza Endereço p/ próximo simbolo
+              currentSymbolAddr+=2;
+          }
+          else
+          {
+            PRINT_ERR_INSTRUCTION(lineCount, line);
+          }
+        }
+        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
                 &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD))
         {
             // INST 2
@@ -622,6 +676,20 @@ int assembler(int argc, char * argv[])
                 /// @todo Modificar Programa para permitir identificar linha do erro
                 cerr << (*it).text << MSG_ERR_LABEL_UNDEFINED;
             }
+        }
+        else if((*it).content < -1) // Endereço de vetor não definido (Case +)
+        {
+          int labelPos = findLabel(labelsTable,(*it).text);
+          if(labelPos!=LABEL_NOT_FOUND)
+          {
+              // Atuliza Rótulos Pendentes
+              (*it).content = labelsTable[labelPos].addr - ((*it).content); //Recuperando o valor de numplus armazenado
+          }
+          else
+          {
+              /// @todo Modificar Programa para permitir identificar linha do erro
+              cerr << (*it).text << MSG_ERR_LABEL_UNDEFINED;
+          }
         }
 
         #if DEBUG_ASSEMBLER
