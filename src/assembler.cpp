@@ -33,6 +33,8 @@ bool lexicalAnalysisInstruction(int lineCount,string line,vector<token> vtoks,ve
 bool addNewLabel(string strLabel,int addrLabel,int lineCount,string line);
 bool addNewSymbolINST0(string strInst0, int lineCount,string line );
 bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line);
+bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCount,string line);
+bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line);
 
 int assembler(int argc, char * argv[])
 {
@@ -160,89 +162,11 @@ int assembler(int argc, char * argv[])
                 &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD))
         {
             // INST 2
-            int code = isValidInstructionCall(vtoks[0].string,vtoks[1].string,vtoks[3].string);
-            if(code==INVALID_INSTRUCTION)
-            {
-                PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
-            else if(code==INVALID_ARG_NUMBER)
-            {
-                PRINT_ERR_ARG_NUM(lineCount,line);
-            }
-            else if(code==INVALID_ARG1)
-            {
-                PRINT_ERR_ARG(lineCount,line,vtoks[1].string);
-            }
-            else if(code==INVALID_ARG2)
-            {
-                PRINT_ERR_ARG(lineCount,line,vtoks[3].string);
-            }
-            else // Instrução Chamada de Instrução Válida
-            {
-                // Cria Simbolo e coloca na tabela
-                symbol tmp_symb0,tmp_symb1,tmp_symb2;
-                int labelPos;
-
-                tmp_symb0.type = SYM_INSTRUCTION;
-                tmp_symb0.content = code;
-                tmp_symb0.address = currentSymbolAddr;
-                symbolsTable.push_back(tmp_symb0);
-
-                tmp_symb1.type = SYM_LABEL;
-                tmp_symb1.address = currentSymbolAddr+1;
-
-                labelPos = findLabel(labelsTable,vtoks[1].string);
-                if(labelPos==LABEL_NOT_FOUND)
-                {
-                    tmp_symb1.content = UNDEFINED_LABEL_ADDR;
-                    tmp_symb1.text = vtoks[1].string;
-                    /// @todo Modificar para permitir completar tabela ao final da passagem
-                }
-                else
-                {
-                    tmp_symb1.content = labelsTable[labelPos].addr;
-                }
-
-                symbolsTable.push_back(tmp_symb1);
-
-                tmp_symb2.type = SYM_LABEL;
-
-                labelPos = findLabel(labelsTable,vtoks[3].string);
-                if(labelPos==LABEL_NOT_FOUND)
-                {
-                    tmp_symb2.content = UNDEFINED_LABEL_ADDR;
-                    tmp_symb2.text = vtoks[3].string;
-                    /// @todo Modificar para permitir completar tabela ao final da passagem
-                }
-                else
-                {
-                    tmp_symb2.content = labelsTable[labelPos].addr;
-                }
-                tmp_symb2.address = currentSymbolAddr+2;
-                symbolsTable.push_back(tmp_symb2);
-
-                 // Atualiza Endereço p/ próximo simbolo
-                currentSymbolAddr+=3;
-            }
+            addNewSymbolINST2(vtoks[0].string,vtoks[1].string,vtoks[3].string,lineCount,line);
         }
         else if((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON))
         {
-            // Label
-            int labelPos = findLabel(labelsTable,vtoks[0].string);
-            if(labelPos==LABEL_NOT_FOUND)
-            {
-                // Insere Label na tabela de labels
-                label tmp_label;
-                tmp_label.text = vtoks[0].string;
-                /// @bug começando contagem a partir do 1 ao invés do 0
-                tmp_label.addr = currentSymbolAddr;
-
-                labelsTable.push_back(tmp_label);
-            }
-            else
-            {
-                PRINT_ERR_LABEL_DUPLICATED(lineCount,line);
-            }
+            addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
                 &&(vtoks[4].type==WORD)&&(vtoks[3].type==COLON))
@@ -349,59 +273,9 @@ int assembler(int argc, char * argv[])
             // Label + SPACE1
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
 
-            // INST0
-            int code = isValidInstructionCall(vtoks[2].string); // Considera SPACE0
-            if(code==INVALID_INSTRUCTION)
-            {
-                PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
-            else if(code==INVALID_ARG_NUMBER)
-            {
-                PRINT_ERR_ARG_NUM(lineCount,line);
-            }
-            else if(code==SPACE0)
-            {
-                if(currentSection!=SECTION_DATA)
-                {
-                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
-                }
-                else
-                {
-                    // Acrescenta os espaços
-                    int spaceAmount = atoi(vtoks[3].string.c_str());
-                    for(int i=0;i<spaceAmount;i++)
-                    {
-                        symbol tmp_symb0;
-
-                        tmp_symb0.type = SYM_NUM_DEC;
-                        tmp_symb0.content = 0;
-                        tmp_symb0.address = currentSymbolAddr+i;
-                        symbolsTable.push_back(tmp_symb0);
-                    }
-                    currentSymbolAddr+=spaceAmount; // Atualiza Endereços
-                }
-            }
-            else if(code==CONST)
-            {
-                if(currentSection!=SECTION_DATA)
-                {
-                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
-                }
-                else
-                {
-                    symbol tmp_symb0;
-
-                    tmp_symb0.type = SYM_NUM_DEC;
-                    tmp_symb0.content = atoi(vtoks[3].string.c_str());
-                    tmp_symb0.address = currentSymbolAddr+1;
-                    symbolsTable.push_back(tmp_symb0);
-                }
-            }
-            else
-            {
-                // Instrução Mal formatada
-                PRINT_ERR_INSTRUCTION(lineCount,line);
-            }
+            // INST1 NUM
+            int numArg1=std::atoi(vtoks[3].string.c_str());
+            addNewSymbolINST1NUM(vtoks[2].string,numArg1,lineCount,line);
         }
         else
         {
@@ -607,5 +481,131 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
                 PRINT_ERR_ARG(lineCount,line,strArg1);
                 break;
         }
+    }
+}
+
+bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line)
+{
+    int code = isValidInstructionCall(strInst1); // Considera SPACE0
+    if(code==INVALID_INSTRUCTION)
+    {
+        PRINT_ERR_INSTRUCTION(lineCount,line);
+    }
+    else if(code==INVALID_ARG_NUMBER)
+    {
+        PRINT_ERR_ARG_NUM(lineCount,line);
+    }
+    else if(code==SPACE0)
+    {
+        if(currentSection!=SECTION_DATA)
+        {
+            PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
+        }
+        else
+        {
+            // Acrescenta os espaços
+            int spaceAmount = numArg1;
+            for(int i=0;i<spaceAmount;i++)
+            {
+                symbol tmp_symb0;
+
+                tmp_symb0.type = SYM_NUM_DEC;
+                tmp_symb0.content = 0;
+                tmp_symb0.address = currentSymbolAddr+i;
+                symbolsTable.push_back(tmp_symb0);
+            }
+            currentSymbolAddr+=spaceAmount; // Atualiza Endereços
+        }
+    }
+    else if(code==CONST)
+    {
+        if(currentSection!=SECTION_DATA)
+        {
+            PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
+        }
+        else
+        {
+            symbol tmp_symb0;
+
+            tmp_symb0.type = SYM_NUM_DEC;
+            tmp_symb0.content = numArg1;
+            tmp_symb0.address = currentSymbolAddr+1;
+            symbolsTable.push_back(tmp_symb0);
+        }
+    }
+    else
+    {
+        // Instrução Mal formatada
+        PRINT_ERR_INSTRUCTION(lineCount,line);
+    }
+}
+
+
+
+bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCount,string line)
+{
+    int code = isValidInstructionCall(strInst2,strArg1,strArg2);
+    if(code==INVALID_INSTRUCTION)
+    {
+        PRINT_ERR_INSTRUCTION(lineCount,line);
+    }
+    else if(code==INVALID_ARG_NUMBER)
+    {
+        PRINT_ERR_ARG_NUM(lineCount,line);
+    }
+    else if(code==INVALID_ARG1)
+    {
+        PRINT_ERR_ARG(lineCount,line,strArg1);
+    }
+    else if(code==INVALID_ARG2)
+    {
+        PRINT_ERR_ARG(lineCount,line,strArg2);
+    }
+    else // Instrução Chamada de Instrução Válida
+    {
+        // Cria Simbolo e coloca na tabela
+        symbol tmp_symb0,tmp_symb1,tmp_symb2;
+        int labelPos;
+
+        tmp_symb0.type = SYM_INSTRUCTION;
+        tmp_symb0.content = code;
+        tmp_symb0.address = currentSymbolAddr;
+        symbolsTable.push_back(tmp_symb0);
+
+        tmp_symb1.type = SYM_LABEL;
+        tmp_symb1.address = currentSymbolAddr+1;
+
+        labelPos = findLabel(labelsTable,strArg1);
+        if(labelPos==LABEL_NOT_FOUND)
+        {
+            tmp_symb1.content = UNDEFINED_LABEL_ADDR;
+            tmp_symb1.text = strArg1;
+            /// @todo Modificar para permitir completar tabela ao final da passagem
+        }
+        else
+        {
+            tmp_symb1.content = labelsTable[labelPos].addr;
+        }
+
+        symbolsTable.push_back(tmp_symb1);
+
+        tmp_symb2.type = SYM_LABEL;
+
+        labelPos = findLabel(labelsTable,strArg2);
+        if(labelPos==LABEL_NOT_FOUND)
+        {
+            tmp_symb2.content = UNDEFINED_LABEL_ADDR;
+            tmp_symb2.text = strArg2;
+            /// @todo Modificar para permitir completar tabela ao final da passagem
+        }
+        else
+        {
+            tmp_symb2.content = labelsTable[labelPos].addr;
+        }
+        tmp_symb2.address = currentSymbolAddr+2;
+        symbolsTable.push_back(tmp_symb2);
+
+         // Atualiza Endereço p/ próximo simbolo
+        currentSymbolAddr+=3;
     }
 }
