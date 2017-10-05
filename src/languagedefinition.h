@@ -94,7 +94,7 @@ const static int InstructionArgNumber[] = {
     1, // "CONST"
     1, // "EQU"
     1, // "IF"
-    0, // "MACRO"
+    1, // "MACRO"
     0, // "ENDMACRO"
     0, // "BEGIN"
     0  // "END"
