@@ -98,7 +98,6 @@ int assembler(int argc, char * argv[])
         {
             // INST0
             addNewSymbolINST0(vtoks[0].string,lineCount,line);
-
         }
         else if((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD))
         {
@@ -141,6 +140,16 @@ int assembler(int argc, char * argv[])
             // Label + INST1
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
             addNewSymbolINST1(vtoks[2].string,vtoks[3].string,lineCount,line);
+        }
+        else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD)&&(vtoks[4].type==PLUS)\
+                &&(vtoks[5].type==NUM_DEC))
+        {
+            // Label + INST1 PLUS
+            addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
+
+            int numArg1Plus=std::atoi(vtoks[5].string.c_str());
+            addNewSymbolINST1PLUS(vtoks[2].string,vtoks[3].string,numArg1Plus,lineCount,line);
         }
         else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
                 &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD)&&(vtoks[4].type==COMMA)\
@@ -274,6 +283,10 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
 
         // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr++;
+
+        // Verifica se Instrução está na sessão certa
+        if(currentSection!=SECTION_TEXT)
+            PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(lineCount,line);
     }
     else // Possível Diretiva
     {
@@ -288,6 +301,10 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
 
                 // Atualiza Endereço p/ próximo simbolo
                 currentSymbolAddr++;
+
+                // Verifica se a diretiva está na sessão certa
+                if(currentSection!=SECTION_DATA)
+                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
             }
             default:
                 // Ignora demais diretivas
@@ -342,6 +359,10 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
 
          // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr+=2;
+
+        // Verifica se Instrução está na sessão certa
+        if(currentSection!=SECTION_TEXT)
+            PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(lineCount,line);
     }
     else
     {
@@ -376,11 +397,19 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
                     symbolsTable.push_back(tmp_symb0);
                 }
                 currentSymbolAddr+=spaceAmount; // Atualiza Endereços
+
+                // Verifica se a Diretiva está na sessão certa
+                if(currentSection!=SECTION_DATA)
+                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
                 break;
             }
             case CONST:
                 // Erro
                 PRINT_ERR_ARG(lineCount,line,strArg1);
+
+                // Verifica se a Diretiva está na sessão certa
+                if(currentSection!=SECTION_DATA)
+                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
                 break;
         }
     }
@@ -431,6 +460,10 @@ bool addNewSymbolINST1PLUS(string strInst1,string strArg1,int numArg1Plus, int l
 
        // Atualiza Endereço p/ próximo simbolo
       currentSymbolAddr+=2;
+
+      // Verifica se Instrução está na sessão certa
+      if(currentSection!=SECTION_TEXT)
+          PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(lineCount,line);
     }
     else // Possível Diretiva
     {
@@ -513,7 +546,7 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
     {
         PRINT_ERR_ARG(lineCount,line,strArg2);
     }
-    else // Instrução Chamada de Instrução Válida
+    else if(code<=14) // Chamada Válida de instrução
     {
         // Cria Simbolo e coloca na tabela
         symbol tmp_symb0,tmp_symb1,tmp_symb2;
@@ -559,5 +592,8 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
 
          // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr+=3;
+
+        if(currentSection!=SECTION_TEXT)
+            PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(lineCount,line);
     }
 }

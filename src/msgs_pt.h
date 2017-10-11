@@ -50,7 +50,7 @@
 
 #define PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(fileLine,INST) cerr << "\nLinha " << \
     fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
-    "\"\033[31m  -> Diretiva na Seção Errada!\033[0m\n"
+    "\"\033[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.\033[0m\n"
 
 
 #define PRINT_ERR_ARG_NUM(fileLine,INST) cerr << "\nLinha " << \
