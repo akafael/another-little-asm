@@ -32,6 +32,11 @@
     fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Rótulo Inválido\033[0m\n"
 
+#define PRINT_ERR_LABEL_UNDEFINIED(fileLine,INST) cerr << "\nLinha " << \
+    fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
+    "\"\033[31m  -> Rótulo Não Definido\033[0m\n"
+
+
 #define PRINT_ERR_IF(fileLine,INST) cerr << "\nLinha " << \
     fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Uso Incorreto da diretiva IF\033[0m\n"

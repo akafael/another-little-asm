@@ -204,8 +204,7 @@ int assembler(int argc, char * argv[])
             }
             else
             {
-                /// @todo Modificar Programa para permitir identificar linha do erro
-                cerr << (*it).text << MSG_ERR_LABEL_UNDEFINED;
+                PRINT_ERR_LABEL_UNDEFINIED((*it).line,(*it).text);
             }
         }
         else if((*it).content < -1) // Endereço de vetor não definido (Case +)
@@ -218,8 +217,7 @@ int assembler(int argc, char * argv[])
           }
           else
           {
-              /// @todo Modificar Programa para permitir identificar linha do erro
-              cerr << (*it).text << MSG_ERR_LABEL_UNDEFINED;
+              PRINT_ERR_LABEL_UNDEFINIED((*it).line,(*it).text);
           }
         }
 
@@ -279,6 +277,7 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         tmp_symb.type = SYM_INSTRUCTION;
         tmp_symb.content = code;
         tmp_symb.address = currentSymbolAddr;
+        tmp_symb.line = lineCount;
         symbolsTable.push_back(tmp_symb);
 
         // Atualiza Endereço p/ próximo simbolo
@@ -297,6 +296,7 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
                 tmp_symb.type = SYM_INSTRUCTION;
                 tmp_symb.content = 0;
                 tmp_symb.address = currentSymbolAddr;
+                tmp_symb.line = lineCount;
                 symbolsTable.push_back(tmp_symb);
 
                 // Atualiza Endereço p/ próximo simbolo
@@ -338,10 +338,12 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
         tmp_symb0.type = SYM_INSTRUCTION;
         tmp_symb0.content = code;
         tmp_symb0.address = currentSymbolAddr;
+        tmp_symb0.line = lineCount;
         symbolsTable.push_back(tmp_symb0);
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
+        tmp_symb1.line = lineCount;
 
         labelPos = findLabel(labelsTable,strArg1);
         if(labelPos==LABEL_NOT_FOUND)
@@ -394,6 +396,7 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
                     tmp_symb0.type = SYM_NUM_DEC;
                     tmp_symb0.content = 0;
                     tmp_symb0.address = currentSymbolAddr+i;
+                    tmp_symb0.line = lineCount;
                     symbolsTable.push_back(tmp_symb0);
                 }
                 currentSymbolAddr+=spaceAmount; // Atualiza Endereços
@@ -439,10 +442,12 @@ bool addNewSymbolINST1PLUS(string strInst1,string strArg1,int numArg1Plus, int l
       tmp_symb0.type = SYM_INSTRUCTION;
       tmp_symb0.content = code;
       tmp_symb0.address = currentSymbolAddr;
+      tmp_symb0.line = lineCount;
       symbolsTable.push_back(tmp_symb0);
 
       tmp_symb1.type = SYM_LABEL;
       tmp_symb1.address = currentSymbolAddr+1;
+      tmp_symb1.line = lineCount;
 
       labelPos = findLabel(labelsTable,strArg1);
       if(labelPos==LABEL_NOT_FOUND)
@@ -499,6 +504,7 @@ bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line
                 tmp_symb0.type = SYM_NUM_DEC;
                 tmp_symb0.content = 0;
                 tmp_symb0.address = currentSymbolAddr+i;
+                tmp_symb0.line = lineCount;
                 symbolsTable.push_back(tmp_symb0);
             }
             currentSymbolAddr+=spaceAmount; // Atualiza Endereços
@@ -517,6 +523,7 @@ bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line
             tmp_symb0.type = SYM_NUM_DEC;
             tmp_symb0.content = numArg1;
             tmp_symb0.address = currentSymbolAddr+1;
+            tmp_symb0.line = lineCount;
             symbolsTable.push_back(tmp_symb0);
         }
     }
@@ -555,10 +562,12 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
         tmp_symb0.type = SYM_INSTRUCTION;
         tmp_symb0.content = code;
         tmp_symb0.address = currentSymbolAddr;
+        tmp_symb0.line = lineCount;
         symbolsTable.push_back(tmp_symb0);
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
+        tmp_symb1.line = lineCount;
 
         labelPos = findLabel(labelsTable,strArg1);
         if(labelPos==LABEL_NOT_FOUND)
@@ -575,6 +584,7 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
         symbolsTable.push_back(tmp_symb1);
 
         tmp_symb2.type = SYM_LABEL;
+        tmp_symb2.line = lineCount;
 
         labelPos = findLabel(labelsTable,strArg2);
         if(labelPos==LABEL_NOT_FOUND)
