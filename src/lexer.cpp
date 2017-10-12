@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 #include "lexer.h"
 
@@ -26,13 +27,13 @@ token scanner(std::string line, int *position){
     else if(isdigit(line.at(i))||line.at(i)=='-')
     {
         // Verifica Se é Hexadecimal
-        if((line.at(i)=='-')&&(line.at(i+1)=='0')&&line.at(i+2)=='X'){
+        if((line.at(i)=='-')&&(i+2)<line.size()&&(line.at(i+1)=='0')&&line.at(i+2)=='X'){
             // Percorre até achar o fim do número
             for(j=3;(i+j<line.size())&&(isxdigit(line.at(i+j)));j++);
 
             tok.type = NUM_HEX;
         }
-        else if((line.at(i)=='0')&&line.at(i+1)=='X')
+        else if((line.at(i)=='0')&&(i+1)<line.size()&&line.at(i+1)=='X')
         {
             // Percorre até achar o fim do número
             for(j=2;(i+j<line.size())&&(isxdigit(line.at(i+j)));j++);
@@ -105,6 +106,10 @@ vector<token> tokenizer(string line){
         if(tok.type!=SPC){
             vtoks.push_back(tok);
         }
+
+        #if DEBUG_LEXER
+            cout << tok.type << '\t' << tok.string << endl;
+        #endif
     }
     return vtoks;
 }

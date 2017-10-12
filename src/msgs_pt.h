@@ -12,8 +12,8 @@
 #define MSG_ERR_FILE "\tProblemas ao abrir arquivo\n"
 #define MSG_ERR_INVALID_INSTRUCTION "\tInstrução Inválida\n\e[0"
 #define MSG_ERR_INVALID_TOKEN "\tToken Inválido.\n"
-#define MSG_ERR_LABEL_UNDEFINED "\"\033[31m  -> Rótulo Não definido\033[0m\n"
-#define MSG_ERR_MISSING_SECTION_TEXT "\"\033[31m Seção TEXT não declarada\033[0m\n"
+#define MSG_ERR_LABEL_UNDEFINED "\033[31m  -> Rótulo Não definido\033[0m\n"
+#define MSG_ERR_MISSING_SECTION_TEXT "\033[31m Seção TEXT não declarada\033[0m\n"
 
 // Macros para Formatar Mensagens de ERR
 #define PRINT_ERR(fileLine,MSG) cerr << "\n Linha " << \
@@ -64,6 +64,11 @@
 
 #define PRINT_ERR_ARG(fileLine,INST,ARG) cerr << "\nLinha " << \
     fileLine +1 << ":\033[31m ERRO ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\
-    "\"\033[31m  -> Argumento \""<< ARG <<"\" Inválido\033[0m\n"
+    "\"\033[31m  -> Argumento \033[0m\""<< ARG <<"\"\033[31m Inválido\033[0m\n"
+
+#define PRINT_ERR_ARG_TYPE(fileLine,INST,ARG) cerr << "\nLinha " << \
+    fileLine +1 << ":\033[31m ERRO ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\
+    "\"\033[31m  -> Argumento \033[0m\""<< ARG <<"\"\033[31m com tipo inválido\033[0m\n"
+
 
 #endif // YLA_MSGS_PT_H_

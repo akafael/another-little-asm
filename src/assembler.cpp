@@ -104,6 +104,12 @@ int assembler(int argc, char * argv[])
             // INST1
             addNewSymbolINST1(vtoks[0].string,vtoks[1].string,lineCount,line);
         }
+        else if((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==NUM_DEC))
+        {
+            // INST1 NUM
+            int numArg1=std::atoi(vtoks[1].string.c_str());
+            addNewSymbolINST1NUM(vtoks[0].string,numArg1,lineCount,line);
+        }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
               &&(vtoks[2].type==PLUS)&&(vtoks[3].type==NUM_DEC))
         {
@@ -527,9 +533,14 @@ bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line
             symbolsTable.push_back(tmp_symb0);
         }
     }
+    else if(code<=14)
+    {
+        // Argumento Inválido
+        PRINT_ERR_ARG_TYPE(lineCount,line,numArg1);
+    }
     else
     {
-        // Instrução Mal formatada
+        // Instrução Inválida
         PRINT_ERR_INSTRUCTION(lineCount,line);
     }
 }

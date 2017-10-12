@@ -57,6 +57,7 @@ typedef struct{
 typedef struct{
     int value;
     int addr;
+    bool isConst;
     string text;
 } label;
 

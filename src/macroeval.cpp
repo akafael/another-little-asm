@@ -104,7 +104,7 @@ int macroeval(int argc, char ** argv)
 
 int findMacroDefinition(vector<labelMacro> macroDefinitionTable,string macroText)
 {
-    for (int i = 0; i <macroDefinitionTable.size(); i++)
+    for (int i = 0; i < macroDefinitionTable.size(); i++)
     {
         if(macroText.compare(macroDefinitionTable[i].text)==0)
         {
