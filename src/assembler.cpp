@@ -123,8 +123,19 @@ int assembler(int argc, char * argv[])
             // INST 2
             addNewSymbolINST2(vtoks[0].string,vtoks[1].string,vtoks[3].string,lineCount,line);
         }
+        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&((vtoks[1].type==NUM_DEC||vtoks[1].type==NUM_HEX))\
+                &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD))
+        {
+            PRINT_ERR_ARG_TYPE(lineCount,line,vtoks[1].string);
+        }
+        else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
+                &&(vtoks[2].type==COMMA)&&(vtoks[3].type==NUM_DEC||vtoks[3].type==NUM_HEX))
+        {
+            PRINT_ERR_ARG_TYPE(lineCount,line,vtoks[3].string);
+        }
         else if((vtoks.size()==2)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON))
         {
+            // Label
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\

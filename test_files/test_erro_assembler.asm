@@ -3,6 +3,8 @@ section bizarre ; Erro Sessão Inválida
 section text
     ADD A,B ; Erro de Número de argumentos inválido, esperado 1
     COPY A B ; Erro de Instrução mal formatada
+    COPY 1,B ; Erro de Tipo de Argumento Errado
+    COPY A,2 ; Erro de Tipo de Argumento Errado
     DIV 2; Erro de Instrução mal formatada
     INPUT C; Erro Rótulo não definido
     INPUT D+3; Erro Rótulo não definido
