@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Compiled Invented Assembler
+*.mcr
+*.pre
