@@ -16,7 +16,11 @@ int isValidInstructionCall(string command, string arg1)
 {
     int code = isValidInstructionCall(command);
 
-    if(InstructionArgNumber[code-1]!=1)
+    if(code==INVALID_INSTRUCTION)
+    {
+        return INVALID_INSTRUCTION;
+    }
+    else if(InstructionArgNumber[code-1]!=1)
     {
         return INVALID_ARG_NUMBER;
     }
@@ -26,7 +30,7 @@ int isValidInstructionCall(string command, string arg1)
     }
     else
     {
-        // Retorna INVALID_INSTRUCTION ou Código da instrução
+        // Retorna Código da instrução
         return code;
     }
 }
@@ -35,7 +39,11 @@ int isValidInstructionCall(string command, string arg1,string arg2)
 {
     int code = isValidInstructionCall(command);
 
-    if(InstructionArgNumber[code-1]!=2)
+    if(code==INVALID_INSTRUCTION)
+    {
+        return INVALID_INSTRUCTION;
+    }
+    else if(InstructionArgNumber[code-1]!=2)
     {
         return INVALID_ARG_NUMBER;
     }
@@ -49,7 +57,7 @@ int isValidInstructionCall(string command, string arg1,string arg2)
     }
     else
     {
-        // Retorna INVALID_INSTRUCTION ou Código da instrução
+        // Retorna Código da instrução
         return code;
     }
 }
