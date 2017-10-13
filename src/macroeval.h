@@ -14,6 +14,7 @@ typedef struct{
 #define MACRO_NOT_FOUND -1
 
 typedef enum{
+    MACROEV_IGNORE_LINE = 0,
     MACROEV_READING_LINE = 1,
     MACROEV_WRITING_MACRO = 2,
 } StateMacroEvaluation;

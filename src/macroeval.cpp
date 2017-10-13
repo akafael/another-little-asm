@@ -54,6 +54,7 @@ int macroeval(int argc, char ** argv)
            {
                tmpMacroDef.text = vtoks[0].string;
                tmpMacroDef.content = ""; // Esvazia conteúdo
+               line="";  // Esvazia linha
 
                currentStateMacroEval = MACROEV_WRITING_MACRO;
            }
@@ -67,6 +68,7 @@ int macroeval(int argc, char ** argv)
        {
            currentStateMacroEval = MACROEV_READING_LINE;
            macroDefinitionTable.push_back(tmpMacroDef);
+           line="";  // Esvazia linha
        }
        else if((vtoks.size()!=0))
        {
@@ -77,7 +79,7 @@ int macroeval(int argc, char ** argv)
               int macroPos = findMacroDefinition(macroDefinitionTable,(*it).string);
               if(macroPos!=MACRO_NOT_FOUND)
               {
-                  cout << MSG_ERR << macroPos;
+                  line=""; // Apaga Linha com chamada da Macro
                   /// @todo Verificar necessidade de quebra de linha
                    ArquivoPRE << macroDefinitionTable[macroPos].content;
               }
@@ -89,7 +91,7 @@ int macroeval(int argc, char ** argv)
        {
            tmpMacroDef.content += line + '\n';
        }
-       else
+       else if(currentStateMacroEval==MACROEV_READING_LINE)
        {
            // Escreve linha no arquivo de saída
            ArquivoPRE << line << '\n';
