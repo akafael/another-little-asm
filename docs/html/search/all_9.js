@@ -2,6 +2,7 @@ var searchData=
 [
   ['macro',['MACRO',['../languagedefinition_8h.html#a1830ff5737e4f1610e975ee2aa489206a3d1738a931468da77c233f1126436b81',1,'languagedefinition.h']]],
   ['macro_5fnot_5ffound',['MACRO_NOT_FOUND',['../macroeval_8h.html#ad0f3e0d45d1d707190b8e4ca2471ee49',1,'macroeval.h']]],
+  ['macroev_5fignore_5fline',['MACROEV_IGNORE_LINE',['../macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa4b5585ae442d91d2bb79b53da191f4eb',1,'macroeval.h']]],
   ['macroev_5freading_5fline',['MACROEV_READING_LINE',['../macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa4d3d0c68de03977f8b46c7f734f8fd36',1,'macroeval.h']]],
   ['macroev_5fwriting_5fmacro',['MACROEV_WRITING_MACRO',['../macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa8431b0c916fcfa8c7de9012c6195ae89',1,'macroeval.h']]],
   ['macroeval',['macroeval',['../macroeval_8cpp.html#ab726e2a9f26698bddb5ddd13683e6630',1,'macroeval(int argc, char **argv):&#160;macroeval.cpp'],['../macroeval_8h.html#ab726e2a9f26698bddb5ddd13683e6630',1,'macroeval(int argc, char **argv):&#160;macroeval.cpp']]],

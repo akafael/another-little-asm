@@ -1,5 +1,11 @@
 <map id="assembler" name="assembler">
-<area shape="rect" id="node2" href="$lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d" title="scanner" alt="" coords="175,5,243,32"/>
-<area shape="rect" id="node3" href="$parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf" title="isValidInstructionCall" alt="" coords="137,56,282,83"/>
-<area shape="rect" id="node4" href="$parser_8cpp.html#a9ef8c814439aab8a9db6ae7207902ab1" title="findLabel" alt="" coords="172,107,247,133"/>
+<area shape="rect" id="node2" href="$lexer_8cpp.html#a63ef6d488951c4541159fe0961565c4d" title="scanner" alt="" coords="195,5,263,32"/>
+<area shape="rect" id="node3" href="$assembler_8cpp.html#a33535e8f85da588842c21d65d304f740" title="addNewSymbolINST0" alt="" coords="153,56,305,83"/>
+<area shape="rect" id="node5" href="$assembler_8cpp.html#a45dcd38a718d16b9fdcda1e45c4ad5de" title="addNewSymbolINST1" alt="" coords="153,259,305,285"/>
+<area shape="rect" id="node6" href="$parser_8cpp.html#a9ef8c814439aab8a9db6ae7207902ab1" title="findLabel" alt="" coords="407,259,481,285"/>
+<area shape="rect" id="node7" href="$assembler_8cpp.html#a53bd42138e87fabd2519a34abbf40b55" title="addNewSymbolINST1NUM" alt="" coords="138,107,321,133"/>
+<area shape="rect" id="node8" href="$assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8" title="addNewSymbolINST1PLUS" alt="" coords="136,309,323,336"/>
+<area shape="rect" id="node9" href="$assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274" title="addNewSymbolINST2" alt="" coords="153,157,305,184"/>
+<area shape="rect" id="node10" href="$assembler_8cpp.html#a54fad2c006413b60d87eea48e412471b" title="addNewLabel" alt="" coords="179,208,280,235"/>
+<area shape="rect" id="node4" href="$parser_8cpp.html#ab6243b513963c15735c801e6e3b7fbdf" title="isValidInstructionCall" alt="" coords="371,183,517,209"/>
 </map>

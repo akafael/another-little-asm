@@ -24,5 +24,6 @@ var searchData=
   ['sym_5fnum_5fhex',['SYM_NUM_HEX',['../parser_8h.html#add8909e1085c0c32f8380ff493a243b3aaa3a3f3e7d883f4fcb3e868faebebc91',1,'parser.h']]],
   ['sym_5fterm',['SYM_TERM',['../parser_8h.html#add8909e1085c0c32f8380ff493a243b3aa1ee091ffef78c65aa04ffa85e91fb93',1,'parser.h']]],
   ['symbol',['symbol',['../structsymbol.html',1,'']]],
+  ['symbolstable',['symbolsTable',['../assembler_8cpp.html#ad49cea0a49bfa4990b84350f33569724',1,'assembler.cpp']]],
   ['symboltype',['SymbolType',['../parser_8h.html#add8909e1085c0c32f8380ff493a243b3',1,'parser.h']]]
 ];
