@@ -70,5 +70,9 @@
     fileLine +1 << ":\033[31m ERRO ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Argumento \033[0m\""<< ARG <<"\"\033[31m com tipo inválido\033[0m\n"
 
+#define PRINT_ERR_ARG_TYPE_CONST(fileLine,INST,ARG) cerr << "\nLinha " << \
+    fileLine +1 << ":\033[31m ERRO ERRO SEMÂNTICO: \033[0m\""<< string(INST) <<\
+    "\"\033[31m  -> Argumento \033[0m\""<< ARG <<"\"\033[31m com tipo inválido! Constante Não Permitida!\033[0m\n"
+
 
 #endif // YLA_MSGS_PT_H_
