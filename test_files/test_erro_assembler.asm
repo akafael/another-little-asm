@@ -6,6 +6,7 @@ section text
     COPY 1,B ; Erro de Tipo de Argumento Errado
     COPY A,2 ; Erro de Tipo de Argumento Errado
     COPY A,B ; Erro de Uso de Constante como Argumento
+    COPY A+1,B+1 ; Erro de Uso de Constante como Argumento
     INPUT A ; Erro de Uso de Constante como Argumento
     LOAD B ; Erro de Uso de Constante como Argumento
     DIV 2; Erro de Instrução mal formatada

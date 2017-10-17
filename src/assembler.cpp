@@ -36,6 +36,7 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
 bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCount,string line);
 bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line);
 bool addNewSymbolINST1PLUS(string strInst1,string strArg1,int numArg1Plus, int lineCount,string line);
+bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,string strArg2, int numArg2Plus, int lineCount,string line);
 
 int assembler(int argc, char * argv[])
 {
@@ -123,6 +124,28 @@ int assembler(int argc, char * argv[])
             // INST 2
             addNewSymbolINST2(vtoks[0].string,vtoks[1].string,vtoks[3].string,lineCount,line);
         }
+        else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)&&(vtoks[2].type==PLUS)&&(vtoks[3].type==NUM_DEC)\
+                &&(vtoks[4].type==COMMA)&&(vtoks[5].type==WORD))
+        {
+            // INST 2 PLUS
+            int numArg1Plus=std::atoi(vtoks[3].string.c_str());
+            addNewSymbolINST2PLUSPLUS(vtoks[0].string,vtoks[1].string,numArg1Plus,vtoks[5].string,0,lineCount,line);
+        }
+        else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
+                &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD)&&(vtoks[4].type==PLUS)&&(vtoks[5].type==NUM_DEC))
+        {
+            // INST 2 PLUS
+            int numArg2Plus=std::atoi(vtoks[5].string.c_str());
+            addNewSymbolINST2PLUSPLUS(vtoks[0].string,vtoks[1].string,0,vtoks[3].string,numArg2Plus,lineCount,line);
+        }
+        else if((vtoks.size()==8)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)&&(vtoks[2].type==PLUS)&&(vtoks[3].type==NUM_DEC)
+                &&(vtoks[4].type==COMMA)&&(vtoks[5].type==WORD)&&(vtoks[6].type==PLUS)&&(vtoks[7].type==NUM_DEC))
+        {
+            // INST 2 PLUS
+            int numArg1Plus=std::atoi(vtoks[3].string.c_str());
+            int numArg2Plus=std::atoi(vtoks[7].string.c_str());
+            addNewSymbolINST2PLUSPLUS(vtoks[0].string,vtoks[1].string,numArg1Plus,vtoks[3].string,numArg2Plus,lineCount,line);
+        }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&((vtoks[1].type==NUM_DEC||vtoks[1].type==NUM_HEX))\
                 &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD))
         {
@@ -175,6 +198,34 @@ int assembler(int argc, char * argv[])
             // Label + INST2
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
             addNewSymbolINST2(vtoks[2].string,vtoks[3].string,vtoks[5].string,lineCount,line);
+        }
+        else if((vtoks.size()==8)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD)&&(vtoks[4].type==PLUS)&&(vtoks[5].type==NUM_DEC)\
+                &&(vtoks[6].type==COMMA)&&(vtoks[7].type==WORD))
+        {
+            // Label + INST2
+            addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
+            int numArg1Plus=std::atoi(vtoks[5].string.c_str());
+            addNewSymbolINST2PLUSPLUS(vtoks[2].string,vtoks[3].string,numArg1Plus,vtoks[7].string,0,lineCount,line);
+        }
+        else if((vtoks.size()==8)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)
+                &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD)&&(vtoks[4].type==COMMA)\
+                &&(vtoks[5].type==WORD)&&(vtoks[6].type==PLUS)&&(vtoks[7].type==NUM_DEC))
+        {
+            // Label + INST2
+            addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
+            int numArg2Plus=std::atoi(vtoks[7].string.c_str());
+            addNewSymbolINST2PLUSPLUS(vtoks[2].string,vtoks[3].string,0,vtoks[7].string,numArg2Plus,lineCount,line);
+        }
+        else if((vtoks.size()==10)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
+                &&(vtoks[2].type==WORD)&&(vtoks[3].type==WORD)&&(vtoks[4].type==PLUS)&&(vtoks[5].type==NUM_DEC)\
+                &&(vtoks[6].type==COMMA)&&(vtoks[7].type==WORD)&&(vtoks[8].type==PLUS)&&(vtoks[9].type==NUM_DEC))
+        {
+            // Label + INST2
+            addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
+            int numArg1Plus=std::atoi(vtoks[5].string.c_str());
+            int numArg2Plus=std::atoi(vtoks[9].string.c_str());
+            addNewSymbolINST2PLUSPLUS(vtoks[2].string,vtoks[3].string,numArg1Plus,vtoks[7].string,numArg2Plus,lineCount,line);
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
                 &&(vtoks[2].type==WORD)&&(vtoks[3].type==NUM_DEC))
@@ -612,6 +663,80 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
         if(labelPos==LABEL_NOT_FOUND)
         {
             tmp_symb2.content = UNDEFINED_LABEL_ADDR;
+            tmp_symb2.text = strArg2;
+            /// @todo Modificar para permitir completar tabela ao final da passagem
+        }
+        else
+        {
+            tmp_symb2.content = labelsTable[labelPos].addr;
+        }
+        tmp_symb2.address = currentSymbolAddr+2;
+        symbolsTable.push_back(tmp_symb2);
+
+         // Atualiza Endereço p/ próximo simbolo
+        currentSymbolAddr+=3;
+
+        if(currentSection!=SECTION_TEXT)
+            PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(lineCount,line);
+    }
+}
+
+bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,string strArg2, int numArg2Plus, int lineCount,string line)
+{
+    int code = isValidInstructionCall(strInst2,strArg1,strArg2);
+    if(code==INVALID_INSTRUCTION)
+    {
+        PRINT_ERR_INSTRUCTION(lineCount,line);
+    }
+    else if(code==INVALID_ARG_NUMBER)
+    {
+        PRINT_ERR_ARG_NUM(lineCount,line);
+    }
+    else if(code==INVALID_ARG1)
+    {
+        PRINT_ERR_ARG(lineCount,line,strArg1);
+    }
+    else if(code==INVALID_ARG2)
+    {
+        PRINT_ERR_ARG(lineCount,line,strArg2);
+    }
+    else if(code<=14) // Chamada Válida de instrução
+    {
+        // Cria Simbolo e coloca na tabela
+        symbol tmp_symb0,tmp_symb1,tmp_symb2;
+        int labelPos;
+
+        tmp_symb0.type = SYM_INSTRUCTION;
+        tmp_symb0.content = code;
+        tmp_symb0.address = currentSymbolAddr;
+        tmp_symb0.line = lineCount;
+        symbolsTable.push_back(tmp_symb0);
+
+        tmp_symb1.type = SYM_LABEL;
+        tmp_symb1.address = currentSymbolAddr+1;
+        tmp_symb1.line = lineCount;
+
+        labelPos = findLabel(labelsTable,strArg1);
+        if(labelPos==LABEL_NOT_FOUND)
+        {
+            tmp_symb1.content = -1-numArg1Plus; //Armazena como negativo para recuperar o numero depois
+            tmp_symb1.text = strArg1;
+            /// @todo Modificar para permitir completar tabela ao final da passagem
+        }
+        else
+        {
+            tmp_symb1.content = labelsTable[labelPos].addr;
+        }
+
+        symbolsTable.push_back(tmp_symb1);
+
+        tmp_symb2.type = SYM_LABEL;
+        tmp_symb2.line = lineCount;
+
+        labelPos = findLabel(labelsTable,strArg2);
+        if(labelPos==LABEL_NOT_FOUND)
+        {
+            tmp_symb2.content = -1-numArg2Plus; //Armazena como negativo para recuperar o numero depois
             tmp_symb2.text = strArg2;
             /// @todo Modificar para permitir completar tabela ao final da passagem
         }
