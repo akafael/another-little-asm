@@ -1,11 +1,12 @@
 <map id="isValidInstructionCall" name="isValidInstructionCall">
-<area shape="rect" id="node2" href="$assembler_8cpp.html#a54fad2c006413b60d87eea48e412471b" title="addNewLabel" alt="" coords="243,5,344,32"/>
-<area shape="rect" id="node5" href="$assembler_8cpp.html#a33535e8f85da588842c21d65d304f740" title="addNewSymbolINST0" alt="" coords="217,56,369,83"/>
-<area shape="rect" id="node6" href="$assembler_8cpp.html#a45dcd38a718d16b9fdcda1e45c4ad5de" title="addNewSymbolINST1" alt="" coords="217,107,369,133"/>
-<area shape="rect" id="node7" href="$assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8" title="addNewSymbolINST1PLUS" alt="" coords="200,157,387,184"/>
-<area shape="rect" id="node8" href="$assembler_8cpp.html#a53bd42138e87fabd2519a34abbf40b55" title="addNewSymbolINST1NUM" alt="" coords="202,208,385,235"/>
-<area shape="rect" id="node9" href="$assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274" title="addNewSymbolINST2" alt="" coords="217,259,369,285"/>
-<area shape="rect" id="node10" href="$parser_8h.html#a630c1bfba8f4ed9490db77c6146d6f7f" title="isValidInstructionCall" alt="" coords="221,309,366,336"/>
-<area shape="rect" id="node3" href="$assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d" title="assembler" alt="" coords="435,132,517,159"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="565,132,616,159"/>
+<area shape="rect" id="node2" href="$assembler_8cpp.html#a54fad2c006413b60d87eea48e412471b" title="addNewLabel" alt="" coords="261,5,363,32"/>
+<area shape="rect" id="node5" href="$assembler_8cpp.html#a33535e8f85da588842c21d65d304f740" title="addNewSymbolINST0" alt="" coords="236,56,388,83"/>
+<area shape="rect" id="node6" href="$assembler_8cpp.html#a45dcd38a718d16b9fdcda1e45c4ad5de" title="addNewSymbolINST1" alt="" coords="236,107,388,133"/>
+<area shape="rect" id="node7" href="$assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8" title="addNewSymbolINST1PLUS" alt="" coords="219,157,405,184"/>
+<area shape="rect" id="node8" href="$assembler_8cpp.html#a53bd42138e87fabd2519a34abbf40b55" title="addNewSymbolINST1NUM" alt="" coords="221,208,403,235"/>
+<area shape="rect" id="node9" href="$assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274" title="addNewSymbolINST2" alt="" coords="236,259,388,285"/>
+<area shape="rect" id="node10" href="$assembler_8cpp.html#a23fbad662368f294c55a33dfa57a904c" title="addNewSymbolINST2PLUSPLUS" alt="" coords="201,309,423,336"/>
+<area shape="rect" id="node11" href="$parser_8h.html#a630c1bfba8f4ed9490db77c6146d6f7f" title="isValidInstructionCall" alt="" coords="239,360,385,387"/>
+<area shape="rect" id="node3" href="$assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d" title="assembler" alt="" coords="472,157,555,184"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="603,157,653,184"/>
 </map>

@@ -1,8 +1,9 @@
 <map id="findLabel" name="findLabel">
-<area shape="rect" id="node2" href="$assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d" title="assembler" alt="" coords="363,90,445,117"/>
-<area shape="rect" id="node4" href="$assembler_8cpp.html#a54fad2c006413b60d87eea48e412471b" title="addNewLabel" alt="" coords="171,39,272,66"/>
-<area shape="rect" id="node5" href="$assembler_8cpp.html#a45dcd38a718d16b9fdcda1e45c4ad5de" title="addNewSymbolINST1" alt="" coords="145,90,297,117"/>
-<area shape="rect" id="node6" href="$assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8" title="addNewSymbolINST1PLUS" alt="" coords="128,141,315,167"/>
-<area shape="rect" id="node7" href="$assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274" title="addNewSymbolINST2" alt="" coords="145,191,297,218"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="493,90,544,117"/>
+<area shape="rect" id="node2" href="$assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d" title="assembler" alt="" coords="400,125,483,151"/>
+<area shape="rect" id="node4" href="$assembler_8cpp.html#a54fad2c006413b60d87eea48e412471b" title="addNewLabel" alt="" coords="189,49,291,75"/>
+<area shape="rect" id="node5" href="$assembler_8cpp.html#a45dcd38a718d16b9fdcda1e45c4ad5de" title="addNewSymbolINST1" alt="" coords="164,99,316,126"/>
+<area shape="rect" id="node6" href="$assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8" title="addNewSymbolINST1PLUS" alt="" coords="147,150,333,177"/>
+<area shape="rect" id="node7" href="$assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274" title="addNewSymbolINST2" alt="" coords="164,201,316,227"/>
+<area shape="rect" id="node8" href="$assembler_8cpp.html#a23fbad662368f294c55a33dfa57a904c" title="addNewSymbolINST2PLUSPLUS" alt="" coords="129,251,351,278"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="531,125,581,151"/>
 </map>

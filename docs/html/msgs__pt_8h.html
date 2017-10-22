@@ -110,7 +110,7 @@ Macros</h2></td></tr>
 <tr class="separator:a1f521fc4133c84430f6a83d481cc233f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25e6cdc1176e9281123cf738bac948ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#a25e6cdc1176e9281123cf738bac948ae">MSG_ERR_LABEL_UNDEFINED</a>&#160;&#160;&#160;&quot;\033[31m  -&gt; Rótulo Não definido\033[0m\n&quot;</td></tr>
 <tr class="separator:a25e6cdc1176e9281123cf738bac948ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d9ad3e68ee48b3a826ae801fe0c605"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#ab5d9ad3e68ee48b3a826ae801fe0c605">MSG_ERR_MISSING_SECTION_TEXT</a>&#160;&#160;&#160;&quot;\033[31m Seção TEXT não declarada\033[0m\n&quot;</td></tr>
+<tr class="memitem:ab5d9ad3e68ee48b3a826ae801fe0c605"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#ab5d9ad3e68ee48b3a826ae801fe0c605">MSG_ERR_MISSING_SECTION_TEXT</a>&#160;&#160;&#160;&quot;Linha 1: \033[31m ERRO SINTÁTICO: -&gt; Seção TEXT não declarada\033[0m\n&quot;</td></tr>
 <tr class="separator:ab5d9ad3e68ee48b3a826ae801fe0c605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33fabfe7645f974b8beb74ca6fe409ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#a33fabfe7645f974b8beb74ca6fe409ec">PRINT_ERR</a>(fileLine, MSG)</td></tr>
 <tr class="separator:a33fabfe7645f974b8beb74ca6fe409ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +138,10 @@ Macros</h2></td></tr>
 <tr class="separator:aef757d748dc80883f1145e6628c5348c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82e7fabdec7483281a8c8641ac8b2646"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#a82e7fabdec7483281a8c8641ac8b2646">PRINT_ERR_ARG_TYPE</a>(fileLine, INST, ARG)</td></tr>
 <tr class="separator:a82e7fabdec7483281a8c8641ac8b2646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6c6a70c599abee737cbfec1285d88e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#ae6c6a70c599abee737cbfec1285d88e3">PRINT_ERR_ARG_TYPE_CONST</a>(fileLine, INST, ARG)</td></tr>
+<tr class="separator:ae6c6a70c599abee737cbfec1285d88e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47671d7a51940c815dae870839ec5aae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="msgs__pt_8h.html#a47671d7a51940c815dae870839ec5aae">PRINT_ERR_DIV0</a>(fileLine, INST, ARG)</td></tr>
+<tr class="separator:a47671d7a51940c815dae870839ec5aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das macros</h2>
 <a class="anchor" id="a000d9d29df61eeb44781035464af5b3f"></a>
@@ -243,7 +247,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MSG_ERR_MISSING_SECTION_TEXT&#160;&#160;&#160;&quot;\033[31m Seção TEXT não declarada\033[0m\n&quot;</td>
+          <td class="memname">#define MSG_ERR_MISSING_SECTION_TEXT&#160;&#160;&#160;&quot;Linha 1: \033[31m ERRO SINTÁTICO: -&gt; Seção TEXT não declarada\033[0m\n&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -385,6 +389,80 @@ Macros</h2></td></tr>
 <div class="line">    <span class="stringliteral">&quot;\&quot;\033[31m  -&gt; Argumento \033[0m\&quot;&quot;</span>&lt;&lt; ARG &lt;&lt;<span class="stringliteral">&quot;\&quot;\033[31m com tipo inválido\033[0m\n&quot;</span></div>
 </div><!-- fragment -->
 <p>Definido na linha <a class="el" href="msgs__pt_8h_source.html#l00069">69</a> do ficheiro <a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6c6a70c599abee737cbfec1285d88e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINT_ERR_ARG_TYPE_CONST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fileLine, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">INST, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ARG&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line">cerr &lt;&lt; <span class="stringliteral">&quot;\nLinha &quot;</span> &lt;&lt; \</div>
+<div class="line">    fileLine +1 &lt;&lt; <span class="stringliteral">&quot;:\033[31m ERRO ERRO SEMÂNTICO: \033[0m\&quot;&quot;</span>&lt;&lt; string(INST) &lt;&lt;\</div>
+<div class="line">    <span class="stringliteral">&quot;\&quot;\033[31m  -&gt; Argumento \033[0m\&quot;&quot;</span>&lt;&lt; ARG &lt;&lt;<span class="stringliteral">&quot;\&quot;\033[31m com tipo inválido! Constante não é permitida como argumento de entrada.\033[0m\n&quot;</span></div>
+</div><!-- fragment -->
+<p>Definido na linha <a class="el" href="msgs__pt_8h_source.html#l00073">73</a> do ficheiro <a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a47671d7a51940c815dae870839ec5aae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINT_ERR_DIV0</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fileLine, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">INST, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ARG&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line">cerr &lt;&lt; <span class="stringliteral">&quot;\nLinha &quot;</span> &lt;&lt; \</div>
+<div class="line">    fileLine +1 &lt;&lt; <span class="stringliteral">&quot;:\033[31m ERRO ERRO SEMÂNTICO: \033[0m\&quot;&quot;</span>&lt;&lt; string(INST) &lt;&lt;\</div>
+<div class="line">    <span class="stringliteral">&quot;\&quot;\033[31m  -&gt; Valor de \033[0m\&quot;&quot;</span>&lt;&lt; ARG &lt;&lt;<span class="stringliteral">&quot;\&quot;\033[31m Inválido. Dividindo Valor por zero!\033[0m\n&quot;</span></div>
+</div><!-- fragment -->
+<p>Definido na linha <a class="el" href="msgs__pt_8h_source.html#l00077">77</a> do ficheiro <a class="el" href="msgs__pt_8h_source.html">msgs_pt.h</a>.</p>
 
 </div>
 </div>

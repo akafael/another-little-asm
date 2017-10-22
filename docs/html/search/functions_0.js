@@ -6,5 +6,6 @@ var searchData=
   ['addnewsymbolinst1num',['addNewSymbolINST1NUM',['../assembler_8cpp.html#a53bd42138e87fabd2519a34abbf40b55',1,'assembler.cpp']]],
   ['addnewsymbolinst1plus',['addNewSymbolINST1PLUS',['../assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8',1,'assembler.cpp']]],
   ['addnewsymbolinst2',['addNewSymbolINST2',['../assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274',1,'assembler.cpp']]],
+  ['addnewsymbolinst2plusplus',['addNewSymbolINST2PLUSPLUS',['../assembler_8cpp.html#a23fbad662368f294c55a33dfa57a904c',1,'assembler.cpp']]],
   ['assembler',['assembler',['../assembler_8cpp.html#a368a4f7b83093ab74e79be4ceeb11e3d',1,'assembler(int argc, char *argv[]):&#160;assembler.cpp'],['../assembler_8h.html#a368a4f7b83093ab74e79be4ceeb11e3d',1,'assembler(int argc, char *argv[]):&#160;assembler.cpp']]]
 ];

@@ -7,6 +7,7 @@ var searchData=
   ['addnewsymbolinst1num',['addNewSymbolINST1NUM',['../assembler_8cpp.html#a53bd42138e87fabd2519a34abbf40b55',1,'assembler.cpp']]],
   ['addnewsymbolinst1plus',['addNewSymbolINST1PLUS',['../assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8',1,'assembler.cpp']]],
   ['addnewsymbolinst2',['addNewSymbolINST2',['../assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274',1,'assembler.cpp']]],
+  ['addnewsymbolinst2plusplus',['addNewSymbolINST2PLUSPLUS',['../assembler_8cpp.html#a23fbad662368f294c55a33dfa57a904c',1,'assembler.cpp']]],
   ['addr',['addr',['../structlabel.html#af670c52b4f6b3aeaadc0ec95334e6e52',1,'label']]],
   ['address',['address',['../structsymbol.html#aa61e9dd64d1465422a2b39ca16dc3aca',1,'symbol']]],
   ['args',['args',['../structinstruction_line.html#ab6b4be43f89da78d09a9469f952435c7',1,'instructionLine']]],

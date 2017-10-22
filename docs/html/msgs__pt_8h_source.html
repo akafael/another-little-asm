@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#aa9c72b3966543cca6087f95647022b8a">   13</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MSG_ERR_INVALID_INSTRUCTION &quot;\tInstrução Inválida\n\e[0&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#a1f521fc4133c84430f6a83d481cc233f">   14</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MSG_ERR_INVALID_TOKEN &quot;\tToken Inválido.\n&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#a25e6cdc1176e9281123cf738bac948ae">   15</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MSG_ERR_LABEL_UNDEFINED &quot;\033[31m  -&gt; Rótulo Não definido\033[0m\n&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#ab5d9ad3e68ee48b3a826ae801fe0c605">   16</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MSG_ERR_MISSING_SECTION_TEXT &quot;\033[31m Seção TEXT não declarada\033[0m\n&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#ab5d9ad3e68ee48b3a826ae801fe0c605">   16</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MSG_ERR_MISSING_SECTION_TEXT &quot;Linha 1: \033[31m ERRO SINTÁTICO: -&gt; Seção TEXT não declarada\033[0m\n&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// Macros para Formatar Mensagens de ERR</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#a33fabfe7645f974b8beb74ca6fe409ec">   19</a></span>&#160;<span class="preprocessor">#define PRINT_ERR(fileLine,MSG) cerr &lt;&lt; &quot;\n Linha &quot; &lt;&lt; \</span></div>
@@ -156,8 +156,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">    fileLine +1 &lt;&lt; &quot;:\033[31m ERRO ERRO SEMÂNTICO: \033[0m\&quot;&quot;&lt;&lt; string(INST) &lt;&lt;\</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">    &quot;\&quot;\033[31m  -&gt; Argumento \033[0m\&quot;&quot;&lt;&lt; ARG &lt;&lt;&quot;\&quot;\033[31m com tipo inválido\033[0m\n&quot;</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif // YLA_MSGS_PT_H_</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#ae6c6a70c599abee737cbfec1285d88e3">   73</a></span>&#160;<span class="preprocessor">#define PRINT_ERR_ARG_TYPE_CONST(fileLine,INST,ARG) cerr &lt;&lt; &quot;\nLinha &quot; &lt;&lt; \</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">    fileLine +1 &lt;&lt; &quot;:\033[31m ERRO ERRO SEMÂNTICO: \033[0m\&quot;&quot;&lt;&lt; string(INST) &lt;&lt;\</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">    &quot;\&quot;\033[31m  -&gt; Argumento \033[0m\&quot;&quot;&lt;&lt; ARG &lt;&lt;&quot;\&quot;\033[31m com tipo inválido! Constante não é permitida como argumento de entrada.\033[0m\n&quot;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="msgs__pt_8h.html#a47671d7a51940c815dae870839ec5aae">   77</a></span>&#160;<span class="preprocessor">#define PRINT_ERR_DIV0(fileLine,INST,ARG) cerr &lt;&lt; &quot;\nLinha &quot; &lt;&lt; \</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">    fileLine +1 &lt;&lt; &quot;:\033[31m ERRO ERRO SEMÂNTICO: \033[0m\&quot;&quot;&lt;&lt; string(INST) &lt;&lt;\</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">    &quot;\&quot;\033[31m  -&gt; Valor de \033[0m\&quot;&quot;&lt;&lt; ARG &lt;&lt;&quot;\&quot;\033[31m Inválido. Dividindo Valor por zero!\033[0m\n&quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif // YLA_MSGS_PT_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
