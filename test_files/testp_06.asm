@@ -1,0 +1,10 @@
+L1: EQU 1
+L2: EQU 0
+
+SECTION TEXT
+IF L1
+LOADO SPACE ; instrucao invalida
+IF L2
+INPUTA SPACE ; instrucao invalida
+SECTION DATA
+N: SPACE
