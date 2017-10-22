@@ -188,6 +188,7 @@ int assembler(int argc, char * argv[])
             // Label + INST1 PLUS
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
 
+
             int numArg1Plus=std::atoi(vtoks[5].string.c_str());
             addNewSymbolINST1PLUS(vtoks[2].string,vtoks[3].string,numArg1Plus,lineCount,line);
         }
@@ -230,8 +231,9 @@ int assembler(int argc, char * argv[])
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&(vtoks[1].type==COLON)\
                 &&(vtoks[2].type==WORD)&&(vtoks[3].type==NUM_DEC))
         {
-            // Label
+            // Label (CONST)
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
+            labelsTable.back().isConst = true; // Marca como constante
 
             // INST1 NUM (SPACE1)
             int numArg1=std::atoi(vtoks[3].string.c_str());
@@ -261,7 +263,7 @@ int assembler(int argc, char * argv[])
     // Escrita no Arquivo
     for(vector<symbol>::iterator it = symbolsTable.begin(); it != symbolsTable.end();++it)
     {
-        // Micro Passagem Para Atualizar Labels Pendentes
+        // Atualizar Labels Pendentes
         if((*it).content==UNDEFINED_LABEL_ADDR)
         {
             int labelPos = findLabel(labelsTable,(*it).text);
@@ -324,8 +326,11 @@ bool addNewLabel(string strLabel,int addrLabel,int lineCount,string line)
         label tmp_label;
         tmp_label.text = strLabel;
         tmp_label.addr = addrLabel;
+        tmp_label.value = addrLabel;
+        tmp_label.isConst = false;
 
         labelsTable.push_back(tmp_label);
+        /// @todo Atualizar Lista de Labels pendentes
         return 0;
     }
 }
@@ -423,6 +428,19 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
         else
         {
             tmp_symb1.content = labelsTable[labelPos].addr;
+
+            // Verifica Erro de Divisão por zero
+            if((code==DIV)&&(symbolsTable[tmp_symb1.content].content==0))
+            {
+                PRINT_ERR_DIV0(lineCount,line,strArg1);
+            }
+
+            // Verifica erro de escrita em constante
+            if((code==STORE||code==INPUT)\
+                &&(symbolsTable[tmp_symb1.content].type!=SYM_NUM_DEC))
+            {
+                PRINT_ERR_ARG_TYPE_CONST(lineCount,line,strArg1);
+            }
         }
 
         symbolsTable.push_back(tmp_symb1);
@@ -433,6 +451,7 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
         // Verifica se Instrução está na sessão certa
         if(currentSection!=SECTION_TEXT)
             PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(lineCount,line);
+
     }
     else
     {
@@ -652,6 +671,12 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
         else
         {
             tmp_symb1.content = labelsTable[labelPos].addr;
+
+            // Verifica erro de escrita em constante
+            if((code==COPY)&&(symbolsTable[tmp_symb1.content].type!=SYM_NUM_DEC))
+            {
+                PRINT_ERR_ARG_TYPE_CONST(lineCount,line,strArg1);
+            }
         }
 
         symbolsTable.push_back(tmp_symb1);
