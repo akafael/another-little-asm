@@ -23,39 +23,23 @@ int main(int argc, char** argv){
     if (argc< 2 || operacao[0] != '-' || strlen(operacao) != 2){
         printf(MSG_ERR_INVALID_ARGUMENT);
         return 1;
+    }else if (argc != 4){
+        printf(MSG_ERR_ARGUMENT_NUMBER);
+        return 1;
     }
 
-    char op = operacao[1];
-    switch(op)
+    switch(operacao[1])
     {
-
     case 'p':
         /// Pré Processamento (EQU, IF)
-
-        // Verifica Quantidade de Argumentos
-        if (argc != 4){
-            printf(MSG_ERR_ARGUMENT_NUMBER);
-            return 1;
-        }
         return preprocessor(argc,argv);
 
     case 'm':
         /// Avaliação das Macros
-
-        // Verifica Quantidade de Argumentos
-        if (argc != 4){
-            printf(MSG_ERR_ARGUMENT_NUMBER);
-            return 1;
-        }
         return macroeval(argc,argv);
 
-     // Montador
     case 'o':
-        // Verifica Quantidade de Argumentos
-        if (argc != 4){
-            printf(MSG_ERR_ARGUMENT_NUMBER);
-            return 1;
-        }
+        /// Montador
         return assembler(argc,argv);
 
     default:
