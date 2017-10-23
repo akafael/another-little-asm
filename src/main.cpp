@@ -20,10 +20,13 @@ int main(int argc, char** argv){
 
     // Verifica Formatação dos Argumentos
     char *operacao = argv[1];
-    if (argc< 2 || operacao[0] != '-' || strlen(operacao) != 2){
+    if (argc< 2 || operacao[0] != '-' || strlen(operacao) != 2)
+    {
         printf(MSG_ERR_INVALID_ARGUMENT);
         return 1;
-    }else if (argc != 4){
+    }
+    else if (argc != 4)
+    {
         printf(MSG_ERR_ARGUMENT_NUMBER);
         return 1;
     }

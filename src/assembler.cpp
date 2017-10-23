@@ -353,29 +353,21 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         if(currentSection!=SECTION_TEXT)
             PRINT_ERR_WRONG_SECTION_TEXT_INSTRUCTION(lineCount,line);
     }
-    else // Possível Diretiva
+    else if(code==SPACE0) // Possível Diretiva
     {
-        switch (code) {
-            case SPACE0:
-            {
-                symbol tmp_symb;
-                tmp_symb.type = SYM_INSTRUCTION;
-                tmp_symb.content = 0;
-                tmp_symb.address = currentSymbolAddr;
-                tmp_symb.line = lineCount;
-                symbolsTable.push_back(tmp_symb);
+        symbol tmp_symb;
+        tmp_symb.type = SYM_INSTRUCTION;
+        tmp_symb.content = 0;
+        tmp_symb.address = currentSymbolAddr;
+        tmp_symb.line = lineCount;
+        symbolsTable.push_back(tmp_symb);
 
-                // Atualiza Endereço p/ próximo simbolo
-                currentSymbolAddr++;
+        // Atualiza Endereço p/ próximo simbolo
+        currentSymbolAddr++;
 
-                // Verifica se a diretiva está na sessão certa
-                if(currentSection!=SECTION_DATA)
-                    PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
-            }
-            default:
-                // Ignora demais diretivas
-                break;
-        }
+        // Verifica se a diretiva está na sessão certa
+        if(currentSection!=SECTION_DATA)
+            PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
     }
     return 0;
 }
@@ -664,12 +656,6 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
         else
         {
             tmp_symb1.content = labelsTable[labelPos].addr;
-
-            // Verifica erro de escrita em constante
-            if((code==COPY)&&(symbolsTable[tmp_symb1.content].type!=SYM_NUM_DEC))
-            {
-                PRINT_ERR_ARG_TYPE_CONST(lineCount,line,strArg1);
-            }
         }
 
         symbolsTable.push_back(tmp_symb1);
@@ -687,6 +673,12 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
         else
         {
             tmp_symb2.content = labelsTable[labelPos].addr;
+
+            // Verifica erro de escrita em constante
+            if((code==COPY)&&(symbolsTable[tmp_symb2.content].type==SYM_NUM_DEC))
+            {
+                PRINT_ERR_ARG_TYPE_CONST(lineCount,line,strArg2);
+            }
         }
         tmp_symb2.address = currentSymbolAddr+2;
         symbolsTable.push_back(tmp_symb2);
