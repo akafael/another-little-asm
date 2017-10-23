@@ -128,24 +128,24 @@ int assembler(int argc, char * argv[])
         else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)&&(vtoks[2].type==PLUS)&&(vtoks[3].type==NUM_DEC)\
                 &&(vtoks[4].type==COMMA)&&(vtoks[5].type==WORD))
         {
-            // INST 2 PLUS
+            // INST 2 WORD PLUS
             int numArg1Plus=std::atoi(vtoks[3].string.c_str());
             addNewSymbolINST2PLUSPLUS(vtoks[0].string,vtoks[1].string,numArg1Plus,vtoks[5].string,0,lineCount,line);
         }
         else if((vtoks.size()==6)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)\
                 &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD)&&(vtoks[4].type==PLUS)&&(vtoks[5].type==NUM_DEC))
         {
-            // INST 2 PLUS
+            // INST 2 PLUS WORD
             int numArg2Plus=std::atoi(vtoks[5].string.c_str());
             addNewSymbolINST2PLUSPLUS(vtoks[0].string,vtoks[1].string,0,vtoks[3].string,numArg2Plus,lineCount,line);
         }
         else if((vtoks.size()==8)&&(vtoks[0].type==WORD)&&(vtoks[1].type==WORD)&&(vtoks[2].type==PLUS)&&(vtoks[3].type==NUM_DEC)
                 &&(vtoks[4].type==COMMA)&&(vtoks[5].type==WORD)&&(vtoks[6].type==PLUS)&&(vtoks[7].type==NUM_DEC))
         {
-            // INST 2 PLUS
+            // INST 2 PLUS PLUS
             int numArg1Plus=std::atoi(vtoks[3].string.c_str());
             int numArg2Plus=std::atoi(vtoks[7].string.c_str());
-            addNewSymbolINST2PLUSPLUS(vtoks[0].string,vtoks[1].string,numArg1Plus,vtoks[3].string,numArg2Plus,lineCount,line);
+            addNewSymbolINST2PLUSPLUS(vtoks[0].string,vtoks[1].string,numArg1Plus,vtoks[5].string,numArg2Plus,lineCount,line);
         }
         else if((vtoks.size()==4)&&(vtoks[0].type==WORD)&&((vtoks[1].type==NUM_DEC||vtoks[1].type==NUM_HEX))\
                 &&(vtoks[2].type==COMMA)&&(vtoks[3].type==WORD))
@@ -264,32 +264,24 @@ int assembler(int argc, char * argv[])
     // Escrita no Arquivo
     for(vector<symbol>::iterator it = symbolsTable.begin(); it != symbolsTable.end();++it)
     {
-        // Atualizar Labels Pendentes
-        if((*it).content==UNDEFINED_LABEL_ADDR)
+        if((*it).type==SYM_LABEL)
         {
             int labelPos = findLabel(labelsTable,(*it).text);
-            if(labelPos!=LABEL_NOT_FOUND)
+            if(labelPos==LABEL_NOT_FOUND)
+            {
+                PRINT_ERR_LABEL_UNDEFINIED((*it).line,(*it).text);
+            }
+            else if((*it).content==UNDEFINED_LABEL_ADDR)
             {
                 // Atuliza Rótulos Pendentes
                 (*it).content = labelsTable[labelPos].addr;
             }
-            else
+            else  if((*it).content < -1)
             {
-                PRINT_ERR_LABEL_UNDEFINIED((*it).line,(*it).text);
+                // Endereço de vetor não definido (Case +)
+                // Recupera o valor de numplus armazenado
+                (*it).content = labelsTable[labelPos].addr - ((*it).content);
             }
-        }
-        else if((*it).content < -1) // Endereço de vetor não definido (Case +)
-        {
-          int labelPos = findLabel(labelsTable,(*it).text);
-          if(labelPos!=LABEL_NOT_FOUND)
-          {
-              // Atuliza Rótulos Pendentes
-              (*it).content = labelsTable[labelPos].addr - ((*it).content); //Recuperando o valor de numplus armazenado
-          }
-          else
-          {
-              PRINT_ERR_LABEL_UNDEFINIED((*it).line,(*it).text);
-          }
         }
 
         #if DEBUG_ASSEMBLER
@@ -417,13 +409,13 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
+        tmp_symb1.text = strArg1;
         tmp_symb1.line = lineCount;
 
         labelPos = findLabel(labelsTable,strArg1);
         if(labelPos==LABEL_NOT_FOUND)
         {
             tmp_symb1.content = UNDEFINED_LABEL_ADDR;
-            tmp_symb1.text = strArg1;
             /// @todo Modificar para permitir completar tabela ao final da passagem
         }
         else
@@ -535,13 +527,13 @@ bool addNewSymbolINST1PLUS(string strInst1,string strArg1,int numArg1Plus, int l
 
       tmp_symb1.type = SYM_LABEL;
       tmp_symb1.address = currentSymbolAddr+1;
+      tmp_symb1.text = strArg1;
       tmp_symb1.line = lineCount;
 
       labelPos = findLabel(labelsTable,strArg1);
       if(labelPos==LABEL_NOT_FOUND)
       {
           tmp_symb1.content = -1-numArg1Plus; //Armazena como negativo para recuperar o numero depois
-          tmp_symb1.text = strArg1;
           /// @todo Modificar para permitir completar tabela ao final da passagem
       }
       else
@@ -660,13 +652,13 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
+        tmp_symb1.text = strArg1;
         tmp_symb1.line = lineCount;
 
         labelPos = findLabel(labelsTable,strArg1);
         if(labelPos==LABEL_NOT_FOUND)
         {
             tmp_symb1.content = UNDEFINED_LABEL_ADDR;
-            tmp_symb1.text = strArg1;
             /// @todo Modificar para permitir completar tabela ao final da passagem
         }
         else
@@ -684,12 +676,12 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
 
         tmp_symb2.type = SYM_LABEL;
         tmp_symb2.line = lineCount;
+        tmp_symb2.text = strArg2;
 
         labelPos = findLabel(labelsTable,strArg2);
         if(labelPos==LABEL_NOT_FOUND)
         {
             tmp_symb2.content = UNDEFINED_LABEL_ADDR;
-            tmp_symb2.text = strArg2;
             /// @todo Modificar para permitir completar tabela ao final da passagem
         }
         else
@@ -740,13 +732,13 @@ bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,st
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
+        tmp_symb1.text = strArg1;
         tmp_symb1.line = lineCount;
 
         labelPos = findLabel(labelsTable,strArg1);
         if(labelPos==LABEL_NOT_FOUND)
         {
             tmp_symb1.content = -1-numArg1Plus; //Armazena como negativo para recuperar o numero depois
-            tmp_symb1.text = strArg1;
             /// @todo Modificar para permitir completar tabela ao final da passagem
         }
         else
@@ -758,12 +750,12 @@ bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,st
 
         tmp_symb2.type = SYM_LABEL;
         tmp_symb2.line = lineCount;
+        tmp_symb2.text = strArg2;
 
         labelPos = findLabel(labelsTable,strArg2);
         if(labelPos==LABEL_NOT_FOUND)
         {
             tmp_symb2.content = -1-numArg2Plus; //Armazena como negativo para recuperar o numero depois
-            tmp_symb2.text = strArg2;
             /// @todo Modificar para permitir completar tabela ao final da passagem
         }
         else
