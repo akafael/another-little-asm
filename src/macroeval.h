@@ -19,7 +19,7 @@ typedef enum{
     MACROEV_WRITING_MACRO = 2,
 } StateMacroEvaluation;
 
-int macroeval(int argc, char ** argv);
+int macroeval(string input_file, string output_file);
 
 int findMacroDefinition(vector<labelMacro> macroDefinitionTable,string macroText);
 

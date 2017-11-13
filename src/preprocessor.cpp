@@ -22,15 +22,11 @@ typedef struct{
 
 int findLabelDir(vector<labelDir> labelTable,string labelText);
 
-int preprocessor(int argc, char ** argv)
+int preprocessor(string input_file, string output_file)
 {
-    // 1 arquivo de entrada .asm;
-    // arquivo de saida gerado pelo programa  no formato .pre;
-    string arquivo_entrada = argv[2];
-    string arquivo_saida   = argv[3];
 
-    ifstream ArquivoASM(arquivo_entrada.c_str()); // input;
-    ofstream ArquivoPRE(arquivo_saida.c_str()); // output;
+    ifstream ArquivoASM(input_file.c_str()); // input;
+    ofstream ArquivoPRE(output_file.c_str()); // output;
 
     // Teste se ambos os aquivos foram abertos corretamente;
     if (!(ArquivoASM.is_open() && ArquivoPRE.is_open()))

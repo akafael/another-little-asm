@@ -39,16 +39,10 @@ bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line
 bool addNewSymbolINST1PLUS(string strInst1,string strArg1,int numArg1Plus, int lineCount,string line);
 bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,string strArg2, int numArg2Plus, int lineCount,string line);
 
-int assembler(int argc, char * argv[])
+int assembler(string input_file, string output_file)
 {
-
-    // 1 arquivo de entrada .pre;
-    // arquivo de saida gerado pelo programa  no formato .obj;
-    string arquivo_entrada = argv[2];
-    string arquivo_saida   = argv[3];
-
-    ifstream InputFILE(arquivo_entrada.c_str()); // input;
-    ofstream OutputFILE(arquivo_saida.c_str()); // output;
+    ifstream InputFILE(input_file.c_str()); // input;
+    ofstream OutputFILE(output_file.c_str()); // output;
 
     // Teste se ambos os aquivos foram abertos corretamente;
     if (!(InputFILE.is_open() && OutputFILE.is_open()))

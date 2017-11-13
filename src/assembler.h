@@ -3,6 +3,7 @@
 
 #define DEBUG_ASSEMBLER 0
 
+using namespace std;
 
 typedef enum{
     SECTION_NONE = 0,
@@ -15,6 +16,6 @@ typedef enum{
  *
  * @author Rafael e João Pedro Franch
  */
-int assembler(int argc, char * argv[]);
+int assembler(string input_file, string output_file);
 
 #endif
