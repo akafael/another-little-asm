@@ -5,11 +5,8 @@
  * @version 0.2
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include <iostream>
 #include <string.h>
-#include <unistd.h>
 
 #include "msgs_pt.h"
 #include "preprocessor.h"
@@ -22,12 +19,12 @@ int main(int argc, char** argv){
     char *operacao = argv[1];
     if (argc< 2 || operacao[0] != '-' || strlen(operacao) != 2)
     {
-        printf(MSG_ERR_INVALID_ARGUMENT);
+        cout << MSG_ERR_INVALID_ARGUMENT;
         return 1;
     }
     else if (argc != 4)
     {
-        printf(MSG_ERR_ARGUMENT_NUMBER);
+        cout << MSG_ERR_ARGUMENT_NUMBER;
         return 1;
     }
 
@@ -46,7 +43,7 @@ int main(int argc, char** argv){
         return assembler(argc,argv);
 
     default:
-        printf(MSG_ERR_INVALID_ARGUMENT);
+        cout << MSG_ERR_INVALID_ARGUMENT;
         return 1;
     }
 
