@@ -17,7 +17,7 @@ A partir do conjunto de instruções implementados é permitido virtualmente esc
  * test_files: Arquivos de teste usados
 
 ## Compilando
-Para usar primeiro entre na pasta `src` e compile o programa através do comando
+Para compilar, primeiro entre na pasta `src` e compile o programa através do comando
 
 ```
 $ make
@@ -58,6 +58,7 @@ yla arquivo_entrada.pre -p arquivo_entrada.mcr
 ### Montagem
 
 No processo final de montagem é feito a analise de cada instrução e por fim é montado um arquivo objeto formado por números e espaços que poderá ser lido pelo simulador.
+
 ```
 yla arquivo_entrada.mcr -p arquivo_entrada.pre
 ```
