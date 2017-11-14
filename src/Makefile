@@ -12,7 +12,9 @@ SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp macroeval.cpp \
 	parser.cpp
 HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h macroeval.h parser.h
 
-EXECUTABLE = yla
+EXECUTABLE_ASSEMBLER = yla
+EXECUTABLE_LOADER = ylo
+EXECUTABLE_LINKER = yld
 
 # Test Options
 TEST_FILES_DIR = ../test_files
@@ -27,7 +29,7 @@ TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
 # Recipes:
 ##
 .PHONY = ALL
-ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE)
+ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER)
 
 # Compile
 $(MAIN): $(MAIN).cpp
@@ -60,8 +62,12 @@ assembler.o: assembler.cpp assembler.h msgs_pt.h preprocessor.o lexer.o macroeva
 $(MAIN).o: $(MAIN).cpp $(HEADERS)
 	$(CC) $(CCFLAGS) -c $(MAIN).cpp
 
-$(EXECUTABLE): $(OBJECTS)
+$(EXECUTABLE_ASSEMBLER): $(OBJECTS)
 	$(CC) $(CCFLAGS) $(OBJECTS) -o $@
+
+$(EXECUTABLE_ASSEMBLER): $(OBJECTS)
+	$(CC) $(CCFLAGS) $(OBJECTS) -o $@
+
 
 ##
 # Remove generated files
@@ -77,13 +83,13 @@ clear-docs:
 	rm -vrf ../docs/*;
 
 clear-all: clear-objects clear-test
-	rm -vf $(EXECUTABLE);
+	rm -vf $(EXECUTABLE_ASSEMBLER);
 
 ##
 # Automatic Tests
 ##
 .PHONY = test
-test: $(EXECUTABLE) test-precompiler test-macroeval test-assembler
+test: $(EXECUTABLE_ASSEMBLER) test-precompiler test-macroeval test-assembler
 	@echo "\033[92mTESTES Concluídos!\033[0m"
 
 test-precompiler: $(TEST_FILES_ASM)
@@ -96,21 +102,21 @@ test-assembler: $(TEST_FILES_MCR)
 	@echo "\033[33mTESTES assembler concluídos!\n \033[0m"
 
 # Run precompiler for all .asm files
-$(TEST_FILES_ASM): $(EXECUTABLE)
+$(TEST_FILES_ASM): $(EXECUTABLE_ASSEMBLER)
 	./$< -p $@ $(addsuffix .pre, $(basename $@))
 
 # Evalute Macros for all .pre files
-$(TEST_FILES_PRE): $(EXECUTABLE) test-precompiler
+$(TEST_FILES_PRE): $(EXECUTABLE_ASSEMBLER) test-precompiler
 	./$< -m $@ $(addsuffix .mcr, $(basename $@))
 
 # Run assembler for all .mcr files
-$(TEST_FILES_MCR): $(EXECUTABLE) test-macroeval
+$(TEST_FILES_MCR): $(EXECUTABLE_ASSEMBLER) test-macroeval
 	./$< -o $@ $(addsuffix .obj, $(basename $@))
 
 ##
 # Documentation
 ##
 .PHONY = doc
-docs: $(EXECUTABLE)
+docs: $(EXECUTABLE_ASSEMBLER)
 	# Generate only for Funcional Version
 	doxygen Doxyfile
