@@ -5,7 +5,7 @@
 
 # Compiler Options
 CC = g++
-CC_FLAGS = -Wall -std=c++11 -ggdb
+CC_FLAGS = -Wall -std=c++11 # -ggdb
 
 MAIN = main
 SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp macroeval.cpp \
@@ -29,14 +29,15 @@ TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
 # Recipes:
 ##
 .PHONY = ALL
-ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER)
+ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER) $(EXECUTABLE_LOADER)
 
 # Compile
 $(MAIN): $(MAIN).cpp
 	$(CC) $(CC_FLAGS) $(NAME).cpp
 
 @echo Objects:$(OBJECTS)
-OBJECTS = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o parser.o
+OBJECTS_ASSEMBLER = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o parser.o
+OBJECTS_LOADER = loader.o simulator.o
 
 ##
 # Modules:
@@ -56,18 +57,23 @@ parser.o: parser.cpp parser.h
 assembler.o: assembler.cpp assembler.h msgs_pt.h preprocessor.o lexer.o macroeval.o parser.o
 	$(CC) $(CCFLAGS) -c assembler.cpp
 
+loader.o: loader.cpp msgs_pt.h
+	$(CC) $(CCFLAGS) -c loader.cpp
+
+simulator.o: simulator.cpp simulator.h msgs_pt.h
+	$(CC) $(CCFLAGS) -c simulator.cpp
+
 ##
 # Main files:
 ##
 $(MAIN).o: $(MAIN).cpp $(HEADERS)
 	$(CC) $(CCFLAGS) -c $(MAIN).cpp
 
-$(EXECUTABLE_ASSEMBLER): $(OBJECTS)
+$(EXECUTABLE_ASSEMBLER): $(OBJECTS_ASSEMBLER)
 	$(CC) $(CCFLAGS) $(OBJECTS) -o $@
 
-$(EXECUTABLE_ASSEMBLER): $(OBJECTS)
-	$(CC) $(CCFLAGS) $(OBJECTS) -o $@
-
+$(EXECUTABLE_LOADER): $(OBJECTS_LOADER)
+	$(CC) $(CCFLAGS) $(OBJECTS_LOADER) -o $@
 
 ##
 # Remove generated files
@@ -88,8 +94,8 @@ clear-all: clear-objects clear-test
 ##
 # Automatic Tests
 ##
-.PHONY = test
-test: $(EXECUTABLE_ASSEMBLER) test-precompiler test-macroeval test-assembler
+.PHONY = test-all
+test-all: $(EXECUTABLE_ASSEMBLER) test-precompiler test-macroeval test-assembler
 	@echo "\033[92mTESTES Concluídos!\033[0m"
 
 test-precompiler: $(TEST_FILES_ASM)
