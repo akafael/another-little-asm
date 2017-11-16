@@ -60,7 +60,7 @@ int main(int argc, char** argv)
         fileEXE.close();
 
         /// @todo Executar Simulador
-        simulator(argv[1]);
+        //simulator(argv[1]);
     }
 
     return 0;

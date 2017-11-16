@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <algorithm>
 #include <vector>
@@ -256,6 +257,8 @@ int assembler(string input_file, string output_file)
     }
 
     // Escrita no Arquivo
+    std::ostringstream ssHeaderRef, ssTextSegment;
+
     for(vector<symbol>::iterator it = symbolsTable.begin(); it != symbolsTable.end();++it)
     {
         if((*it).type==SYM_LABEL)
@@ -276,14 +279,24 @@ int assembler(string input_file, string output_file)
                 // Recupera o valor de numplus armazenado
                 (*it).content = labelsTable[labelPos].addr - ((*it).content);
             }
+            ssHeaderRef << "1";
+        }
+        else
+        {
+            ssHeaderRef << "0";
         }
 
         #if DEBUG_ASSEMBLER
             cout << (*it).content << ' ' << (*it).text << endl;
         #endif
 
-        OutputFILE << (*it).content << ' ';
+        ssTextSegment << (*it).content << ' ';
     }
+
+    OutputFILE << "H: " << output_file << endl;
+    OutputFILE << "H: " << symbolsTable.size() << endl;
+    OutputFILE << "H: " << ssHeaderRef.str() << endl;
+    OutputFILE << "T: " << ssTextSegment.str() << endl;
 
     OutputFILE.close();
     InputFILE.close();
