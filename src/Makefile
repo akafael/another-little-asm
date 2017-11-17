@@ -5,7 +5,7 @@
 
 # Compiler Options
 CC = g++
-CC_FLAGS = -Wall -std=c++11 # -ggdb
+CC_FLAGS = -Wall -std=c++11 -ggdb
 
 MAIN = main
 SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp macroeval.cpp \
@@ -15,6 +15,8 @@ HEADERS = msgs_pt.h preprocessor.h assembler.h lexer.h macroeval.h parser.h
 EXECUTABLE_ASSEMBLER = yla
 EXECUTABLE_LOADER = ylo
 EXECUTABLE_LINKER = yld
+
+EXECUTABLE_TESTS = test_simulator
 
 # Test Options
 TEST_FILES_DIR = ../test_files
@@ -29,7 +31,8 @@ TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
 # Recipes:
 ##
 .PHONY = ALL
-ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER) $(EXECUTABLE_LOADER)
+ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER) $(EXECUTABLE_LOADER) \
+	 $(EXECUTABLE_TESTS)
 
 # Compile
 $(MAIN): $(MAIN).cpp
@@ -37,7 +40,7 @@ $(MAIN): $(MAIN).cpp
 
 @echo Objects:$(OBJECTS)
 OBJECTS_ASSEMBLER = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o parser.o
-OBJECTS_LOADER = loader.o simulator.o
+OBJECTS_LOADER = loader.o simulator.o lexer.o
 
 ##
 # Modules:
@@ -60,7 +63,7 @@ assembler.o: assembler.cpp assembler.h msgs_pt.h preprocessor.o lexer.o macroeva
 loader.o: loader.cpp msgs_pt.h
 	$(CC) $(CCFLAGS) -c loader.cpp
 
-simulator.o: simulator.cpp simulator.h msgs_pt.h
+simulator.o: simulator.cpp simulator.h msgs_pt.h lexer.o
 	$(CC) $(CCFLAGS) -c simulator.cpp
 
 ##
@@ -76,11 +79,18 @@ $(EXECUTABLE_LOADER): $(OBJECTS_LOADER)
 	$(CC) $(CCFLAGS) $(OBJECTS_LOADER) -o $@
 
 ##
+# Test Files
+##
+
+test_simulator: $(OBJECTS_LOADER)
+	$(CC) $(CCFLAGS) $@.cpp simulator.o lexer.o -o $@
+
+##
 # Remove generated files
 ##
 .PHONY = clear
 clear-objects:
-	rm -vf $(OBJECTS);
+	rm -vf $(OBJECTS_LOADER) $(OBJECTS_ASSEMBLER);
 
 clear-test:
 	rm -vf $(TEST_FILES_PRE) $(TEST_FILES_MCR) $(TEST_FILES_OBJ);
@@ -89,13 +99,13 @@ clear-docs:
 	rm -vrf ../docs/*;
 
 clear-all: clear-objects clear-test
-	rm -vf $(EXECUTABLE_ASSEMBLER);
+	rm -vf $(EXECUTABLE_ASSEMBLER) $(EXECUTABLE_LOADER);
 
 ##
 # Automatic Tests
 ##
-.PHONY = test-all
-test-all: $(EXECUTABLE_ASSEMBLER) test-precompiler test-macroeval test-assembler
+.PHONY = test
+test: $(EXECUTABLE_ASSEMBLER) test-precompiler test-macroeval test-assembler
 	@echo "\033[92mTESTES Concluídos!\033[0m"
 
 test-precompiler: $(TEST_FILES_ASM)
