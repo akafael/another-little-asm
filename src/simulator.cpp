@@ -147,7 +147,8 @@ int simulator(string input_file)
             }
             case INPUT :
             {
-                cin >> (*(it+1)).string;
+                int arg1 = atoi((*(it+1)).string.c_str());
+                cin >> vtoks.at(arg1-1).string;
                 break;
             }
             case OUTPUT :
