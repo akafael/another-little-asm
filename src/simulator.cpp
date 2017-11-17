@@ -75,22 +75,26 @@ int simulator(string input_file)
         switch (data) {
             case ADD :
             {
-                mProcessor.accReg += atoi((*(it+1)).string.c_str());
+                int arg1 = atoi((*(it+1)).string.c_str());
+                mProcessor.accReg += atoi(vtoks.at(arg1-1).string.c_str());
                 break;
             }
             case SUB :
             {
-                mProcessor.accReg -= atoi((*(it+1)).string.c_str());
+                int arg1 = atoi((*(it+1)).string.c_str());
+                mProcessor.accReg -= atoi(vtoks.at(arg1-1).string.c_str());
                 break;
             }
             case MULT :
             {
-                mProcessor.accReg *= atoi((*(it+1)).string.c_str());
+                int arg1 = atoi((*(it+1)).string.c_str());
+                mProcessor.accReg *= atoi(vtoks.at(arg1-1).string.c_str());
                 break;
             }
             case DIV :
             {
-                mProcessor.accReg /= atoi((*(it+1)).string.c_str());
+                int arg1 = atoi((*(it+1)).string.c_str());
+                mProcessor.accReg /= atoi(vtoks.at(arg1-1).string.c_str());
                 break;
             }
             case JMP :
