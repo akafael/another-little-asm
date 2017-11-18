@@ -28,6 +28,7 @@ int currentSymbolAddr = 1;
 // Flags
 bool isSectionTextDeclared = false;
 bool isSectionDataDeclared = false;
+bool isModule = false;
 SectionMode currentSection = SECTION_NONE;
 
 bool lexicalAnalysisInstruction(int lineCount,string line,vector<token> vtoks,vector<symbol> *symbolsTb,vector<label> *labelsTb, int *currentSymbAd);
@@ -250,15 +251,14 @@ int assembler(string input_file, string output_file)
         }
     }
 
-    // Verifica Existência da Seções TEXT
+    // Verifica Existência da Seção TEXT
     if(!isSectionTextDeclared)
     {
         cerr << MSG_ERR_MISSING_SECTION_TEXT;
     }
 
-    // Escrita no Arquivo
+    // Gera segmento de texto e de referências para arquivo da saída
     std::ostringstream ssHeaderRef, ssTextSegment;
-
     for(vector<symbol>::iterator it = symbolsTable.begin(); it != symbolsTable.end();++it)
     {
         if((*it).type==SYM_LABEL)
@@ -293,10 +293,13 @@ int assembler(string input_file, string output_file)
         ssTextSegment << (*it).content << ' ';
     }
 
+    // Escrita no Arquivo
     OutputFILE << "H: " << output_file << endl;
     OutputFILE << "H: " << symbolsTable.size() << endl;
     OutputFILE << "H: " << ssHeaderRef.str() << endl;
     OutputFILE << "T: " << ssTextSegment.str() << endl;
+
+    /// @todo criar tabelas de uso e definição para módulos
 
     OutputFILE.close();
     InputFILE.close();
@@ -376,6 +379,28 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         if(currentSection!=SECTION_DATA)
             PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
     }
+    else if (code == BEGIN)
+    {
+        // Marca como Módulo
+        isModule = true;
+
+        // Atualiza Endereço p/ próximo simbolo
+        currentSymbolAddr++;
+
+        // Verifica uso errado da diretiva
+        if(currentSection!=SECTION_TEXT)
+            currentSection = SECTION_TEXT;
+    }
+    else if(code == END)
+    {
+        // Atualiza Endereço p/ próximo simbolo
+        currentSymbolAddr++;
+
+        // Verifica uso errado da diretiva
+        if(currentSection!=SECTION_NONE)
+            currentSection = SECTION_NONE;
+    }
+
     return 0;
 }
 

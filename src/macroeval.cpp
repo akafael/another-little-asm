@@ -58,9 +58,9 @@ int macroeval(string input_file, string output_file)
            {
                PRINT_ERR_LABEL_DUPLICATED(lineCount,line);
            }
-       }// Verifica Sintaxe END:
+       }// Verifica Sintaxe ENDMACRO:
        else if((vtoks.size()==1)&&(vtoks[0].type==WORD)\
-           &&(vtoks[0].string.compare("END")==0))
+           &&(vtoks[0].string.compare("ENDMACRO")==0))
        {
            currentStateMacroEval = MACROEV_READING_LINE;
            macroDefinitionTable.push_back(tmpMacroDef);

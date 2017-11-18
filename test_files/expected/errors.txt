@@ -1,0 +1,123 @@
+
+Linha 1:[31m ERRO SINTÁTICO: [0m"SECTION BIZARRE "[31m  -> Definição de SECTION inválida, permitido somente TEXT ou DATA[0m
+
+Linha 2:[31m ERRO SINTÁTICO: [0m"    SUB A "[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.[0m
+
+Linha 10:[31m ERRO SEMÂNTICO: [0m"    ADD A,B "[31m  -> Número de argumentos Inválido.[0m
+
+Linha 11:[31m ERRO SINTÁTICO: [0m"    COPY A B "[31m  -> Instrução Inválida[0m
+
+Linha 12:[31m ERRO ERRO SEMÂNTICO: [0m"    COPY 1,B "[31m  -> Argumento [0m"1"[31m com tipo inválido[0m
+
+Linha 13:[31m ERRO ERRO SEMÂNTICO: [0m"    COPY A,2 "[31m  -> Argumento [0m"2"[31m com tipo inválido[0m
+
+Linha 14:[31m ERRO ERRO SEMÂNTICO: [0m"    COPY A,B "[31m  -> Argumento [0m"B"[31m com tipo inválido! Constante não é permitida como argumento de entrada.[0m
+
+Linha 16:[31m ERRO ERRO SEMÂNTICO: [0m"    INPUT A "[31m  -> Argumento [0m"A"[31m com tipo inválido! Constante não é permitida como argumento de entrada.[0m
+
+Linha 18:[31m ERRO ERRO SEMÂNTICO: [0m"    DIV 2"[31m  -> Argumento [0m"2"[31m com tipo inválido[0m
+
+Linha 22:[31m ERRO SEMÂNTICO: [0m"    COPY A "[31m  -> Número de argumentos Inválido.[0m
+
+Linha 23:[31m ERRO SINTÁTICO: [0m"    CONST 24 "[31m  -> Diretiva na Seção Errada! Deveria estar na seção DATA.[0m
+
+Linha 20:[31m ERRO SINTÁTICO: [0m"C"[31m  -> Rótulo Não Definido[0m
+
+Linha 21:[31m ERRO SINTÁTICO: [0m"D"[31m  -> Rótulo Não Definido[0m
+
+Linha 1:[31m ERRO LÉXICO: [0m"#"[31m -> Token Inválido [0m
+
+Linha 2:[31m ERRO SINTÁTICO: [0m"0X3AXC "[31m  -> Instrução Inválida[0m
+
+Linha 3:[31m ERRO LÉXICO: [0m"0323B"[31m -> Token Inválido [0m
+
+Linha 4:[31m ERRO SINTÁTICO: [0m"-12323 "[31m  -> Instrução Inválida[0m
+
+Linha 5:[31m ERRO SINTÁTICO: [0m"43589 "[31m  -> Instrução Inválida[0m
+
+Linha 6:[31m ERRO SINTÁTICO: [0m"-0X1A3 "[31m  -> Instrução Inválida[0m
+
+Linha 7:[31m ERRO SINTÁTICO: [0m"NOME "[31m  -> Instrução Inválida[0m
+
+Linha 8:[31m ERRO LÉXICO: [0m"1BEGIN"[31m -> Token Inválido [0m
+Linha 1: [31m ERRO SINTÁTICO: -> Seção TEXT não declarada[0m
+
+Linha 2:[31m ERRO SINTÁTICO: [0m": ADD N1 "[31m  -> Instrução Inválida[0m
+
+Linha 3:[31m ERRO SINTÁTICO: [0m"N3"[31m  -> Rótulo Não Definido[0m
+
+Linha 4:[31m ERRO SINTÁTICO: [0m"TEST:   ADD N1 "[31m  -> Rótulo já definido[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"N1: CONST 3 "[31m  -> Rótulo já definido[0m
+
+Linha 6:[31m ERRO ERRO SEMÂNTICO: [0m"	JMP 5"[31m  -> Argumento [0m"5"[31m com tipo inválido[0m
+
+Linha 4:[31m ERRO SINTÁTICO: [0m"TEST2"[31m  -> Rótulo Não Definido[0m
+
+Linha 5:[31m ERRO SINTÁTICO: [0m"TEST3"[31m  -> Rótulo Não Definido[0m
+
+Linha 1:[31m ERRO SINTÁTICO: [0m"L1: ETU 1 "[31m  -> Instrução Inválida[0m
+
+Linha 4:[31m ERRO SINTÁTICO: [0m"EF L1 "[31m  -> Instrução Inválida[0m
+
+Linha 5:[31m ERRO ERRO SEMÂNTICO: [0m"LOAD SPACE "[31m  -> Argumento [0m"SPACE"[31m Inválido[0m
+
+Linha 3:[31m ERRO SINTÁTICO: [0m"LOADO SPACE "[31m  -> Instrução Inválida[0m
+
+Linha 1:[31m ERRO ERRO SEMÂNTICO: [0m"LOAD SPACE "[31m  -> Argumento [0m"SPACE"[31m Inválido[0m
+
+Linha 4:[31m ERRO ERRO SEMÂNTICO: [0m"LOAD SPACE "[31m  -> Argumento [0m"SPACE"[31m Inválido[0m
+
+Linha 7:[31m ERRO SINTÁTICO: [0m"LOAD DOIS TRES"[31m  -> Instrução Inválida[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"COPY ZERO, DOIS, TRES"[31m  -> Instrução Inválida[0m
+
+Linha 7:[31m ERRO SINTÁTICO: [0m"LOAD DOIS TRES"[31m  -> Instrução Inválida[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"COPY ZERO, DOIS, TRES "[31m  -> Instrução Inválida[0m
+
+Linha 3:[31m ERRO LÉXICO: [0m"2TESTE"[31m -> Token Inválido [0m
+
+Linha 3:[31m ERRO SINTÁTICO: [0m"2TESTE: CONST 2   "[31m  -> Instrução Inválida[0m
+
+Linha 4:[31m ERRO LÉXICO: [0m"/"[31m -> Token Inválido [0m
+
+Linha 9:[31m ERRO LÉXICO: [0m"2TESTE"[31m -> Token Inválido [0m
+
+Linha 11:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
+
+Linha 7:[31m ERRO SINTÁTICO: [0m"ROT1: ADD TESTE   ROT2: DIV DOIS "[31m  -> Instrução Inválida[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
+
+Linha 6:[31m ERRO SINTÁTICO: [0m"ROT1: ADD TESTE   "[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.[0m
+
+Linha 7:[31m ERRO SINTÁTICO: [0m"ADD TRES"[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.[0m
+
+Linha 8:[31m ERRO SINTÁTICO: [0m"DIV DOIS"[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.[0m
+Linha 1: [31m ERRO SINTÁTICO: -> Seção TEXT não declarada[0m
+
+Linha 8:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
+
+Linha 6:[31m ERRO SINTÁTICO: [0m"SECTION ERROR"[31m  -> Definição de SECTION inválida, permitido somente TEXT ou DATA[0m
+
+Linha 7:[31m ERRO SINTÁTICO: [0m"ROT1: ADD TESTE   "[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.[0m
+
+Linha 8:[31m ERRO SINTÁTICO: [0m"ADD TRES"[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"DIV DOIS"[31m  -> Instrução na Seção Errada! Deveria estar na seção TEXT.[0m
+Linha 1: [31m ERRO SINTÁTICO: -> Seção TEXT não declarada[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
+
+Linha 8:[31m ERRO ERRO SEMÂNTICO: [0m"ADD 3 "[31m  -> Argumento [0m"3"[31m com tipo inválido[0m
+
+Linha 10:[31m ERRO ERRO SEMÂNTICO: [0m"COPY DOIS, 2 "[31m  -> Argumento [0m"2"[31m com tipo inválido[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
+
+Linha 9:[31m ERRO ERRO SEMÂNTICO: [0m"COPY DOIS, TRES "[31m  -> Argumento [0m"TRES"[31m com tipo inválido! Constante não é permitida como argumento de entrada.[0m
+
+Linha 8:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
+
+Linha 9:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
