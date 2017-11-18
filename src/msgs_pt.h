@@ -7,11 +7,11 @@
 #define YLA_MSGS_PT_H_
 
 #define MSG_ERR "\tERR 9000\n" // Mensagem Genérica usada para debug
+#define MSG_ERR_FILE "\tProblemas ao abrir arquivo\n"
 
 #define MSG_ERR_LOADER_ARGUMENT_NUMBER "\tNúmero de argumentos inválido\n\tSão necessarios pelo menos 3 argumentos:\n o nome do fileName a ser compilado, a quantidade de chucks de mémoria seguida da posição inicial de cada um e dos tamanho.\n"
 #define MSG_ERR_ARGUMENT_NUMBER "\tNúmero de argumentos invalido\n\tSão necessarios 3 argumentos: o nome do fileName a ser compilado, a opcao e o nome do fileName objeto\n"
 #define MSG_ERR_INVALID_ARGUMENT "\tO segundo argumento esta mal formado:\n\t -p: pre-processado\n\t -m: fileName apos a resolucao das macros\n\t -o: para o fileName objeto final\n"
-#define MSG_ERR_FILE "\tProblemas ao abrir arquivo\n"
 #define MSG_ERR_INVALID_INSTRUCTION "\tInstrução Inválida\n\e[0"
 #define MSG_ERR_INVALID_TOKEN "\tToken Inválido.\n"
 #define MSG_ERR_LABEL_UNDEFINED "\033[31m  -> Rótulo Não definido\033[0m\n"

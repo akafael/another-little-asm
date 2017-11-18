@@ -34,10 +34,6 @@ TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
 ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER) $(EXECUTABLE_LOADER) \
 	 $(EXECUTABLE_TESTS)
 
-# Compile
-$(MAIN): $(MAIN).cpp
-	$(CC) $(CC_FLAGS) $(NAME).cpp
-
 @echo Objects:$(OBJECTS)
 OBJECTS_ASSEMBLER = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o parser.o
 OBJECTS_LOADER = loader.o simulator.o lexer.o

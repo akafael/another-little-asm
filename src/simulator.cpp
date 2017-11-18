@@ -46,6 +46,7 @@ int simulator(string input_file)
         return 1;
     }
 
+    // Ler Arquivo
     string strFileName, strSize, strHeaderRef, strTextSegment;
     getline(fileEXE,strFileName);
     getline(fileEXE,strSize);
@@ -55,123 +56,165 @@ int simulator(string input_file)
     // Gera vetor para a fita de instruções
     vector<token> vtoks = tokenizer(strTextSegment);
     vtoks.erase(vtoks.begin(),vtoks.begin()+2); // Remove "T:"
+    vector<int> vData;
+    for(vector<token>::iterator it = vtoks.begin(); it < vtoks.end();++it)
+    {
+        // Converte todos os valores de dados para int
+        vData.push_back(atoi((*it).string.c_str()));
+        if(vData.back()<0)
+        {
+            return 0;
+        }
+    }
 
     // Inicializa o Processador
     mProcessor.accReg = 0;
     mProcessor.pcReg = 1;
+    bool flagKeepProcessorRunning = true;
 
-    for(vector<token>::iterator it = vtoks.begin(); it < vtoks.end();++it)
+    while(flagKeepProcessorRunning)
     {
         // Ilustra os Registradores do Processador
         cout << "PROCESSOR => ACC: " << mProcessor.accReg ;
         cout << " PC: " << mProcessor.pcReg << endl;
-        cout << '\t' << (*it).string << endl;
 
-        // Decodifica a Instrução
-        int data = atoi((*it).string.c_str());
+        // Decodifica Instrução
+        int data = vData.at(mProcessor.pcReg-1);
         int numParam = InstructionArgNumber[data-1];
 
-        // Executa a Instrução decodificada
+        // Ilustra a Leitura da Função
+        cout << ".." << InstrutionString[data-1];
+        if(numParam>0)
+            cout << ' ' << vData.at(mProcessor.pcReg);
+        if(numParam>1)
+            cout << ' ' << vData.at(mProcessor.pcReg+1);
+        cout << endl;
+
+        // Executa a Instrução de Acordo com o Opcode
         switch (data) {
-            case ADD :
+            case ADD:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                mProcessor.accReg += atoi(vtoks.at(arg1-1).string.c_str());
+                int arg1 = vData.at(mProcessor.pcReg);
+                mProcessor.accReg += vData.at(arg1-1);
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case SUB :
+            case SUB:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                mProcessor.accReg -= atoi(vtoks.at(arg1-1).string.c_str());
+                int arg1 = vData.at(mProcessor.pcReg);
+                mProcessor.accReg -= vData.at(arg1-1);
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case MULT :
+            case MULT:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                mProcessor.accReg *= atoi(vtoks.at(arg1-1).string.c_str());
+                int arg1 = vData.at(mProcessor.pcReg);
+                mProcessor.accReg *= vData.at(arg1-1);
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case DIV :
+            case DIV:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                mProcessor.accReg /= atoi(vtoks.at(arg1-1).string.c_str());
+                int arg1 = vData.at(mProcessor.pcReg);
+                mProcessor.accReg /= vData.at(arg1-1);
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case JMP :
+            case JMP:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                it = vtoks.begin() + arg1 - numParam;
+                int arg1 = vData.at(mProcessor.pcReg);
+                mProcessor.pcReg=arg1;
                 break;
             }
-            case JMPN :
+            case JMPN:
             {
-                if(mProcessor.accReg<=0)
+                if(mProcessor.accReg<0)
                 {
-                    int arg1 = atoi((*(it+1)).string.c_str());
-                    it = vtoks.begin() + arg1 - numParam;
+                    int arg1 = vData.at(mProcessor.pcReg);
+                    mProcessor.pcReg=arg1;
+                }
+                else
+                {
+                    mProcessor.pcReg+=numParam+1;
                 }
                 break;
             }
-            case JMPP :
+            case JMPP:
             {
-                if(mProcessor.accReg>=0)
+                if(mProcessor.accReg>0)
                 {
-                    int arg1 = atoi((*(it+1)).string.c_str());
-                    it = vtoks.begin() + arg1 - numParam;
+                    int arg1 = vData.at(mProcessor.pcReg);
+                    mProcessor.pcReg=arg1;
+                }
+                else
+                {
+                    mProcessor.pcReg+=numParam+1;
                 }
                 break;
             }
-            case JMPZ :
+            case JMPZ:
             {
                 if(mProcessor.accReg==0)
                 {
-                    int arg1 = atoi((*(it+1)).string.c_str());
-                    it = vtoks.begin() + arg1 - numParam;
+                    int arg1 = vData.at(mProcessor.pcReg);
+                    mProcessor.pcReg=arg1;
+                }
+                else
+                {
+                    mProcessor.pcReg+=numParam+1;
                 }
                 break;
             }
-            case COPY :
+            case COPY:
             {
-                (*(it+2)).string = (*(it+1)).string;
+                int arg1 = vData.at(mProcessor.pcReg);
+                int arg2 = vData.at(mProcessor.pcReg+1);
+                vData.at(arg2)= vData.at(arg1);
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case LOAD :
+            case LOAD:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                int refData = atoi(vtoks.at(arg1-1).string.c_str());
-                mProcessor.accReg = refData;
+                int arg1 = vData.at(mProcessor.pcReg);
+                mProcessor.accReg = vData.at(arg1-1);
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case STORE :
+            case STORE:
             {
-                std::ostringstream ss;
-                ss << mProcessor.accReg;
-                (*(it+1)).string = ss.str();
+                int arg1 = vData.at(mProcessor.pcReg);
+                vData.at(arg1-1) = mProcessor.accReg;
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case INPUT :
+            case INPUT:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                cin >> vtoks.at(arg1-1).string;
+                string strNum;
+                cin >> strNum;
+                int arg1 = vData.at(mProcessor.pcReg);
+                vData.at(arg1-1) = atoi(strNum.c_str());
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case OUTPUT :
+            case OUTPUT:
             {
-                int arg1 = atoi((*(it+1)).string.c_str());
-                cout << arg1 << endl;
+                int arg1 = vData.at(mProcessor.pcReg);
+                cout << vData.at(arg1-1) << endl;
+                mProcessor.pcReg+=numParam+1;
                 break;
             }
-            case STOP :
+            case STOP:
             {
-                // Encerra o programa
-                it = vtoks.end();
+                flagKeepProcessorRunning = false; // Pula para o final
                 break;
+            }
+            default:
+            {
+                // Op code Inválido
+                cerr << MSG_ERR_INVALID_INSTRUCTION;
+                flagKeepProcessorRunning = false; // Pula para o final
             }
         }
-
-        // Atualiza Program Counter
-        it += numParam;
-        mProcessor.pcReg = it - vtoks.begin();
     }
 
     cout << endl;
