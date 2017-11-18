@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "msgs_pt.h"
+#include "simulator.h"
 
 typedef struct{
     int startAddr;
@@ -21,7 +22,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-    if (argc< 3)
+    if (argc< 4)
     {
         cout << MSG_ERR_LOADER_ARGUMENT_NUMBER;
         return 1;
@@ -31,7 +32,7 @@ int main(int argc, char** argv)
         int chunksNum = atoi(argv[2]);
 
         // Verificando Quantidade de Argumentos
-        if(argc < (2*chunksNum + 2))
+        if(argc != (2*chunksNum + 3))
         {
             cout << MSG_ERR_LOADER_ARGUMENT_NUMBER;
             return 1;
@@ -52,6 +53,7 @@ int main(int argc, char** argv)
         {
             /// @todo Verificar Tipo dos Argumentos (valores inteiros positivos)
             /// @todo Verificar Sobreposição de Chunks (se o endereço de inicio de um chunk está contido em algum espaço anterior)
+            /// @todo Verificar se a soma dos chunks é suficiente para o programa
             /// @todo Criar arquivos de saída
         }
 
@@ -59,8 +61,7 @@ int main(int argc, char** argv)
 
         fileEXE.close();
 
-        /// @todo Executar Simulador
-        // simulator(argv[1]);
+        simulator(argv[1]);
     }
 
     return 0;

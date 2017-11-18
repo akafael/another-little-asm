@@ -26,13 +26,14 @@ TEST_FILES_ASM = $(wildcard $(TEST_FILES_DIR)/*.asm)
 TEST_FILES_PRE = $(addsuffix .pre, $(basename $(TEST_FILES_ASM)))
 TEST_FILES_MCR = $(addsuffix .mcr, $(basename $(TEST_FILES_ASM)))
 TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
+TEST_FILES_RUN = $(addsuffix .run, $(basename $(TEST_FILES_ASM)))
 
 ##
 # Recipes:
 ##
 .PHONY = ALL
-ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER) $(EXECUTABLE_LOADER) \
-	 $(EXECUTABLE_TESTS)
+ALL: $(SOURCES) $(HEADERS) $(EXECUTABLE_ASSEMBLER) $(EXECUTABLE_LINKER) \
+	 $(EXECUTABLE_LOADER) $(EXECUTABLE_TESTS)
 
 @echo Objects:$(OBJECTS)
 OBJECTS_ASSEMBLER = $(MAIN).o assembler.o preprocessor.o lexer.o macroeval.o parser.o
@@ -74,6 +75,9 @@ $(EXECUTABLE_ASSEMBLER): $(OBJECTS_ASSEMBLER)
 $(EXECUTABLE_LOADER): $(OBJECTS_LOADER)
 	$(CC) $(CCFLAGS) $(OBJECTS_LOADER) -o $@
 
+$(EXECUTABLE_LINKER): linker.cpp msgs_pt.h
+	$(CC) $(CCFLAGS) linker.cpp -o $@
+
 ##
 # Test Files
 ##
@@ -89,7 +93,7 @@ clear-objects:
 	rm -vf $(OBJECTS_LOADER) $(OBJECTS_ASSEMBLER);
 
 clear-test:
-	rm -vf $(TEST_FILES_PRE) $(TEST_FILES_MCR) $(TEST_FILES_OBJ);
+	rm -vf $(TEST_FILES_PRE) $(TEST_FILES_MCR) $(TEST_FILES_OBJ) $(TEST_FILES_RUN);
 
 clear-docs:
 	rm -vrf ../docs/*;
@@ -101,7 +105,7 @@ clear-all: clear-objects clear-test
 # Automatic Tests
 ##
 .PHONY = test
-test: $(EXECUTABLE_ASSEMBLER) test-precompiler test-macroeval test-assembler
+test: $(EXECUTABLE_ASSEMBLER) test-precompiler test-macroeval test-assembler $(EXECUTABLE_LOADER)
 	@echo "\033[92mTESTES Concluídos!\033[0m"
 
 test-precompiler: $(TEST_FILES_ASM)
@@ -112,6 +116,12 @@ test-macroeval: $(TEST_FILES_PRE)
 
 test-assembler: $(TEST_FILES_MCR)
 	@echo "\033[33mTESTES assembler concluídos!\n \033[0m"
+
+test-linker: $(TEST_FILES_OBJ)
+	@echo "\033[33mTESTES linker concluídos!\n \033[0m"
+
+test-loader: $(TEST_FILES_RUN)
+	@echo "\033[33mTESTES linker concluídos!\n \033[0m"
 
 # Run precompiler for all .asm files
 $(TEST_FILES_ASM): $(EXECUTABLE_ASSEMBLER)
@@ -124,6 +134,14 @@ $(TEST_FILES_PRE): $(EXECUTABLE_ASSEMBLER) test-precompiler
 # Run assembler for all .mcr files
 $(TEST_FILES_MCR): $(EXECUTABLE_ASSEMBLER) test-macroeval
 	./$< -o $@ $(addsuffix .obj, $(basename $@))
+
+# Run linker for all .obj files
+$(TEST_FILES_OBJ): $(EXECUTABLE_LINKER) test-assembler
+	./$< $@ $(addsuffix .run, $(basename $@))
+
+# Run loader for all .run files
+$(TEST_FILES_RUN): $(EXECUTABLE_LOADER) test-linker
+	./$< $@ 1 1 1
 
 ##
 # Documentation
