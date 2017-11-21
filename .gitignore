@@ -31,6 +31,10 @@
 *.out
 *.app
 *.run
+yla
+ylo
+yld
+test_simulator
 
 # Compiled Invented Assembler
 *.mcr
