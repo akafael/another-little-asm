@@ -34,6 +34,13 @@ Como forma de validar o funcionamento podem ser utilizados o teste automatizado 
 ```
 $ make clear-test; make test
 ```
+A saída dos programas de testes podem ficar muito grande e dispendioso para comparar se houve alterações entre um teste o outro. Tal pode ser resolvido usando o programa `diff` para comparar e redirencionando a saída dos erros para um arquivo separado a partir do seguintes comando:
+
+```
+make clear-all
+make test 2> ../test_files/erros.txt
+diff ../test_files/expected/errors.txt ../test_files/erros.txt
+```
 
 ## Guia de Uso
 
