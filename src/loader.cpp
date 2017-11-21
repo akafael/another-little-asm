@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <vector>
 
+#include "lexer.h"
 #include "msgs_pt.h"
 #include "simulator.h"
 
@@ -47,19 +48,60 @@ int main(int argc, char** argv)
             return 1;
         }
 
-        vector<ofstream> vFileOUT;
+        // Ler Arquivo
+        string strFileName, strSize, strHeaderRef, strTextSegment;
+        getline(fileEXE,strFileName);
+        // Pega apenas o nome do arquivo para criar o arquivo de saída
+        strFileName=strFileName.substr(3,strFileName.size());
+        getline(fileEXE,strSize);
+        getline(fileEXE,strHeaderRef);
+        getline(fileEXE,strTextSegment);
+        strSize.size();
 
+        // Vetor com os tokens do código objeto
+        vector<token> vsize = tokenizer(strSize);
+        vsize.erase(vsize.begin(),vsize.begin()+2); // Remove o T:
+
+        // Variaveis de conferência de tamanhos de memória
+        int codeSize = atoi(vsize[0].string.c_str());
+        int allocRemainingSize=codeSize;
+
+        // Laço para cálculo do tamanho de memória necessário de acordo com os argumentos do comando
         for(int i = 0; i < chunksNum; i++)
         {
             /// @todo Verificar Tipo dos Argumentos (valores inteiros positivos)
+
+            int sizeMenChunk = atoi(argv[3+i]);
+            // Inicializa cada arquivo de saida a medida que calcula se o tamanho disponível em cada chunk é suficiente
+            if((allocRemainingSize-sizeMenChunk)>0){
+              allocRemainingSize=allocRemainingSize-sizeMenChunk;
+              /// @todo Criar arquivos de saída com nomes diferentes usando a variável i(converter de inteiro para string)
+              string fileName = strFileName + "generico";
+              ofstream fileOUT(fileName.c_str());
+              fileOUT.close();
+            }
+            else
+            {
+              allocRemainingSize=allocRemainingSize-sizeMenChunk;
+              // Tamanho suficiente de memoria
+              break;
+            }
+
             /// @todo Verificar Sobreposição de Chunks (se o endereço de inicio de um chunk está contido em algum espaço anterior)
-            /// @todo Verificar se a soma dos chunks é suficiente para o programa
-            /// @todo Criar arquivos de saída
+
+        }
+
+        fileEXE.close();
+
+        if(allocRemainingSize>0)
+        {
+          cout << MSG_ERR_LOADER_ALLOCATION;
+          return 1;
         }
 
         /// @todo Percorrer Arquivo de Entrada e atualizar endereços relativos
 
-        fileEXE.close();
+
 
         simulator(argv[1]);
     }
