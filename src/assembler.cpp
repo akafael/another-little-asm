@@ -21,8 +21,10 @@
 using namespace std;
 
 // Tabelas Internas
-vector<symbol> symbolsTable;
+vector<symbol> outputSegmentTable;
 vector<label> labelsTable;
+vector<label> labelDefTable; ///< Tabela de Definições
+vector<label> labelUseTable; ///< Tabela de Uso
 int currentSymbolAddr = 1;
 
 // Flags
@@ -185,7 +187,6 @@ int assembler(string input_file, string output_file)
             // Label + INST1 PLUS
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
 
-
             int numArg1Plus=std::atoi(vtoks[5].string.c_str());
             addNewSymbolINST1PLUS(vtoks[2].string,vtoks[3].string,numArg1Plus,lineCount,line);
         }
@@ -230,7 +231,7 @@ int assembler(string input_file, string output_file)
         {
             // Label (CONST)
             addNewLabel(vtoks[0].string,currentSymbolAddr,lineCount,line);
-            labelsTable.back().isConst = true; // Marca como constante
+            labelsTable.back().type = LABEL_CONST; // Marca como constante
 
             // INST1 NUM (SPACE1)
             int numArg1=std::atoi(vtoks[3].string.c_str());
@@ -259,7 +260,7 @@ int assembler(string input_file, string output_file)
 
     // Gera segmento de texto e de referências para arquivo da saída
     std::ostringstream ssHeaderRef, ssTextSegment;
-    for(vector<symbol>::iterator it = symbolsTable.begin(); it != symbolsTable.end();++it)
+    for(vector<symbol>::iterator it = outputSegmentTable.begin(); it != outputSegmentTable.end();++it)
     {
         if((*it).type==SYM_LABEL)
         {
@@ -295,11 +296,18 @@ int assembler(string input_file, string output_file)
 
     // Escrita no Arquivo
     OutputFILE << "H: " << output_file << endl;
-    OutputFILE << "H: " << symbolsTable.size() << endl;
+    OutputFILE << "H: " << outputSegmentTable.size() << endl;
     OutputFILE << "H: " << ssHeaderRef.str() << endl;
     OutputFILE << "T: " << ssTextSegment.str() << endl;
 
     /// @todo criar tabelas de uso e definição para módulos
+    if(isModule)
+    {
+        // Tabela de Uso
+        OutputFILE << "TU: " << endl;
+        // Tabela de Definições
+        OutputFILE << "TD: " << endl;
+    }
 
     OutputFILE.close();
     InputFILE.close();
@@ -330,7 +338,7 @@ bool addNewLabel(string strLabel,int addrLabel,int lineCount,string line)
         tmp_label.text = strLabel;
         tmp_label.addr = addrLabel;
         tmp_label.value = addrLabel;
-        tmp_label.isConst = false;
+        tmp_label.type = LABEL_;      // Assume como Label de Variável
 
         labelsTable.push_back(tmp_label);
         /// @todo Atualizar Lista de Labels pendentes
@@ -354,7 +362,7 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         tmp_symb.content = code;
         tmp_symb.address = currentSymbolAddr;
         tmp_symb.line = lineCount;
-        symbolsTable.push_back(tmp_symb);
+        outputSegmentTable.push_back(tmp_symb);
 
         // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr++;
@@ -370,7 +378,7 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         tmp_symb.content = 0;
         tmp_symb.address = currentSymbolAddr;
         tmp_symb.line = lineCount;
-        symbolsTable.push_back(tmp_symb);
+        outputSegmentTable.push_back(tmp_symb);
 
         // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr++;
@@ -399,6 +407,20 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         // Verifica uso errado da diretiva
         if(currentSection!=SECTION_NONE)
             currentSection = SECTION_NONE;
+    }
+    else if(code == EXTERN)
+    {
+        // Verifica a sintaxe do EXTERN  'LABEL' : EXTERN
+        if(labelsTable.back().addr!=currentSymbolAddr)
+        {
+            // Erro de uso incorreto da diretiva EXTERN
+            PRINT_ERR_LABEL_UNDEFINIED(lineCount,line);
+        }
+        else
+        {
+            // Adiciona o Último Label Definido como Externo
+            labelsTable.back().type = LABEL_EXTERN;
+        }
     }
 
     return 0;
@@ -429,7 +451,7 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
         tmp_symb0.content = code;
         tmp_symb0.address = currentSymbolAddr;
         tmp_symb0.line = lineCount;
-        symbolsTable.push_back(tmp_symb0);
+        outputSegmentTable.push_back(tmp_symb0);
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
@@ -447,20 +469,20 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
             tmp_symb1.content = labelsTable[labelPos].addr;
 
             // Verifica Erro de Divisão por zero
-            if((code==DIV)&&(symbolsTable[tmp_symb1.content].content==0))
+            if((code==DIV)&&(outputSegmentTable[tmp_symb1.content].content==0))
             {
                 PRINT_ERR_DIV0(lineCount,line,strArg1);
             }
 
             // Verifica erro de escrita em constante
             if((code==STORE||code==INPUT)\
-                &&(symbolsTable[tmp_symb1.content].type!=SYM_NUM_DEC))
+                &&(outputSegmentTable[tmp_symb1.content].type!=SYM_NUM_DEC))
             {
                 PRINT_ERR_ARG_TYPE_CONST(lineCount,line,strArg1);
             }
         }
 
-        symbolsTable.push_back(tmp_symb1);
+        outputSegmentTable.push_back(tmp_symb1);
 
          // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr+=2;
@@ -501,7 +523,7 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
                     tmp_symb0.content = 0;
                     tmp_symb0.address = currentSymbolAddr+i;
                     tmp_symb0.line = lineCount;
-                    symbolsTable.push_back(tmp_symb0);
+                    outputSegmentTable.push_back(tmp_symb0);
                 }
                 currentSymbolAddr+=spaceAmount; // Atualiza Endereços
 
@@ -547,7 +569,7 @@ bool addNewSymbolINST1PLUS(string strInst1,string strArg1,int numArg1Plus, int l
       tmp_symb0.content = code;
       tmp_symb0.address = currentSymbolAddr;
       tmp_symb0.line = lineCount;
-      symbolsTable.push_back(tmp_symb0);
+      outputSegmentTable.push_back(tmp_symb0);
 
       tmp_symb1.type = SYM_LABEL;
       tmp_symb1.address = currentSymbolAddr+1;
@@ -565,7 +587,7 @@ bool addNewSymbolINST1PLUS(string strInst1,string strArg1,int numArg1Plus, int l
           tmp_symb1.content = labelsTable[labelPos].addr+numArg1Plus;
       }
 
-      symbolsTable.push_back(tmp_symb1);
+      outputSegmentTable.push_back(tmp_symb1);
 
        // Atualiza Endereço p/ próximo simbolo
       currentSymbolAddr+=2;
@@ -609,7 +631,7 @@ bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line
                 tmp_symb0.content = 0;
                 tmp_symb0.address = currentSymbolAddr+i;
                 tmp_symb0.line = lineCount;
-                symbolsTable.push_back(tmp_symb0);
+                outputSegmentTable.push_back(tmp_symb0);
             }
             currentSymbolAddr+=spaceAmount; // Atualiza Endereços
         }
@@ -628,7 +650,7 @@ bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line
             tmp_symb0.content = numArg1;
             tmp_symb0.address = currentSymbolAddr+1;
             tmp_symb0.line = lineCount;
-            symbolsTable.push_back(tmp_symb0);
+            outputSegmentTable.push_back(tmp_symb0);
         }
     }
     else if(code<=14)
@@ -672,7 +694,7 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
         tmp_symb0.content = code;
         tmp_symb0.address = currentSymbolAddr;
         tmp_symb0.line = lineCount;
-        symbolsTable.push_back(tmp_symb0);
+        outputSegmentTable.push_back(tmp_symb0);
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
@@ -690,7 +712,7 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
             tmp_symb1.content = labelsTable[labelPos].addr;
         }
 
-        symbolsTable.push_back(tmp_symb1);
+        outputSegmentTable.push_back(tmp_symb1);
 
         tmp_symb2.type = SYM_LABEL;
         tmp_symb2.line = lineCount;
@@ -707,13 +729,13 @@ bool addNewSymbolINST2(string strInst2,string strArg1,string strArg2, int lineCo
             tmp_symb2.content = labelsTable[labelPos].addr;
 
             // Verifica erro de escrita em constante
-            if((code==COPY)&&(symbolsTable[tmp_symb2.content].type==SYM_NUM_DEC))
+            if((code==COPY)&&(outputSegmentTable[tmp_symb2.content].type==SYM_NUM_DEC))
             {
                 PRINT_ERR_ARG_TYPE_CONST(lineCount,line,strArg2);
             }
         }
         tmp_symb2.address = currentSymbolAddr+2;
-        symbolsTable.push_back(tmp_symb2);
+        outputSegmentTable.push_back(tmp_symb2);
 
          // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr+=3;
@@ -752,7 +774,7 @@ bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,st
         tmp_symb0.content = code;
         tmp_symb0.address = currentSymbolAddr;
         tmp_symb0.line = lineCount;
-        symbolsTable.push_back(tmp_symb0);
+        outputSegmentTable.push_back(tmp_symb0);
 
         tmp_symb1.type = SYM_LABEL;
         tmp_symb1.address = currentSymbolAddr+1;
@@ -770,7 +792,7 @@ bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,st
             tmp_symb1.content = labelsTable[labelPos].addr;
         }
 
-        symbolsTable.push_back(tmp_symb1);
+        outputSegmentTable.push_back(tmp_symb1);
 
         tmp_symb2.type = SYM_LABEL;
         tmp_symb2.line = lineCount;
@@ -787,7 +809,7 @@ bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,st
             tmp_symb2.content = labelsTable[labelPos].addr;
         }
         tmp_symb2.address = currentSymbolAddr+2;
-        symbolsTable.push_back(tmp_symb2);
+        outputSegmentTable.push_back(tmp_symb2);
 
          // Atualiza Endereço p/ próximo simbolo
         currentSymbolAddr+=3;

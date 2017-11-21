@@ -36,11 +36,13 @@
     IF       = 20,
     MACRO    = 21,
     ENDMACRO = 22,
-    BEGIN    = 23,
-    END      = 24
+    EXTERN   = 23,
+    PUBLIC   = 24,
+    BEGIN    = 25,
+    END      = 26
 } InstructionCode;
 
-#define INSTRUCTIONS_NUMBER 24
+#define INSTRUCTIONS_NUMBER 26
 
 const static char *InstrutionString[] = {
   "ADD",
@@ -65,6 +67,8 @@ const static char *InstrutionString[] = {
   "IF",
   "MACRO",
   "ENDMACRO",
+  "EXTERN",
+  "PUBLIC",
   "BEGIN",
   "END"
 };
@@ -96,6 +100,8 @@ const static int InstructionArgNumber[] = {
     1, // "IF"
     1, // "MACRO"
     0, // "ENDMACRO"
+    0, // "EXTERN"
+    1, // "PUBLIC"
     0, // "BEGIN"
     0  // "END"
 };

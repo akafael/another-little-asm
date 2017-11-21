@@ -13,13 +13,15 @@ using namespace std;
  * Define simbolos gramáticais
  */
 typedef enum{
-    SYM_COMMENTARY = -1, ///< Simbolo Ignorado
-    SYM_TERM = 0,        ///< Simbolo Terminal
-    SYM_DIRECTIVE = 1,   ///< Simbolo Não Terminal
-    SYM_INSTRUCTION = 2, ///< Simbolo Não Terminal
-    SYM_LABEL = 3,       ///< Simbolo Não Terminal
-    SYM_NUM_DEC = 4,     ///< Simbolo Não Terminal
-    SYM_NUM_HEX = 5,     ///< Simbolo Não Terminal
+    SYM_COMMENTARY = -1,  ///< Simbolo Ignorado
+    SYM_TERM = 0,         ///< Simbolo Terminal
+    SYM_DIRECTIVE = 1,    ///< Simbolo Não Terminal
+    SYM_INSTRUCTION = 2,  ///< Simbolo Não Terminal
+    SYM_LABEL = 3,        ///< Simbolo Não Terminal
+    SYM_LABEL_CONST = 4,  ///< Simbolo Não Terminal
+    SYM_LABEL_EXTERN = 5, ///< Simbolo Não Terminal
+    SYM_NUM_DEC = 6,      ///< Simbolo Não Terminal
+    SYM_NUM_HEX = 7       ///< Simbolo Não Terminal
 } SymbolType;
 
 typedef enum{
@@ -28,6 +30,12 @@ typedef enum{
     INVALID_ARG_NUMBER  = -1,
     INVALID_INSTRUCTION =  0
 } InstructionErrorCode;
+
+typedef enum{
+    LABEL_ = 0,         ///< Rótulo de Variável em Memória
+    LABEL_CONST = 1,    ///< Rótulo de Constante
+    LABEL_EXTERN = 2    ///< Rótulo de Variável Externa
+} LabelType;
 
 #define LABEL_NOT_FOUND -1
 
@@ -57,7 +65,7 @@ typedef struct{
 typedef struct{
     int value;
     int addr;
-    bool isConst;
+    LabelType type;
     string text;
 } label;
 
