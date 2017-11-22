@@ -253,7 +253,7 @@ int assembler(string input_file, string output_file)
     }
 
     // Verifica Existência da Seção TEXT
-    if(!isSectionTextDeclared)
+    if((!isSectionTextDeclared)&&(!isModule))
     {
         cerr << MSG_ERR_MISSING_SECTION_TEXT;
     }
@@ -264,6 +264,7 @@ int assembler(string input_file, string output_file)
     {
         if((*it).type==SYM_LABEL)
         {
+            // Atualiza Rótulos Pendentes
             int labelPos = findLabel(labelsTable,(*it).text);
             if(labelPos==LABEL_NOT_FOUND)
             {
@@ -271,7 +272,7 @@ int assembler(string input_file, string output_file)
             }
             else if((*it).content==UNDEFINED_LABEL_ADDR)
             {
-                // Atuliza Rótulos Pendentes
+                // Atualiza Rótulos Pendentes
                 (*it).content = labelsTable[labelPos].addr;
             }
             else  if((*it).content < -1)
@@ -279,6 +280,13 @@ int assembler(string input_file, string output_file)
                 // Endereço de vetor não definido (Case +)
                 // Recupera o valor de numplus armazenado
                 (*it).content = labelsTable[labelPos].addr - ((*it).content);
+            }
+
+            // Gera Tabela de Uso
+            if((labelPos!=LABEL_NOT_FOUND)&&(labelsTable[labelPos].type = LABEL_EXTERN))
+            {
+                labelUseTable.push_back(labelsTable.at(labelPos));
+                labelUseTable.back().addr = (*it).address; // Marca o Endereço do uso
             }
             ssHeaderRef << "1";
         }
@@ -288,10 +296,41 @@ int assembler(string input_file, string output_file)
         }
 
         #if DEBUG_ASSEMBLER
-            cout << (*it).content << ' ' << (*it).text << endl;
+            cout << (*it).address << ' ' << (*it).content << ' ' << (*it).text << endl;
         #endif
 
         ssTextSegment << (*it).content << ' ';
+    }
+
+    // Gera a tabela de Definição
+    std::ostringstream ssDefTable;
+    for(vector<label>::iterator it = labelDefTable.begin(); it != labelDefTable.end();++it)
+    {
+        if((*it).value==UNDEFINED_LABEL_ADDR)
+        {
+            int labelPos = findLabel(labelsTable,(*it).text);
+            if(labelPos==LABEL_NOT_FOUND)
+            {
+                PRINT_ERR_LABEL_UNDEFINIED((*it).addr,(*it).text);
+            }
+            else
+            {
+                (*it).value = labelsTable.at(labelPos).value;
+                (*it).addr = labelsTable.at(labelPos).addr;
+                ssDefTable << (*it).text << " : " << (*it).value << " ";
+            }
+        }
+        else
+        {
+            ssDefTable << (*it).text << " : " << (*it).value << " ";
+        }
+    }
+
+    // Gera a tabela de Uso
+    std::ostringstream ssUseTable;
+    for(vector<label>::iterator it = labelUseTable.begin(); it != labelUseTable.end();++it)
+    {
+        ssUseTable << (*it).text << " : " << (*it).addr << " ";
     }
 
     // Escrita no Arquivo
@@ -300,14 +339,10 @@ int assembler(string input_file, string output_file)
     OutputFILE << "H: " << ssHeaderRef.str() << endl;
     OutputFILE << "T: " << ssTextSegment.str() << endl;
 
-    /// @todo criar tabelas de uso e definição para módulos
-    if(isModule)
-    {
-        // Tabela de Uso
-        OutputFILE << "TU: " << endl;
-        // Tabela de Definições
-        OutputFILE << "TD: " << endl;
-    }
+    if(labelUseTable.size()>0)
+        OutputFILE << "TU: " << ssUseTable.str() << endl;
+    if(labelDefTable.size()>0)
+        OutputFILE << "TD: " << ssDefTable.str() << endl;
 
     OutputFILE.close();
     InputFILE.close();
@@ -418,7 +453,7 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         }
         else
         {
-            // Adiciona o Último Label Definido como Externo
+            // Marca o Último Label Definido como Externo
             labelsTable.back().type = LABEL_EXTERN;
         }
     }
@@ -533,6 +568,7 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
                 break;
             }
             case CONST:
+            {
                 // Erro
                 PRINT_ERR_ARG(lineCount,line,strArg1);
 
@@ -540,6 +576,33 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
                 if(currentSection!=SECTION_DATA)
                     PRINT_ERR_WRONG_SECTION_DATA_INSTRUCTION(lineCount,line);
                 break;
+            }
+            case PUBLIC:
+            {
+                int labelPos = findLabel(labelsTable,strArg1);
+                if(labelPos==LABEL_NOT_FOUND)
+                {
+                    // Insere Label na tabela de labels
+                    label tmp_label;
+                    tmp_label.text = strArg1;
+                    tmp_label.addr = currentSymbolAddr;
+                    tmp_label.value = UNDEFINED_LABEL_ADDR;
+                    tmp_label.type = LABEL_;      // Assume como Label de Variável
+                }
+                else
+                {
+                    if(labelsTable.at(labelPos).type==LABEL_EXTERN)
+                    {
+                        // Erro
+                        /// @todo Criar Mensagem de erro para public extern
+                    }
+                    else
+                    {
+                        // Acrescentar Label na tabela de Definições
+                        labelDefTable.push_back(labelsTable.at(labelPos));
+                    }
+                }
+            }
         }
     }
 }
@@ -648,9 +711,10 @@ bool addNewSymbolINST1NUM(string strInst1,int numArg1, int lineCount,string line
 
             tmp_symb0.type = SYM_NUM_DEC;
             tmp_symb0.content = numArg1;
-            tmp_symb0.address = currentSymbolAddr+1;
+            tmp_symb0.address = currentSymbolAddr;
             tmp_symb0.line = lineCount;
             outputSegmentTable.push_back(tmp_symb0);
+            currentSymbolAddr++;
         }
     }
     else if(code<=14)

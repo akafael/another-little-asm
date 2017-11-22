@@ -116,8 +116,6 @@ Linha 10:[31m ERRO ERRO SEMÂNTICO: [0m"COPY DOIS, 2 "[31m  -> Argumento [0m
 
 Linha 9:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
 
-Linha 9:[31m ERRO ERRO SEMÂNTICO: [0m"COPY DOIS, TRES "[31m  -> Argumento [0m"TRES"[31m com tipo inválido! Constante não é permitida como argumento de entrada.[0m
-
 Linha 8:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
 
 Linha 9:[31m ERRO SINTÁTICO: [0m"DOIS"[31m  -> Rótulo Não Definido[0m
