@@ -427,9 +427,6 @@ bool addNewSymbolINST0(string strInst0, int lineCount,string line)
         // Marca como Módulo
         isModule = true;
 
-        // Atualiza Endereço p/ próximo simbolo
-        currentSymbolAddr++;
-
         // Verifica uso errado da diretiva
         if(currentSection!=SECTION_TEXT)
             currentSection = SECTION_TEXT;
