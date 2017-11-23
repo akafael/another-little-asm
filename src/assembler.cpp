@@ -283,7 +283,7 @@ int assembler(string input_file, string output_file)
             }
 
             // Gera Tabela de Uso
-            if((labelPos!=LABEL_NOT_FOUND)&&(labelsTable[labelPos].type = LABEL_EXTERN))
+            if((labelPos!=LABEL_NOT_FOUND)&&(labelsTable[labelPos].type == LABEL_EXTERN))
             {
                 labelUseTable.push_back(labelsTable.at(labelPos));
                 labelUseTable.back().addr = (*it).address; // Marca o Endereço do uso
