@@ -17,6 +17,7 @@
 #define MSG_ERR_INVALID_TOKEN "\tToken Inválido.\n"
 #define MSG_ERR_LABEL_UNDEFINED "\033[31m  -> Rótulo Não definido\033[0m\n"
 #define MSG_ERR_MISSING_SECTION_TEXT "Linha 1: \033[31m ERRO SINTÁTICO: -> Seção TEXT não declarada\033[0m\n"
+#define MSG_ERR_ASSEMBLY "\t Erro Encontrado.\n"
 
 // Macros para Formatar Mensagens de ERR
 #define PRINT_ERR(fileLine,MSG) cerr << "\n Linha " << \
@@ -39,6 +40,9 @@
     fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
     "\"\033[31m  -> Rótulo Não Definido\033[0m\n"
 
+#define PRINT_ERR_LABEL_PUBLIC_EXTERN(fileLine,INST) cerr << "\nLinha " << \
+    fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\
+    "\"\033[31m  -> Rótulo Externo definido como público\033[0m\n"
 
 #define PRINT_ERR_IF(fileLine,INST) cerr << "\nLinha " << \
     fileLine +1 << ":\033[31m ERRO SINTÁTICO: \033[0m\""<< string(INST) <<\

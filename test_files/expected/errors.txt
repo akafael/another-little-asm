@@ -42,6 +42,8 @@ Linha 7:[31m ERRO SINTÁTICO: [0m"NOME "[31m  -> Instrução Inválida[0m
 Linha 8:[31m ERRO LÉXICO: [0m"1BEGIN"[31m -> Token Inválido [0m
 Linha 1: [31m ERRO SINTÁTICO: -> Seção TEXT não declarada[0m
 
+Linha 9:[31m ERRO SINTÁTICO: [0m"HOPE"[31m  -> Rótulo Externo definido como público[0m
+
 Linha 2:[31m ERRO SINTÁTICO: [0m": ADD N1 "[31m  -> Instrução Inválida[0m
 
 Linha 3:[31m ERRO SINTÁTICO: [0m"N3"[31m  -> Rótulo Não Definido[0m

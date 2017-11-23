@@ -585,13 +585,15 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
                     tmp_label.addr = currentSymbolAddr;
                     tmp_label.value = UNDEFINED_LABEL_ADDR;
                     tmp_label.type = LABEL_;      // Assume como Label de Variável
+
+                    labelDefTable.push_back(tmp_label);
                 }
                 else
                 {
                     if(labelsTable.at(labelPos).type==LABEL_EXTERN)
                     {
                         // Erro
-                        /// @todo Criar Mensagem de erro para public extern
+                        PRINT_ERR_LABEL_PUBLIC_EXTERN(lineCount,strArg1);
                     }
                     else
                     {
