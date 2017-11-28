@@ -5,7 +5,7 @@
 
 # Compiler Options
 CC = g++
-CC_FLAGS = -Wall -std=c++11 -ggdb
+CCFLAGS= -std=c++11 # -Wall -ggdb
 
 MAIN = main
 SOURCES = $(MAIN).cpp preprocessor.cpp assembler.cpp lexer.cpp macroeval.cpp \
@@ -25,7 +25,7 @@ TEST_FILES_DIR = ../test_files
 TEST_FILES_ASM = $(wildcard $(TEST_FILES_DIR)/*.asm)
 TEST_FILES_PRE = $(addsuffix .pre, $(basename $(TEST_FILES_ASM)))
 TEST_FILES_MCR = $(addsuffix .mcr, $(basename $(TEST_FILES_ASM)))
-TEST_FILES_OBJ = $(addsuffix .obj, $(basename $(TEST_FILES_ASM)))
+TEST_FILES_OBJ = $(addsuffix .o, $(basename $(TEST_FILES_ASM)))
 TEST_FILES_RUN = $(addsuffix .run, $(basename $(TEST_FILES_ASM)))
 
 ##
@@ -75,8 +75,8 @@ $(EXECUTABLE_ASSEMBLER): $(OBJECTS_ASSEMBLER)
 $(EXECUTABLE_LOADER): $(OBJECTS_LOADER)
 	$(CC) $(CCFLAGS) $(OBJECTS_LOADER) -o $@
 
-$(EXECUTABLE_LINKER): linker.cpp msgs_pt.h
-	$(CC) $(CCFLAGS) linker.cpp -o $@
+$(EXECUTABLE_LINKER): linker.cpp lexer.o msgs_pt.h
+	$(CC) $(CCFLAGS) lexer.o linker.cpp -o $@
 
 ##
 # Test Files
@@ -123,6 +123,9 @@ test-linker: $(TEST_FILES_OBJ)
 test-loader: $(TEST_FILES_RUN)
 	@echo "\033[33mTESTES linker concluídos!\n \033[0m"
 
+test-loader-input: $(EXECUTABLE_LOADER) $(TEST_FILES_OBJ)
+	./$(EXECUTABLE_LOADER) $(TEST_FILES_DIR)/moodle_triangulo.obj 1 20 1
+
 # Run precompiler for all .asm files
 $(TEST_FILES_ASM): $(EXECUTABLE_ASSEMBLER)
 	./$< -p $@ $(addsuffix .pre, $(basename $@))
@@ -133,7 +136,7 @@ $(TEST_FILES_PRE): $(EXECUTABLE_ASSEMBLER) test-precompiler
 
 # Run assembler for all .mcr files
 $(TEST_FILES_MCR): $(EXECUTABLE_ASSEMBLER) test-macroeval
-	./$< -o $@ $(addsuffix .obj, $(basename $@))
+	./$< -o $@ $(addsuffix .o, $(basename $@))
 
 # Run linker for all .obj files
 $(TEST_FILES_OBJ): $(EXECUTABLE_LINKER) test-assembler
