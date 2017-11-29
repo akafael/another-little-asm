@@ -75,8 +75,8 @@ $(EXECUTABLE_ASSEMBLER): $(OBJECTS_ASSEMBLER)
 $(EXECUTABLE_LOADER): $(OBJECTS_LOADER)
 	$(CC) $(CCFLAGS) $(OBJECTS_LOADER) -o $@
 
-$(EXECUTABLE_LINKER): linker.cpp lexer.o msgs_pt.h
-	$(CC) $(CCFLAGS) lexer.o linker.cpp -o $@
+$(EXECUTABLE_LINKER): linker.cpp lexer.o msgs_pt.h parser.o
+	$(CC) $(CCFLAGS) parser.o lexer.o linker.cpp -o $@
 
 ##
 # Test Files
