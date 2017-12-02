@@ -13,9 +13,13 @@ Linha 13:[31m ERRO ERRO SEMÂNTICO: [0m"    COPY A,2 "[31m  -> Argumento [0m
 
 Linha 14:[31m ERRO ERRO SEMÂNTICO: [0m"    COPY A,B "[31m  -> Argumento [0m"B"[31m com tipo inválido! Constante não é permitida como argumento de entrada.[0m
 
+Linha 15:[31m ERRO ERRO SEMÂNTICO: [0m"    COPY A+2,B+1 "[31m  -> Argumento [0m"ZERO"[31m com tipo inválido! Constante não é permitida como argumento de entrada.[0m
+
 Linha 16:[31m ERRO ERRO SEMÂNTICO: [0m"    INPUT A "[31m  -> Argumento [0m"A"[31m com tipo inválido! Constante não é permitida como argumento de entrada.[0m
 
 Linha 18:[31m ERRO ERRO SEMÂNTICO: [0m"    DIV 2"[31m  -> Argumento [0m"2"[31m com tipo inválido[0m
+
+Linha 19:[31m ERRO ERRO SEMÂNTICO: [0m"    DIV ZERO "[31m  -> Valor de [0m"ZERO"[31m Inválido. Dividindo Valor por zero![0m
 
 Linha 22:[31m ERRO SEMÂNTICO: [0m"    COPY A "[31m  -> Número de argumentos Inválido.[0m
 
@@ -72,9 +76,13 @@ Linha 4:[31m ERRO ERRO SEMÂNTICO: [0m"LOAD SPACE "[31m  -> Argumento [0m"SP
 
 Linha 7:[31m ERRO SINTÁTICO: [0m"LOAD DOIS TRES"[31m  -> Instrução Inválida[0m
 
+Linha 8:[31m ERRO ERRO SEMÂNTICO: [0m"DIV ZERO"[31m  -> Valor de [0m"ZERO"[31m Inválido. Dividindo Valor por zero![0m
+
 Linha 9:[31m ERRO SINTÁTICO: [0m"COPY ZERO, DOIS, TRES"[31m  -> Instrução Inválida[0m
 
 Linha 7:[31m ERRO SINTÁTICO: [0m"LOAD DOIS TRES"[31m  -> Instrução Inválida[0m
+
+Linha 8:[31m ERRO ERRO SEMÂNTICO: [0m"DIV ZERO"[31m  -> Valor de [0m"ZERO"[31m Inválido. Dividindo Valor por zero![0m
 
 Linha 9:[31m ERRO SINTÁTICO: [0m"COPY ZERO, DOIS, TRES "[31m  -> Instrução Inválida[0m
 
