@@ -69,10 +69,10 @@ int main(int argc, char** argv)
     {
         string strFileName, strSize, strHeaderRef, strTextSegment;
         ostringstream ssTextSegment;
-        int finalSize=0;
-        int addrBase = 0;
+        int finalSize = 0;
         vector<int> vData;
-        for(int j = 1;j<argc;j++,addrBase+=finalSize)
+
+        for(int j = 1, addrBase = 0; j < argc ; j++ , addrBase += finalSize)
         {
             ifstream InputFILE(argv[j]);
 
@@ -91,7 +91,7 @@ int main(int argc, char** argv)
             int sizeTextSegment = atoi(line.substr(3,line.size()).c_str());
             finalSize+=sizeTextSegment;
 
-            getline(InputFILE,line);
+            getline(InputFILE,strHeaderRef);
             strHeaderRef += line.substr(3,line.size());
 
             getline(InputFILE,line);
@@ -147,9 +147,11 @@ int main(int argc, char** argv)
                 if(strHeaderRef.at(i)=='1')
                     vData[i] += addrBase;
             }
+
             InputFILE.close();
         }
 
+        // Pesquisa Valores da tabela de uso nas tabelas de definições
         for (int i = 0; i <labelUseTable.size(); i++)
         {
             int labelPos = findLabel(labelDefTable,labelUseTable[i].text);
@@ -159,6 +161,7 @@ int main(int argc, char** argv)
             }
         }
 
+        // Constroi novo segmento de texto
         for (int i = 0; i <vData.size(); i++)
         {
             ssTextSegment << vData[i] << ' ';
