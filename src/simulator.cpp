@@ -42,7 +42,7 @@ int simulator(string input_file)
     // Teste se o aquivo foi aberto corretamente;
     if (!(fileEXE.is_open()))
     {
-        cout << MSG_ERR_FILE;
+        std::cout << MSG_ERR_FILE;
         return 1;
     }
 
@@ -75,20 +75,20 @@ int simulator(string input_file)
     while(flagKeepProcessorRunning)
     {
         // Ilustra os Registradores do Processador
-        cout << "PROCESSOR => ACC: " << mProcessor.accReg ;
-        cout << " PC: " << mProcessor.pcReg << endl;
+        std::cout << "PROCESSOR => ACC: " << mProcessor.accReg ;
+        std::cout << " PC: " << mProcessor.pcReg << endl;
 
         // Decodifica Instrução
         int data = vData.at(mProcessor.pcReg-1);
         int numParam = InstructionArgNumber[data-1];
 
         // Ilustra a Leitura da Função
-        cout << ".." << InstrutionString[data-1];
+        std::cout << ".." << InstrutionString[data-1];
         if(numParam>0)
-            cout << ' ' << vData.at(mProcessor.pcReg);
+            std::cout << ' ' << vData.at(mProcessor.pcReg);
         if(numParam>1)
-            cout << ' ' << vData.at(mProcessor.pcReg+1);
-        cout << endl;
+            std::cout << ' ' << vData.at(mProcessor.pcReg+1);
+        std::cout << endl;
 
         // Executa a Instrução de Acordo com o Opcode
         switch (data) {
@@ -199,7 +199,7 @@ int simulator(string input_file)
             case OUTPUT:
             {
                 int arg1 = vData.at(mProcessor.pcReg);
-                cout << vData.at(arg1-1) << endl;
+                std::cout << vData.at(arg1-1) << endl;
                 mProcessor.pcReg+=numParam+1;
                 break;
             }
@@ -215,8 +215,11 @@ int simulator(string input_file)
                 flagKeepProcessorRunning = false; // Pula para o final
             }
         }
+
+        if(mProcessor.pcReg>=vData.size())
+            flagKeepProcessorRunning = false;
     }
 
-    cout << endl;
+    std::cout << endl;
     return 0;
 }

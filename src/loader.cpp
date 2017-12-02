@@ -54,40 +54,60 @@ int main(int argc, char** argv)
         // Pega apenas o nome do arquivo para criar o arquivo de saída
         strFileName=strFileName.substr(3,strFileName.size());
         getline(fileEXE,strSize);
+        int codeSize = atoi(strSize.substr(3,strSize    .size()).c_str());
+
         getline(fileEXE,strHeaderRef);
+        strHeaderRef += strHeaderRef.substr(3,strHeaderRef.size());
         getline(fileEXE,strTextSegment);
-        strSize.size();
 
         // Vetor com os tokens do código objeto
-        vector<token> vsize = tokenizer(strSize);
-        vsize.erase(vsize.begin(),vsize.begin()+2); // Remove o T:
+        std::vector<token> vtoks = tokenizer(strTextSegment);
+        vtoks.erase(vtoks.begin(),vtoks.begin()+2); // Remove o T:
+        std::vector<int> vData;
+        for(std::vector<token>::iterator it = vtoks.begin(); it < vtoks.end();++it){
+            // Converte todos os valores de dados para int
+            vData.push_back(atoi((*it).string.c_str()));
+        }
 
         // Variaveis de conferência de tamanhos de memória
-        int codeSize = atoi(vsize[0].string.c_str());
         int allocRemainingSize=codeSize;
 
         // Laço para cálculo do tamanho de memória necessário de acordo com os argumentos do comando
+        int addrPos=0;
         for(int i = 0; i < chunksNum; i++)
         {
             /// @todo Verificar Tipo dos Argumentos (valores inteiros positivos)
+            /// @todo Verificar Sobreposição de Chunks (se o endereço de inicio de um chunk está contido em algum espaço anterior)
 
+            int addrBase = atoi(argv[3+chunksNum+i]);
             int sizeMenChunk = atoi(argv[3+i]);
+            allocRemainingSize=allocRemainingSize-sizeMenChunk;
+
             // Inicializa cada arquivo de saida a medida que calcula se o tamanho disponível em cada chunk é suficiente
-            if((allocRemainingSize-sizeMenChunk)>0){
-              allocRemainingSize=allocRemainingSize-sizeMenChunk;
-              /// @todo Criar arquivos de saída com nomes diferentes usando a variável i(converter de inteiro para string)
-              string fileName = strFileName + "generico";
-              ofstream fileOUT(fileName.c_str());
-              fileOUT.close();
+            if((allocRemainingSize-sizeMenChunk)>0)
+            {
+                // Tamanho suficiente de memoria
+                break;
             }
             else
             {
-              allocRemainingSize=allocRemainingSize-sizeMenChunk;
-              // Tamanho suficiente de memoria
-              break;
-            }
+              string fileName = strFileName + std::to_string(i);
+              ofstream fileOUT(fileName.c_str());
 
-            /// @todo Verificar Sobreposição de Chunks (se o endereço de inicio de um chunk está contido em algum espaço anterior)
+              // Escreve no Arquivo
+              int addrFinal = sizeMenChunk + addrPos;
+              for(int j = addrPos;(j < addrFinal) && (j < vData.size()); j++)
+              {
+                  // Atualiza Endereços Relativos
+                  if(strHeaderRef.at(j)=='1')
+                      vData[j] += addrBase;
+
+                  fileOUT << vData[j] << ' ';
+              }
+              addrPos+=sizeMenChunk;
+
+              fileOUT.close();
+            }
 
         }
 
@@ -99,10 +119,7 @@ int main(int argc, char** argv)
           return 1;
         }
 
-        /// @todo Percorrer Arquivo de Entrada e atualizar endereços relativos
-
-
-
+        // Executa simulador
         simulator(argv[1]);
     }
 
