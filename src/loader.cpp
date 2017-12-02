@@ -54,11 +54,13 @@ int main(int argc, char** argv)
         // Pega apenas o nome do arquivo para criar o arquivo de saída
         strFileName=strFileName.substr(3,strFileName.size());
         getline(fileEXE,strSize);
-        int codeSize = atoi(strSize.substr(3,strSize    .size()).c_str());
+        int codeSize = atoi(strSize.substr(3,strSize.size()).c_str());
 
         getline(fileEXE,strHeaderRef);
         strHeaderRef += strHeaderRef.substr(3,strHeaderRef.size());
         getline(fileEXE,strTextSegment);
+
+        fileEXE.close();
 
         // Vetor com os tokens do código objeto
         std::vector<token> vtoks = tokenizer(strTextSegment);
@@ -69,12 +71,11 @@ int main(int argc, char** argv)
             vData.push_back(atoi((*it).string.c_str()));
         }
 
-        // Variaveis de conferência de tamanhos de memória
+        // Variáveis de conferência de tamanhos de memória
         int allocRemainingSize=codeSize;
 
         // Laço para cálculo do tamanho de memória necessário de acordo com os argumentos do comando
-        int addrPos=0;
-        for(int i = 0; i < chunksNum; i++)
+        for(int i = 0,addrPos=0; i < chunksNum; i++)
         {
             /// @todo Verificar Tipo dos Argumentos (valores inteiros positivos)
             /// @todo Verificar Sobreposição de Chunks (se o endereço de inicio de um chunk está contido em algum espaço anterior)
@@ -83,35 +84,32 @@ int main(int argc, char** argv)
             int sizeMenChunk = atoi(argv[3+i]);
             allocRemainingSize=allocRemainingSize-sizeMenChunk;
 
-            // Inicializa cada arquivo de saida a medida que calcula se o tamanho disponível em cada chunk é suficiente
-            if((allocRemainingSize-sizeMenChunk)>0)
+            string fileName = argv[1];
+            fileName += std::to_string(i) + ".im";
+            ofstream fileOUT(fileName.c_str());
+
+            // Escreve no Arquivo
+            int addrFinal = sizeMenChunk + addrPos;
+            for(int j = addrPos;(j < addrFinal) && (j < vData.size()); j++)
+            {
+                // Atualiza Endereços Relativos
+                if(strHeaderRef.at(j)=='1')
+                    vData[j] += addrBase;
+
+                fileOUT << vData[j] << ' ';
+            }
+            addrPos+=sizeMenChunk;
+
+            fileOUT.close();
+
+            // calcula se o tamanho disponível em cada chunk é suficiente
+            if((allocRemainingSize-sizeMenChunk)<0)
             {
                 // Tamanho suficiente de memoria
+                allocRemainingSize=0;
                 break;
             }
-            else
-            {
-              string fileName = strFileName + std::to_string(i);
-              ofstream fileOUT(fileName.c_str());
-
-              // Escreve no Arquivo
-              int addrFinal = sizeMenChunk + addrPos;
-              for(int j = addrPos;(j < addrFinal) && (j < vData.size()); j++)
-              {
-                  // Atualiza Endereços Relativos
-                  if(strHeaderRef.at(j)=='1')
-                      vData[j] += addrBase;
-
-                  fileOUT << vData[j] << ' ';
-              }
-              addrPos+=sizeMenChunk;
-
-              fileOUT.close();
-            }
-
         }
-
-        fileEXE.close();
 
         if(allocRemainingSize>0)
         {

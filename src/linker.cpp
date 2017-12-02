@@ -72,7 +72,7 @@ int main(int argc, char** argv)
         int finalSize = 0;
         vector<int> vData;
 
-        for(int j = 1, addrBase = 0; j < argc ; j++ , addrBase += finalSize)
+        for(int j = 1, addrBase = 0; j < argc ; j++)
         {
             ifstream InputFILE(argv[j]);
 
@@ -91,12 +91,14 @@ int main(int argc, char** argv)
             int sizeTextSegment = atoi(line.substr(3,line.size()).c_str());
             finalSize+=sizeTextSegment;
 
-            getline(InputFILE,strHeaderRef);
+            // Mescla Header
+            getline(InputFILE,line);
             strHeaderRef += line.substr(3,line.size());
 
             getline(InputFILE,line);
             string tmpTextSegment = line;
 
+            // Ler Tabela de uso
             if(getline(InputFILE,line))
             {
                 string strTable = line.substr(4,line.size());
@@ -115,6 +117,7 @@ int main(int argc, char** argv)
                 }
             }
 
+            // Ler Tabela de Definições
             if(getline(InputFILE,line))
             {
                 string strTable = line.substr(4,line.size());
@@ -141,13 +144,14 @@ int main(int argc, char** argv)
                 vData.push_back(atoi((*it).string.c_str()));
             }
 
-            for(int i=0;i< sizeTextSegment;i++)
+            for(int i=addrBase;i< finalSize;i++)
             {
-                // Atualiza Endereço
+                // Atualiza Endereço da demais posições
                 if(strHeaderRef.at(i)=='1')
                     vData[i] += addrBase;
             }
 
+            addrBase = finalSize;
             InputFILE.close();
         }
 
@@ -155,8 +159,13 @@ int main(int argc, char** argv)
         for (int i = 0; i <labelUseTable.size(); i++)
         {
             int labelPos = findLabel(labelDefTable,labelUseTable[i].text);
-            if(labelPos!=LABEL_NOT_FOUND)
+            if(labelPos==LABEL_NOT_FOUND)
             {
+                cerr << labelUseTable[i].text << MSG_ERR_LABEL_UNDEFINED;
+            }
+            else
+            {
+                // Atualiza Dados no Segmento de Texto
                 vData[labelUseTable[i].value-1] = labelDefTable[labelPos].value;
             }
         }
@@ -175,7 +184,7 @@ int main(int argc, char** argv)
         if(charPosition != std::string::npos)
             baseName = baseName.substr(0,charPosition);
 
-        string outputFileName = baseName + ".obj";
+        string outputFileName = baseName;
 
         ofstream OutputFILE(outputFileName.c_str()); // output;
 
