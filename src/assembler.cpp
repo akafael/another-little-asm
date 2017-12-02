@@ -500,7 +500,9 @@ bool addNewSymbolINST1(string strInst1,string strArg1, int lineCount,string line
             tmp_symb1.content = labelsTable[labelPos].addr;
 
             // Verifica Erro de Divisão por zero
-            if((code==DIV)&&(outputSegmentTable[tmp_symb1.content].content==0))
+            if((code==DIV)\
+                &&(outputSegmentTable[tmp_symb1.content-1].type==SYM_NUM_DEC)\
+                &&(outputSegmentTable[tmp_symb1.content-1].content==0))
             {
                 PRINT_ERR_DIV0(lineCount,line,strArg1);
             }
@@ -869,6 +871,18 @@ bool addNewSymbolINST2PLUSPLUS(string strInst2,string strArg1,int numArg1Plus,st
         else
         {
             tmp_symb2.content = labelsTable[labelPos].addr;
+
+
+            if(labelPos+numArg2Plus>labelsTable.size())
+            {
+                // Erro de Label Inexistente
+                PRINT_ERR_LABEL_UNDEFINIED(lineCount,line);
+            }
+            else if((code==COPY)&&(labelsTable[labelPos+numArg2Plus].type==LABEL_CONST))
+            {
+                // Erro de escrita em constante
+                PRINT_ERR_ARG_TYPE_CONST(lineCount,line,labelsTable[labelPos+numArg2Plus].text);
+            }
         }
         tmp_symb2.address = currentSymbolAddr+2;
         outputSegmentTable.push_back(tmp_symb2);
