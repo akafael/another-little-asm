@@ -1,14 +1,18 @@
 # Yet another Little asm
 
-`yla` é uma liguagem assembly implementado do zero em C++ para um processador fictício abordado na disciplina de _Software Básico_. Atualmente conta apenas com o montador para criar o código de máquina e um pré-compilador no qual são avalidas algumas diretivas de preprocessamento e também macros.
+`yla` é uma liguagem assembly implementado do zero em C++ para um processador fictício abordado na disciplina de _Software Básico_. Atualmente conta o montador para criar o código de máquina e um pré-compilador no qual são avalidas algumas diretivas de preprocessamento e também macros.
 
-A partir do conjunto de instruções implementados é permitido virtualmente escrever qualquer programa sendo portanto uma máquina de Turing completa [1]
-(http://en.wikipedia.org/wiki/Turing_completeness)
+A partir do conjunto de instruções implementados é permitido virtualmente escrever qualquer programa sendo portanto uma máquina de Turing completa [1](http://en.wikipedia.org/wiki/Turing_completeness)
+
+`yld` é um ligador implentado para combinar múltiplos arquivos objetos gerados a partir do montador `yla`.
+
+`ylo` é um carregador implementado para simular a o processo de carregamento na memória e execução do programa a partir do processador fictício.
 
 ## Grupo
 
  * João Pedro Carneiro Parada Franch - 120060795
  * Rafael Lima - 10013093
+ * Túlio
 
 ## Descrição das Pastas
 
@@ -34,7 +38,7 @@ Como forma de validar o funcionamento podem ser utilizados o teste automatizado 
 ```
 $ make clear-test; make test
 ```
-A saída dos programas de testes podem ficar muito grande e dispendioso para comparar se houve alterações entre um teste o outro. Tal pode ser resolvido usando o programa `diff` para comparar e redirencionando a saída dos erros para um arquivo separado a partir do seguintes comando:
+A saída dos programas de testes pode ficar muito grande e dispendiosa para comparar se houve alterações entre um teste o outro. Tal pode ser resolvido usando o programa `diff` para comparar e redirencionando a saída dos erros para um arquivo separado a partir do seguintes comando:
 
 ```
 make clear-all
@@ -68,4 +72,26 @@ No processo final de montagem é feito a analise de cada instrução e por fim �
 
 ```
 yla arquivo_entrada.mcr -p arquivo_entrada.pre
+```
+
+### Ligador
+
+O ligador funciona como um programa a parte o qual recebe como parâmetro de entrada os nomes dos arquivos objetos e gera um arquivo de saída sem extensão com o nome do primeiro arquivo objeto fornecido. É suportado qualquer número de arquivos de entrada.
+
+```
+yld arquivo_principal.o modulo1.o modulo2.o
+```
+
+### Carregador
+
+O carregador divide o programa fornecido em pedaços (chucks) de memória representados por arquivos de saída no formato `.im`, caso não ocorra nenhum problema o programa é simulado.
+
+```
+ylo programa [NUM_CHUCKS] [SIZE_CHUNK_1] [SIZE_CHUNK_2] ... [SIZE_CHUNK_N] [ADDR0_CHUNK_1] [ADDR0_CHUNK_2] ... [ADDR0_CHUNK_N]
+```
+
+Exemplo para um programa dividido em 3 chucks de memória com tamanhos 10, 20 e 30 e endereços iniciais 1000, 2000 e 3000 respectivamente:
+
+```
+ylo programa 3 10 20 30 1000 2000 3000
 ```
