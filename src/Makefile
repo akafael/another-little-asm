@@ -1,6 +1,6 @@
 ##
 # Makefile
-# @authors Rafael e Joao Pedro
+# @authors Rafael, Joao Pedro e Túlio Lima
 ##
 
 # Compiler Options
