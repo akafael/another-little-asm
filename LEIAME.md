@@ -12,7 +12,7 @@ A partir do conjunto de instruções implementados é permitido virtualmente esc
 
  * João Pedro Carneiro Parada Franch - 120060795
  * Rafael Lima - 10013093
- * Túlio
+ * Túlio Mariano da Silva Lima - 120054337
 
 ## Descrição das Pastas
 
