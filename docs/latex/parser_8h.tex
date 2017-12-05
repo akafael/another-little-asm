@@ -11,11 +11,12 @@ Diagrama de dependências de inclusão para parser.\-h\-:\nopagebreak
 \includegraphics[width=257pt]{parser_8h__incl}
 \end{center}
 \end{figure}
-Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:\nopagebreak
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=240pt]{parser_8h__dep__incl}
+\includegraphics[width=318pt]{parser_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Componentes}
@@ -46,14 +47,22 @@ enum \hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3}{Symbol\-Type} \{ \\
 \hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3ae1241bbfd1f21dbf5a23a81be3cba27b}{S\-Y\-M\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N} = 2, 
 \\*
 \hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3a1a5d63bd6b403d0e02792379ffea7873}{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L} = 3, 
-\hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3ac3447c076bbd66dc22cd6bc66db4e8e5}{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C} = 4, 
-\hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3aaa3a3f3e7d883f4fcb3e868faebebc91}{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-H\-E\-X} = 5
+\hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3a2889868ebf51842f162eb064e9bdb7e8}{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T} = 4, 
+\hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3afcdae093b1c3a6d32e1f5b1c7f48d8f9}{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N} = 5, 
+\hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3ac3447c076bbd66dc22cd6bc66db4e8e5}{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C} = 6, 
+\\*
+\hyperlink{parser_8h_add8909e1085c0c32f8380ff493a243b3aaa3a3f3e7d883f4fcb3e868faebebc91}{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-H\-E\-X} = 7
  \}
 \item 
 enum \hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797}{Instruction\-Error\-Code} \{ \hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797afb895cf5ab28c6776084d9001215f9c0}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G2} = -\/3, 
 \hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797a7f38069a3ca03847b4e9ae93d3a10db0}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G1} = -\/2, 
 \hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797ad745793e1ef0f6edc421ade5e484d658}{I\-N\-V\-A\-L\-I\-D\-\_\-\-A\-R\-G\-\_\-\-N\-U\-M\-B\-E\-R} = -\/1, 
 \hyperlink{parser_8h_ae9de418dd21c65a758a8138c66b71797ab2f7ed498a00388d8cbe61d60a625849}{I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N} = 0
+ \}
+\item 
+enum \hyperlink{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9}{Label\-Type} \{ \hyperlink{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9adf2eebda3dc8fa34b5763e7b48910fd4}{L\-A\-B\-E\-L\-\_\-} = 0, 
+\hyperlink{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9a4e17015e6d365c3441f714fe5f8c334e}{L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T} = 1, 
+\hyperlink{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9ac17fef9ac06a374ba474d311ece50675}{L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N} = 2
  \}
 \end{DoxyCompactItemize}
 \subsection*{Funções}
@@ -84,14 +93,14 @@ Definido na linha 4 do ficheiro parser.\-h.
 \subsubsection[{L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-A\-B\-E\-L\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D~-\/1}}\label{parser_8h_a7ea6bf16e7f53e44a0536d0c0d1c3c3e}
 
 
-Definido na linha 32 do ficheiro parser.\-h.
+Definido na linha 40 do ficheiro parser.\-h.
 
 \hypertarget{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}{\index{parser.\-h@{parser.\-h}!U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R@{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}}
 \index{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R@{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}!parser.h@{parser.\-h}}
 \subsubsection[{U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-N\-D\-E\-F\-I\-N\-E\-D\-\_\-\-L\-A\-B\-E\-L\-\_\-\-A\-D\-D\-R~-\/1}}\label{parser_8h_a199cb4e1516100a1a38f4c93f8284dd6}
 
 
-Definido na linha 64 do ficheiro parser.\-h.
+Definido na linha 72 do ficheiro parser.\-h.
 
 
 
@@ -114,7 +123,25 @@ Definido na linha 64 do ficheiro parser.\-h.
 \end{Desc}
 
 
-Definido na linha 25 do ficheiro parser.\-h.
+Definido na linha 27 do ficheiro parser.\-h.
+
+\hypertarget{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9}{\index{parser.\-h@{parser.\-h}!Label\-Type@{Label\-Type}}
+\index{Label\-Type@{Label\-Type}!parser.h@{parser.\-h}}
+\subsubsection[{Label\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Label\-Type}}}\label{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9}
+\begin{Desc}
+\item[Valores da enumeração]\par
+\begin{description}
+\index{L\-A\-B\-E\-L\-\_\-@{L\-A\-B\-E\-L\-\_\-}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!L\-A\-B\-E\-L\-\_\-@{L\-A\-B\-E\-L\-\_\-}}\item[{\em 
+\hypertarget{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9adf2eebda3dc8fa34b5763e7b48910fd4}{L\-A\-B\-E\-L\-\_\-}\label{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9adf2eebda3dc8fa34b5763e7b48910fd4}
+}]Rótulo de Variável em Memória. \index{L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T@{L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T@{L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T}}\item[{\em 
+\hypertarget{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9a4e17015e6d365c3441f714fe5f8c334e}{L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T}\label{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9a4e17015e6d365c3441f714fe5f8c334e}
+}]Rótulo de Constante. \index{L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N@{L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N@{L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N}}\item[{\em 
+\hypertarget{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9ac17fef9ac06a374ba474d311ece50675}{L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N}\label{parser_8h_a2e33fafe7cfaf59b814f1fca20bdd0b9ac17fef9ac06a374ba474d311ece50675}
+}]Rótulo de Variável Externa. \end{description}
+\end{Desc}
+
+
+Definido na linha 34 do ficheiro parser.\-h.
 
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3}{\index{parser.\-h@{parser.\-h}!Symbol\-Type@{Symbol\-Type}}
 \index{Symbol\-Type@{Symbol\-Type}!parser.h@{parser.\-h}}
@@ -132,6 +159,10 @@ Define simbolos gramáticais \begin{Desc}
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3ae1241bbfd1f21dbf5a23a81be3cba27b}{S\-Y\-M\-\_\-\-I\-N\-S\-T\-R\-U\-C\-T\-I\-O\-N}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3ae1241bbfd1f21dbf5a23a81be3cba27b}
 }]Simbolo Não Terminal. \index{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L@{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-L\-A\-B\-E\-L@{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L}}\item[{\em 
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3a1a5d63bd6b403d0e02792379ffea7873}{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3a1a5d63bd6b403d0e02792379ffea7873}
+}]Simbolo Não Terminal. \index{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T@{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T@{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T}}\item[{\em 
+\hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3a2889868ebf51842f162eb064e9bdb7e8}{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-C\-O\-N\-S\-T}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3a2889868ebf51842f162eb064e9bdb7e8}
+}]Simbolo Não Terminal. \index{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N@{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N@{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N}}\item[{\em 
+\hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3afcdae093b1c3a6d32e1f5b1c7f48d8f9}{S\-Y\-M\-\_\-\-L\-A\-B\-E\-L\-\_\-\-E\-X\-T\-E\-R\-N}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3afcdae093b1c3a6d32e1f5b1c7f48d8f9}
 }]Simbolo Não Terminal. \index{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C@{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C@{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C}}\item[{\em 
 \hypertarget{parser_8h_add8909e1085c0c32f8380ff493a243b3ac3447c076bbd66dc22cd6bc66db4e8e5}{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-D\-E\-C}\label{parser_8h_add8909e1085c0c32f8380ff493a243b3ac3447c076bbd66dc22cd6bc66db4e8e5}
 }]Simbolo Não Terminal. \index{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-H\-E\-X@{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-H\-E\-X}!parser.\-h@{parser.\-h}}\index{parser.\-h@{parser.\-h}!S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-H\-E\-X@{S\-Y\-M\-\_\-\-N\-U\-M\-\_\-\-H\-E\-X}}\item[{\em 
@@ -159,7 +190,8 @@ Definido na linha 65 do ficheiro parser.\-cpp.
 
 
 
-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -208,7 +240,8 @@ Definido na linha 4 do ficheiro parser.\-cpp.
 
 
 
-Este é o diagrama das funções que utilizam esta função\-:\nopagebreak
+Este é o diagrama das funções que utilizam esta função\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

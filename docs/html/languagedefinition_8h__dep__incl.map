@@ -1,8 +1,11 @@
 <map id="languagedefinition.h" name="languagedefinition.h">
-<area shape="rect" id="node2" href="$lexer_8h.html" title="lexer.h" alt="" coords="200,80,261,107"/>
-<area shape="rect" id="node7" href="$parser_8cpp.html" title="parser.cpp" alt="" coords="285,80,367,107"/>
+<area shape="rect" id="node2" href="$lexer_8h.html" title="lexer.h" alt="" coords="408,80,469,107"/>
+<area shape="rect" id="node9" href="$simulator_8cpp.html" title="simulator.cpp" alt="" coords="723,155,823,181"/>
+<area shape="rect" id="node10" href="$parser_8cpp.html" title="parser.cpp" alt="" coords="707,80,788,107"/>
 <area shape="rect" id="node3" href="$assembler_8cpp.html" title="assembler.cpp" alt="" coords="5,155,112,181"/>
 <area shape="rect" id="node4" href="$lexer_8cpp.html" title="lexer.cpp" alt="" coords="136,155,209,181"/>
-<area shape="rect" id="node5" href="$macroeval_8cpp.html" title="macroeval.cpp" alt="" coords="235,155,341,181"/>
-<area shape="rect" id="node6" href="$preprocessor_8cpp.html" title="preprocessor.cpp" alt="" coords="365,155,488,181"/>
+<area shape="rect" id="node5" href="$linker_8cpp.html" title="linker.cpp" alt="" coords="235,155,313,181"/>
+<area shape="rect" id="node6" href="$loader_8cpp.html" title="loader.cpp" alt="" coords="339,155,420,181"/>
+<area shape="rect" id="node7" href="$macroeval_8cpp.html" title="macroeval.cpp" alt="" coords="445,155,552,181"/>
+<area shape="rect" id="node8" href="$preprocessor_8cpp.html" title="preprocessor.cpp" alt="" coords="576,155,699,181"/>
 </map>

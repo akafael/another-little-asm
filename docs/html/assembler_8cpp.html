@@ -90,6 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;fstream&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
 <code>#include &lt;vector&gt;</code><br/>
@@ -100,7 +101,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para assembler.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp__incl.svg" width="814" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp__incl.svg" width="907" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="assembler_8cpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
@@ -123,21 +125,29 @@ Funções</h2></td></tr>
 <tr class="separator:ad85cc701dcbc6e69b1c273a99c2262d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23fbad662368f294c55a33dfa57a904c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a23fbad662368f294c55a33dfa57a904c">addNewSymbolINST2PLUSPLUS</a> (string strInst2, string strArg1, int numArg1Plus, string strArg2, int numArg2Plus, int lineCount, string line)</td></tr>
 <tr class="separator:a23fbad662368f294c55a33dfa57a904c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a368a4f7b83093ab74e79be4ceeb11e3d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a368a4f7b83093ab74e79be4ceeb11e3d">assembler</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a368a4f7b83093ab74e79be4ceeb11e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797a6a110fea06ef3ba01a4a30ea9695"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a797a6a110fea06ef3ba01a4a30ea9695">assembler</a> (string input_file, string output_file)</td></tr>
+<tr class="separator:a797a6a110fea06ef3ba01a4a30ea9695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variáveis</h2></td></tr>
-<tr class="memitem:ad49cea0a49bfa4990b84350f33569724"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structsymbol.html">symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#ad49cea0a49bfa4990b84350f33569724">symbolsTable</a></td></tr>
-<tr class="separator:ad49cea0a49bfa4990b84350f33569724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae801144baf25687a243ecc6bb2473a38"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structsymbol.html">symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#ae801144baf25687a243ecc6bb2473a38">outputSegmentTable</a></td></tr>
+<tr class="separator:ae801144baf25687a243ecc6bb2473a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b0d79b4940b4527c0045a3ff83a4349"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structlabel.html">label</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a8b0d79b4940b4527c0045a3ff83a4349">labelsTable</a></td></tr>
 <tr class="separator:a8b0d79b4940b4527c0045a3ff83a4349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8433f7c9bbff2f6552fca516929f771b"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structlabel.html">label</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a8433f7c9bbff2f6552fca516929f771b">labelDefTable</a></td></tr>
+<tr class="memdesc:a8433f7c9bbff2f6552fca516929f771b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tabela de Definições.  <a href="#a8433f7c9bbff2f6552fca516929f771b">Mais...</a><br/></td></tr>
+<tr class="separator:a8433f7c9bbff2f6552fca516929f771b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2db5fd76cf12dd2cbccc7bac7e8d617"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structlabel.html">label</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#aa2db5fd76cf12dd2cbccc7bac7e8d617">labelUseTable</a></td></tr>
+<tr class="memdesc:aa2db5fd76cf12dd2cbccc7bac7e8d617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tabela de Uso.  <a href="#aa2db5fd76cf12dd2cbccc7bac7e8d617">Mais...</a><br/></td></tr>
+<tr class="separator:aa2db5fd76cf12dd2cbccc7bac7e8d617"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20fd907da5d65be76abc44dcddf7dbec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a20fd907da5d65be76abc44dcddf7dbec">currentSymbolAddr</a> = 1</td></tr>
 <tr class="separator:a20fd907da5d65be76abc44dcddf7dbec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90beda0db0b4e9dcab6bdff4f582c64a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a90beda0db0b4e9dcab6bdff4f582c64a">isSectionTextDeclared</a> = false</td></tr>
 <tr class="separator:a90beda0db0b4e9dcab6bdff4f582c64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d9a37279350004da2c3766b42608945"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a3d9a37279350004da2c3766b42608945">isSectionDataDeclared</a> = false</td></tr>
 <tr class="separator:a3d9a37279350004da2c3766b42608945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204bb44e7608b07c3f3a3f8d08bd076a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a204bb44e7608b07c3f3a3f8d08bd076a">isModule</a> = false</td></tr>
+<tr class="separator:a204bb44e7608b07c3f3a3f8d08bd076a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e0fd1906c141acf7a07cef7e30bbd5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1">SectionMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assembler_8cpp.html#a7e0fd1906c141acf7a07cef7e30bbd5c">currentSection</a> = <a class="el" href="assembler_8h.html#adee5669ba62dff676189189a4d6792e1a6d6def53fde0f7bd1cf47257d4393f55">SECTION_NONE</a></td></tr>
 <tr class="separator:a7e0fd1906c141acf7a07cef7e30bbd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -179,7 +189,7 @@ Variáveis</h2></td></tr>
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Tarefa:</a></b></dt><dd>Atualizar Lista de Labels pendentes </dd></dl>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00302">302</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00355">355</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
@@ -191,7 +201,8 @@ Grafo de chamadas desta função:</div>
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a54fad2c006413b60d87eea48e412471b_icgraph.svg" width="342" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a54fad2c006413b60d87eea48e412471b_icgraph.svg" width="342" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -227,7 +238,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00331">331</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00384">384</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
@@ -239,7 +250,8 @@ Grafo de chamadas desta função:</div>
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a33535e8f85da588842c21d65d304f740_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a33535e8f85da588842c21d65d304f740_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -282,7 +294,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00375">375</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00461">461</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
@@ -294,7 +306,8 @@ Grafo de chamadas desta função:</div>
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a45dcd38a718d16b9fdcda1e45c4ad5de_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a45dcd38a718d16b9fdcda1e45c4ad5de_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -336,7 +349,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00551">551</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00669">669</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
@@ -348,7 +361,8 @@ Grafo de chamadas desta função:</div>
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a53bd42138e87fabd2519a34abbf40b55_icgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a53bd42138e87fabd2519a34abbf40b55_icgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -397,7 +411,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00493">493</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00611">611</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
@@ -409,7 +423,8 @@ Grafo de chamadas desta função:</div>
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_ad85cc701dcbc6e69b1c273a99c2262d8_icgraph.svg" width="427" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_ad85cc701dcbc6e69b1c273a99c2262d8_icgraph.svg" width="427" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -459,7 +474,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00614">614</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00733">733</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
@@ -471,7 +486,8 @@ Grafo de chamadas desta função:</div>
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a4b08bb4206172aa8ae36e47f8298e274_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a4b08bb4206172aa8ae36e47f8298e274_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -533,7 +549,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Tarefa:</a></b></dt><dd>Modificar para permitir completar tabela ao final da passagem </dd></dl>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00694">694</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00813">813</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
@@ -545,27 +561,28 @@ Grafo de chamadas desta função:</div>
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a23fbad662368f294c55a33dfa57a904c_icgraph.svg" width="464" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a23fbad662368f294c55a33dfa57a904c_icgraph.svg" width="464" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a368a4f7b83093ab74e79be4ceeb11e3d"></a>
+<a class="anchor" id="a797a6a110fea06ef3ba01a4a30ea9695"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int assembler </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>input_file</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>output_file</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -578,19 +595,21 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <dl class="section author"><dt>Autor</dt><dd>Rafael e João Pedro Franch </dd></dl>
 <p>&lt; Tabela de Tokens </p>
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00042">42</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00046">46</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 <p><div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_cgraph.svg" width="560" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a797a6a110fea06ef3ba01a4a30ea9695_cgraph.svg" width="560" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
 <p><div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a368a4f7b83093ab74e79be4ceeb11e3d_icgraph.svg" width="192" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="assembler_8cpp_a797a6a110fea06ef3ba01a4a30ea9695_icgraph.svg" width="192" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </p>
 
@@ -657,7 +676,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00030">30</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00034">34</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 </div>
 </div>
@@ -671,7 +690,21 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00025">25</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00028">28</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a204bb44e7608b07c3f3a3f8d08bd076a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isModule = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00033">33</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 </div>
 </div>
@@ -685,7 +718,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00029">29</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00032">32</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 </div>
 </div>
@@ -699,7 +732,23 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00028">28</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00031">31</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8433f7c9bbff2f6552fca516929f771b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="structlabel.html">label</a>&gt; labelDefTable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tabela de Definições. </p>
+
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00026">26</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 </div>
 </div>
@@ -713,21 +762,37 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00024">24</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00025">25</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad49cea0a49bfa4990b84350f33569724"></a>
+<a class="anchor" id="aa2db5fd76cf12dd2cbccc7bac7e8d617"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;<a class="el" href="structsymbol.html">symbol</a>&gt; symbolsTable</td>
+          <td class="memname">vector&lt;<a class="el" href="structlabel.html">label</a>&gt; labelUseTable</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00023">23</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+<p>Tabela de Uso. </p>
+
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00027">27</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae801144baf25687a243ecc6bb2473a38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="structsymbol.html">symbol</a>&gt; outputSegmentTable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definido na linha <a class="el" href="assembler_8cpp_source.html#l00024">24</a> do ficheiro <a class="el" href="assembler_8cpp_source.html">assembler.cpp</a>.</p>
 
 </div>
 </div>

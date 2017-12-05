@@ -1,5 +1,8 @@
 <map id="tokenizer" name="tokenizer">
-<area shape="rect" id="node2" href="$macroeval_8h.html#ab726e2a9f26698bddb5ddd13683e6630" title="macroeval" alt="" coords="136,5,219,32"/>
-<area shape="rect" id="node4" href="$preprocessor_8h.html#a64877d45066932f7594bb2ad347c1d26" title="preprocessor" alt="" coords="129,56,226,83"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="275,31,325,57"/>
+<area shape="rect" id="node2" href="$linker_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="152,5,203,32"/>
+<area shape="rect" id="node3" href="$macroeval_8h.html#afd6754ab646ddc8aa952e7d63cb5ad81" title="macroeval" alt="" coords="136,56,219,83"/>
+<area shape="rect" id="node5" href="$preprocessor_8h.html#a20cb42028a668e38567f8a26304b9c69" title="preprocessor" alt="" coords="129,107,226,133"/>
+<area shape="rect" id="node6" href="$simulator_8h.html#ac22a38b5c3395e0092ff660c6767ab38" title="simulator" alt="" coords="140,157,215,184"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="275,81,325,108"/>
+<area shape="rect" id="node7" href="$loader_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="275,157,325,184"/>
 </map>

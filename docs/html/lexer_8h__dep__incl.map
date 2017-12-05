@@ -1,6 +1,9 @@
 <map id="lexer.h" name="lexer.h">
 <area shape="rect" id="node2" href="$assembler_8cpp.html" title="assembler.cpp" alt="" coords="5,80,112,107"/>
 <area shape="rect" id="node3" href="$lexer_8cpp.html" title="lexer.cpp" alt="" coords="136,80,209,107"/>
-<area shape="rect" id="node4" href="$macroeval_8cpp.html" title="macroeval.cpp" alt="" coords="235,80,341,107"/>
-<area shape="rect" id="node5" href="$preprocessor_8cpp.html" title="preprocessor.cpp" alt="" coords="365,80,488,107"/>
+<area shape="rect" id="node4" href="$linker_8cpp.html" title="linker.cpp" alt="" coords="235,80,313,107"/>
+<area shape="rect" id="node5" href="$loader_8cpp.html" title="loader.cpp" alt="" coords="339,80,420,107"/>
+<area shape="rect" id="node6" href="$macroeval_8cpp.html" title="macroeval.cpp" alt="" coords="445,80,552,107"/>
+<area shape="rect" id="node7" href="$preprocessor_8cpp.html" title="preprocessor.cpp" alt="" coords="576,80,699,107"/>
+<area shape="rect" id="node8" href="$simulator_8cpp.html" title="simulator.cpp" alt="" coords="723,80,823,107"/>
 </map>

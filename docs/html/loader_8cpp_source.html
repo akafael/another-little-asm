@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Trabalho 1 - Software Básico: Código-Fonte de loader.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho 1 - Software Básico
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+      <li><a href="globals.html"><span>Ficheiros&#160;membro</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">loader.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="loader_8cpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Loader</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @authors Rafael Lima, João Paulo Franch , Túlio</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lexer_8h.html">lexer.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="msgs__pt_8h.html">msgs_pt.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="simulator_8h.html">simulator.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> startAddr;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> size;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} <a class="code" href="structmen__chunk.html">men_chunk</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="loader_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">   24</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="loader_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (argc&lt; 4)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        cout &lt;&lt; <a class="code" href="msgs__pt_8h.html#a3160339e19be8a400a202a2fb318fd96">MSG_ERR_LOADER_ARGUMENT_NUMBER</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">int</span> chunksNum = atoi(argv[2]);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// Verificando Quantidade de Argumentos</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span>(argc != (2*chunksNum + 3))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            cout &lt;&lt; <a class="code" href="msgs__pt_8h.html#a3160339e19be8a400a202a2fb318fd96">MSG_ERR_LOADER_ARGUMENT_NUMBER</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ifstream fileEXE(argv[1]); <span class="comment">// input</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// Teste se o aquivo de entrada foi aberto corretamente;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> (!(fileEXE.is_open()))</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            cout &lt;&lt; <a class="code" href="msgs__pt_8h.html#a06a96287f556228b4efc43446ec84134">MSG_ERR_FILE</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">// Ler Arquivo</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">string</span> strFileName, strSize, strHeaderRef, strTextSegment;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        getline(fileEXE,strFileName);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Pega apenas o nome do arquivo para criar o arquivo de saída</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        strFileName=strFileName.substr(3,strFileName.size());</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        getline(fileEXE,strSize);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">int</span> codeSize = atoi(strSize.substr(3,strSize.size()).c_str());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        getline(fileEXE,strHeaderRef);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        strHeaderRef += strHeaderRef.substr(3,strHeaderRef.size());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        getline(fileEXE,strTextSegment);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        fileEXE.close();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// Vetor com os tokens do código objeto</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        std::vector&lt;token&gt; vtoks = <a class="code" href="lexer_8cpp.html#ab482a9701233ff4e5a0ffc1f75f9c41a">tokenizer</a>(strTextSegment);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        vtoks.erase(vtoks.begin(),vtoks.begin()+2); <span class="comment">// Remove o T:</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::vector&lt;int&gt; vData;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span>(std::vector&lt;token&gt;::iterator it = vtoks.begin(); it &lt; vtoks.end();++it){</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="comment">// Converte todos os valores de dados para int</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            vData.push_back(atoi((*it).string.c_str()));</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// Variáveis de conferência de tamanhos de memória</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">int</span> allocRemainingSize=codeSize;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">// Laço para cálculo do tamanho de memória necessário de acordo com os argumentos do comando</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0,addrPos=0; i &lt; chunksNum; i++)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        {<span class="comment"></span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">            /// @todo Verificar Tipo dos Argumentos (valores inteiros positivos)</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">            /// @todo Verificar Sobreposição de Chunks (se o endereço de inicio de um chunk está contido em algum espaço anterior)</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">int</span> addrBase = atoi(argv[3+chunksNum+i]);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordtype">int</span> sizeMenChunk = atoi(argv[3+i]);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            allocRemainingSize=allocRemainingSize-sizeMenChunk;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordtype">string</span> fileName = argv[1];</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            fileName += std::to_string(i) + <span class="stringliteral">&quot;.im&quot;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            ofstream fileOUT(fileName.c_str());</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="comment">// Escreve no Arquivo</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordtype">int</span> addrFinal = sizeMenChunk + addrPos;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = addrPos;(j &lt; addrFinal) &amp;&amp; (j &lt; vData.size()); j++)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="comment">// Atualiza Endereços Relativos</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">if</span>(strHeaderRef.at(j)==<span class="charliteral">&#39;1&#39;</span>)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    vData[j] += addrBase;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                fileOUT &lt;&lt; vData[j] &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            addrPos+=sizeMenChunk;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            fileOUT.close();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="comment">// calcula se o tamanho disponível em cada chunk é suficiente</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">if</span>((allocRemainingSize-sizeMenChunk)&lt;0)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="comment">// Tamanho suficiente de memoria</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                allocRemainingSize=0;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span>(allocRemainingSize&gt;0)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;          cout &lt;&lt; <a class="code" href="msgs__pt_8h.html#ac14a30719aef4017615d855d7594981b">MSG_ERR_LOADER_ALLOCATION</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;          <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// Executa simulador</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="simulator_8cpp.html#ac22a38b5c3395e0092ff660c6767ab38">simulator</a>(argv[1]);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="ttc" id="loader_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="loader_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="loader_8cpp_source.html#l00024">loader.cpp:24</a></div></div>
+<div class="ttc" id="simulator_8h_html"><div class="ttname"><a href="simulator_8h.html">simulator.h</a></div></div>
+<div class="ttc" id="msgs__pt_8h_html"><div class="ttname"><a href="msgs__pt_8h.html">msgs_pt.h</a></div></div>
+<div class="ttc" id="simulator_8cpp_html_ac22a38b5c3395e0092ff660c6767ab38"><div class="ttname"><a href="simulator_8cpp.html#ac22a38b5c3395e0092ff660c6767ab38">simulator</a></div><div class="ttdeci">int simulator(string input_file)</div><div class="ttdef"><b>Definition:</b> <a href="simulator_8cpp_source.html#l00037">simulator.cpp:37</a></div></div>
+<div class="ttc" id="lexer_8h_html"><div class="ttname"><a href="lexer_8h.html">lexer.h</a></div></div>
+<div class="ttc" id="lexer_8cpp_html_ab482a9701233ff4e5a0ffc1f75f9c41a"><div class="ttname"><a href="lexer_8cpp.html#ab482a9701233ff4e5a0ffc1f75f9c41a">tokenizer</a></div><div class="ttdeci">vector&lt; token &gt; tokenizer(string line)</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8cpp_source.html#l00101">lexer.cpp:101</a></div></div>
+<div class="ttc" id="msgs__pt_8h_html_a06a96287f556228b4efc43446ec84134"><div class="ttname"><a href="msgs__pt_8h.html#a06a96287f556228b4efc43446ec84134">MSG_ERR_FILE</a></div><div class="ttdeci">#define MSG_ERR_FILE</div><div class="ttdef"><b>Definition:</b> <a href="msgs__pt_8h_source.html#l00010">msgs_pt.h:10</a></div></div>
+<div class="ttc" id="structmen__chunk_html"><div class="ttname"><a href="structmen__chunk.html">men_chunk</a></div><div class="ttdef"><b>Definition:</b> <a href="linker_8cpp_source.html#l00018">linker.cpp:18</a></div></div>
+<div class="ttc" id="msgs__pt_8h_html_a3160339e19be8a400a202a2fb318fd96"><div class="ttname"><a href="msgs__pt_8h.html#a3160339e19be8a400a202a2fb318fd96">MSG_ERR_LOADER_ARGUMENT_NUMBER</a></div><div class="ttdeci">#define MSG_ERR_LOADER_ARGUMENT_NUMBER</div><div class="ttdef"><b>Definition:</b> <a href="msgs__pt_8h_source.html#l00012">msgs_pt.h:12</a></div></div>
+<div class="ttc" id="msgs__pt_8h_html_ac14a30719aef4017615d855d7594981b"><div class="ttname"><a href="msgs__pt_8h.html#ac14a30719aef4017615d855d7594981b">MSG_ERR_LOADER_ALLOCATION</a></div><div class="ttdeci">#define MSG_ERR_LOADER_ALLOCATION</div><div class="ttdef"><b>Definition:</b> <a href="msgs__pt_8h_source.html#l00013">msgs_pt.h:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>
