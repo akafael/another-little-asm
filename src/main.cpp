@@ -1,7 +1,7 @@
 /**
  * Trabalho 1 - Software Básico
  *
- * @authors Rafael Lima e João Pedro Franch
+ * @authors Rafael Lima, João Pedro Franch e Túlio Lima
  * @version 0.2
  */
 

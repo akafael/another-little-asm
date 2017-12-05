@@ -1,7 +1,7 @@
 /**
  * Loader
  *
- * @authors Rafael Lima, João Paulo Franch , Túlio
+ * @authors Rafael Lima, João Paulo Franch , Túlio Lima
  */
 
 #include <iostream>
@@ -78,6 +78,7 @@ int main(int argc, char** argv)
         for(int i = 0,addrPos=0; i < chunksNum; i++)
         {
             /// @todo Verificar Tipo dos Argumentos (valores inteiros positivos)
+            // Esse todo pode naõ ser necessário.
             /// @todo Verificar Sobreposição de Chunks (se o endereço de inicio de um chunk está contido em algum espaço anterior)
 
             int addrBase = atoi(argv[3+chunksNum+i]);
@@ -103,6 +104,8 @@ int main(int argc, char** argv)
             fileOUT.close();
 
             // calcula se o tamanho disponível em cada chunk é suficiente
+            /// @todo checar se a conferência geral já não resolve
+            /// @todo verificar se caso não haja espaço se os dados são distribuídos entre os chunks de memória
             if((allocRemainingSize-sizeMenChunk)<0)
             {
                 // Tamanho suficiente de memoria

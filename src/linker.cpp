@@ -1,7 +1,7 @@
 /**
  * Linker
  *
- * @authors Rafael Lima, João Paulo Franch , Túlio
+ * @authors Rafael Lima, João Paulo Franch , Túlio Lima
  */
 
 #include <iostream>

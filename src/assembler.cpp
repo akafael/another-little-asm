@@ -2,7 +2,7 @@
 /**
  * Montador
  *
- * @authors Rafael Lima e João Pedro Franch
+ * @authors Rafael Lima, João Pedro Franch e Tulio Lima
  */
 
 #include <stdio.h>
