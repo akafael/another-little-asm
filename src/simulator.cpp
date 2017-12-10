@@ -19,14 +19,8 @@ using namespace std;
 typedef struct
 {
     int accReg; ///< Acumulator
-    int pcReg; ///< Program Counter
+    unsigned int pcReg; ///< Program Counter
 } mini_processor;
-
-typedef struct
-{
-    bool isRelativeAddr;
-    int value;
-} dataUnit;
 
 typedef enum{
     DATA_INST = 0,
@@ -78,7 +72,7 @@ int simulator(string input_file)
         std::cout << "PROCESSOR => ACC: " << mProcessor.accReg ;
         std::cout << " PC: " << mProcessor.pcReg << endl;
 
-        // Ilustra a memória do Processador
+        // Ilustra a memória do Máquina
         std::cout << "MEM: ";
         for(vector<int>::iterator it = vData.begin(); it < vData.end();++it)
         {
@@ -227,6 +221,7 @@ int simulator(string input_file)
         if(mProcessor.pcReg>=vData.size())
             flagKeepProcessorRunning = false;
 
+        // Aguarda apertar ENTER entre cada instrução para facilitar o debug
         cin.ignore(std::numeric_limits<streamsize>::max(),'\n');
     }
 

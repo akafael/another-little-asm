@@ -1,0 +1,10 @@
+<map id="findLabel" name="findLabel">
+<area shape="rect" id="node2" href="$assembler_8h.html#a797a6a110fea06ef3ba01a4a30ea9695" title="Montador. " alt="" coords="400,127,483,153"/>
+<area shape="rect" id="node4" href="$assembler_8cpp.html#a54fad2c006413b60d87eea48e412471b" title="addNewLabel" alt="" coords="189,51,291,77"/>
+<area shape="rect" id="node5" href="$assembler_8cpp.html#a45dcd38a718d16b9fdcda1e45c4ad5de" title="addNewSymbolINST1" alt="" coords="164,101,316,128"/>
+<area shape="rect" id="node6" href="$assembler_8cpp.html#ad85cc701dcbc6e69b1c273a99c2262d8" title="addNewSymbolINST1PLUS" alt="" coords="147,152,333,179"/>
+<area shape="rect" id="node7" href="$assembler_8cpp.html#a4b08bb4206172aa8ae36e47f8298e274" title="addNewSymbolINST2" alt="" coords="164,203,316,229"/>
+<area shape="rect" id="node8" href="$assembler_8cpp.html#a23fbad662368f294c55a33dfa57a904c" title="addNewSymbolINST2PLUSPLUS" alt="" coords="129,253,351,280"/>
+<area shape="rect" id="node9" href="$linker_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="215,304,265,331"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="531,127,581,153"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="scanner" name="scanner">
+<area shape="rect" id="node2" href="$assembler_8h.html#a797a6a110fea06ef3ba01a4a30ea9695" title="Montador. " alt="" coords="123,7,205,34"/>
+<area shape="rect" id="node4" href="$lexer_8h.html#ab482a9701233ff4e5a0ffc1f75f9c41a" title="Verifica uma string e retorna um vetor de tokens. " alt="" coords="127,83,201,110"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="400,83,451,110"/>
+<area shape="rect" id="node5" href="$linker_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="277,33,328,59"/>
+<area shape="rect" id="node6" href="$macroeval_8h.html#afd6754ab646ddc8aa952e7d63cb5ad81" title="macroeval" alt="" coords="261,83,344,110"/>
+<area shape="rect" id="node7" href="$preprocessor_8h.html#a20cb42028a668e38567f8a26304b9c69" title="preprocessor" alt="" coords="254,134,351,161"/>
+<area shape="rect" id="node8" href="$simulator_8h.html#ac22a38b5c3395e0092ff660c6767ab38" title="simulator" alt="" coords="265,185,340,211"/>
+<area shape="rect" id="node9" href="$loader_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="400,185,451,211"/>
+</map>

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Trabalho 1 - Software Básico: Código-Fonte de macroeval.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho 1 - Software Básico
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+      <li><a href="globals.html"><span>Ficheiros&#160;membro</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valores da enumeração</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">macroeval.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="macroeval_8cpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Pré-Compilador</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lexer_8h.html">lexer.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="msgs__pt_8h.html">msgs_pt.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macroeval_8h.html">macroeval.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="macroeval_8h.html#afd6754ab646ddc8aa952e7d63cb5ad81">   17</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="macroeval_8cpp.html#afd6754ab646ddc8aa952e7d63cb5ad81">macroeval</a>(<span class="keywordtype">string</span> input_file, <span class="keywordtype">string</span> output_file)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ifstream ArquivoASM(input_file.c_str()); <span class="comment">// input;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ofstream ArquivoPRE(output_file.c_str()); <span class="comment">// output;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Teste se ambos os aquivos foram abertos corretamente;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span> (!(ArquivoASM.is_open() &amp;&amp; ArquivoPRE.is_open()))</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        cout &lt;&lt; <a class="code" href="msgs__pt_8h.html#a06a96287f556228b4efc43446ec84134">MSG_ERR_FILE</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">string</span> line;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> errorDetected = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    vector&lt;labelMacro&gt; macroDefinitionTable;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="structlabel_macro.html">labelMacro</a> tmpMacroDef;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> currentStateMacroEval = <a class="code" href="macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa4d3d0c68de03977f8b46c7f734f8fd36">MACROEV_READING_LINE</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Percorre todas as linhas do arquivo</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> lineCount=0;getline(ArquivoASM,line);lineCount++)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {<span class="comment"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">       /// @todo Fazer validação das macros, IF e EQV</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;       vector&lt;token&gt; vtoks = <a class="code" href="lexer_8cpp.html#ab482a9701233ff4e5a0ffc1f75f9c41a">tokenizer</a>(line);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;       <span class="comment">// Verifica Sintaxe MACRO</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;       <span class="keywordflow">if</span>((vtoks.size()==3)&amp;&amp;(vtoks[0].type==<a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a>)&amp;&amp;(vtoks[1].type==<a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a>)\</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          &amp;&amp;(vtoks[2].type==<a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a>)&amp;&amp;(vtoks[2].string.compare(<span class="stringliteral">&quot;MACRO&quot;</span>)==0))</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;       {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;           <span class="keywordtype">int</span> macroPos = <a class="code" href="macroeval_8cpp.html#a34e9b7c10801b62d8a947c6afd9ba576">findMacroDefinition</a>(macroDefinitionTable,vtoks[0].<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;           <span class="keywordflow">if</span>(macroPos==<a class="code" href="macroeval_8h.html#ad0f3e0d45d1d707190b8e4ca2471ee49">MACRO_NOT_FOUND</a>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;           {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;               tmpMacroDef.<a class="code" href="structlabel_macro.html#a0a409fc7315d98fd176c3b1a42ffca72">text</a> = vtoks[0].string;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;               tmpMacroDef.<a class="code" href="structlabel_macro.html#a004fcb945369576104c32889af74e190">content</a> = <span class="stringliteral">&quot;&quot;</span>; <span class="comment">// Esvazia conteúdo</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;               line=<span class="stringliteral">&quot;&quot;</span>;  <span class="comment">// Esvazia linha</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;               currentStateMacroEval = <a class="code" href="macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa8431b0c916fcfa8c7de9012c6195ae89">MACROEV_WRITING_MACRO</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;           }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;           <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;           {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;               <a class="code" href="msgs__pt_8h.html#af6faed02032cd6305ee46046b040dba3">PRINT_ERR_LABEL_DUPLICATED</a>(lineCount,line);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;           }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;       }<span class="comment">// Verifica Sintaxe ENDMACRO:</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>((vtoks.size()==1)&amp;&amp;(vtoks[0].type==<a class="code" href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a>)\</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;           &amp;&amp;(vtoks[0].string.compare(<span class="stringliteral">&quot;ENDMACRO&quot;</span>)==0))</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;       {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;           currentStateMacroEval = <a class="code" href="macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa4d3d0c68de03977f8b46c7f734f8fd36">MACROEV_READING_LINE</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;           macroDefinitionTable.push_back(tmpMacroDef);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;           line=<span class="stringliteral">&quot;&quot;</span>;  <span class="comment">// Esvazia linha</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;       }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>((vtoks.size()!=0))</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;       {<span class="comment"></span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">           /// @todo Verificar uso das MACROS</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;          <span class="keywordflow">for</span>(vector&lt;token&gt;::iterator it = vtoks.begin(); it != vtoks.end();++it)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;              <span class="keywordtype">int</span> macroPos = <a class="code" href="macroeval_8cpp.html#a34e9b7c10801b62d8a947c6afd9ba576">findMacroDefinition</a>(macroDefinitionTable,(*it).string);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;              <span class="keywordflow">if</span>(macroPos!=<a class="code" href="macroeval_8h.html#ad0f3e0d45d1d707190b8e4ca2471ee49">MACRO_NOT_FOUND</a>)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;              {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                  line=<span class="stringliteral">&quot;&quot;</span>; <span class="comment">// Apaga Linha com chamada da Macro</span><span class="comment"></span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">                  /// @todo Verificar necessidade de quebra de linha</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span>                   ArquivoPRE &lt;&lt; macroDefinitionTable[macroPos].content;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;              }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;       }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;       <span class="keywordflow">if</span>(currentStateMacroEval==<a class="code" href="macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa8431b0c916fcfa8c7de9012c6195ae89">MACROEV_WRITING_MACRO</a>)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;       {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;           tmpMacroDef.<a class="code" href="structlabel_macro.html#a004fcb945369576104c32889af74e190">content</a> += line + <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;       }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">if</span>(currentStateMacroEval==<a class="code" href="macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa4d3d0c68de03977f8b46c7f734f8fd36">MACROEV_READING_LINE</a>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;       {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;           <span class="comment">// Escreve linha no arquivo de saída</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;           ArquivoPRE &lt;&lt; line &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;       }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    ArquivoPRE.close();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    ArquivoASM.close();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="macroeval_8h.html#a34e9b7c10801b62d8a947c6afd9ba576">  103</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="macroeval_8cpp.html#a34e9b7c10801b62d8a947c6afd9ba576">findMacroDefinition</a>(vector&lt;labelMacro&gt; macroDefinitionTable,<span class="keywordtype">string</span> macroText)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; macroDefinitionTable.size(); i++)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">if</span>(macroText.compare(macroDefinitionTable[i].text)==0)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span> i;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="macroeval_8h.html#ad0f3e0d45d1d707190b8e4ca2471ee49">MACRO_NOT_FOUND</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="ttc" id="msgs__pt_8h_html_af6faed02032cd6305ee46046b040dba3"><div class="ttname"><a href="msgs__pt_8h.html#af6faed02032cd6305ee46046b040dba3">PRINT_ERR_LABEL_DUPLICATED</a></div><div class="ttdeci">#define PRINT_ERR_LABEL_DUPLICATED(fileLine, INST)</div><div class="ttdef"><b>Definition:</b> <a href="msgs__pt_8h_source.html#l00051">msgs_pt.h:51</a></div></div>
+<div class="ttc" id="structlabel_macro_html"><div class="ttname"><a href="structlabel_macro.html">labelMacro</a></div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8h_source.html#l00009">macroeval.h:9</a></div></div>
+<div class="ttc" id="macroeval_8h_html_ada9adbeb1614abe221ea586ff17dec5aa8431b0c916fcfa8c7de9012c6195ae89"><div class="ttname"><a href="macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa8431b0c916fcfa8c7de9012c6195ae89">MACROEV_WRITING_MACRO</a></div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8h_source.html#l00019">macroeval.h:19</a></div></div>
+<div class="ttc" id="structlabel_macro_html_a0a409fc7315d98fd176c3b1a42ffca72"><div class="ttname"><a href="structlabel_macro.html#a0a409fc7315d98fd176c3b1a42ffca72">labelMacro::text</a></div><div class="ttdeci">string text</div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8h_source.html#l00010">macroeval.h:10</a></div></div>
+<div class="ttc" id="msgs__pt_8h_html"><div class="ttname"><a href="msgs__pt_8h.html">msgs_pt.h</a></div></div>
+<div class="ttc" id="macroeval_8cpp_html_afd6754ab646ddc8aa952e7d63cb5ad81"><div class="ttname"><a href="macroeval_8cpp.html#afd6754ab646ddc8aa952e7d63cb5ad81">macroeval</a></div><div class="ttdeci">int macroeval(string input_file, string output_file)</div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8cpp_source.html#l00017">macroeval.cpp:17</a></div></div>
+<div class="ttc" id="macroeval_8cpp_html_a34e9b7c10801b62d8a947c6afd9ba576"><div class="ttname"><a href="macroeval_8cpp.html#a34e9b7c10801b62d8a947c6afd9ba576">findMacroDefinition</a></div><div class="ttdeci">int findMacroDefinition(vector&lt; labelMacro &gt; macroDefinitionTable, string macroText)</div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8cpp_source.html#l00103">macroeval.cpp:103</a></div></div>
+<div class="ttc" id="lexer_8h_html"><div class="ttname"><a href="lexer_8h.html">lexer.h</a></div></div>
+<div class="ttc" id="macroeval_8h_html_ada9adbeb1614abe221ea586ff17dec5aa4d3d0c68de03977f8b46c7f734f8fd36"><div class="ttname"><a href="macroeval_8h.html#ada9adbeb1614abe221ea586ff17dec5aa4d3d0c68de03977f8b46c7f734f8fd36">MACROEV_READING_LINE</a></div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8h_source.html#l00018">macroeval.h:18</a></div></div>
+<div class="ttc" id="structlabel_macro_html_a004fcb945369576104c32889af74e190"><div class="ttname"><a href="structlabel_macro.html#a004fcb945369576104c32889af74e190">labelMacro::content</a></div><div class="ttdeci">string content</div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8h_source.html#l00011">macroeval.h:11</a></div></div>
+<div class="ttc" id="lexer_8cpp_html_ab482a9701233ff4e5a0ffc1f75f9c41a"><div class="ttname"><a href="lexer_8cpp.html#ab482a9701233ff4e5a0ffc1f75f9c41a">tokenizer</a></div><div class="ttdeci">vector&lt; token &gt; tokenizer(string line)</div><div class="ttdoc">Verifica uma string e retorna um vetor de tokens. </div><div class="ttdef"><b>Definition:</b> <a href="lexer_8cpp_source.html#l00101">lexer.cpp:101</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a4ad40322037d6d371dca3e5cf993f5dc">WORD</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00032">lexer.h:32</a></div></div>
+<div class="ttc" id="lexer_8h_html_aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee"><div class="ttname"><a href="lexer_8h.html#aa520fbf142ba1e7e659590c07da31921a29cf94637337909c3813bb50d6e9b3ee">COLON</a></div><div class="ttdef"><b>Definition:</b> <a href="lexer_8h_source.html#l00023">lexer.h:23</a></div></div>
+<div class="ttc" id="msgs__pt_8h_html_a06a96287f556228b4efc43446ec84134"><div class="ttname"><a href="msgs__pt_8h.html#a06a96287f556228b4efc43446ec84134">MSG_ERR_FILE</a></div><div class="ttdeci">#define MSG_ERR_FILE</div><div class="ttdef"><b>Definition:</b> <a href="msgs__pt_8h_source.html#l00010">msgs_pt.h:10</a></div></div>
+<div class="ttc" id="macroeval_8h_html_ad0f3e0d45d1d707190b8e4ca2471ee49"><div class="ttname"><a href="macroeval_8h.html#ad0f3e0d45d1d707190b8e4ca2471ee49">MACRO_NOT_FOUND</a></div><div class="ttdeci">#define MACRO_NOT_FOUND</div><div class="ttdef"><b>Definition:</b> <a href="macroeval_8h_source.html#l00014">macroeval.h:14</a></div></div>
+<div class="ttc" id="macroeval_8h_html"><div class="ttname"><a href="macroeval_8h.html">macroeval.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>
