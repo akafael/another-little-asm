@@ -79,7 +79,7 @@ int simulator(string input_file)
         std::cout << " PC: " << mProcessor.pcReg << endl;
 
         // Ilustra a memória do Processador
-        std::cout << "MEM: "
+        std::cout << "MEM: ";
         for(vector<int>::iterator it = vData.begin(); it < vData.end();++it)
         {
             std::cout << (*it) << ' ';
