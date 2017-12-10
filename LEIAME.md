@@ -10,9 +10,9 @@ A partir do conjunto de instruções implementados é permitido virtualmente esc
 
 ## Grupo
 
- * João Pedro Carneiro Parada Franch - 120060795
- * Rafael Lima - 10013093
- * Túlio Mariano da Silva Lima - 120054337
+ * João Pedro Carneiro Parada Franch
+ * Rafael Lima
+ * Túlio Mariano da Silva Lima
 
 ## Descrição das Pastas
 
