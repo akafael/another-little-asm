@@ -78,6 +78,14 @@ int simulator(string input_file)
         std::cout << "PROCESSOR => ACC: " << mProcessor.accReg ;
         std::cout << " PC: " << mProcessor.pcReg << endl;
 
+        // Ilustra a memória do Processador
+        std::cout << "MEM: "
+        for(vector<int>::iterator it = vData.begin(); it < vData.end();++it)
+        {
+            std::cout << (*it) << ' ';
+        }
+        std::cout << endl;
+
         // Decodifica Instrução
         int data = vData.at(mProcessor.pcReg-1);
         int numParam = InstructionArgNumber[data-1];
@@ -110,7 +118,7 @@ int simulator(string input_file)
             {
                 int arg1 = vData.at(mProcessor.pcReg);
                 mProcessor.accReg *= vData.at(arg1-1);
-                mProcessor.pcReg+=numParam+1;
+                mProcessor.pcReg += numParam+1;
                 break;
             }
             case DIV:
@@ -169,7 +177,7 @@ int simulator(string input_file)
             {
                 int arg1 = vData.at(mProcessor.pcReg);
                 int arg2 = vData.at(mProcessor.pcReg+1);
-                vData.at(arg2)= vData.at(arg1);
+                vData.at(arg2-1)= vData.at(arg1-1);
                 mProcessor.pcReg+=numParam+1;
                 break;
             }
@@ -218,6 +226,8 @@ int simulator(string input_file)
 
         if(mProcessor.pcReg>=vData.size())
             flagKeepProcessorRunning = false;
+
+        cin.ignore(std::numeric_limits<streamsize>::max(),'\n');
     }
 
     std::cout << endl;
