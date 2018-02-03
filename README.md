@@ -1,6 +1,6 @@
 # Yet another Little ASM
 
-`yla` is an custom Assembly-like language, implemented from scratch in C++. Name inspired on [my-little-asm](https://github.com/alexdantas/my-little-asm) deverloped by @alexdantas witch was also deverloped as _System Software_ class assigment at UnB. So far, it has an `assembler` (to create machine code) and nothing else yet.
+`yla` is an custom Assembly-like language, implemented from scratch in C++. Name inspired on [my-little-asm](https://github.com/alexdantas/my-little-asm) deverloped by @alexdantas witch was also deverloped as _System Software_ class assigment at UnB. So far, it has an `assembler` (to create machine code), a `linker`, a `loader` and a `simulator`.
 
 This is an example on how Assembly languages work - a set of human-readable instructions that are translated into machine code. Normally the language would be designed for some hardware to execute, but in our case we simulate it step by step.
 
@@ -19,7 +19,7 @@ $ make
 ```asm
 SECTION TEXT
 ROT: INPUT N1
-    COPY N1, N4 ; comentario qualquer
+    COPY N1, N4 ; Comentary
     COPY N2, N3
     COPY N3, N3 + 1
     OUTPUT N3 + 1
@@ -80,4 +80,5 @@ Note:
 | `SECTION DATA`  | Start of data definitions. |
 | `SPACE`         | Saves an empty space on memory for data storage.|
 | `SPACE N`       | Saves an empty array in memory of size `N`. |
+| `CONST X`       | Saves a constant of value `X` in memory. |
 | `CONST X`       | Saves a constant of value `X` in memory. |
