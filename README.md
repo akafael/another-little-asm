@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/akafael/another-little-asm.svg?branch=master)](https://travis-ci.org/akafael/another-little-asm)
+
 # Yet another Little ASM
 
 `yla` is an custom Assembly-like language, implemented from scratch in C++. Name inspired on [my-little-asm](https://github.com/alexdantas/my-little-asm) deverloped by @alexdantas witch was also deverloped as _System Software_ class assigment at UnB. So far, it has an `assembler` (to create machine code), a `linker`, a `loader` and a `simulator`.
